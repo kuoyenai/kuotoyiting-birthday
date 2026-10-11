@@ -29,9 +29,9 @@ document.addEventListener('keydown',e=>{if($('birthday').open||['TEXTAREA','INPU
 document.addEventListener('visibilitychange',()=>{if(document.hidden)pause()});render();
 const birthdayTracks=[
 {title:'열 시 이십 분의 별',duration:182,src:'assets/ten-twenty-star.m4a',lyrics:[]},
+{title:'너만을 위한 별빛',duration:182.8,src:'assets/gemini_generated_video_5D27E211.mp4',lyrics:[]},
 {title:'너라는 별빛',duration:62,src:'assets/song.m4a',lyrics:[]},
-{title:'10월의 밤',duration:70,src:'assets/moon-night.m4a',lyrics:[]},
-{title:'너만을 위한 별빛',duration:182.8,src:'assets/gemini_generated_video_5D27E211.mp4',lyrics:[]}
+{title:'10월의 밤',duration:70,src:'assets/moon-night.m4a',lyrics:[]}
 ];
 let selectedBirthdayTrack=0;
 const songButtons=[...document.querySelectorAll('[data-song-index]')];
@@ -41,7 +41,7 @@ const songTime=$('songTime');
 const songDuration=$('songDuration');
 const birthdaySongMessage=(message)=>{songNotice.textContent=message};
 // User-supplied cue start times; shared with the gift player.
-const lyricKeys=['first','second','third','fourth'];
+const lyricKeys=['first','fourth','second','third'];
 const lyricCues=lyricKeys.map(key=>{
 const rows=window.BIRTHDAY_TIMED_LYRICS?.[key]||[];let heading='Intro';
 return rows.map(([start,section,ko,zh],i)=>{if(section)heading=section;return {start,end:i+1<rows.length?rows[i+1][0]:Infinity,heading,ko,zh};});
