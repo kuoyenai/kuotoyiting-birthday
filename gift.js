@@ -7,11 +7,11 @@ $('saveWish').onclick=()=>{
  catch{setStatus('作者不會收到妳的願望。此瀏覽器無法儲存，請先複製留念。');}
 };
 $('bookSize').onclick=()=>{const enlarged=document.querySelector('.novel').classList.toggle('large-print');$('bookSize').textContent=enlarged?'標準字體':'放大字體';};
-const tracks=[{src:'assets/ten-twenty-star.m4a',name:'열 시 이십 분의 별｜十點二十分的星'},{src:'assets/song.m4a',name:'너라는_별빛'},{src:'assets/moon-night.m4a',name:'10월의 밤｜十月的夜晚'},{src:'assets/yiting-fourth-song.m4a',name:'너만을 위한 별빛｜第四首生日歌'}];
+const tracks=[{src:'assets/ten-twenty-star.m4a',name:'열 시 이십 분의 별｜十點二十分的星'},{src:'assets/song.m4a',name:'너라는_별빛'},{src:'assets/moon-night.m4a',name:'10월의 밤｜十月的夜晚'},{src:'assets/gemini_generated_video_5D27E211.mp4',name:'너만을 위한 별빛｜第四首生日歌'}];
 let selectedTrack=0,userPaused=false;
 const musicButtons=[$('listen'),$('novelListen')];
 function musicStatus(text){document.querySelectorAll('.music-status').forEach(el=>el.textContent=text);}
-function syncMusic(){const title=tracks[selectedTrack].name.split('｜')[0],videos=['assets/ten-twenty-star.mp4','assets/starlight-song.mp4','assets/moon-night.mp4','assets/yiting-fourth-song.mp4'];document.querySelectorAll('.selected-video-download').forEach(a=>{a.href=videos[selectedTrack];a.download=title+'.mp4';a.textContent='下載 '+title+' 影片 ↓';});musicButtons.forEach(button=>{button.textContent=song.paused?'播放歌曲':'暫停歌曲';button.setAttribute('aria-pressed',String(!song.paused));});document.querySelectorAll('.gift-track-choice').forEach(button=>button.setAttribute('aria-pressed',String(Number(button.dataset.track)===selectedTrack)));}
+function syncMusic(){const title=tracks[selectedTrack].name.split('｜')[0],videos=['assets/ten-twenty-star.mp4','assets/starlight-song.mp4','assets/moon-night.mp4','assets/gemini_generated_video_5D27E211.mp4'];document.querySelectorAll('.selected-video-download').forEach(a=>{a.href=videos[selectedTrack];a.download=title+'.mp4';a.textContent='下載 '+title+' 影片 ↓';});musicButtons.forEach(button=>{button.textContent=song.paused?'播放歌曲':'暫停歌曲';button.setAttribute('aria-pressed',String(!song.paused));});document.querySelectorAll('.gift-track-choice').forEach(button=>button.setAttribute('aria-pressed',String(Number(button.dataset.track)===selectedTrack)));}
 function playMusic(){song.muted=false;return song.play().then(()=>{musicStatus('正在播放：'+tracks[selectedTrack].name);}).catch(()=>musicStatus('輕觸「播放歌曲」，讓音樂陪妳。'));}
 song.onplay=syncMusic;song.onpause=syncMusic;
 song.onended=()=>{selectedTrack=(selectedTrack+1)%tracks.length;song.src=tracks[selectedTrack].src;syncMusic();playMusic();};
