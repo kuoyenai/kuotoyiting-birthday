@@ -31,7 +31,7 @@ const birthdayTracks=[
 {title:'열 시 이십 분의 별',duration:182,src:'assets/ten-twenty-star.m4a',lyrics:[]},
 {title:'너라는 별빛',duration:62,src:'assets/song.m4a',lyrics:[]},
 {title:'10월의 밤',duration:70,src:'assets/moon-night.m4a',lyrics:[]},
-{title:'너만을 위한 별빛',duration:182.8,src:'assets/yiting-fourth-song.m4a',lyrics:[]}
+{title:'너만을 위한 별빛',duration:182.8,src:'assets/gemini_generated_video_5D27E211.mp4',lyrics:[]}
 ];
 let selectedBirthdayTrack=0;
 const songButtons=[...document.querySelectorAll('[data-song-index]')];
