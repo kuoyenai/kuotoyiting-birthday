@@ -27,3 +27,16 @@ body.novel-edition #panels .panel .panel-copy{box-shadow:none}
  body :where(.gift-page .card-front img){height:auto;max-height:none}
 }
 @media(prefers-reduced-motion:reduce){body :where(.site-nav,.site-links) a,body :where(button,.collection-tabs button,.gift-track-choice){transition:none}}
+
+/* Birthday letter: consistent bilingual editorial typography on iOS and desktop. */
+body.gift-page .birthday-letter{font-family:'Invitation Song','Songti TC','Noto Serif TC','PingFang TC',serif;font-size:16px;line-height:1.85;letter-spacing:.015em}
+body.gift-page .birthday-letter h2{font-family:'Invitation Song','Songti TC','Noto Serif TC',serif;font-size:clamp(24px,4.5vw,32px);font-weight:400;line-height:1.55;letter-spacing:.035em}
+body.gift-page .birthday-letter #birthdayLetterBody{font-family:inherit;max-width:100%;font-size:inherit}
+body.gift-page .birthday-letter #birthdayLetterBody>p{font-family:inherit;font-size:16px;line-height:1.95;letter-spacing:.015em;margin:0 0 1.35em;color:#343b4d;font-weight:400}
+body.gift-page .birthday-letter #birthdayLetterBody>.letter-salutation{margin-bottom:1.65em}
+body.gift-page .birthday-letter #birthdayLetterBody>.letter-signature{font-family:'Invitation Bodoni',Georgia,serif;font-size:18px;line-height:1.65;font-style:italic;letter-spacing:.015em;color:#78667b}
+body.gift-page .birthday-letter label{font-family:'Invitation Song','Songti TC','Noto Serif TC',serif;font-size:15px;line-height:1.6;letter-spacing:.025em}
+body.gift-page .birthday-letter textarea{font-family:'Invitation Song','Songti TC','Noto Serif TC','PingFang TC',serif;font-size:16px;line-height:1.8;letter-spacing:.015em}
+body.gift-page .birthday-letter .letter-actions button,
+body.gift-page .birthday-letter .letter-open{font-family:'Invitation Song','Songti TC','Noto Serif TC','PingFang TC',serif;font-size:14px;letter-spacing:.025em}
+@media(max-width:760px){body.gift-page .birthday-letter{font-size:15px}body.gift-page .birthday-letter #birthdayLetterBody>p{font-size:15px;line-height:1.85;margin-bottom:1.15em}body.gift-page .birthday-letter #birthdayLetterBody>.letter-signature{font-size:17px}body.gift-page .birthday-letter h2{font-size:25px}}
