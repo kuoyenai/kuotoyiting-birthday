@@ -1,16 +1,23 @@
-/* Movie-only audio policy: the film video is the sole audible media source. */
+/* Film audio only during viewing; collection songs allowed only while birthday dialog is open. */
 (()=>{
- const film=document.getElementById('film');
- const song=document.getElementById('song');
- if(!film||!song)return;
- const birthdayPlayer=document.querySelector('.birthday-player');
- if(birthdayPlayer){birthdayPlayer.hidden=true;birthdayPlayer.setAttribute('aria-hidden','true');}
- song.pause();
- song.muted=true;
- song.addEventListener('play',()=>{song.pause();song.muted=true;});
- document.querySelectorAll('audio').forEach(audio=>{
-  audio.pause();audio.muted=true;
-  audio.addEventListener('play',()=>{audio.pause();audio.muted=true;});
+ const film=document.getElementById('film'),song=document.getElementById('song'),dialog=document.getElementById('birthday');
+ if(!film||!song||!dialog)return;
+ const collectionOpen=()=>dialog.open;
+ function sync(){
+  if(collectionOpen()){
+   film.pause();
+   song.muted=false;
+  }else{
+   song.pause();
+   song.muted=true;
+  }
+ }
+ song.addEventListener('play',()=>{
+  if(!collectionOpen()){song.pause();song.muted=true;return;}
+  film.pause();song.muted=false;
  });
- film.muted=false;
+ film.addEventListener('play',()=>{if(!collectionOpen())song.pause();else film.pause();});
+ dialog.addEventListener('close',sync);
+ new MutationObserver(sync).observe(dialog,{attributes:true,attributeFilter:['open']});
+ sync();
 })();
