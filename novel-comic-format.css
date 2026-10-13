@@ -36,3 +36,22 @@
 .novel-page-progress progress{width:100%;height:3px;accent-color:#b85f70}
 @media(max-width:760px){.novel-edition main{padding:10px 12px 125px}.novel-edition .novel-book-heading h1{font-size:28px}.novel-edition #chapterTitle{font-size:27px}.novel-edition .chapter-meta{font-size:10px;gap:10px}.novel-edition .reading-note{font-size:11px;padding:13px 16px}.novel-edition #panels.sheet{padding:10px;gap:10px}.novel-edition .panel .panel-copy{padding:14px 10px}.novel-edition .panel .panel-narration,.novel-edition .panel .bubble p{font-size:13px;line-height:1.85}.novel-edition .panel .panel-copy>span,.novel-edition .panel .bubble strong{font-size:9px}.novel-edition .panel .panel-tools{padding:7px 9px}.novel-edition .panel-tools a{font-size:9px}.novel-edition .panel-tools button{font-size:10px;line-height:1.7;padding:7px}.novel-edition .pager{position:fixed;z-index:12;left:0;right:0;bottom:calc(70px + env(safe-area-inset-bottom));margin:0;padding:12px 16px;gap:12px;background:#f5f1e9f5;backdrop-filter:blur(16px)}.novel-edition .pager button{min-width:105px;padding:11px 12px;font-size:13px}.novel-page-progress span{font-size:11px}}
 @media(prefers-reduced-motion:reduce){.novel-edition .panel,.novel-edition .bubble,.novel-edition #panels{animation:none!important;transition:none!important}}
+
+/* Classic reader: consistent large artwork, quiet captions, no enlargement overlays. */
+.novel-edition #panels.sheet{grid-template-columns:minmax(0,1fr);gap:22px;padding:12px}
+.novel-edition #panels.sheet>.panel,
+.novel-edition #panels.sheet>.panel:nth-child(n),
+.novel-edition #panels.sheet.chapter-two>.panel:nth-child(n){grid-column:1/-1;width:100%;margin:0}
+.novel-edition .panel .art-button,
+.novel-edition #panels.sheet>.panel:nth-child(3n+1) .art-button,
+.novel-edition #panels.sheet.chapter-two>.panel .art-button{aspect-ratio:auto;height:auto;cursor:default}
+.novel-edition .panel .art-button img{width:100%;height:auto;max-height:none;object-fit:contain}
+.novel-edition .panel .art-button::after{display:none!important;content:none!important}
+.novel-edition .panel .panel-copy{padding:12px 18px 14px;background:#fffdf8;border-top:0}
+.novel-edition .panel .panel-narration{font-size:14px;line-height:1.7;margin:2px 0 8px}
+.novel-edition .panel .bubble{margin:8px 0 0;padding:0;max-width:100%;background:none;border:0;box-shadow:none}
+.novel-edition .panel .bubble::before{display:none}
+.novel-edition .panel .bubble strong{font-size:10px}
+.novel-edition .panel .bubble p{font-size:14px;line-height:1.65;margin:2px 0 0}
+.novel-edition #imageViewer:not([open]){display:none!important}
+@media(max-width:760px){.novel-edition #panels.sheet{padding:4px;gap:14px}.novel-edition .panel .panel-copy{padding:10px 12px 12px}.novel-edition .panel .panel-narration,.novel-edition .panel .bubble p{font-size:13px;line-height:1.65}.novel-edition .panel .bubble{margin-top:6px}}
