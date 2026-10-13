@@ -57,3 +57,22 @@ body.gift-page .birthday-letter #birthdayLetterBody :where(p,.letter-salutation)
 body.gift-page .birthday-letter #birthdayLetterBody .letter-signature{font-family:'Invitation Bodoni',Georgia,serif}
 body.gift-page .birthday-letter :where(button,textarea,label){font-family:var(--yt-type-ui)}
 @media(max-width:760px){body.album-edition :where(.novel-text,.birthday-letter #birthdayLetterBody){line-height:1.85}}
+
+/* Editorial polish v4: clean navigation, legible mobile actions, no effect removal. */
+body.album-edition :where(.album-item,.entry-actions a,.collection-end a,.continue-link,.secret-links a){text-decoration:none}
+body.album-edition :where(.album-item,.entry-actions a,.collection-end a,.continue-link,.secret-links a):focus-visible{outline:2px solid var(--yt-focus);outline-offset:4px}
+body.album-edition .album-item :where(h3,p,b){text-wrap:pretty}
+body.album-edition .album-item b{font-family:var(--yt-type-ui);letter-spacing:.025em}
+body.album-edition :where(.collection-title,.contents-heading,.collection-intro){min-width:0}
+body.album-edition :where(.collection-title h2,.contents-heading h2,.collection-intro h1){text-wrap:balance}
+body.album-edition :where(.collection-end,.comic-edition-note){overflow-wrap:anywhere}
+body.album-edition :where(.gift-section .asset-downloads,.panel .asset-downloads){align-items:center}
+body.album-edition :where(.site-nav a,.site-links a){text-decoration:none}
+body.album-edition :where(.site-nav a,.site-links a)[aria-current=page]{color:inherit}
+@media(max-width:760px){
+ body.album-edition :where(.album-item,.collection-tabs button,.entry-actions a){touch-action:manipulation}
+ body.album-edition :where(.collection-end,.comic-edition-note){gap:12px}
+ body.album-edition :where(.album-item p,.collection-intro p){line-height:1.8}
+ body.album-edition :where(.gift-section .asset-downloads,.panel .asset-downloads){flex-wrap:wrap}
+ body.album-edition :where(.site-nav,.site-links){padding-bottom:max(12px,env(safe-area-inset-bottom))}
+}
