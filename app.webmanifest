@@ -10,8 +10,69 @@
   "background_color": "#101a30",
   "theme_color": "#101a30",
   "icons": [
-    {"src":"assets/app-icon-192.png","sizes":"192x192","type":"image/png","purpose":"any"},
-    {"src":"assets/app-icon-512.png","sizes":"512x512","type":"image/png","purpose":"any"},
-    {"src":"assets/app-icon-maskable.png","sizes":"512x512","type":"image/png","purpose":"maskable"}
+    {
+      "src": "assets/app-icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "assets/app-icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "assets/app-icon-maskable.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ],
+  "display_override": [
+    "standalone",
+    "minimal-ui"
+  ],
+  "shortcuts": [
+    {
+      "name": "生日電影",
+      "url": "movie.html",
+      "icons": [
+        {
+          "src": "assets/app-icon-192.png",
+          "sizes": "192x192"
+        }
+      ]
+    },
+    {
+      "name": "電影互動漫畫",
+      "url": "game.html",
+      "icons": [
+        {
+          "src": "assets/app-icon-192.png",
+          "sizes": "192x192"
+        }
+      ]
+    },
+    {
+      "name": "小說漫畫",
+      "url": "novel-comic.html",
+      "icons": [
+        {
+          "src": "assets/app-icon-192.png",
+          "sizes": "192x192"
+        }
+      ]
+    },
+    {
+      "name": "生日收藏",
+      "url": "gift.html",
+      "icons": [
+        {
+          "src": "assets/app-icon-192.png",
+          "sizes": "192x192"
+        }
+      ]
+    }
   ]
 }
