@@ -27,6 +27,7 @@ button:focus-visible,a:focus-visible,summary:focus-visible,select:focus-visible,
 .wordmark,.brand{font-family:var(--finish-serif);font-size:29px!important}
 .dedication{font-size:10px!important;letter-spacing:.18em!important}
 .eyebrow,.edition,.letter-kicker{font-size:10px;letter-spacing:.2em;line-height:1.8}
+.settings>div select{width:100%;max-width:100%;min-width:0}
 
 /* Cover and contents: the existing cover art keeps its full proportions. */
 body.home-page.album-edition{background:radial-gradient(ellipse at 80% 5%,#2b304a65,transparent 48%),#101a2d;color:#eddfc6}
@@ -56,13 +57,6 @@ body.home-page.album-edition{background:radial-gradient(ellipse at 80% 5%,#2b304
 .app-install{border-radius:4px;box-shadow:none;border-color:#d7c39e40;background:#14203588}
 .app-install h2{font-size:20px;letter-spacing:.025em}
 .home-page .app-install button{border-radius:3px;border-color:#d7c39e55;min-height:46px}
-.home-soundtrack{max-width:none;border-radius:4px;background:#152137;border-color:#d7c39e40;padding:23px 28px}
-.home-soundtrack summary{font-family:var(--finish-serif);font-size:18px;letter-spacing:.035em;display:list-item}
-.home-soundtrack select{width:100%;background:#101a2d;color:#eddfc6;border:1px solid #d7c39e55;border-radius:3px;padding:10px 14px;font-size:14px}
-.home-soundtrack .shared-lyrics{padding-top:18px;border-top:1px solid #d7c39e33;margin-top:12px}
-.shared-lyrics .lyric-original{font-size:17px;line-height:1.9;font-weight:400}
-.shared-lyrics .lyric-translation{font-size:14px;line-height:1.9}
-.soundtrack-status{font-size:12px;color:inherit;opacity:.88}
 
 /* Editorial paper pages and quiet image borders. */
 .album-edition.gift-page #birthday.gift-collection{width:min(1100px,92vw);padding-top:8px}
@@ -77,19 +71,6 @@ body.home-page.album-edition{background:radial-gradient(ellipse at 80% 5%,#2b304
 .gift-section .blessing-art{padding:10px;border:1px solid #b7a58a55;background:#fffdf8;box-shadow:0 15px 40px #28304414;border-radius:3px}
 .blessing-copy h2{font-size:clamp(27px,3vw,35px)!important;margin:14px 0 18px!important}
 .blessing-copy #giftText{font-size:14px;color:#626a79;line-height:2}
-.gift-music{border:1px solid #b7a58a66;border-radius:4px;padding:23px;background:#ece7dc;gap:14px;margin-top:26px}
-.music-heading{font-size:12px;letter-spacing:.05em}
-.gift-track-list{gap:9px}
-.gift-music .gift-track-choice{min-height:64px;border-radius:3px;background:#fffdf8;border-color:#b7a58a66;padding:14px;box-shadow:none}
-.gift-music .gift-track-choice[aria-pressed=true]{background:#f4e7e9;border-color:#a7496299;box-shadow:inset 3px 0 var(--finish-seal)}
-.gift-track-choice small{font-variant-numeric:tabular-nums;font-size:10px;line-height:1.6}
-.gift-track-choice span{font-size:14px;line-height:1.7;font-weight:400}
-.gift-timed-lyrics{border-radius:4px;background:#142039;border-color:#d7c39e55;padding:26px 20px;margin-top:24px}
-.gift-lyric-top{color:#c9bbab;font-size:10px;letter-spacing:.06em}
-.gift-lyric-original{font-size:18px;font-weight:400;line-height:1.9;color:#faf6ec}
-.gift-lyric-translation{font-size:14px;line-height:1.9;color:#ddc6a3}
-.gift-lyric-seek{color:#ccc4bc;font-size:12px}
-.gift-lyric-seek input{accent-color:#cfaab3}
 body.album-edition.gift-page .cards{gap:28px}
 body.album-edition.gift-page .card-item{padding:12px 12px 18px;background:#fffdf8;border-color:#b7a58a55;border-radius:3px;box-shadow:0 10px 30px #28304408}
 body.album-edition.gift-page .card-front img{object-fit:contain!important}
@@ -102,11 +83,6 @@ body.album-edition.gift-page .card-filters button[aria-pressed=true]{background:
 .wish-letter{background:#fffdf8;border-color:#b7a58a55;padding:40px;border-radius:4px;box-shadow:0 15px 35px #2830440a}
 .gift-section .asset-downloads a{font-size:12px;border-radius:3px!important}
 body.album-edition.gift-page #birthday .gift-section .asset-downloads a{background:#fffdf8;color:#626a79;border-color:#b7a58a66}
-body:has(#panels) .reader-settings{background:#ede7dc;border:1px solid #b7a58a55;border-radius:4px;padding:24px}
-.reader-settings summary{font-family:var(--finish-serif);font-size:19px;line-height:1.8}
-.reader-settings p{font-size:14px;line-height:1.9}
-body:has(#panels) .tracks button{border-radius:3px;border-color:#b7a58a66;background:#fffdf8;font-size:13px;line-height:1.8}
-body:has(#panels) .tracks button[aria-pressed=true]{border-color:#a7496277;background:#f4e7e9;box-shadow:inset 3px 0 var(--finish-seal)}
 body:has(#panels) .panel{box-shadow:0 12px 32px #2830440a;border-color:#b7a58a80;border-radius:3px;overflow:hidden}
 body:has(#panels) .panel-copy{padding:28px}
 body:has(#panels) .narration{font-family:var(--finish-serif);font-size:16px;line-height:2;color:#5d6573}
@@ -120,8 +96,6 @@ body:has(#panels) #chapterTitle{font-family:var(--finish-serif);font-size:32px}
 .album-edition.comic-page figcaption{padding:22px;border-color:#b7a58a55}
 .album-edition.comic-page figcaption p{font-family:var(--finish-serif);font-size:17px;line-height:1.95}
 .album-edition.comic-page .interaction,.album-edition.comic-page #extra{background:#eee7e4;border-radius:4px;border-color:#b7a58a55;padding:28px}
-.settings>div{width:min(320px,calc(100vw - 32px));padding:22px;border-radius:4px;border-color:#d7c39e55;background:#142039;color:#eee3d1}
-.settings select{max-width:100%;min-height:44px;background:#101a2d;color:#eee3d1;border:1px solid #d7c39e55;padding:8px;font-size:13px;line-height:1.8}
 
 /* Film presentation and the red-star epilogue share the cover's materials. */
 .album-edition.film-page:not(.gift-page) .cinema{border-radius:4px;border-color:#b7a58a66;box-shadow:0 18px 50px #101a2d1c}
@@ -220,8 +194,6 @@ body:has(#stars) #progress{font-size:12px;letter-spacing:.12em;color:#dcc7a4}
  .home-page .app-install{margin:24px 0;padding:20px 18px;gap:15px}
  .home-page .app-install h2{font-size:18px}
  .home-page .app-install img{width:52px;height:52px;border-radius:11px}
- .home-soundtrack{padding:21px 18px;margin-top:24px}
- .home-soundtrack summary{font-size:17px}
  .home-page .album-contents{margin-top:42px}
  .home-page .contents-heading{gap:9px;padding-bottom:20px}
  .home-page .contents-heading h2{font-size:34px}
@@ -246,20 +218,9 @@ body:has(#stars) #progress{font-size:12px;letter-spacing:.12em;color:#dcc7a4}
  .gift-section .blessing-layout{grid-template-columns:1fr;gap:26px}
  .blessing-copy h2{font-size:28px!important;line-height:1.65!important}
  .blessing-copy #giftText{font-size:14px;line-height:1.95}
- .gift-music{padding:20px 17px}
- .gift-track-list{grid-template-columns:1fr}
- .gift-track-list .theme-song-choice{grid-column:auto}
- .gift-music .gift-track-choice{min-height:56px}
- .gift-track-choice small{min-width:52px}
- .gift-timed-lyrics{padding:24px 18px}
- .gift-lyric-original{font-size:17px}
  body.album-edition.gift-page .cards{gap:24px}
  .card-caption{font-size:17px;line-height:1.8}
  .wish-letter{padding:28px 22px}
- .reader-settings summary{font-size:18px}
- body:has(#panels) .reader-settings{padding:22px 18px}
- body:has(#panels) .tracks{grid-template-columns:1fr}
- body:has(#panels) .tracks button{padding:12px 14px;text-align:left;font-size:13px;min-height:48px}
  body:has(#panels) .panel-copy{padding:22px 19px}
  body:has(#panels) .narration{font-size:15px}
  body:has(#panels) .bubble{padding:17px}

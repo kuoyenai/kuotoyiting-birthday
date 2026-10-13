@@ -1,0 +1,62 @@
+/* The novel follows the same paper spread and caption grammar as the film comic. */
+.novel-edition main{max-width:none;padding:12px 24px 32px}
+.novel-edition .reader{max-width:1060px;margin:auto}
+.novel-edition main>.story-editions{max-width:1060px;margin:8px auto 24px}
+.novel-edition .novel-book-heading{margin:20px 0 26px}
+.novel-edition .novel-book-heading h1{font-size:35px;line-height:1.6;margin:16px 0}
+.novel-edition .novel-book-heading .intro{font-size:14px;line-height:1.9;color:#eee0c6}
+.novel-edition .chapter-meta{border:0;margin:28px 0 13px;padding:0;font-size:12px;color:#777988}
+.novel-edition .chapter>.issue{border-bottom:0;margin:0;border-radius:4px 4px 0 0}
+.novel-edition #chapterTitle{margin:12px 0 0;font-family:'Invitation Bodoni','Invitation Song','PMingLiU',serif;font-size:35px;font-weight:400;line-height:1.6}
+.novel-edition .issue #chapterTitle .foil-text{color:#eee0c6}
+.novel-edition .reading-note{padding:14px 24px;margin:0;background:#fffdf8;border-left:1px solid #b7a58a55;border-right:1px solid #b7a58a55;font-size:12px;line-height:1.8;color:#777988}
+.novel-edition #panels.sheet{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:18px;padding:24px;margin:0;background:#fffdf8;border:1px solid #b7a58a55;border-top:0;border-radius:0 0 4px 4px;align-items:start}
+.novel-edition #panels.sheet>.panel{grid-column:span 6;margin:0;min-width:0;box-shadow:none;border:1px solid #b7a58a80;border-radius:3px;overflow:hidden;background:#fffdf8}
+.novel-edition #panels.sheet>.panel:first-child{grid-column:1/-1}
+.novel-edition #panels.sheet.spread-two>.panel{grid-column:span 6}
+.novel-edition .panel .art-button{display:block;width:100%;height:auto;min-height:0;aspect-ratio:auto;padding:0;border:0;border-radius:0;background:#192236}
+.novel-edition .panel .art-button img{display:block;width:100%;height:auto;object-fit:contain;transform:none}
+.novel-edition .panel-number{font-size:10px;background:#192236d9;color:#eee0c6;border:1px solid #eee0c640;padding:5px 9px}
+.novel-edition .panel .panel-copy{padding:22px;border-top:1px solid #b7a58a55;background:#f5f1e9;min-height:0;max-width:none}
+.novel-edition .panel .panel-narration{font-family:'Invitation Song','PMingLiU',serif;font-size:16px;line-height:1.95;color:#343b4d;margin:0 0 16px;white-space:pre-line}
+.novel-edition .panel .bubble{border:0;border-radius:0;background:transparent;padding:0;margin:18px 0 0;max-width:none;box-shadow:none}
+.novel-edition .panel .bubble::before{display:none}
+.novel-edition .panel .bubble strong{display:block;font-family:'Microsoft JhengHei','PingFang TC',sans-serif;font-size:10px;font-weight:400;color:#b85f70;letter-spacing:.08em}
+.novel-edition .panel .bubble p{font-family:'Invitation Song','PMingLiU',serif;font-size:17px;line-height:1.95;color:#343b4d;margin:7px 0 0;white-space:pre-line}
+.novel-edition .panel .panel-tools{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:10px;margin:0;padding:12px 16px;background:#fffdf8;border-top:1px solid #b7a58a33}
+.novel-edition .panel-tools a{font-size:11px;color:#7b7380;min-height:44px;display:inline-flex;align-items:center}
+.novel-edition .panel-tools button{font-size:12px;border-radius:3px;min-height:44px}
+.novel-edition .star-quest .panel[data-member]{border-top-width:3px}
+.novel-edition .star-quest .panel[data-member=blue]{border-top-color:#69b9ff}
+.novel-edition .star-quest .panel[data-member=purple]{border-top-color:#b58aff}
+.novel-edition .star-quest .panel[data-member=pink]{border-top-color:#ef8eb7}
+.novel-edition .star-quest .panel[data-member=green]{border-top-color:#83bf83}
+.novel-edition .chapter-surprise{padding:24px;margin:18px 0;background:#eee7e4;border:1px solid #b7a58a55;border-radius:4px;text-align:left}
+.novel-edition #chapterNote{box-shadow:none;border-color:#b7a58a55;max-width:none}
+.novel-edition #original{margin:18px 0;border-color:#b7a58a55}
+.novel-edition .pager{display:flex;position:static;gap:20px;margin:20px 0 0;padding:14px 0;border-top:1px solid #b7a58a55;background:#f5f1e9}
+.novel-edition .pager button{min-width:145px;font-size:14px;min-height:48px;border-radius:3px}
+.novel-page-progress{flex:1;min-width:0;text-align:center;display:flex;flex-direction:column;gap:8px}
+.novel-page-progress span{font-size:12px;line-height:1.4;letter-spacing:.06em;color:#626a79}
+.novel-page-progress progress{width:100%;height:3px;accent-color:#b85f70}
+.novel-edition .end-note{font-size:11px;line-height:1.9;padding:18px 0}
+@media(max-width:760px){
+ .novel-edition main{padding:10px 16px 125px}
+ .novel-edition .novel-book-heading{margin-top:12px}
+ .novel-edition .novel-book-heading h1{font-size:28px}
+ .novel-edition #chapterTitle{font-size:27px}
+ .novel-edition .chapter-meta{font-size:10px;letter-spacing:.04em;gap:10px}
+ .novel-edition .reading-note{font-size:11px;padding:13px 17px}
+ .novel-edition #panels.sheet{padding:15px;gap:18px}
+ .novel-edition #panels.sheet>.panel,.novel-edition #panels.sheet.spread-two>.panel{grid-column:1/-1}
+ .novel-edition .panel .panel-copy{padding:19px 16px}
+ .novel-edition .panel .panel-narration{font-size:15px;line-height:1.9}
+ .novel-edition .panel .bubble p{font-size:16px;line-height:1.95}
+ .novel-edition .panel .panel-tools{padding:10px 13px}
+ .novel-edition .chapter-surprise{padding:22px 18px}
+ .novel-edition .pager{position:fixed;z-index:12;left:0;right:0;bottom:calc(70px + env(safe-area-inset-bottom));margin:0;padding:12px 16px;gap:12px;background:#f5f1e9f5;backdrop-filter:blur(16px)}
+ .novel-edition .pager button{min-width:105px;padding:11px 12px;font-size:13px}
+ .novel-page-progress{gap:6px}
+ .novel-page-progress span{font-size:11px}
+}
+@media(prefers-reduced-motion:reduce){.novel-edition .panel,.novel-edition .bubble,.novel-edition #panels{animation:none!important;transition:none!important}}

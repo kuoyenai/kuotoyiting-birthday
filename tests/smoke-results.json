@@ -186,6 +186,11 @@
     "pass": true
   },
   {
+    "label": "desktop",
+    "test": "original player styling, 29 novel spreads, all 75 panels and full text, five collectibles, deep links, viewer and resume",
+    "pass": true
+  },
+  {
     "label": "iPhone",
     "file": "index.html",
     "errors": [],
@@ -372,6 +377,11 @@
     "pass": true
   },
   {
+    "label": "iPhone",
+    "test": "original player styling, 29 novel spreads, all 75 panels and full text, five collectibles, deep links, viewer and resume",
+    "pass": true
+  },
+  {
     "label": "Android",
     "file": "index.html",
     "errors": [],
@@ -555,6 +565,11 @@
   {
     "label": "Android",
     "test": "five stars, ending choices, reload, shared letter collection and two downloads",
+    "pass": true
+  },
+  {
+    "label": "Android",
+    "test": "original player styling, 29 novel spreads, all 75 panels and full text, five collectibles, deep links, viewer and resume",
     "pass": true
   },
   {

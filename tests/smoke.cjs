@@ -37,6 +37,11 @@ const server = http.createServer((req,res)=>{
    assert.equal(errors.length,0,`${label} ${file} JS errors: ${errors}`);
    assert.equal(missing.length,0,`${label} ${file} missing assets: ${missing}`);
    assert.equal(overflow,false,`${label} ${file} overflow`);
+   if(visualOnly&&(file==='novel-comic.html'||file==='game.html')){
+    const sheet=file==='novel-comic.html'?'#panels':'#sheet';
+    await page.locator(sheet).scrollIntoViewIfNeeded();await page.locator(sheet+' img').evaluateAll(async imgs=>{imgs.forEach(img=>img.loading='eager');await Promise.all(imgs.map(img=>img.decode()));});
+    await page.locator(sheet).screenshot({path:path.join(root,'tests','screenshots',`${label}-${file==='novel-comic.html'?'novel':'film'}-spread.png`)});
+   }
    await page.close();
   }
   if(!baseline&&!visualOnly&&label!=='small'){
@@ -47,6 +52,7 @@ const server = http.createServer((req,res)=>{
     await page.goto(base+file);
     if(file==='index.html')await page.locator('.home-soundtrack').evaluate(el=>el.open=true);
     if(file==='game.html')await page.locator('.settings').evaluate(el=>el.open=true);
+    if(file==='novel-comic.html')await page.locator('.reader-settings').evaluate(el=>el.open=true);
     if(file==='movie.html')await page.locator('#egg').click();
     for(let index=0;index<4;index++){
      if(file==='index.html')await page.locator('.home-soundtrack select').selectOption(String(index));
@@ -81,6 +87,7 @@ const server = http.createServer((req,res)=>{
    await page.locator('#listen').click();await page.locator('#song').evaluate(a=>a.currentTime=52);
    await page.waitForTimeout(150);await page.goto(base+'novel-comic.html');
    await page.waitForFunction(()=>document.querySelector('#comicMusic').readyState>0);
+   await page.locator('.reader-settings').evaluate(el=>el.open=true);
    const restored=await page.locator('#comicMusic').evaluate(a=>({time:a.currentTime,paused:a.paused}));
    assert.ok(Math.abs(restored.time-52)<.5,JSON.stringify(restored));assert.equal(restored.paused,true);
    // Error recovery is visible and keeps the same source and saved progress.
@@ -104,6 +111,25 @@ const server = http.createServer((req,res)=>{
    await page.reload();assert.equal(await page.locator('#secret').isVisible(),true);await page.locator('.letter-open').click();assert.equal(await page.locator('#birthdayLetterReply').inputValue(),'願明年的自己，也記得好好休息。');
    await page.goto(base+'gift.html');await page.locator('.letter-open').click();assert.equal(await page.locator('#birthdayLetterReply').inputValue(),'願明年的自己，也記得好好休息。');
    results.push({label,test:'five stars, ending choices, reload, shared letter collection and two downloads',pass:true});
+   const playerStyle=await page.locator('.gift-music').first().evaluate(el=>{const s=getComputedStyle(el);return {radius:s.borderRadius,background:s.backgroundColor};});
+   assert.deepEqual(playerStyle,{radius:'12px',background:'rgb(233, 227, 218)'});
+   assert.equal(await page.locator('.gift-track-choice').first().evaluate(el=>getComputedStyle(el).borderRadius),'6px');
+   assert.equal(await page.locator('.gift-timed-lyrics').first().evaluate(el=>getComputedStyle(el).borderRadius),'18px');
+   await page.goto(base+'novel-comic.html#chapter-0');
+   const expected=await page.evaluate(()=>NOVEL_PANELS.flat().map(row=>({image:row[0],narration:row[1],lines:row[2]}))),seen=[];
+   for(let n=0;n<29;n++){
+    const state=await page.evaluate(()=>({panels:[...document.querySelectorAll('#panels>.panel')].map(el=>({image:el.querySelector('img').getAttribute('src').replace('assets/','').replace('.webp',''),narration:el.querySelector('.panel-narration').textContent,lines:[...el.querySelectorAll('.bubble')].map(b=>[b.querySelector('strong').textContent,b.querySelector('p').textContent])})),chapter:Number(document.body.dataset.storyChapter),spread:Number(document.body.dataset.storySpread),fullText:[...document.querySelectorAll('#originalText>p')].map(p=>p.textContent),source:NOVEL_TEXT[Number(document.body.dataset.storyChapter)].paragraphs,counter:document.querySelector('#pageCount').textContent}));
+    assert.ok(state.panels.length>=1&&state.panels.length<=3);assert.equal(state.counter,`${n+1} / 29`);assert.deepEqual(state.fullText,state.source);seen.push(...state.panels);
+    for(const button of await page.locator('#panels .star-button').all())await button.click();
+    if(n<28){assert.equal(await page.locator('.journey-finish').isVisible(),false);await page.locator('#next').click();}
+   }
+   assert.deepEqual(seen,expected);assert.equal(await page.locator('#next').isDisabled(),true);assert.equal(await page.locator('.journey-finish').isVisible(),true);
+   assert.equal(await page.evaluate(()=>JSON.parse(localStorage.getItem('yiting-novel-comic-stars')).length),5);
+   await page.goto(base+'novel-comic.html#chapter-4-panel-18');await page.locator('#story-panel-18').waitFor();assert.equal(await page.locator('body').getAttribute('data-story-spread'),'6');
+   await page.locator('#story-panel-18 .art-button').click();assert.equal(await page.locator('#imageViewer').isVisible(),true);await page.locator('#closeViewer').click();
+   await page.locator('#next').click();await page.reload();assert.equal(await page.locator('body').getAttribute('data-story-spread'),'7');
+   await page.goto(base+'index.html');assert.match(await page.locator('#continueJourney').getAttribute('href'),/#chapter-4-spread-7$/);
+   results.push({label,test:'original player styling, 29 novel spreads, all 75 panels and full text, five collectibles, deep links, viewer and resume',pass:true});
    assert.equal(errors.length,0,errors.join('\n'));await page.close();
   }
   await context.close();
