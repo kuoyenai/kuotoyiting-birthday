@@ -11,19 +11,19 @@
   "theme_color": "#101a30",
   "icons": [
     {
-      "src": "assets/app-icon-192.png",
+      "src": "assets/app-icon-192-v2.png",
       "sizes": "192x192",
       "type": "image/png",
       "purpose": "any"
     },
     {
-      "src": "assets/app-icon-512.png",
+      "src": "assets/app-icon-512-v2.png",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "any"
     },
     {
-      "src": "assets/app-icon-maskable.png",
+      "src": "assets/app-icon-maskable-v2.png",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "maskable"
@@ -39,7 +39,7 @@
       "url": "movie.html",
       "icons": [
         {
-          "src": "assets/app-icon-192.png",
+          "src": "assets/app-icon-192-v2.png",
           "sizes": "192x192"
         }
       ]
@@ -49,7 +49,7 @@
       "url": "game.html",
       "icons": [
         {
-          "src": "assets/app-icon-192.png",
+          "src": "assets/app-icon-192-v2.png",
           "sizes": "192x192"
         }
       ]
@@ -59,7 +59,7 @@
       "url": "novel-comic.html",
       "icons": [
         {
-          "src": "assets/app-icon-192.png",
+          "src": "assets/app-icon-192-v2.png",
           "sizes": "192x192"
         }
       ]
@@ -69,7 +69,7 @@
       "url": "gift.html",
       "icons": [
         {
-          "src": "assets/app-icon-192.png",
+          "src": "assets/app-icon-192-v2.png",
           "sizes": "192x192"
         }
       ]
