@@ -27,15 +27,10 @@ let lastSave=0;film.addEventListener('timeupdate',()=>{if(Math.abs(film.currentT
 if(new URLSearchParams(location.search).get('resume')==='1')film.addEventListener('loadedmetadata',()=>{try{const saved=Number(localStorage.getItem('yiting-film-progress'));if(Number.isFinite(saved)&&saved>0&&saved<story.duration-1){seek(saved);toast('已接續上次觀看進度');}}catch{}},{once:true});
 document.addEventListener('keydown',e=>{if($('birthday').open||['TEXTAREA','INPUT','BUTTON'].includes(document.activeElement.tagName))return;if(e.code==='Space'){e.preventDefault();$('play').click()}if(e.code==='ArrowRight')$('next').click();if(e.code==='ArrowLeft')$('prev').click()});
 document.addEventListener('visibilitychange',()=>{if(document.hidden)pause()});render();
-const birthdayTracks=[
-{title:'열 시 이십 분의 별',duration:182,src:'assets/ten-twenty-star.m4a',lyrics:[]},
-{title:'너만을 위한 별빛',duration:182.8,src:'assets/gemini_generated_video_5D27E211.mp4',lyrics:[]},
-{title:'너라는 별빛',duration:62,src:'assets/song.m4a',lyrics:[]},
-{title:'10월의 밤',duration:70,src:'assets/moon-night.m4a',lyrics:[]}
-];
-let selectedBirthdayTrack=0;
+const birthdayTracks=window.YITING_TRACKS.map(t=>({...t,lyrics:[]}));
+let selectedBirthdayTrack=yitingMusicRead().index;
 const songButtons=[...document.querySelectorAll('[data-song-index]')];
-const songNotice=$('birthdaySongNotice');
+const songNotice=$('birthdaySongNotice');const birthdaySave=document.createElement('a');birthdaySave.className='download-link';birthdaySave.id='birthdaySongDownload';birthdaySave.textContent='下載目前歌曲影片 ↓';songNotice.after(birthdaySave);
 const songProgress=$('songProgress');
 const songTime=$('songTime');
 const songDuration=$('songDuration');
@@ -66,7 +61,7 @@ songProgress.value=Math.min(time,Number(songProgress.max));
 function selectBirthdayTrack(index){
 if(!birthdayTracks[index])return;
 song.pause();selectedBirthdayTrack=index;
-const track=birthdayTracks[index];
+const track=birthdayTracks[index];birthdaySave.href=track.video;birthdaySave.download=track.title+'.mp4';birthdaySave.textContent='下載 '+track.title+' 影片 ↓';
 song.src=track.src;song.load();
 $('currentSongTitle').textContent=track.title;
 $('currentSongSubtitle').textContent=String(index+1).padStart(2,'0')+' / 04 · '+fmt(track.duration);
@@ -76,15 +71,15 @@ songButtons.forEach((button,i)=>{button.classList.toggle('active',i===index);but
 $('listen').textContent='播放歌曲 ▶';birthdaySongMessage('');
 syncBirthdayLyrics();
 }
-songButtons.forEach((button,i)=>button.addEventListener('click',()=>selectBirthdayTrack(i)));
+songButtons.forEach((button,i)=>button.addEventListener('click',()=>{selectBirthdayTrack(i);yitingMusicSave({index:i,paused:false});film.pause();song.play().catch(()=>birthdaySongMessage('輕觸播放歌曲開始。'));}));
 song.onplay=()=>{$('listen').textContent='暫停歌曲 ❚❚';syncBirthdayLyrics()};
 song.onpause=()=>{$('listen').textContent='播放歌曲 ▶';syncBirthdayLyrics()};
-song.onended=()=>{$('listen').textContent='重新播放 ↻';syncBirthdayLyrics()};
+song.onended=()=>{selectBirthdayTrack((selectedBirthdayTrack+1)%birthdayTracks.length);yitingMusicSave({index:selectedBirthdayTrack});song.play().catch(()=>{});};
 song.onerror=()=>{birthdaySongMessage('這首歌曲暫時無法載入，請檢查網路後重試。');$('listen').textContent='重新播放 ▶'};
-$('listen').onclick=()=>{if(song.paused){film.pause();song.muted=false;song.play().catch(()=>birthdaySongMessage('目前無法播放這首歌曲，請確認音訊已上傳。'))}else song.pause()};
+$('listen').onclick=()=>{if(song.paused){yitingMusicSave({paused:false});film.pause();song.muted=false;song.play().catch(()=>birthdaySongMessage('目前無法播放這首歌曲，請確認音訊已上傳。'))}else {yitingMusicSave({paused:true});song.pause();}};
 songProgress.addEventListener('input',()=>{if(song.readyState>0){song.currentTime=Number(songProgress.value);syncBirthdayLyrics()}});
 song.ontimeupdate=syncBirthdayLyrics;song.onseeked=syncBirthdayLyrics;
-selectBirthdayTrack(0);
+selectBirthdayTrack(yitingMusicRead().index);
 if(document.modelContext?.registerTool){const lifecycle=new AbortController();try{Promise.resolve(document.modelContext.registerTool({name:'navigate_birthday_chapter',title:'前往生日電影章節',description:'前往指定章節並更新電影畫面；保留目前播放或暫停狀態。',inputSchema:{type:'object',properties:{chapter:{type:'integer',minimum:1,maximum:5}},required:['chapter'],additionalProperties:false},annotations:{readOnlyHint:false,untrustedContentHint:false},execute(input){if(!input||!Number.isInteger(input.chapter)||input.chapter<1||input.chapter>5||Object.keys(input).length!==1)throw new Error('chapter 必須為 1 到 5 的整數');seek(story.chapters[input.chapter-1]);return{chapter:input.chapter,time:film.currentTime,paused:film.paused}}},{signal:lifecycle.signal})).catch(()=>{});addEventListener('pagehide',()=>lifecycle.abort(),{once:true})}catch(e){}}
 
 const gameReturn=new URLSearchParams(location.search);if(gameReturn.get('chapter')==='5'&&gameReturn.get('gift')!=='1'){film.addEventListener('loadedmetadata',()=>{seek(story.chapters[4]);pause();},{once:true});}

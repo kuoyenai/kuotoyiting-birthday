@@ -1,12 +1,12 @@
 const byId=id=>document.getElementById(id),chapters=window.NOVEL_TEXT,panels=window.NOVEL_PANELS;
-const music=byId('comicMusic'),tracks=['assets/ten-twenty-star.m4a','assets/song.m4a','assets/moon-night.m4a'];let track=0,userPaused=false,chapter=0;
+const music=byId('comicMusic'),tracks=window.YITING_TRACKS.map(t=>t.src);let track=yitingMusicRead().index,userPaused=yitingMusicRead().paused,chapter=0;music.src=tracks[track];
 const starNames={blue:'希望',purple:'溫柔',pink:'快樂',green:'勇氣',red:'陪伴'},colors={blue:'#69b9ff',purple:'#b58aff',pink:'#ef8eb7',green:'#83bf83',red:'#ed7185'};let collected=[];
 try{collected=JSON.parse(localStorage.getItem('yiting-novel-comic-stars')||'[]');if(!Array.isArray(collected))collected=[];}catch{}
-function syncMusic(){const save=byId('downloadSong'),title=['열 시 이십 분의 별','너라는_별빛','10월의 밤'][track];save.href=['assets/ten-twenty-star.mp4','assets/starlight-song.mp4','assets/moon-night.mp4'][track];save.download=title+'.mp4';save.textContent='下載 '+title+' 影片 ↓';byId('musicToggle').textContent=music.paused?(userPaused?'播放音樂':'音樂開啟 · 輕觸播放'):'暫停音樂';byId('musicToggle').setAttribute('aria-pressed',String(!userPaused));document.querySelectorAll('[data-track]').forEach(b=>b.setAttribute('aria-pressed',String(Number(b.dataset.track)===track)));}
-function play(){music.muted=false;music.play().then(()=>{byId('musicStatus').textContent='正在播放：'+['열 시 이십 분의 별','너라는_별빛','10월의 밤'][track];}).catch(()=>{byId('musicStatus').textContent='輕觸播放，讓音樂陪妳讀故事。';syncMusic();});}
-music.onplay=syncMusic;music.onpause=syncMusic;music.onended=()=>{track=(track+1)%tracks.length;music.src=tracks[track];syncMusic();play();};
-byId('musicToggle').onclick=()=>{if(music.paused){userPaused=false;play();}else{userPaused=true;music.pause();byId('musicStatus').textContent='音樂已暫停';}};
-document.querySelectorAll('[data-track]').forEach(button=>button.onclick=()=>{track=Number(button.dataset.track);music.src=tracks[track];userPaused=false;syncMusic();play();});
+function syncMusic(){const save=byId('downloadSong'),title=window.YITING_TRACKS[track].title;save.href=window.YITING_TRACKS[track].video;save.download=title+'.mp4';save.textContent='下載 '+title+' 影片 ↓';byId('musicToggle').textContent=music.paused?(userPaused?'播放音樂':'音樂開啟 · 輕觸播放'):'暫停音樂';byId('musicToggle').setAttribute('aria-pressed',String(!userPaused));document.querySelectorAll('[data-track]').forEach(b=>b.setAttribute('aria-pressed',String(Number(b.dataset.track)===track)));}
+function play(){music.muted=false;music.play().then(()=>{byId('musicStatus').textContent='正在播放：'+window.YITING_TRACKS[track].title;}).catch(()=>{byId('musicStatus').textContent='輕觸播放，讓音樂陪妳讀故事。';syncMusic();});}
+music.onplay=syncMusic;music.onpause=syncMusic;music.onended=()=>{track=(track+1)%tracks.length;yitingMusicSave({index:track});music.src=tracks[track];syncMusic();play();};
+byId('musicToggle').onclick=()=>{if(music.paused){userPaused=false;yitingMusicSave({paused:false});play();}else{userPaused=true;yitingMusicSave({paused:true});music.pause();byId('musicStatus').textContent='音樂已暫停';}};
+document.querySelectorAll('[data-track]').forEach(button=>button.onclick=()=>{track=Number(button.dataset.track);music.src=tracks[track];userPaused=false;yitingMusicSave({index:track,paused:false});syncMusic();play();});
 document.addEventListener('visibilitychange',()=>{if(document.hidden){music.pause();byId('musicStatus').textContent='已暫停：返回頁面後請輕觸播放。';}});
 chapters.forEach((c,i)=>{const o=document.createElement('option');o.value=i;o.textContent=c.title;byId('chapterSelect').append(o);});
 function starStatus(){byId('starStatus').textContent=collected.length?'已收藏 '+collected.filter(c=>starNames[c]).map(c=>starNames[c]).join('、')+' 星光。':'輕觸星光按鈕，收藏五份心意。';}
@@ -17,3 +17,5 @@ function render(index,scroll=true){chapter=Math.max(0,Math.min(chapters.length-1
 byId('chapterSelect').onchange=e=>render(Number(e.target.value));byId('prev').onclick=()=>render(chapter-1);byId('next').onclick=()=>render(chapter+1);byId('closeViewer').onclick=()=>byId('imageViewer').close();
 document.addEventListener('keydown',e=>{if(byId('imageViewer').open||['INPUT','SELECT','TEXTAREA','BUTTON'].includes(document.activeElement.tagName))return;if(e.key==='ArrowRight'&&chapter<9){e.preventDefault();render(chapter+1);}if(e.key==='ArrowLeft'&&chapter>0){e.preventDefault();render(chapter-1);}});
 let initial=0;const match=/^#chapter-(\d+)$/.exec(location.hash);if(match)initial=Number(match[1]);else try{initial=Number(localStorage.getItem('yiting-novel-comic-page')||0);}catch{}if(!Number.isFinite(initial))initial=0;render(initial,false);syncMusic();
+
+window.yitingLyricPanel(music,()=>track,document.querySelector(".reader-settings"));

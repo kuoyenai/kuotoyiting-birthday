@@ -30,8 +30,12 @@ const SPREADS=[
 {title:'今晚的主角，是妳',chapter:'06 / BIRTHDAY',panels:[16,17,18],clip:18,kind:'concert',hint:'點麥克風，播放為妳準備的生日演唱。'},
 {title:'把願望交給星光',chapter:'07 / YOUR WISH',panels:[19],clip:null,kind:'wish',hint:'願望只留在妳的裝置，作者不會知道。'}
 ];
-const $=id=>document.getElementById(id),key='yiting-motion-comic-v2';let page=0,clipEnd=0,resumeMusic=false,musicOn=true,musicPending=false,backgroundResume=false,motionOn=!matchMedia('(prefers-reduced-motion: reduce)').matches;
+const $=id=>document.getElementById(id),key='yiting-motion-comic-v2';let page=0,clipEnd=0,resumeMusic=false,musicOn=!yitingMusicRead().paused,musicPending=false,backgroundResume=false,motionOn=!matchMedia('(prefers-reduced-motion: reduce)').matches;
 const completed=new Set(),picked=new Map();
+let selectedGameTrack=yitingMusicRead().index;$('bgm').src=YITING_TRACKS[selectedGameTrack].src;
+const gameSelect=document.createElement('select');gameSelect.id='gameTrack';gameSelect.setAttribute('aria-label','陪伴曲目');YITING_TRACKS.forEach((t,i)=>{const option=document.createElement('option');option.value=i;option.textContent=String(i+1).padStart(2,'0')+' '+t.title;gameSelect.append(option);});gameSelect.value=selectedGameTrack;document.querySelector('.settings>div').append(gameSelect);gameSelect.onchange=()=>{selectedGameTrack=Number(gameSelect.value);$('bgm').src=YITING_TRACKS[selectedGameTrack].src;musicOn=true;yitingMusicSave({index:selectedGameTrack,paused:false});startMusic();};
+window.yitingLyricPanel($('bgm'),()=>selectedGameTrack,document.querySelector('.settings>div'));
+
 try{const save=JSON.parse(localStorage.getItem(key));if(save&&Number.isInteger(save.page)&&save.page>=0&&save.page<SPREADS.length){page=save.page;for(const n of save.completed||[])if(Number.isInteger(n)&&n>=0&&n<SPREADS.length)completed.add(n);} $('wish').value=localStorage.getItem('yiting-comic-wish-v1')||'';}catch{}
 function saveProgress(){try{localStorage.setItem(key,JSON.stringify({page,completed:[...completed]}));localStorage.setItem('yiting-last-mode','comic');}catch{}}
 function sparks(target){if(!motionOn)return;const r=target.getBoundingClientRect(),area=$('sparkles');for(let i=0;i<12;i++){const star=document.createElement('span');star.textContent='✦';star.style.left=(r.left+r.width/2)+'px';star.style.top=(r.top+r.height/2)+'px';star.style.setProperty('--dx',(Math.random()-.5)*220+'px');star.style.setProperty('--dy',(-40-Math.random()*150)+'px');area.append(star);star.addEventListener('animationend',()=>star.remove(),{once:true});}}
@@ -53,7 +57,7 @@ function turn(delta){if($('movie').open)return;const n=Math.max(0,Math.min(SPREA
 $('next').onclick=()=>turn(1);$('prev').onclick=()=>turn(-1);$('restart').onclick=()=>{page=0;completed.clear();picked.clear();render();window.scrollTo({top:0,behavior:'instant'});};$('motion').onclick=()=>{motionOn=!motionOn;document.body.classList.toggle('still',!motionOn);$('motion').textContent=motionOn?'暫停畫面動畫':'開啟畫面動畫';$('motion').setAttribute('aria-pressed',String(motionOn));};
 function musicLabel(){$('music').textContent=musicOn?(musicPending?'音樂已開 · 輕觸播放':'暫停音樂'):'開啟音樂';$('music').setAttribute('aria-pressed',String(musicOn));}
 async function startMusic(){if(!musicOn||$('movie').open||document.hidden)return;try{$('bgm').muted=false;await $('bgm').play();musicPending=false;}catch{musicPending=true;}musicLabel();}
-$('music').onclick=()=>{if(musicOn&&musicPending){startMusic();return;}musicOn=!musicOn;musicPending=false;$('video').muted=!musicOn;if(musicOn)startMusic();else $('bgm').pause();musicLabel();};
+$('music').onclick=()=>{if(musicOn&&musicPending){startMusic();return;}musicOn=!musicOn;yitingMusicSave({paused:!musicOn});musicPending=false;$('video').muted=!musicOn;if(musicOn)startMusic();else $('bgm').pause();musicLabel();};
 document.addEventListener('click',e=>{if(musicOn&&$('bgm').paused&&!$('movie').open&&!e.target.closest('#music,#clip,a'))startMusic();},{capture:true});
 async function playClip(index){const p=PAGES[index];if(p[5]===null)return;resumeMusic=musicOn;$('bgm').pause();$('video').muted=!musicOn;clipEnd=p[6];$('movieTitle').textContent=index===18?'YiTing，生日快樂。':p[3];$('caption').textContent='';$('movie').showModal();$('video').currentTime=p[5];try{await $('video').play();}catch{$('caption').textContent='輕觸影片上的播放鍵開始。';}}
 $('clip').onclick=()=>playClip(SPREADS[page].clip);
