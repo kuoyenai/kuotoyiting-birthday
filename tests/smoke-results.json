@@ -187,7 +187,7 @@
   },
   {
     "label": "desktop",
-    "test": "one dark player component, ten complete comic chapter sheets, all 75 panels and text, paired mobile frames, five collectibles, links, viewer and resume",
+    "test": "one dark player component, ten complete comic chapter sheets, all 75 panels and text, vertical mobile episodes, five collectibles, links, viewer and resume",
     "pass": true
   },
   {
@@ -378,7 +378,7 @@
   },
   {
     "label": "iPhone",
-    "test": "one dark player component, ten complete comic chapter sheets, all 75 panels and text, paired mobile frames, five collectibles, links, viewer and resume",
+    "test": "one dark player component, ten complete comic chapter sheets, all 75 panels and text, vertical mobile episodes, five collectibles, links, viewer and resume",
     "pass": true
   },
   {
@@ -569,7 +569,7 @@
   },
   {
     "label": "Android",
-    "test": "one dark player component, ten complete comic chapter sheets, all 75 panels and text, paired mobile frames, five collectibles, links, viewer and resume",
+    "test": "one dark player component, ten complete comic chapter sheets, all 75 panels and text, vertical mobile episodes, five collectibles, links, viewer and resume",
     "pass": true
   },
   {

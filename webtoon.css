@@ -1,0 +1,36 @@
+/* Shared vertical episode canvas for both comic series. */
+.webtoon-edition main{padding:12px 16px 40px}
+.webtoon-edition .reader{max-width:720px;margin:auto}
+.webtoon-edition .issue{border:0;background:#fffdfb;padding:38px 28px}
+.webtoon-edition .sheet,.webtoon-edition #panels.sheet{display:block;padding:36px 0 80px;margin:0;background:#fffdfb;border:0;border-radius:0}
+.webtoon-edition .sheet>.panel,.webtoon-edition #panels.sheet>.panel:nth-child(n){display:block;width:100%;margin:0 0 100px;padding:0;border:0;border-radius:0;box-shadow:none;background:transparent;overflow:visible;grid-column:auto}
+.webtoon-edition .sheet>.panel:last-child,.webtoon-edition #panels.sheet>.panel:last-child{margin-bottom:0}
+.webtoon-edition .panel .art,.webtoon-edition #panels.sheet>.panel:nth-child(n) .art-button{display:block;width:100%;height:auto;min-height:0;aspect-ratio:auto;padding:0;border:0;border-radius:0;background:transparent;overflow:hidden}
+.webtoon-edition .panel .art img,.webtoon-edition #panels .art-button img{display:block;width:100%;height:auto;aspect-ratio:auto;object-fit:contain;animation:none;transform:none}
+.webtoon-edition .art::after{display:none}
+.webtoon-edition .panel figcaption,.webtoon-edition #panels .panel-copy{min-height:0;padding:36px 30px 0;border:0;background:transparent;border-radius:0;color:#292b37;box-shadow:none}
+.webtoon-edition .panel figcaption.narration>p,.webtoon-edition #panels .panel-narration{max-width:480px;margin:16px auto 38px;font-family:'Invitation Song','PMingLiU',serif;font-size:18px;line-height:2.1;white-space:pre-line;text-align:center;color:#343440}
+.webtoon-edition .panel figcaption>span,.webtoon-edition #panels .panel-copy>span{display:none}
+.webtoon-edition .panel figcaption.bubble,.webtoon-edition #panels .bubble{position:relative;width:fit-content;max-width:82%;min-height:0;border:1px solid #444151;border-radius:46% / 26%;padding:26px 32px;margin:38px auto 28px;background:white;box-shadow:none;text-align:center}
+.webtoon-edition .panel figcaption.bubble::before,.webtoon-edition #panels .bubble::before{display:block;content:'';position:absolute;top:-10px;left:30%;width:18px;height:18px;background:white;border:0;border-top:1px solid #444151;border-left:1px solid #444151;transform:skewY(20deg) rotate(45deg);filter:none}
+.webtoon-edition .panel figcaption.bubble>span,.webtoon-edition #panels .bubble strong{display:block;font:400 11px/1.6 'Microsoft JhengHei',sans-serif;letter-spacing:.06em;color:#98748c;margin-bottom:8px}
+.webtoon-edition .panel figcaption.bubble p,.webtoon-edition #panels .bubble p{font-family:'Invitation Song','PMingLiU',serif;font-size:18px;line-height:1.9;color:#292b37;margin:0;white-space:pre-line}
+.webtoon-edition #panels .bubble:nth-of-type(even){margin-left:4%;margin-right:auto}
+.webtoon-edition #panels .bubble:nth-of-type(odd){margin-right:4%;margin-left:auto}
+.webtoon-edition #panels .scene-close .art-button{width:86%;margin:auto}
+.webtoon-edition #panels .scene-opening{padding-top:60px}
+.webtoon-edition .panel .panel-tools{display:flex;justify-content:center;flex-wrap:wrap;gap:12px;padding:12px 24px;margin:0;background:transparent}
+.webtoon-edition .panel .panel-tools a{font-size:11px;color:#8c7c88}
+.webtoon-edition .panel-number{display:none}
+.webtoon-edition .reading-note{border:0;background:#fffdfb;color:#8c7c88;text-align:center;padding:20px;font-size:12px;line-height:1.8}
+.webtoon-edition .pager{position:static;display:flex;gap:12px;padding:22px 0;margin:20px 0;background:transparent;border:0;backdrop-filter:none}
+.webtoon-edition .pager button{min-width:100px;min-height:48px}
+.webtoon-edition .ink{border:0;box-shadow:none;background:#fffdfbdc;font-size:12px}
+@media(max-width:760px){.webtoon-edition main{padding:8px 0 35px}.webtoon-edition .meta,.webtoon-edition .chapter-meta,.webtoon-edition .reader-settings,.webtoon-edition .pager,.webtoon-edition .interaction{margin-left:14px;margin-right:14px}.webtoon-edition .issue{padding:30px 22px}.webtoon-edition .sheet,.webtoon-edition #panels.sheet{padding:20px 0 60px}.webtoon-edition .sheet>.panel,.webtoon-edition #panels.sheet>.panel:nth-child(n){margin-bottom:76px}.webtoon-edition .panel figcaption,.webtoon-edition #panels .panel-copy{padding:28px 22px 0}.webtoon-edition .panel figcaption.narration>p,.webtoon-edition #panels .panel-narration{font-size:16px;line-height:2;margin-bottom:30px}.webtoon-edition .panel figcaption.bubble,.webtoon-edition #panels .bubble{padding:22px 24px;max-width:88%}.webtoon-edition .panel figcaption.bubble p,.webtoon-edition #panels .bubble p{font-size:16px;line-height:1.9}.webtoon-edition .novel-book-heading{margin:0}.webtoon-edition #chapterTitle{font-size:27px}}
+@media(prefers-reduced-motion:reduce){.webtoon-edition .panel,.webtoon-edition .bubble,.webtoon-edition .sheet{animation:none!important;transition:none!important;transform:none!important}}
+
+.webtoon-edition #sheet>.panel{padding:0;border:0;box-shadow:none;background:transparent}
+.webtoon-edition #sheet>.panel figcaption.narration{background:transparent;border:0;border-radius:0}
+.webtoon-edition #sheet{border:0;padding-left:0;padding-right:0}
+
+html:has(.webtoon-edition){scroll-behavior:auto}.webtoon-edition .scene-spark{pointer-events:none}

@@ -39,6 +39,11 @@ const server = http.createServer((req,res)=>{
    assert.equal(errors.length,0,`${label} ${file} JS errors: ${errors}`);
    assert.equal(missing.length,0,`${label} ${file} missing assets: ${missing}`);
    assert.equal(overflow,false,`${label} ${file} overflow`);
+   if(file==='novel-comic.html'||file==='game.html'){
+    const sheet=file==='novel-comic.html'?'#panels':'#sheet';
+    const format=await page.locator(sheet).evaluate(el=>{const panels=[...el.querySelectorAll(':scope > .panel')];return {display:getComputedStyle(el).display,panels:panels.map(p=>({x:p.getBoundingClientRect().x,y:p.getBoundingClientRect().y,border:getComputedStyle(p).borderTopWidth,shadow:getComputedStyle(p).boxShadow}))};});
+    assert.equal(format.display,'block');format.panels.forEach((p,i)=>{assert.equal(p.border,'0px');assert.equal(p.shadow,'none');if(i)assert.ok(p.y>format.panels[i-1].y);});
+   }
    if(visualOnly&&(file==='novel-comic.html'||file==='game.html')){
     const sheet=file==='novel-comic.html'?'#panels':'#sheet';
     await page.locator(sheet).scrollIntoViewIfNeeded();await page.locator(sheet+' img').evaluateAll(async imgs=>{imgs.forEach(img=>img.loading='eager');await Promise.all(imgs.map(img=>img.decode()));});
@@ -58,7 +63,7 @@ const server = http.createServer((req,res)=>{
   if(!baseline&&!visualOnly&&label!=='small'){
    const page=await context.newPage();const errors=[];page.on('pageerror',e=>errors.push(e.message));
    // Each existing player's controls must play all four actual audio assets.
-   const players=[['index.html','#homeSong','#homeMusic','#homeMusic'],['game.html','#bgm','#music','#music'],['novel-comic.html','#comicMusic','#musicToggle','#musicToggle'],['gift.html','#song','#listen','#listen'],['movie.html','#song','#listen','#listen']];
+   const players=process.argv.includes('--comics')?[]:[['index.html','#homeSong','#homeMusic','#homeMusic'],['game.html','#bgm','#music','#music'],['novel-comic.html','#comicMusic','#musicToggle','#musicToggle'],['gift.html','#song','#listen','#listen'],['movie.html','#song','#listen','#listen']];
    for(const [file,audio,play,pause] of players){
     await page.goto(base+file);
     if(file==='index.html')await page.locator('.home-soundtrack').evaluate(el=>el.open=true);
@@ -125,7 +130,7 @@ const server = http.createServer((req,res)=>{
    for(let n=0;n<10;n++){
     const state=await page.evaluate(()=>({panels:[...document.querySelectorAll('#panels>.panel')].map(el=>({image:el.querySelector('img').getAttribute('src').replace('assets/','').replace('.webp',''),narration:el.querySelector('.panel-narration').textContent,lines:[...el.querySelectorAll('.bubble')].map(b=>[b.querySelector('strong').textContent,b.querySelector('p').textContent])})),chapter:Number(document.body.dataset.storyChapter),count:NOVEL_PANELS[Number(document.body.dataset.storyChapter)].length,fullText:[...document.querySelectorAll('#originalText>p')].map(p=>p.textContent),source:NOVEL_TEXT[Number(document.body.dataset.storyChapter)].paragraphs,counter:document.querySelector('#pageCount').textContent}));
     assert.equal(state.panels.length,state.count);assert.equal(state.counter,`${n+1} / 10`);assert.deepEqual(state.fullText,state.source);seen.push(...state.panels);
-    if(n===0){const first=await page.locator('#story-panel-0').boundingBox(),second=await page.locator('#story-panel-1').boundingBox();assert.ok(second.x>first.x);assert.ok(Math.abs(first.y-second.y)<2);}
+    if(n===0){const first=await page.locator('#story-panel-0').boundingBox(),second=await page.locator('#story-panel-1').boundingBox();assert.ok(Math.abs(second.x-first.x)<2);assert.ok(second.y>first.y+first.height);}
     if(n===4)assert.equal(state.panels.length,22);
     for(const button of await page.locator('#panels .star-button').all())await button.click();
     if(n<9){assert.equal(await page.locator('.journey-finish').isVisible(),false);await page.locator('#next').click();}
@@ -137,7 +142,16 @@ const server = http.createServer((req,res)=>{
    await page.locator('#next').click();await page.reload();assert.equal(await page.locator('body').getAttribute('data-story-chapter'),'5');
    await page.goto(base+'index.html');assert.match(await page.locator('#continueJourney').getAttribute('href'),/#chapter-5$/);
    await page.goto(base+'novel-comic.html#chapter-4-spread-6');await page.locator('#story-panel-18.story-return-target').waitFor();assert.equal(await page.locator('#panels>.panel').count(),22);
-   results.push({label,test:'one dark player component, ten complete comic chapter sheets, all 75 panels and text, paired mobile frames, five collectibles, links, viewer and resume',pass:true});
+   results.push({label,test:'one dark player component, ten complete comic chapter sheets, all 75 panels and text, vertical mobile episodes, five collectibles, links, viewer and resume',pass:true});
+   await page.goto(base+'game.html');let filmPanels=0;
+   for(let episode=0;episode<7;episode++){
+    const frames=await page.locator('#sheet>.panel').evaluateAll(nodes=>nodes.map(el=>({y:el.getBoundingClientRect().y,border:getComputedStyle(el).borderTopWidth,img:!!el.querySelector('img')})));
+    frames.forEach((frame,i)=>{assert.equal(frame.border,'0px');assert.ok(frame.img);if(i)assert.ok(frame.y>frames[i-1].y);});filmPanels+=frames.length;
+    if(episode===0||episode===1||episode===4){await page.locator('#actionButtons button').first().click();assert.ok((await page.locator('#actionStatus').textContent()).length>0);}
+    if(episode===2||episode===3)for(const b of await page.locator('#actionButtons button').all())await b.click();
+    if(episode<6)await page.locator('#next').click();
+   }
+   assert.equal(filmPanels,20);results.push({label,test:'seven vertical film comic episodes, all 20 panels, message, Eunho hand, stars and reply',pass:true});
    assert.equal(errors.length,0,errors.join('\n'));await page.close();
   }
   await context.close();
@@ -167,6 +181,6 @@ const server = http.createServer((req,res)=>{
   assert.equal(errors.length,0,errors.join('\n'));results.push({test:'reduced motion intro and continuous film, denied storage, export fallback and existing favorites error',pass:true});
   await context.close();
  }
- } finally {await browser.close();server.close();fs.writeFileSync(path.join(root,'tests',baseline?'baseline.json':visualOnly?'design-results.json':'smoke-results.json'),JSON.stringify(results,null,2));}
+ } finally {await browser.close();server.close();fs.writeFileSync(path.join(root,'tests',baseline?'baseline.json':visualOnly?'design-results.json':process.argv.includes('--comics')?'comics-results.json':'smoke-results.json'),JSON.stringify(results,null,2));}
  console.log(`PASS ${results.length} page/device and functional checks`);
 })().catch(e=>{console.error(e);process.exitCode=1;server.close();});
