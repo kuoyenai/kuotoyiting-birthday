@@ -13,8 +13,8 @@ for file in ['app.webmanifest','app-manifest.json']:
 for page in ['index.html','movie.html','game.html','gift.html','novel-comic.html','starlight.html','install.html']:
  html=(r/page).read_text(encoding='utf-8-sig')
  assert 'name="app-version" content="'+version+'"' in html,page+' version mismatch'
- assert 'href="manifest.json?v='+version+'"' in html,page+' manifest mismatch'
- assert 'rel="apple-touch-icon"' in html and 'apple-touch-icon.png?v='+version in html,page+' Apple icon mismatch'
+ assert 'href="manifest.json"' in html,page+' manifest mismatch'
+ assert 'rel="apple-touch-icon"' in html and 'href="apple-touch-icon.png"' in html,page+' Apple icon mismatch'
  assert 'viewport-fit=cover' in html,page+' missing safe area viewport'
 for icon in manifest['icons']:
  data=(r/icon['src'].split('?')[0]).read_bytes()

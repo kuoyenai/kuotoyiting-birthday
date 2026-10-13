@@ -1,7 +1,7 @@
-const APP_VERSION='20261013-2';
+const APP_VERSION='20261013-3';
 const CACHE='yiting-shell-'+APP_VERSION;
 const local=path=>new URL(path,self.registration.scope).href;
-self.addEventListener('install',event=>{event.waitUntil(caches.open(CACHE).then(cache=>cache.addAll(['offline.html','assets/icon-192.png?v=20261013-2','assets/icon-512.png?v=20261013-2'].map(local))).then(()=>self.skipWaiting()));});
+self.addEventListener('install',event=>{event.waitUntil(caches.open(CACHE).then(cache=>cache.addAll(['offline.html','apple-touch-icon.png','icon-192.png','icon-512.png','icon-512-maskable.png','manifest.json'].map(local))).then(()=>self.skipWaiting()));});
 self.addEventListener('activate',event=>{event.waitUntil(caches.keys().then(keys=>Promise.all(keys.filter(key=>key.startsWith('yiting-shell-')&&key!==CACHE).map(key=>caches.delete(key)))).then(()=>self.clients.claim()));});
 self.addEventListener('fetch',event=>{
  const request=event.request,url=new URL(request.url);
@@ -9,7 +9,7 @@ self.addEventListener('fetch',event=>{
  const eligible=request.mode==='navigate'||['style','script','image','font'].includes(request.destination);if(!eligible)return;
  event.respondWith((async()=>{
   const cache=await caches.open(CACHE);
-  try{const response=await fetch(request);if(response.ok){await cache.put(request,response.clone()).catch(()=>{});const keys=await cache.keys();if(keys.length>60){const protectedUrls=new Set(['offline.html','assets/icon-192.png?v=20261013-2','assets/icon-512.png?v=20261013-2'].map(local));const oldest=keys.find(item=>!protectedUrls.has(item.url));if(oldest)await cache.delete(oldest);}}return response;}
+  try{const response=await fetch(request);if(response.ok){await cache.put(request,response.clone()).catch(()=>{});const keys=await cache.keys();if(keys.length>60){const protectedUrls=new Set(['offline.html','apple-touch-icon.png','icon-192.png','icon-512.png','icon-512-maskable.png','manifest.json'].map(local));const oldest=keys.find(item=>!protectedUrls.has(item.url));if(oldest)await cache.delete(oldest);}}return response;}
   catch{const stored=await cache.match(request);if(stored)return stored;if(request.mode==='navigate')return cache.match(local('offline.html'));return Response.error();}
  })());
 });
