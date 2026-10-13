@@ -79,3 +79,5 @@ if(document.modelContext?.registerTool){const lifecycle=new AbortController();tr
 const gameReturn=new URLSearchParams(location.search);if(gameReturn.get('chapter')==='5'&&gameReturn.get('gift')!=='1'){film.addEventListener('loadedmetadata',()=>{seek(story.chapters[4]);pause();},{once:true});}
 
 $('focus').onclick=()=>{const on=document.body.classList.toggle('cinema-focus');$('focus').setAttribute('aria-pressed',String(on));$('focus').textContent=on?'回到專輯':'專注觀看';};
+
+ const movieLegacyPlayer=document.querySelector('.birthday-player'),moviePlayerHost=document.createElement('div');moviePlayerHost.className='unified-audio-host';movieLegacyPlayer.before(moviePlayerHost);movieLegacyPlayer.hidden=true;yitingAlbumPlayer(song,{getTrack:()=>selectedBirthdayTrack,selectTrack:index=>songButtons[index].click(),toggle:()=>$('listen').click()},moviePlayerHost);

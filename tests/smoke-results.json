@@ -187,7 +187,7 @@
   },
   {
     "label": "desktop",
-    "test": "original player styling, 29 novel spreads, all 75 panels and full text, five collectibles, deep links, viewer and resume",
+    "test": "one dark player component, ten complete comic chapter sheets, all 75 panels and text, paired mobile frames, five collectibles, links, viewer and resume",
     "pass": true
   },
   {
@@ -378,7 +378,7 @@
   },
   {
     "label": "iPhone",
-    "test": "original player styling, 29 novel spreads, all 75 panels and full text, five collectibles, deep links, viewer and resume",
+    "test": "one dark player component, ten complete comic chapter sheets, all 75 panels and text, paired mobile frames, five collectibles, links, viewer and resume",
     "pass": true
   },
   {
@@ -569,7 +569,7 @@
   },
   {
     "label": "Android",
-    "test": "original player styling, 29 novel spreads, all 75 panels and full text, five collectibles, deep links, viewer and resume",
+    "test": "one dark player component, ten complete comic chapter sheets, all 75 panels and text, paired mobile frames, five collectibles, links, viewer and resume",
     "pass": true
   },
   {

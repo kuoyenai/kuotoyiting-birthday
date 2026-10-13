@@ -4,6 +4,7 @@ const http = require('node:http');
 const assert = require('node:assert/strict');
 // Set NODE_PATH to your installed Playwright packages; no site dependencies.
 const { chromium, devices } = require('playwright');
+const playerTheme=el=>[el,el.querySelector('h3'),el.querySelector('.audio-track strong'),el.querySelector('.audio-original'),el.querySelector('.audio-elapsed')].map(node=>{const s=getComputedStyle(node);return {font:s.fontFamily,size:s.fontSize,weight:s.fontWeight,spacing:s.letterSpacing,color:s.color,scheme:s.colorScheme};});
 const root = path.resolve(__dirname, '..');
 const mime = {'.html':'text/html','.js':'text/javascript','.css':'text/css','.json':'application/json','.webp':'image/webp','.png':'image/png','.m4a':'audio/mp4','.mp4':'video/mp4'};
 const server = http.createServer((req,res)=>{
@@ -26,6 +27,7 @@ const server = http.createServer((req,res)=>{
  for(const [label,options] of (extrasOnly?[]:[['desktop',{viewport:{width:1440,height:1000}}],['iPhone',devices['iPhone 13']],['Android',devices['Pixel 7']],['small',{viewport:{width:360,height:780},isMobile:true,hasTouch:true}]])){
   const context=await browser.newContext({...options,serviceWorkers:'block'});
   await context.addInitScript(()=>{sessionStorage.setItem('yiting-intro-seen','1');if(!localStorage.getItem('yiting-music-preferences'))localStorage.setItem('yiting-music-preferences',JSON.stringify({index:0,paused:true}));});
+  let commonTheme=null;
   for(const file of ['index.html','movie.html','game.html','novel-comic.html','gift.html','starlight.html','install.html','materials.html']){
    const page=await context.newPage(),errors=[],missing=[];
    page.on('pageerror',e=>errors.push(e.message));page.on('response',r=>{if(r.status()>=400)missing.push(r.url());});
@@ -42,6 +44,15 @@ const server = http.createServer((req,res)=>{
     await page.locator(sheet).scrollIntoViewIfNeeded();await page.locator(sheet+' img').evaluateAll(async imgs=>{imgs.forEach(img=>img.loading='eager');await Promise.all(imgs.map(img=>img.decode()));});
     await page.locator(sheet).screenshot({path:path.join(root,'tests','screenshots',`${label}-${file==='novel-comic.html'?'novel':'film'}-spread.png`)});
    }
+   if(visualOnly&&['index.html','game.html','novel-comic.html','gift.html','movie.html'].includes(file)){
+    if(file==='index.html')await page.locator('.home-soundtrack').evaluate(el=>el.open=true);
+    if(file==='game.html')await page.locator('.settings').evaluate(el=>el.open=true);
+    if(file==='novel-comic.html')await page.locator('.reader-settings').evaluate(el=>el.open=true);
+    if(file==='movie.html')await page.locator('#egg').click();
+    const player=page.locator('.album-audio-player').first();assert.equal(await player.getAttribute('data-player-version'),'20261013-8');assert.equal(await player.locator('.audio-track').count(),4);const theme=await player.evaluate(playerTheme);if(!commonTheme)commonTheme=theme;else assert.deepEqual(theme,commonTheme,`${label} ${file} player style mismatch`);
+    await player.screenshot({path:path.join(root,'tests','screenshots',`${label}-${file}-unified-player.png`)});
+    if(file==='gift.html'){await page.locator('#tab-novel').click();const second=page.locator('#gift-novel .album-audio-player');assert.equal(await second.isVisible(),true);assert.deepEqual(await second.evaluate(playerTheme),commonTheme,`${label} gift novel player style mismatch`);await second.screenshot({path:path.join(root,'tests','screenshots',`${label}-gift-novel-unified-player.png`)});}
+   }
    await page.close();
   }
   if(!baseline&&!visualOnly&&label!=='small'){
@@ -54,16 +65,13 @@ const server = http.createServer((req,res)=>{
     if(file==='game.html')await page.locator('.settings').evaluate(el=>el.open=true);
     if(file==='novel-comic.html')await page.locator('.reader-settings').evaluate(el=>el.open=true);
     if(file==='movie.html')await page.locator('#egg').click();
+    assert.equal(await page.locator('.album-audio-player').first().getAttribute('data-player-version'),'20261013-8');
     for(let index=0;index<4;index++){
-     if(file==='index.html')await page.locator('.home-soundtrack select').selectOption(String(index));
-     if(file==='game.html')await page.locator('#gameTrack').selectOption(String(index));
-     if(file==='novel-comic.html')await page.locator(`[data-track="${index}"]`).click();
-     if(file==='gift.html')await page.locator(`.gift-track-choice[data-track="${index}"]`).first().click();
-     if(file==='movie.html')await page.locator(`[data-song-index="${index}"]`).click();
+     await page.locator('.album-audio-player').first().locator(`[data-audio-track="${index}"]`).click();
      await page.waitForFunction(sel=>{const a=document.querySelector(sel);return a.readyState>=1&&!a.paused&&a.currentTime>0;},audio);
      const state=await page.evaluate(({audio,index})=>{const a=document.querySelector(audio);return {src:a.src,expected:new URL(YITING_TRACKS[index].src,document.baseURI).href,download:YITING_TRACKS[index].video,duration:a.duration};},{audio,index});
      assert.equal(state.src,state.expected);assert.ok(state.duration>50);
-     await page.locator(pause).click();
+     await page.locator('.album-audio-player .audio-play').first().click();
      assert.equal(await page.locator(audio).evaluate(a=>a.paused),true);
      assert.equal(await page.evaluate(()=>yitingMusicRead().paused),true);
      // Compare the rendered bilingual lyrics against unchanged source rows, at every cue.
@@ -74,17 +82,17 @@ const server = http.createServer((req,res)=>{
       await page.locator(audio).evaluate((a,t)=>a.currentTime=t+.05,row[0]);
       await page.waitForFunction(({audio,t})=>Math.abs(document.querySelector(audio).currentTime-t)<.2,{audio,t:row[0]+.05});
       await page.waitForTimeout(15);
-      const ko=file==='gift.html'?'#lyrics':file==='movie.html'?'#lyrics':'.lyric-original';
-      const zh=file==='gift.html'?'#giftLyricsZh':file==='movie.html'?'#lyricsZh':'.lyric-translation';
+      const ko='.album-audio-player .audio-original';
+      const zh='.album-audio-player .audio-translation';
       await page.waitForFunction(({ko,zh,row})=>document.querySelector(ko)?.textContent===row[2]&&document.querySelector(zh)?.textContent.trim()===row[3].trim(),{ko,zh,row});
      }
      results.push({label,file,test:`track ${index+1} actual play, pause, ${rows.length} bilingual cues`,pass:true});
     }
    }
    // Cross-page progress and pause intent survive navigation.
-   await page.goto(base+'gift.html');await page.locator('[data-track="1"]').first().click();
+   await page.goto(base+'gift.html');await page.locator('[data-audio-track="1"]').first().click();
    await page.waitForFunction(()=>document.querySelector('#song').readyState>0&&!document.querySelector('#song').paused);
-   await page.locator('#listen').click();await page.locator('#song').evaluate(a=>a.currentTime=52);
+   await page.locator('.audio-play').first().click();await page.locator('#song').evaluate(a=>a.currentTime=52);
    await page.waitForTimeout(150);await page.goto(base+'novel-comic.html');
    await page.waitForFunction(()=>document.querySelector('#comicMusic').readyState>0);
    await page.locator('.reader-settings').evaluate(el=>el.open=true);
@@ -92,9 +100,9 @@ const server = http.createServer((req,res)=>{
    assert.ok(Math.abs(restored.time-52)<.5,JSON.stringify(restored));assert.equal(restored.paused,true);
    // Error recovery is visible and keeps the same source and saved progress.
    await page.route('**/only-for-you.m4a',route=>route.abort());
-   await page.locator('[data-track="1"]').click();
-   await page.locator('.soundtrack-status button').waitFor({state:'visible'});
-   await page.unroute('**/only-for-you.m4a');await page.locator('.soundtrack-status button').click();
+   await page.locator('[data-audio-track="1"]').first().click();
+   await page.locator('.audio-retry').first().waitFor({state:'visible'});
+   await page.unroute('**/only-for-you.m4a');await page.locator('.audio-retry').first().click();
    await page.waitForFunction(()=>!document.querySelector('#comicMusic').paused&&document.querySelector('#comicMusic').currentTime>=52);
    results.push({label,test:'cross-page progress, pause preference, network failure and retry',pass:true});
    // Five original member stars, unlock, three scenes, response persistence and downloads.
@@ -111,25 +119,25 @@ const server = http.createServer((req,res)=>{
    await page.reload();assert.equal(await page.locator('#secret').isVisible(),true);await page.locator('.letter-open').click();assert.equal(await page.locator('#birthdayLetterReply').inputValue(),'願明年的自己，也記得好好休息。');
    await page.goto(base+'gift.html');await page.locator('.letter-open').click();assert.equal(await page.locator('#birthdayLetterReply').inputValue(),'願明年的自己，也記得好好休息。');
    results.push({label,test:'five stars, ending choices, reload, shared letter collection and two downloads',pass:true});
-   const playerStyle=await page.locator('.gift-music').first().evaluate(el=>{const s=getComputedStyle(el);return {radius:s.borderRadius,background:s.backgroundColor};});
-   assert.deepEqual(playerStyle,{radius:'12px',background:'rgb(233, 227, 218)'});
-   assert.equal(await page.locator('.gift-track-choice').first().evaluate(el=>getComputedStyle(el).borderRadius),'6px');
-   assert.equal(await page.locator('.gift-timed-lyrics').first().evaluate(el=>getComputedStyle(el).borderRadius),'18px');
+   const style=await page.locator('.album-audio-player').first().evaluate(el=>({scheme:getComputedStyle(el).colorScheme,version:el.dataset.playerVersion}));assert.deepEqual(style,{scheme:'dark',version:'20261013-8'});
    await page.goto(base+'novel-comic.html#chapter-0');
    const expected=await page.evaluate(()=>NOVEL_PANELS.flat().map(row=>({image:row[0],narration:row[1],lines:row[2]}))),seen=[];
-   for(let n=0;n<29;n++){
-    const state=await page.evaluate(()=>({panels:[...document.querySelectorAll('#panels>.panel')].map(el=>({image:el.querySelector('img').getAttribute('src').replace('assets/','').replace('.webp',''),narration:el.querySelector('.panel-narration').textContent,lines:[...el.querySelectorAll('.bubble')].map(b=>[b.querySelector('strong').textContent,b.querySelector('p').textContent])})),chapter:Number(document.body.dataset.storyChapter),spread:Number(document.body.dataset.storySpread),fullText:[...document.querySelectorAll('#originalText>p')].map(p=>p.textContent),source:NOVEL_TEXT[Number(document.body.dataset.storyChapter)].paragraphs,counter:document.querySelector('#pageCount').textContent}));
-    assert.ok(state.panels.length>=1&&state.panels.length<=3);assert.equal(state.counter,`${n+1} / 29`);assert.deepEqual(state.fullText,state.source);seen.push(...state.panels);
+   for(let n=0;n<10;n++){
+    const state=await page.evaluate(()=>({panels:[...document.querySelectorAll('#panels>.panel')].map(el=>({image:el.querySelector('img').getAttribute('src').replace('assets/','').replace('.webp',''),narration:el.querySelector('.panel-narration').textContent,lines:[...el.querySelectorAll('.bubble')].map(b=>[b.querySelector('strong').textContent,b.querySelector('p').textContent])})),chapter:Number(document.body.dataset.storyChapter),count:NOVEL_PANELS[Number(document.body.dataset.storyChapter)].length,fullText:[...document.querySelectorAll('#originalText>p')].map(p=>p.textContent),source:NOVEL_TEXT[Number(document.body.dataset.storyChapter)].paragraphs,counter:document.querySelector('#pageCount').textContent}));
+    assert.equal(state.panels.length,state.count);assert.equal(state.counter,`${n+1} / 10`);assert.deepEqual(state.fullText,state.source);seen.push(...state.panels);
+    if(n===0){const first=await page.locator('#story-panel-0').boundingBox(),second=await page.locator('#story-panel-1').boundingBox();assert.ok(second.x>first.x);assert.ok(Math.abs(first.y-second.y)<2);}
+    if(n===4)assert.equal(state.panels.length,22);
     for(const button of await page.locator('#panels .star-button').all())await button.click();
-    if(n<28){assert.equal(await page.locator('.journey-finish').isVisible(),false);await page.locator('#next').click();}
+    if(n<9){assert.equal(await page.locator('.journey-finish').isVisible(),false);await page.locator('#next').click();}
    }
    assert.deepEqual(seen,expected);assert.equal(await page.locator('#next').isDisabled(),true);assert.equal(await page.locator('.journey-finish').isVisible(),true);
    assert.equal(await page.evaluate(()=>JSON.parse(localStorage.getItem('yiting-novel-comic-stars')).length),5);
-   await page.goto(base+'novel-comic.html#chapter-4-panel-18');await page.locator('#story-panel-18').waitFor();assert.equal(await page.locator('body').getAttribute('data-story-spread'),'6');
+   await page.goto(base+'novel-comic.html#chapter-4-panel-18');await page.locator('#story-panel-18').waitFor();assert.equal(await page.locator('#panels>.panel').count(),22);
    await page.locator('#story-panel-18 .art-button').click();assert.equal(await page.locator('#imageViewer').isVisible(),true);await page.locator('#closeViewer').click();
-   await page.locator('#next').click();await page.reload();assert.equal(await page.locator('body').getAttribute('data-story-spread'),'7');
-   await page.goto(base+'index.html');assert.match(await page.locator('#continueJourney').getAttribute('href'),/#chapter-4-spread-7$/);
-   results.push({label,test:'original player styling, 29 novel spreads, all 75 panels and full text, five collectibles, deep links, viewer and resume',pass:true});
+   await page.locator('#next').click();await page.reload();assert.equal(await page.locator('body').getAttribute('data-story-chapter'),'5');
+   await page.goto(base+'index.html');assert.match(await page.locator('#continueJourney').getAttribute('href'),/#chapter-5$/);
+   await page.goto(base+'novel-comic.html#chapter-4-spread-6');await page.locator('#story-panel-18.story-return-target').waitFor();assert.equal(await page.locator('#panels>.panel').count(),22);
+   results.push({label,test:'one dark player component, ten complete comic chapter sheets, all 75 panels and text, paired mobile frames, five collectibles, links, viewer and resume',pass:true});
    assert.equal(errors.length,0,errors.join('\n'));await page.close();
   }
   await context.close();

@@ -91,11 +91,6 @@ body:has(#panels) .bubble:nth-of-type(even){background:#f6ecef}
 body:has(#panels) .bubble::before{display:none}
 body:has(#panels) .bubble p{font-size:16px;line-height:1.95}
 body:has(#panels) #chapterTitle{font-family:var(--finish-serif);font-size:32px}
-.album-edition.comic-page .sheet{padding:24px;border-color:#b7a58a55;border-radius:0 0 4px 4px}
-.album-edition.comic-page .panel{border-color:#b7a58a80;border-radius:3px;overflow:hidden}
-.album-edition.comic-page figcaption{padding:22px;border-color:#b7a58a55}
-.album-edition.comic-page figcaption p{font-family:var(--finish-serif);font-size:17px;line-height:1.95}
-.album-edition.comic-page .interaction,.album-edition.comic-page #extra{background:#eee7e4;border-radius:4px;border-color:#b7a58a55;padding:28px}
 
 /* Film presentation and the red-star epilogue share the cover's materials. */
 .album-edition.film-page:not(.gift-page) .cinema{border-radius:4px;border-color:#b7a58a66;box-shadow:0 18px 50px #101a2d1c}
@@ -226,10 +221,6 @@ body:has(#stars) #progress{font-size:12px;letter-spacing:.12em;color:#dcc7a4}
  body:has(#panels) .bubble{padding:17px}
  body:has(#panels) .bubble p{font-size:15px;line-height:1.95}
  body:has(#panels) #chapterTitle{font-size:27px}
- .album-edition.comic-page .sheet{padding:15px;gap:18px}
- .album-edition.comic-page figcaption{padding:19px 16px}
- .album-edition.comic-page figcaption p{font-size:16px}
- .album-edition.comic-page .interaction,.album-edition.comic-page #extra{padding:24px 20px}
  body:has(#stars) header{padding:24px 22px;font-size:10px;gap:12px}
  body:has(#stars) main{padding:36px 22px 65px}
  body:has(#stars) h1{font-size:42px;line-height:1.5}

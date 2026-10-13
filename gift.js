@@ -136,3 +136,5 @@ if(viewer){
  });
  $('closeCardViewer').onclick=()=>viewer.close();
 }
+
+ document.querySelectorAll('.gift-track-choice').forEach(button=>button.querySelector('span').textContent=tracks[Number(button.dataset.track)].title);document.querySelectorAll('.gift-music').forEach(legacy=>{const host=document.createElement('div');host.className='unified-audio-host';legacy.before(host);legacy.hidden=true;yitingAlbumPlayer(song,{getTrack:()=>selectedTrack,selectTrack:index=>document.querySelector('.gift-track-choice[data-track="'+index+'"]').click(),toggle:()=>$('listen').click()},host);});document.querySelectorAll('.gift-timed-lyrics').forEach(el=>el.hidden=true);
