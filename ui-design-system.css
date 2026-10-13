@@ -40,3 +40,20 @@ body.gift-page .birthday-letter textarea{font-family:'Invitation Song','Songti T
 body.gift-page .birthday-letter .letter-actions button,
 body.gift-page .birthday-letter .letter-open{font-family:'Invitation Song','Songti TC','Noto Serif TC','PingFang TC',serif;font-size:14px;letter-spacing:.025em}
 @media(max-width:760px){body.gift-page .birthday-letter{font-size:15px}body.gift-page .birthday-letter #birthdayLetterBody>p{font-size:15px;line-height:1.85;margin-bottom:1.15em}body.gift-page .birthday-letter #birthdayLetterBody>.letter-signature{font-size:17px}body.gift-page .birthday-letter h2{font-size:25px}}
+
+/* Typography audit v3: semantic families, consistent Chinese/Latin fallback and reading rhythm. */
+:root{--yt-type-ui:'PingFang TC','Microsoft JhengHei','Noto Sans TC',sans-serif;--yt-type-story:'Invitation Song','Songti TC','Noto Serif TC','PMingLiU',serif;--yt-type-display:'Invitation Bodoni','Invitation Song','Songti TC',Georgia,serif}
+body.album-edition{font-family:var(--yt-type-ui)}
+body.album-edition :where(button,select,input,textarea,summary,.site-nav,.site-links,.collection-tabs,.pager,.settings,.album-audio-player){font-family:var(--yt-type-ui)}
+body.album-edition :where(.intro h1,.collection-intro h1,.issue h1,.novel-book-heading h1,.contents-heading h2,.collection-title h2,.blessing-copy h2){font-family:var(--yt-type-story)}
+body.album-edition :where(.novel-text,.panel-narration,.panel-copy .bubble p,.gift-section .novel-text,.birthday-letter #birthdayLetterBody){font-family:var(--yt-type-story)}
+body.album-edition :where(.eyebrow,.edition,.edition-topline,.comic-edition-note){font-family:var(--yt-type-ui)}
+body.album-edition :where(.letter-signature,.signature,.album-date){font-family:var(--yt-type-display)}
+body.album-edition :where(.novel-text,.panel-narration,.panel-copy .bubble p){overflow-wrap:anywhere}
+body.album-edition :where(.novel-text,.birthday-letter #birthdayLetterBody){font-weight:400;letter-spacing:.012em}
+body.album-edition .album-audio-player :where(button,span,strong,p){font-family:var(--yt-type-ui)}
+body.album-edition .album-audio-player .audio-album-header h3{font-family:var(--yt-type-story)}
+body.gift-page .birthday-letter #birthdayLetterBody :where(p,.letter-salutation){font-family:var(--yt-type-story)}
+body.gift-page .birthday-letter #birthdayLetterBody .letter-signature{font-family:'Invitation Bodoni',Georgia,serif}
+body.gift-page .birthday-letter :where(button,textarea,label){font-family:var(--yt-type-ui)}
+@media(max-width:760px){body.album-edition :where(.novel-text,.birthday-letter #birthdayLetterBody){line-height:1.85}}
