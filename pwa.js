@@ -7,7 +7,7 @@ window.addEventListener('beforeinstallprompt',event=>{event.preventDefault();ins
 const host=document.querySelector('.album-jacket');
 {
  const panel=document.createElement('aside');panel.className='app-install';panel.setAttribute('aria-label','加入手機主畫面');
- panel.innerHTML='<img src="assets/icon-192.png?v=20261013-8" alt="YiTing 生日邀請卡 App 圖示" width="64" height="64"><div><h2>把星光，收進手機。</h2><p>加入主畫面，下次輕觸圖示就能回來。</p></div><button type="button" id="installBirthdayApp">加入手機主畫面 ↗</button>';
+ panel.innerHTML='<img src="assets/icon-192.png?v=20261013-8" alt="YiTing 生日邀請卡 App 圖示" width="64" height="64"><div><h2>把星光，收進手機。</h2><p>加入主畫面，下次輕觸圖示就能回來。</p></div><button type="button" id="installBirthdayApp">加入手機主畫面</button>';
  if(host&&!standalone())host.after(panel);else {panel.hidden=true;document.body.append(panel);}
  const dialog=document.createElement('dialog');dialog.className='install-guide';dialog.setAttribute('aria-labelledby','installGuideTitle');
  dialog.innerHTML='<img class="install-preview" src="assets/icon-192.png?v=20261013-8" alt="YiTing 生日 App 圖示" width="72" height="72"><h2 id="installGuideTitle">把生日邀請留在主畫面</h2><p>iPhone／iPad</p><ol><li>用 Safari 開啟這個網站。</li><li>點選分享按鈕，再選「加入主畫面」。</li><li>若出現「作為網頁 App 打開」，請保持開啟，再點「加入」。</li><li>如果已有舊捷徑，圖示更新可能需要移除舊捷徑後重新加入；網站不會代你刪除</li></ol><p>Android</p><ol><li>用 Chrome 開啟這個網站。</li><li>點選瀏覽器選單，選「安裝應用程式」或「新增至主畫面」。</li><li>依畫面提示確認安裝。</li></ol><p class="install-note">影片、歌曲及尚未載入的插畫需要網路。願望只留在目前使用的瀏覽器／App，換裝置或換開啟方式可能不會共用。</p><button type="button" id="closeInstallGuide">知道了</button>';
