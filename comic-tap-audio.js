@@ -1,19 +1,21 @@
-/* Start comic soundtrack on the first deliberate page tap, respecting manual pause. */
+/* Global fallback: one user tap may unlock music when browser blocks autoplay. */
 (()=>{
- const audio=document.getElementById(document.body.classList.contains('novel-edition')?'comicMusic':'bgm');
+ const audio=document.querySelector('#homeSong, #comicMusic, #bgm, #song');
  if(!audio)return;
- let attempted=false;
- const onTap=e=>{
-  if(attempted||!e.isTrusted||document.hidden)return;
-  if(e.target.closest('a,button,input,select,textarea,summary,[role="button"],[contenteditable="true"]'))return;
-  const pref=window.yitingMusicRead?.();
-  if(pref?.paused===true)return;
-  if(!audio.paused){attempted=true;return;}
-  attempted=true;
+ let pending=false;
+ function tap(e){
+  if(pending||document.hidden||!e.isTrusted)return;
+  if(e.target.closest('a,button,input,select,textarea,summary,[role="button"],[contenteditable="true"],dialog'))return;
+  if(window.yitingMusicRead?.().paused===true)return;
+  if(!audio.paused)return;
+  pending=true;
   audio.muted=false;
-  const promise=audio.play();
-  if(promise&&typeof promise.catch==='function')promise.catch(()=>{attempted=false;});
- };
- document.addEventListener('pointerdown',onTap,{passive:true});
- document.addEventListener('touchend',onTap,{passive:true});
+  try{
+   const p=audio.play();
+   if(p?.then)p.then(()=>{pending=false;}).catch(()=>{pending=false;});
+   else pending=false;
+  }catch{pending=false;}
+ }
+ document.addEventListener('pointerdown',tap,{passive:true});
+ document.addEventListener('touchend',tap,{passive:true});
 })();
