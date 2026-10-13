@@ -55,3 +55,22 @@
 .novel-edition .panel .bubble p{font-size:14px;line-height:1.65;margin:2px 0 0}
 .novel-edition #imageViewer:not([open]){display:none!important}
 @media(max-width:760px){.novel-edition #panels.sheet{padding:4px;gap:14px}.novel-edition .panel .panel-copy{padding:10px 12px 12px}.novel-edition .panel .panel-narration,.novel-edition .panel .bubble p{font-size:13px;line-height:1.65}.novel-edition .panel .bubble{margin-top:6px}}
+
+/* Reader refinement v3: image-first, no crop; compact dialogue independent of global album CSS. */
+body.novel-edition .reader{width:100%;max-width:1060px}
+body.novel-edition #panels.sheet{padding:0!important;gap:14px!important;border:0!important;background:transparent!important}
+body.novel-edition #panels.sheet>.panel:nth-child(n){width:100%!important;grid-column:1/-1!important;margin:0!important;padding:0!important;overflow:visible!important;border:0!important;box-shadow:none!important;background:transparent!important}
+body.novel-edition #panels .panel .art-button,
+body.novel-edition #panels .panel:nth-child(n) .art-button{display:block!important;width:100%!important;max-width:none!important;aspect-ratio:auto!important;height:auto!important;min-height:0!important;padding:0!important;margin:0!important;overflow:visible!important;background:transparent!important;border:0!important;box-shadow:none!important}
+body.novel-edition #panels .panel .art-button img{display:block!important;width:100%!important;max-width:100%!important;height:auto!important;max-height:none!important;aspect-ratio:auto!important;object-fit:contain!important;object-position:center!important}
+body.novel-edition #panels .panel .art-button::after{display:none!important;content:none!important}
+body.novel-edition #panels .panel .panel-copy{width:84%!important;max-width:720px!important;margin:0 auto!important;padding:8px 8px 12px!important;min-height:0!important;background:transparent!important;border:0!important;border-radius:0!important;box-shadow:none!important}
+body.novel-edition #panels .panel .panel-copy>span{font-size:10px!important;line-height:1.4!important}
+body.novel-edition #panels .panel .panel-narration{font-size:13px!important;line-height:1.55!important;margin:4px 0 6px!important;padding:0!important;text-align:left!important}
+body.novel-edition #panels .panel .bubble,
+body.novel-edition #panels .panel .bubble:nth-of-type(n){display:block!important;position:static!important;width:auto!important;max-width:100%!important;min-height:0!important;margin:5px 0!important;padding:4px 0 4px 10px!important;background:transparent!important;border:0!important;border-left:2px solid #c8a3b1!important;border-radius:0!important;box-shadow:none!important;text-align:left!important}
+body.novel-edition #panels .panel .bubble::before,
+body.novel-edition #panels .panel .bubble::after{display:none!important;content:none!important}
+body.novel-edition #panels .panel .bubble strong{display:inline!important;font-size:10px!important;line-height:1.35!important;letter-spacing:0!important;margin:0!important;color:#a25c78!important}
+body.novel-edition #panels .panel .bubble p{font-size:13px!important;line-height:1.55!important;margin:2px 0 0!important;padding:0!important;color:#343b4d!important}
+@media(max-width:760px){body.novel-edition main{padding-left:4px!important;padding-right:4px!important}body.novel-edition #panels .panel .panel-copy{width:86%!important;padding:7px 2px 10px!important}body.novel-edition #panels .panel .bubble p{font-size:12px!important}body.novel-edition #panels .panel .panel-narration{font-size:12px!important}}
