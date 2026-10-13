@@ -27,3 +27,14 @@
 ## 注意
 
 另一台電腦不會自動取得前一台的未發布修改、本機願望與閱讀進度。多人或多電腦修改前請先取得最新 main。原始參考資料如放在 sources/，保持唯讀。
+
+
+## PWA 發布規則
+
+- 正式設定為 manifest.json：standalone、portrait、start_url/scope 都是 ./；保留 app.webmanifest 與 app-manifest.json 相容副本。
+- iOS 使用 apple-touch-icon.png（180px）；Android 使用 192/512px PNG 與內容縮至 80% 的 maskable 圖示。
+- APP_VERSION 需同步更新 pwa.js、sw.js 及七個頁面的 app-version、manifest 和前端快取參數。每次發布前執行 `python audit.py`。
+- HTML/程式採網路優先、離線才讀快取。影音、Range 請求、下载與外部服務不由 App 快取。
+- 既有網站使用多頁 HTML/JS；沒有 React/Babel/Firebase CDN，因此不需要建立不存在的函式庫快取。
+- app-runtime.js 管理彈窗返回與錯誤提示；不會強制中斷電影或自動重新整理。
+- 網頁上圖片顯示成功，不代表 iPhone 加入主畫面圖示已驗收。必須在實機查看安裝預覽與實際主畫面；圖示更新可能需要使用者移除舊捷徑後重新加入。

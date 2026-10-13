@@ -1,0 +1,83 @@
+{
+  "id": "./",
+  "name": "YITING · 10.20｜穿越星光，只為遇見妳",
+  "short_name": "YITING 10.20",
+  "description": "生日電影、電影互動漫畫、小說漫畫與生日收藏。",
+  "lang": "zh-Hant",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#101a30",
+  "theme_color": "#101a30",
+  "icons": [
+    {
+      "src": "assets/icon-192.png?v=20261013-1",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "assets/icon-512.png?v=20261013-1",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "assets/icon-maskable-512.png?v=20261013-1",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "生日電影",
+      "url": "movie.html",
+      "icons": [
+        {
+          "src": "assets/icon-192.png?v=20261013-1",
+          "sizes": "192x192",
+          "type": "image/png",
+          "purpose": "any"
+        }
+      ]
+    },
+    {
+      "name": "電影互動漫畫",
+      "url": "game.html",
+      "icons": [
+        {
+          "src": "assets/icon-192.png?v=20261013-1",
+          "sizes": "192x192",
+          "type": "image/png",
+          "purpose": "any"
+        }
+      ]
+    },
+    {
+      "name": "小說漫畫",
+      "url": "novel-comic.html",
+      "icons": [
+        {
+          "src": "assets/icon-192.png?v=20261013-1",
+          "sizes": "192x192",
+          "type": "image/png",
+          "purpose": "any"
+        }
+      ]
+    },
+    {
+      "name": "生日收藏",
+      "url": "gift.html",
+      "icons": [
+        {
+          "src": "assets/icon-192.png?v=20261013-1",
+          "sizes": "192x192",
+          "type": "image/png",
+          "purpose": "any"
+        }
+      ]
+    }
+  ],
+  "orientation": "portrait"
+}
