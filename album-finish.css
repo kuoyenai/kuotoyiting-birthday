@@ -1,0 +1,302 @@
+/* The final finish of the album: night blue covers, warm paper, restrained gold. */
+@font-face{font-family:'Invitation Bodoni';src:url('assets/fonts/BodoniModa.ttf') format('truetype');font-weight:400;font-display:swap}
+@font-face{font-family:'Invitation Song';src:url('assets/fonts/invitation-chinese.ttf') format('truetype');font-weight:400;font-display:swap}
+:root{
+ --finish-night:#101a2d;
+ --finish-paper:#f6f2e9;
+ --finish-ink:#283044;
+ --finish-muted:#626a79;
+ --finish-gold:#d7c39e;
+ --finish-seal:#a74962;
+ --finish-rule:#b7a58a4d;
+ --finish-serif:'Invitation Bodoni','Invitation Song','Songti TC','PMingLiU',serif;
+}
+body{line-height:1.75;-webkit-font-smoothing:antialiased}
+[hidden]{display:none!important}
+body.album-edition,body:has(#panels){background:var(--finish-paper);color:var(--finish-ink);color-scheme:light}
+body.home-page.album-edition,body:has(#stars){color-scheme:dark}
+button,a,summary,select,input,textarea{-webkit-tap-highlight-color:transparent}
+button,select,textarea{font-family:inherit}
+button{transition:background-color .2s ease,border-color .2s ease,color .2s ease}
+button:focus-visible,a:focus-visible,summary:focus-visible,select:focus-visible,input:focus-visible,textarea:focus-visible{outline:2px solid var(--finish-seal);outline-offset:4px}
+.foil-text{background:none;-webkit-text-fill-color:currentColor;color:#79613f;filter:none;letter-spacing:.035em}
+.home-page .foil-text,.intro h1 .foil-text,.issue h1 .foil-text,.collection-intro .foil-text,body:has(#panels) main>h1 .foil-text,.novel-comic-entry h2 .foil-text{background:none;color:#eddfc6;filter:none}
+.starlight-atmosphere{opacity:.42}
+.site-nav,.site-links{max-width:1100px;font-size:12px;letter-spacing:.07em;padding:16px 20px 22px!important}
+.home-header,.gift-header{padding-top:30px!important;padding-bottom:22px!important}
+.wordmark,.brand{font-family:var(--finish-serif);font-size:29px!important}
+.dedication{font-size:10px!important;letter-spacing:.18em!important}
+.eyebrow,.edition,.letter-kicker{font-size:10px;letter-spacing:.2em;line-height:1.8}
+
+/* Cover and contents: the existing cover art keeps its full proportions. */
+body.home-page.album-edition{background:radial-gradient(ellipse at 80% 5%,#2b304a65,transparent 48%),#101a2d;color:#eddfc6}
+.home-page .album-home{max-width:1240px;padding-top:26px}
+.home-page .edition-topline{margin-bottom:24px;letter-spacing:.14em}
+.home-page .album-jacket{border-color:#d7c39e55;border-radius:4px;box-shadow:0 24px 65px #030a164d}
+.home-page.album-edition .unbox-button{border-color:#d7c39e88;background:#142039eb;border-radius:3px;padding:15px 24px;min-height:50px;letter-spacing:.07em;font-size:12px;box-shadow:0 5px 18px #0002}
+.home-page.album-edition .unbox-button:hover{background:#864055;border-color:#e3bdc3}
+.home-page .opened{box-shadow:0 24px 65px #030a164d}
+.home-page .album-contents{margin-top:68px}
+.home-page .contents-heading{padding-bottom:22px;border-color:#d7c39e40;align-items:baseline}
+.home-page .contents-heading h2{font-family:var(--finish-serif);font-size:clamp(30px,4vw,44px);font-weight:400;letter-spacing:0}
+.home-page .contents-heading small{font-size:10px;line-height:1.9;letter-spacing:.04em}
+.home-page .album-items{gap:26px;margin-top:28px}
+.home-page .album-item{padding-bottom:28px;border-color:#d7c39e40}
+.home-page .album-item-art{aspect-ratio:4/3;border:1px solid #d7c39e40;border-radius:3px;overflow:hidden}
+.home-page .album-item-art img{object-fit:contain;background:#131f34}
+.home-page .album-item-art span{background:#101a2de6;color:#e9d6b3;font-size:9px;letter-spacing:.1em;border:1px solid #d7c39e40}
+.home-page .album-item>small{display:block;font-size:9px;letter-spacing:.14em;margin-top:20px;color:#c68d9b}
+.home-page .album-item h3{font-size:24px;margin:12px 0 10px;font-weight:400}
+.home-page .album-item p{font-size:13px;line-height:1.9;color:#bdc1cf}
+.home-page .album-item b{font-size:12px;letter-spacing:.04em;font-weight:400;margin-top:20px}
+.home-page .album-colophon{margin-top:58px;padding:40px;border:1px solid #d7c39e40;border-radius:3px;background:linear-gradient(90deg,#101a2def,#101a2dbf),url('assets/novel-starlit-walk-wide.webp') center/cover}
+.home-page .album-colophon a{font-size:13px!important;padding:15px 22px!important;border-radius:3px!important;border-color:#d7c39e66!important;color:#eddfc6!important}
+.home-page .album-colophon small{font-size:12px;line-height:2}
+.home-page .home-footer{padding:58px 0 30px}
+.app-install{border-radius:4px;box-shadow:none;border-color:#d7c39e40;background:#14203588}
+.app-install h2{font-size:20px;letter-spacing:.025em}
+.home-page .app-install button{border-radius:3px;border-color:#d7c39e55;min-height:46px}
+.home-soundtrack{max-width:none;border-radius:4px;background:#152137;border-color:#d7c39e40;padding:23px 28px}
+.home-soundtrack summary{font-family:var(--finish-serif);font-size:18px;letter-spacing:.035em;display:list-item}
+.home-soundtrack select{width:100%;background:#101a2d;color:#eddfc6;border:1px solid #d7c39e55;border-radius:3px;padding:10px 14px;font-size:14px}
+.home-soundtrack .shared-lyrics{padding-top:18px;border-top:1px solid #d7c39e33;margin-top:12px}
+.shared-lyrics .lyric-original{font-size:17px;line-height:1.9;font-weight:400}
+.shared-lyrics .lyric-translation{font-size:14px;line-height:1.9}
+.soundtrack-status{font-size:12px;color:inherit;opacity:.88}
+
+/* Editorial paper pages and quiet image borders. */
+.album-edition.gift-page #birthday.gift-collection{width:min(1100px,92vw);padding-top:8px}
+.album-edition.gift-page .collection-intro,.album-edition.comic-page .issue,.album-edition.film-page:not(.gift-page) .intro,body:has(#panels) main>h1{border-radius:4px;border-color:#d7c39e55;padding:40px 36px;background-color:#101a2d}
+.album-edition.gift-page .collection-intro{align-items:end;gap:28px;min-height:225px}
+.collection-intro h1{font-size:clamp(36px,4.5vw,56px);line-height:1.35!important;margin-top:12px!important}
+.collection-intro p{font-size:13px!important;line-height:1.95!important;max-width:300px}
+.collection-tabs{gap:22px;margin:30px 0 44px;padding-bottom:0;border-bottom:1px solid var(--finish-rule)}
+.collection-tabs button{border:0!important;background:none!important;border-radius:0;padding:13px 0!important;font-size:13px;min-height:48px;color:#626a79!important}
+.collection-tabs button[aria-selected=true]{color:var(--finish-seal)!important;box-shadow:inset 0 -2px var(--finish-seal)}
+.gift-section .blessing-layout{grid-template-columns:1.12fr 1fr;gap:48px;align-items:start}
+.gift-section .blessing-art{padding:10px;border:1px solid #b7a58a55;background:#fffdf8;box-shadow:0 15px 40px #28304414;border-radius:3px}
+.blessing-copy h2{font-size:clamp(27px,3vw,35px)!important;margin:14px 0 18px!important}
+.blessing-copy #giftText{font-size:14px;color:#626a79;line-height:2}
+.gift-music{border:1px solid #b7a58a66;border-radius:4px;padding:23px;background:#ece7dc;gap:14px;margin-top:26px}
+.music-heading{font-size:12px;letter-spacing:.05em}
+.gift-track-list{gap:9px}
+.gift-music .gift-track-choice{min-height:64px;border-radius:3px;background:#fffdf8;border-color:#b7a58a66;padding:14px;box-shadow:none}
+.gift-music .gift-track-choice[aria-pressed=true]{background:#f4e7e9;border-color:#a7496299;box-shadow:inset 3px 0 var(--finish-seal)}
+.gift-track-choice small{font-variant-numeric:tabular-nums;font-size:10px;line-height:1.6}
+.gift-track-choice span{font-size:14px;line-height:1.7;font-weight:400}
+.gift-timed-lyrics{border-radius:4px;background:#142039;border-color:#d7c39e55;padding:26px 20px;margin-top:24px}
+.gift-lyric-top{color:#c9bbab;font-size:10px;letter-spacing:.06em}
+.gift-lyric-original{font-size:18px;font-weight:400;line-height:1.9;color:#faf6ec}
+.gift-lyric-translation{font-size:14px;line-height:1.9;color:#ddc6a3}
+.gift-lyric-seek{color:#ccc4bc;font-size:12px}
+.gift-lyric-seek input{accent-color:#cfaab3}
+body.album-edition.gift-page .cards{gap:28px}
+body.album-edition.gift-page .card-item{padding:12px 12px 18px;background:#fffdf8;border-color:#b7a58a55;border-radius:3px;box-shadow:0 10px 30px #28304408}
+body.album-edition.gift-page .card-front img{object-fit:contain!important}
+.card-caption{font-family:var(--finish-serif);font-size:17px;padding:16px 0 8px;letter-spacing:.035em}
+body.album-edition.gift-page .favorite-card{border-color:#a7496255;background:#f6edf0;color:#813f53;min-height:44px;border-radius:3px;padding:10px 15px;font-size:12px;letter-spacing:.02em}
+body.album-edition.gift-page .favorite-card[aria-pressed=true]{background:#844257;color:#fff7ed;border-color:#844257}
+body.album-edition.gift-page .card-filters button{border-radius:3px;border-color:#b7a58a66;font-size:12px}
+body.album-edition.gift-page .card-filters button[aria-pressed=true]{background:#17253b;border-color:#17253b;color:#f1e1c7}
+.gift-section .birthday-memory figure{border-radius:3px;border-color:#b7a58a55;padding:14px;box-shadow:0 15px 35px #2830440a}
+.wish-letter{background:#fffdf8;border-color:#b7a58a55;padding:40px;border-radius:4px;box-shadow:0 15px 35px #2830440a}
+.gift-section .asset-downloads a{font-size:12px;border-radius:3px!important}
+body.album-edition.gift-page #birthday .gift-section .asset-downloads a{background:#fffdf8;color:#626a79;border-color:#b7a58a66}
+body:has(#panels) .reader-settings{background:#ede7dc;border:1px solid #b7a58a55;border-radius:4px;padding:24px}
+.reader-settings summary{font-family:var(--finish-serif);font-size:19px;line-height:1.8}
+.reader-settings p{font-size:14px;line-height:1.9}
+body:has(#panels) .tracks button{border-radius:3px;border-color:#b7a58a66;background:#fffdf8;font-size:13px;line-height:1.8}
+body:has(#panels) .tracks button[aria-pressed=true]{border-color:#a7496277;background:#f4e7e9;box-shadow:inset 3px 0 var(--finish-seal)}
+body:has(#panels) .panel{box-shadow:0 12px 32px #2830440a;border-color:#b7a58a80;border-radius:3px;overflow:hidden}
+body:has(#panels) .panel-copy{padding:28px}
+body:has(#panels) .narration{font-family:var(--finish-serif);font-size:16px;line-height:2;color:#5d6573}
+body:has(#panels) .bubble{border-radius:4px;background:#f5f1e9;border-color:#b7a58a44;padding:18px 20px}
+body:has(#panels) .bubble:nth-of-type(even){background:#f6ecef}
+body:has(#panels) .bubble::before{display:none}
+body:has(#panels) .bubble p{font-size:16px;line-height:1.95}
+body:has(#panels) #chapterTitle{font-family:var(--finish-serif);font-size:32px}
+.album-edition.comic-page .sheet{padding:24px;border-color:#b7a58a55;border-radius:0 0 4px 4px}
+.album-edition.comic-page .panel{border-color:#b7a58a80;border-radius:3px;overflow:hidden}
+.album-edition.comic-page figcaption{padding:22px;border-color:#b7a58a55}
+.album-edition.comic-page figcaption p{font-family:var(--finish-serif);font-size:17px;line-height:1.95}
+.album-edition.comic-page .interaction,.album-edition.comic-page #extra{background:#eee7e4;border-radius:4px;border-color:#b7a58a55;padding:28px}
+.settings>div{width:min(320px,calc(100vw - 32px));padding:22px;border-radius:4px;border-color:#d7c39e55;background:#142039;color:#eee3d1}
+.settings select{max-width:100%;min-height:44px;background:#101a2d;color:#eee3d1;border:1px solid #d7c39e55;padding:8px;font-size:13px;line-height:1.8}
+
+/* Film presentation and the red-star epilogue share the cover's materials. */
+.album-edition.film-page:not(.gift-page) .cinema{border-radius:4px;border-color:#b7a58a66;box-shadow:0 18px 50px #101a2d1c}
+.film-page .chapters{gap:10px;margin-top:24px}
+.film-page .chapters button{font-size:12px;letter-spacing:.035em;border-radius:3px;border-color:#b7a58a66;padding:13px}
+.film-page .chapters button.active{background:#eee5df;border-color:#a7496277}
+body:has(#stars){background:radial-gradient(ellipse at 75% 15%,#31304966,transparent 55%),#101a2d;color:#eee3d1}
+body:has(#stars)::before{opacity:.07;background-size:83px 97px}
+body:has(#stars) header{max-width:1040px;margin:auto;padding:32px 28px;border-bottom:1px solid #d7c39e33;font-size:11px;letter-spacing:.07em}
+body:has(#stars) main{max-width:900px;padding:60px 28px 90px}
+body:has(#stars) h1{font-family:var(--finish-serif);font-size:clamp(38px,6vw,66px);line-height:1.4;letter-spacing:.03em;margin:24px 0 28px}
+body:has(#stars) h1 em{color:#dcc7a4}
+body:has(#stars) .intro{font-size:15px;line-height:2.05;color:#c0c3d0;margin-bottom:30px}
+body:has(#stars) #progress{font-size:12px;letter-spacing:.12em;color:#dcc7a4}
+.stars{gap:12px;margin:35px 0 30px}
+.star{border-radius:4px;border-color:#d7c39e40;background:#15213766;min-height:150px;padding:22px 8px;transform:none}
+.star-icon{font-size:38px;text-shadow:none;animation:none}
+.star strong{font-size:11px;font-weight:400;letter-spacing:.13em;margin-top:18px}
+.star small{font-size:12px;color:#c0c3d0;letter-spacing:.08em}
+.star.collected{border-color:#d7c39e88;background:#1d2a4077}
+.star:hover,.star:focus-visible,.star.active{transform:none;border-color:var(--glow);background:#20304a77}
+.star.collected::after{font-size:11px;color:#dcc7a4;margin-top:10px}
+.letter{border-radius:4px;border-color:#d7c39e40;background:#142039;padding:32px;min-height:220px}
+.letter h2{font-family:var(--finish-serif);font-size:29px;color:#eddfc6;font-weight:400;line-height:1.6}
+.letter p{font-size:15px;line-height:2.1;color:#ccd0da}
+.finale{border-radius:3px;background:#844257;border-color:#bf7a8980;padding:16px 26px;font-size:14px;min-height:52px;letter-spacing:.03em;margin-bottom:32px}
+.secret{border-radius:4px;border-color:#d7c39e55;background:linear-gradient(145deg,#35233388,transparent 48%),#132036;padding:42px 32px;box-shadow:0 20px 55px #030a162b}
+.secret>.red-star{font-size:54px;animation:none;text-shadow:none;color:#ca8d9c;margin-top:32px}
+.secret>h2{font-family:var(--finish-serif);font-size:clamp(28px,5vw,43px);line-height:1.55;letter-spacing:.035em}
+.secret>p{font-size:15px;line-height:2.1;color:#d4d0d7}
+.secret>.secret-links a{border-radius:3px;border-color:#d7c39e66;font-size:12px;padding:13px 19px}
+.ending-scene{padding:8px 0 32px;border-color:#d7c39e40}
+.ending-scene h3{font-family:var(--finish-serif)!important;font-size:27px!important;line-height:1.65;color:#eddfc6!important;font-style:normal;margin:15px 0 24px}
+.ending-scene img{border-radius:3px;border:1px solid #d7c39e40;background:#101a2d}
+.ending-scene .ending-words{font-size:16px;line-height:2.05;text-align:left;max-width:36em;margin:28px auto;color:#d7d6df}
+.ending-scene .ending-choices{gap:10px;margin:26px 0}
+.ending-scene button,.secret .birthday-letter button{border-radius:3px;background:#1c2b43;border-color:#d7c39e66;color:#eee3d1;font-size:14px;padding:13px 18px}
+.ending-choices button[aria-pressed=true]{background:#844257;border-color:#bf7a89;box-shadow:inset 3px 0 #d9a7b4}
+.ending-response{font-size:15px;line-height:2;text-align:left;padding:20px 24px;border-left:2px solid #bd7b8e;background:#2d263c55}
+.ending-response:empty{display:none}
+.ending-note{font-size:12px!important;color:#aeb6c6!important}
+.ending-scene .letter-actions{justify-content:space-between;margin-top:28px}
+.secret .letter-actions button{min-width:130px}
+
+/* A keepsake letter uses paper in the collection, and midnight paper in the epilogue. */
+.birthday-letter{position:relative;border-radius:4px;border:1px solid #b7a58a66;background:#fffdf8;color:#30384a;padding:42px 48px;max-width:none;margin:48px auto 28px;box-shadow:0 14px 40px #2830440a;overflow:hidden}
+.birthday-letter::before{content:'';display:block;width:36px;height:2px;background:var(--finish-seal);margin-bottom:24px}
+.birthday-letter h2{font-family:var(--finish-serif);font-size:clamp(27px,3vw,37px);font-weight:400;letter-spacing:.035em;margin:15px 0 22px;line-height:1.6}
+.birthday-letter h2,.ending-scene h3,.letter h2,.home-page .album-item h3{text-wrap:balance}
+.birthday-letter>p:not(.eyebrow){font-size:14px;line-height:1.95;color:#626a79;max-width:42em}
+.birthday-letter button{border-radius:3px;border-color:#b7a58a88;background:#fffdf8;color:#30384a;font-size:13px;padding:13px 18px}
+.birthday-letter .letter-open,.birthday-letter .letter-save{background:#17253b;border-color:#17253b;color:#f4e8d3}
+.birthday-letter #birthdayLetterBody{margin-top:30px;padding-top:8px;border-top:1px solid #b7a58a44}
+.birthday-letter #birthdayLetterBody>p:not(.letter-status){font-family:'Invitation Song','Songti TC','PMingLiU',serif;font-size:17px;line-height:2.05;max-width:39em;color:#424857;margin:24px 0}
+.birthday-letter #birthdayLetterBody>.letter-signature{font-family:var(--finish-serif);font-size:18px;color:#8e7150}
+.birthday-letter label{display:block;font-size:13px;color:#626a79;letter-spacing:.035em;margin-top:30px}
+.birthday-letter textarea{border-radius:3px;background:#f7f3ea;color:#30384a;border-color:#b7a58a77;padding:16px;font-size:16px;line-height:1.95}
+.birthday-letter textarea::placeholder{color:#777c85;opacity:1}
+.birthday-letter small{color:#626a79;font-size:12px;line-height:1.9}
+.birthday-letter .letter-status{font-size:13px;color:#813f53}
+.secret .birthday-letter{background:#142039;color:#eddfc6;border-color:#d7c39e40;padding:32px;box-shadow:none;margin-top:40px}
+.secret .birthday-letter .eyebrow{color:#cc9eae}
+.secret .birthday-letter>p:not(.eyebrow),.secret .birthday-letter #birthdayLetterBody>p:not(.letter-status){color:#ccd0da}
+.secret .birthday-letter small,.secret .birthday-letter label{color:#b9c0cf}
+.secret .birthday-letter textarea{background:#101a2d;color:#eee3d1;border-color:#d7c39e55}
+.secret .birthday-letter textarea::placeholder{color:#aeb6c6}
+.secret .birthday-letter .letter-status{color:#dfb0bb}
+.secret .birthday-letter .letter-save,.secret .birthday-letter .letter-open{background:#844257;border-color:#bf7a8977}
+.home-page .fan-work-notice,.fan-work-notice,.notice{font-size:11px;line-height:1.9}
+.journey-nav{border-color:#d7c39e40;box-shadow:0 -6px 24px #101a2d12}
+.journey-nav a{font-size:11px;letter-spacing:.03em}
+.journey-nav a[aria-current]{background:#ffffff07;border-radius:3px}
+#cinemaIntro{background:radial-gradient(ellipse at 60% 40%,#39304b66,transparent 60%),#101a2d}
+#cinemaIntro::before{opacity:.09}
+#cinemaIntro .intro-clock{font-family:var(--finish-serif);text-shadow:none;color:#eddfc6}
+#cinemaIntro h2{font-family:'Invitation Song','Songti TC',serif;font-size:clamp(23px,4vw,34px);font-weight:400;letter-spacing:.04em;line-height:1.8}
+#cinemaIntro button{border-radius:3px;background:#e5d6bb;color:#142039;padding:14px 24px;font-size:13px}
+#cinemaIntro button.secondary{border-color:#d7c39e66;color:#eddfc6}
+
+@media(min-width:761px){.home-page .album-item:hover .album-item-art{border-color:#d7c39e99}.birthday-letter .letter-actions{gap:10px}.birthday-letter .letter-actions>*{flex:0 1 auto}}
+@media(max-width:1000px) and (min-width:761px){.gift-section .blessing-layout{gap:30px;grid-template-columns:1fr 1fr}.home-page .album-items{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:760px){
+ .home-header,.gift-header{padding-top:21px!important;padding-bottom:18px!important}
+ .wordmark,.brand{font-size:27px!important}
+ .home-page .home-header button{border-radius:3px;border-color:#d7c39e55;padding:10px 14px;min-height:44px;font-size:11px}
+ .home-page .album-home{padding:16px 20px 35px}
+ .home-page .edition-topline{font-size:8px;letter-spacing:.06em;line-height:1.8;margin-bottom:18px}
+ .home-page .jacket-art{height:auto;min-height:0;background:#142039}
+ .home-page .jacket-art img{display:block;width:100%;height:auto;object-fit:contain;object-position:center}
+ .home-page .jacket-copy{padding:30px 24px 32px;background:linear-gradient(180deg,#1a2740,#142039)}
+ .home-page .jacket-copy h1{font-size:clamp(55px,16vw,76px)!important;margin:18px 0 12px}
+ .home-page .album-date{font-family:var(--finish-serif);font-size:36px}
+ .home-page .jacket-title{margin:24px 0;line-height:1.8}
+ .home-page .jacket-title .foil-text{font-size:22px;letter-spacing:.045em}
+ .home-page.album-edition .unbox-button{width:100%;max-width:320px;font-size:12px;padding:14px 12px}
+ .home-page .app-install{margin:24px 0;padding:20px 18px;gap:15px}
+ .home-page .app-install h2{font-size:18px}
+ .home-page .app-install img{width:52px;height:52px;border-radius:11px}
+ .home-soundtrack{padding:21px 18px;margin-top:24px}
+ .home-soundtrack summary{font-size:17px}
+ .home-page .album-contents{margin-top:42px}
+ .home-page .contents-heading{gap:9px;padding-bottom:20px}
+ .home-page .contents-heading h2{font-size:34px}
+ .home-page .contents-heading small{font-size:10px}
+ .home-page .album-items{grid-template-columns:1fr;gap:0;margin-top:8px}
+ .home-page .album-item{grid-template-columns:112px minmax(0,1fr);gap:0 19px;padding:24px 0}
+ .home-page .album-item-art{aspect-ratio:3/4;align-self:start;grid-row:1/6}
+ .home-page .album-item>small{font-size:8px;letter-spacing:.07em;margin-top:0;line-height:1.8}
+ .home-page .album-item h3{font-size:22px;line-height:1.55;margin:10px 0}
+ .home-page .album-item p{font-size:12px;line-height:1.85}
+ .home-page .album-item b{font-size:11px;margin-top:13px}
+ .home-page .album-colophon{margin-top:32px;padding:27px 22px}
+ .home-page .album-colophon p{font-size:22px;line-height:1.7}
+ .home-page .album-colophon a{font-size:12px!important;line-height:1.9}
+ .home-page .album-colophon small{font-size:12px}
+ .album-edition.gift-page #birthday.gift-collection{width:calc(100% - 40px);margin-top:24px}
+ .album-edition.gift-page .collection-intro,.album-edition.comic-page .issue,.album-edition.film-page:not(.gift-page) .intro,body:has(#panels) main>h1{padding:30px 24px}
+ .collection-intro h1{font-size:34px;line-height:1.4!important;margin:18px 0!important}
+ .collection-intro p{font-size:13px!important;max-width:26em}
+ .collection-tabs{gap:24px;margin:24px 0 30px;padding-bottom:0;overflow-x:auto}
+ .collection-tabs button{font-size:12px;padding:12px 0!important}
+ .gift-section .blessing-layout{grid-template-columns:1fr;gap:26px}
+ .blessing-copy h2{font-size:28px!important;line-height:1.65!important}
+ .blessing-copy #giftText{font-size:14px;line-height:1.95}
+ .gift-music{padding:20px 17px}
+ .gift-track-list{grid-template-columns:1fr}
+ .gift-track-list .theme-song-choice{grid-column:auto}
+ .gift-music .gift-track-choice{min-height:56px}
+ .gift-track-choice small{min-width:52px}
+ .gift-timed-lyrics{padding:24px 18px}
+ .gift-lyric-original{font-size:17px}
+ body.album-edition.gift-page .cards{gap:24px}
+ .card-caption{font-size:17px;line-height:1.8}
+ .wish-letter{padding:28px 22px}
+ .reader-settings summary{font-size:18px}
+ body:has(#panels) .reader-settings{padding:22px 18px}
+ body:has(#panels) .tracks{grid-template-columns:1fr}
+ body:has(#panels) .tracks button{padding:12px 14px;text-align:left;font-size:13px;min-height:48px}
+ body:has(#panels) .panel-copy{padding:22px 19px}
+ body:has(#panels) .narration{font-size:15px}
+ body:has(#panels) .bubble{padding:17px}
+ body:has(#panels) .bubble p{font-size:15px;line-height:1.95}
+ body:has(#panels) #chapterTitle{font-size:27px}
+ .album-edition.comic-page .sheet{padding:15px;gap:18px}
+ .album-edition.comic-page figcaption{padding:19px 16px}
+ .album-edition.comic-page figcaption p{font-size:16px}
+ .album-edition.comic-page .interaction,.album-edition.comic-page #extra{padding:24px 20px}
+ body:has(#stars) header{padding:24px 22px;font-size:10px;gap:12px}
+ body:has(#stars) main{padding:36px 22px 65px}
+ body:has(#stars) h1{font-size:42px;line-height:1.5}
+ body:has(#stars) .intro{font-size:14px;line-height:2;margin-bottom:25px}
+ .stars{gap:10px;grid-template-columns:repeat(3,minmax(0,1fr))}
+ .star{min-height:140px;padding:20px 6px}
+ .star-icon{font-size:32px}
+ .star strong{font-size:10px;letter-spacing:.07em;margin-top:15px}
+ .star small{font-size:11px}
+ .letter{padding:26px 22px}
+ .letter h2{font-size:25px;line-height:1.6}
+ .letter p{font-size:14px}
+ .finale{width:100%;font-size:13px;padding:14px 16px}
+ .secret{padding:30px 20px;margin-top:28px}
+ .ending-scene h3{font-size:23px!important}
+ .ending-scene .ending-words{font-size:15px;line-height:2.05;margin:24px 0}
+ .ending-response{padding:18px 16px;font-size:14px}
+ .ending-scene .letter-actions{gap:12px}
+ .ending-scene .letter-actions button{flex:1 1 0;min-width:0}
+ .birthday-letter{padding:30px 24px;margin:36px auto 24px}
+ .birthday-letter h2{font-size:27px;line-height:1.6}
+ .birthday-letter #birthdayLetterBody>p:not(.letter-status){font-size:16px;line-height:2.05;margin:22px 0}
+ .birthday-letter .letter-actions{gap:10px}
+ .birthday-letter .letter-actions>*{width:100%;font-size:13px;flex:1 1 100%}
+ .secret .birthday-letter{padding:26px 18px}
+ .secret .birthday-letter h2{font-size:25px}
+ .journey-nav{padding-top:9px;padding-bottom:calc(9px + env(safe-area-inset-bottom))}
+}
+@media(max-width:370px){.home-page .album-home{padding-left:16px;padding-right:16px}.home-page .album-item{grid-template-columns:96px minmax(0,1fr);column-gap:15px}.home-page .album-item h3{font-size:20px}body:has(#stars) h1{font-size:37px}.secret{padding-left:16px;padding-right:16px}.ending-scene h3{font-size:21px!important}}
+@media(prefers-reduced-motion:reduce){button,.star,.album-item,.birthday-letter,.ending-scene{transition:none!important;animation:none!important}}
+@media(forced-colors:active){.foil-text{color:CanvasText!important;-webkit-text-fill-color:CanvasText;background:none}.collection-tabs button[aria-selected=true],.gift-music .gift-track-choice[aria-pressed=true],.star.collected{outline:2px solid Highlight}}

@@ -19,8 +19,8 @@ const server = http.createServer((req,res)=>{
  await new Promise(resolve=>server.listen(0,'127.0.0.1',resolve));
  const base=`http://127.0.0.1:${server.address().port}/`;
  const browser=await chromium.launch({channel:process.env.BROWSER_CHANNEL||'chrome',headless:true});
- const extrasOnly=process.argv.includes('--extras');
- const results=extrasOnly?JSON.parse(fs.readFileSync(path.join(root,'tests','smoke-results.json'),'utf8')):[];const baseline=process.argv.includes('--baseline');
+ const extrasOnly=process.argv.includes('--extras'),visualOnly=process.argv.includes('--visual');
+ const results=extrasOnly?JSON.parse(fs.readFileSync(path.join(root,'tests','smoke-results.json'),'utf8')).filter(result=>!result.test?.startsWith('reduced motion intro')):[];const baseline=process.argv.includes('--baseline');
  fs.mkdirSync(path.join(root,'tests','screenshots'),{recursive:true});
  try {
  for(const [label,options] of (extrasOnly?[]:[['desktop',{viewport:{width:1440,height:1000}}],['iPhone',devices['iPhone 13']],['Android',devices['Pixel 7']],['small',{viewport:{width:360,height:780},isMobile:true,hasTouch:true}]])){
@@ -32,14 +32,14 @@ const server = http.createServer((req,res)=>{
    await page.goto(base+file);await page.waitForTimeout(400);
    if(file==='index.html')await page.locator('#unbox').click();
    const overflow=await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth+1);
-   await page.screenshot({path:path.join(root,'tests','screenshots',`${baseline?'baseline-':''}${label}-${file}.png`),fullPage:false});
+   await page.screenshot({path:path.join(root,'tests','screenshots',`${baseline?'baseline-':visualOnly?'design-':''}${label}-${file}.png`),fullPage:false});
    results.push({label,file,errors,missing,overflow});
    assert.equal(errors.length,0,`${label} ${file} JS errors: ${errors}`);
    assert.equal(missing.length,0,`${label} ${file} missing assets: ${missing}`);
    assert.equal(overflow,false,`${label} ${file} overflow`);
    await page.close();
   }
-  if(!baseline&&label!=='small'){
+  if(!baseline&&!visualOnly&&label!=='small'){
    const page=await context.newPage();const errors=[];page.on('pageerror',e=>errors.push(e.message));
    // Each existing player's controls must play all four actual audio assets.
    const players=[['index.html','#homeSong','#homeMusic','#homeMusic'],['game.html','#bgm','#music','#music'],['novel-comic.html','#comicMusic','#musicToggle','#musicToggle'],['gift.html','#song','#listen','#listen'],['movie.html','#song','#listen','#listen']];
@@ -93,9 +93,9 @@ const server = http.createServer((req,res)=>{
    // Five original member stars, unlock, three scenes, response persistence and downloads.
    await page.goto(base+'starlight.html');assert.equal(await page.locator('#finale').isDisabled(),true);
    for(let i=0;i<5;i++)await page.locator(`[data-star="${i}"]`).click();
-   await page.locator('#finale').click();await page.locator('.ending-next').click();
+   await page.locator('#finale').click();assert.equal(await page.locator('.ending-choices').isVisible(),false);await page.locator('.ending-next').click();assert.equal(await page.locator('.ending-choices').isVisible(),true);
    await page.locator('.ending-choices button').nth(1).click();assert.match(await page.locator('.ending-response').textContent(),/安心休息/);
-   await page.locator('.ending-next').click();assert.match(await page.locator('.ending-words').textContent(),/2026 年 10 月 20 日/);
+   await page.locator('.ending-next').click();assert.equal(await page.locator('.ending-choices').isVisible(),false);assert.match(await page.locator('.ending-words').textContent(),/2026 年 10 月 20 日/);
    await page.locator('.letter-open').click();await page.locator('#birthdayLetterReply').fill('願明年的自己，也記得好好休息。');await page.locator('.letter-save').click();
    await page.locator('.birthday-letter').screenshot({path:path.join(root,'tests','screenshots',`${label}-letter.png`)});
    await page.locator('.ending-scene').screenshot({path:path.join(root,'tests','screenshots',`${label}-ending.png`)});
@@ -108,19 +108,22 @@ const server = http.createServer((req,res)=>{
   }
   await context.close();
  }
- if(!baseline){
+ if(!baseline&&!visualOnly){
   const context=await browser.newContext({...devices['iPhone 13'],reducedMotion:'reduce',serviceWorkers:'block'});
   const page=await context.newPage(),errors=[];page.on('pageerror',e=>errors.push(e.message));
   await page.goto(base+'index.html');await page.locator('#introStart').click();await page.locator('#cinemaIntro').waitFor({state:'detached'});
   assert.equal(await page.evaluate(()=>document.getAnimations().filter(a=>a.playState==='running').length),0);
-  await page.goto(base+'movie.html');await page.locator('#start').click();
+  await page.goto(base+'movie.html');await page.waitForFunction(()=>document.querySelector('#film').readyState>0);if(await page.locator('#film').evaluate(a=>a.paused))await page.locator('#play').click();
   await page.waitForFunction(()=>!document.querySelector('#film').paused);
   await page.locator('[data-time]').nth(1).click();
   assert.equal(await page.locator('#film').evaluate(a=>a.paused),false);
   assert.equal(await page.locator('.cinema').getAttribute('data-shot'),'eunho');
   await page.goto(base+'starlight.html');for(let i=0;i<5;i++)await page.locator(`[data-star="${i}"]`).click();
-  await page.locator('#finale').click();await page.locator('.ending-next').click();await page.locator('.ending-choices button').first().click();
+  await page.locator('#finale').click();assert.equal(await page.locator('.ending-choices').isVisible(),false);await page.locator('.ending-next').click();assert.equal(await page.locator('.ending-choices').isVisible(),true);await page.locator('.ending-choices button').first().click();
   await page.locator('.ending-scene').screenshot({path:path.join(root,'tests','screenshots','iPhone-ending.png')});
+  await page.locator('.ending-next').click();assert.equal(await page.locator('.ending-choices').isVisible(),false);
+  await page.locator('.ending-scene img').scrollIntoViewIfNeeded();await page.locator('.ending-scene img').evaluate(img=>img.decode());
+  await page.locator('.ending-scene').screenshot({path:path.join(root,'tests','screenshots','iPhone-ending-final.png')});
   await page.goto(base+'gift.html');await page.locator('.letter-open').click();
   await page.locator('.birthday-letter').screenshot({path:path.join(root,'tests','screenshots','iPhone-letter.png')});
   await page.evaluate(()=>{Storage.prototype.setItem=function(){throw new DOMException('Blocked','SecurityError');};});
@@ -130,6 +133,6 @@ const server = http.createServer((req,res)=>{
   assert.equal(errors.length,0,errors.join('\n'));results.push({test:'reduced motion intro and continuous film, denied storage, export fallback and existing favorites error',pass:true});
   await context.close();
  }
- } finally {await browser.close();server.close();fs.writeFileSync(path.join(root,'tests',baseline?'baseline.json':'smoke-results.json'),JSON.stringify(results,null,2));}
+ } finally {await browser.close();server.close();fs.writeFileSync(path.join(root,'tests',baseline?'baseline.json':visualOnly?'design-results.json':'smoke-results.json'),JSON.stringify(results,null,2));}
  console.log(`PASS ${results.length} page/device and functional checks`);
 })().catch(e=>{console.error(e);process.exitCode=1;server.close();});
