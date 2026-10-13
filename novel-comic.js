@@ -1,5 +1,6 @@
 const byId=id=>document.getElementById(id),chapters=window.NOVEL_TEXT,panels=window.NOVEL_PANELS;
 const music=byId('comicMusic'),tracks=window.YITING_TRACKS.map(t=>t.src);let track=yitingMusicRead().index,userPaused=yitingMusicRead().paused,chapter=0;music.src=tracks[track];
+music.addEventListener('yiting-retry',()=>{userPaused=false;});
 const starNames={blue:'希望',purple:'溫柔',pink:'快樂',green:'勇氣',red:'陪伴'},colors={blue:'#69b9ff',purple:'#b58aff',pink:'#ef8eb7',green:'#83bf83',red:'#ed7185'};let collected=[];
 try{collected=JSON.parse(localStorage.getItem('yiting-novel-comic-stars')||'[]');if(!Array.isArray(collected))collected=[];}catch{}
 function syncMusic(){const save=byId('downloadSong'),title=window.YITING_TRACKS[track].title;save.href=window.YITING_TRACKS[track].video;save.download=title+'.mp4';save.textContent='下載 '+title+' 影片 ↓';byId('musicToggle').textContent=music.paused?(userPaused?'播放音樂':'音樂開啟 · 輕觸播放'):'暫停音樂';byId('musicToggle').setAttribute('aria-pressed',String(!userPaused));document.querySelectorAll('[data-track]').forEach(b=>b.setAttribute('aria-pressed',String(Number(b.dataset.track)===track)));}

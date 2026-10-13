@@ -1,0 +1,620 @@
+[
+  {
+    "label": "desktop",
+    "file": "index.html",
+    "errors": [],
+    "missing": [],
+    "overflow": false
+  },
+  {
+    "label": "desktop",
+    "file": "movie.html",
+    "errors": [],
+    "missing": [],
+    "overflow": false
+  },
+  {
+    "label": "desktop",
+    "file": "game.html",
+    "errors": [],
+    "missing": [],
+    "overflow": false
+  },
+  {
+    "label": "desktop",
+    "file": "novel-comic.html",
+    "errors": [],
+    "missing": [],
+    "overflow": false
+  },
+  {
+    "label": "desktop",
+    "file": "gift.html",
+    "errors": [],
+    "missing": [],
+    "overflow": false
+  },
+  {
+    "label": "desktop",
+    "file": "starlight.html",
+    "errors": [],
+    "missing": [],
+    "overflow": false
+  },
+  {
+    "label": "desktop",
+    "file": "install.html",
+    "errors": [],
+    "missing": [],
+    "overflow": false
+  },
+  {
+    "label": "desktop",
+    "file": "materials.html",
+    "errors": [],
+    "missing": [],
+    "overflow": false
+  },
+  {
+    "label": "desktop",
+    "file": "index.html",
+    "test": "track 1 actual play, pause, 43 bilingual cues",
+    "pass": true
+  },
+  {
+    "label": "desktop",
+    "file": "index.html",
+    "test": "track 2 actual play, pause, 45 bilingual cues",
+    "pass": true
+  },
+  {
+    "label": "desktop",
+    "file": "index.html",
+    "test": "track 3 actual play, pause, 10 bilingual cues",
+    "pass": true
+  },
+  {
+    "label": "desktop",
+    "file": "index.html",
+    "test": "track 4 actual play, pause, 14 bilingual cues",
+    "pass": true
+  },
+  {
+    "label": "desktop",
+    "file": "game.html",
+    "test": "track 1 actual play, pause, 43 bilingual cues",
+    "pass": true
+  },
+  {
+    "label": "desktop",
+    "file": "game.html",
+    "test": "track 2 actual play, pause, 45 bilingual cues",
+    "pass": true
+  },
+  {
+    "label": "desktop",
+    "file": "game.html",
+    "test": "track 3 actual play, pause, 10 bilingual cues",
+    "pass": true
+  },
+  {
+    "label": "desktop",
+    "file": "game.html",
+    "test": "track 4 actual play, pause, 14 bilingual cues",
+    "pass": true
+  },
+  {
+    "label": "desktop",
+    "file": "novel-comic.html",
+    "test": "track 1 actual play, pause, 43 bilingual cues",
+    "pass": true
+  },
+  {
+    "label": "desktop",
+    "file": "novel-comic.html",
+    "test": "track 2 actual play, pause, 45 bilingual cues",
+    "pass": true
+  },
+  {
+    "label": "desktop",
+    "file": "novel-comic.html",
+    "test": "track 3 actual play, pause, 10 bilingual cues",
+    "pass": true
+  },
+  {
+    "label": "desktop",
+    "file": "novel-comic.html",
+    "test": "track 4 actual play, pause, 14 bilingual cues",
+    "pass": true
+  },
+  {
+    "label": "desktop",
+    "file": "gift.html",
+    "test": "track 1 actual play, pause, 43 bilingual cues",
+    "pass": true
+  },
+  {
+    "label": "desktop",
+    "file": "gift.html",
+    "test": "track 2 actual play, pause, 45 bilingual cues",
+    "pass": true
+  },
+  {
+    "label": "desktop",
+    "file": "gift.html",
+    "test": "track 3 actual play, pause, 10 bilingual cues",
+    "pass": true
+  },
+  {
+    "label": "desktop",
+    "file": "gift.html",
+    "test": "track 4 actual play, pause, 14 bilingual cues",
+    "pass": true
+  },
+  {
+    "label": "desktop",
+    "file": "movie.html",
+    "test": "track 1 actual play, pause, 43 bilingual cues",
+    "pass": true
+  },
+  {
+    "label": "desktop",
+    "file": "movie.html",
+    "test": "track 2 actual play, pause, 45 bilingual cues",
+    "pass": true
+  },
+  {
+    "label": "desktop",
+    "file": "movie.html",
+    "test": "track 3 actual play, pause, 10 bilingual cues",
+    "pass": true
+  },
+  {
+    "label": "desktop",
+    "file": "movie.html",
+    "test": "track 4 actual play, pause, 14 bilingual cues",
+    "pass": true
+  },
+  {
+    "label": "desktop",
+    "test": "cross-page progress, pause preference, network failure and retry",
+    "pass": true
+  },
+  {
+    "label": "desktop",
+    "test": "five stars, ending choices, reload, shared letter collection and two downloads",
+    "pass": true
+  },
+  {
+    "label": "iPhone",
+    "file": "index.html",
+    "errors": [],
+    "missing": [],
+    "overflow": false
+  },
+  {
+    "label": "iPhone",
+    "file": "movie.html",
+    "errors": [],
+    "missing": [],
+    "overflow": false
+  },
+  {
+    "label": "iPhone",
+    "file": "game.html",
+    "errors": [],
+    "missing": [],
+    "overflow": false
+  },
+  {
+    "label": "iPhone",
+    "file": "novel-comic.html",
+    "errors": [],
+    "missing": [],
+    "overflow": false
+  },
+  {
+    "label": "iPhone",
+    "file": "gift.html",
+    "errors": [],
+    "missing": [],
+    "overflow": false
+  },
+  {
+    "label": "iPhone",
+    "file": "starlight.html",
+    "errors": [],
+    "missing": [],
+    "overflow": false
+  },
+  {
+    "label": "iPhone",
+    "file": "install.html",
+    "errors": [],
+    "missing": [],
+    "overflow": false
+  },
+  {
+    "label": "iPhone",
+    "file": "materials.html",
+    "errors": [],
+    "missing": [],
+    "overflow": false
+  },
+  {
+    "label": "iPhone",
+    "file": "index.html",
+    "test": "track 1 actual play, pause, 43 bilingual cues",
+    "pass": true
+  },
+  {
+    "label": "iPhone",
+    "file": "index.html",
+    "test": "track 2 actual play, pause, 45 bilingual cues",
+    "pass": true
+  },
+  {
+    "label": "iPhone",
+    "file": "index.html",
+    "test": "track 3 actual play, pause, 10 bilingual cues",
+    "pass": true
+  },
+  {
+    "label": "iPhone",
+    "file": "index.html",
+    "test": "track 4 actual play, pause, 14 bilingual cues",
+    "pass": true
+  },
+  {
+    "label": "iPhone",
+    "file": "game.html",
+    "test": "track 1 actual play, pause, 43 bilingual cues",
+    "pass": true
+  },
+  {
+    "label": "iPhone",
+    "file": "game.html",
+    "test": "track 2 actual play, pause, 45 bilingual cues",
+    "pass": true
+  },
+  {
+    "label": "iPhone",
+    "file": "game.html",
+    "test": "track 3 actual play, pause, 10 bilingual cues",
+    "pass": true
+  },
+  {
+    "label": "iPhone",
+    "file": "game.html",
+    "test": "track 4 actual play, pause, 14 bilingual cues",
+    "pass": true
+  },
+  {
+    "label": "iPhone",
+    "file": "novel-comic.html",
+    "test": "track 1 actual play, pause, 43 bilingual cues",
+    "pass": true
+  },
+  {
+    "label": "iPhone",
+    "file": "novel-comic.html",
+    "test": "track 2 actual play, pause, 45 bilingual cues",
+    "pass": true
+  },
+  {
+    "label": "iPhone",
+    "file": "novel-comic.html",
+    "test": "track 3 actual play, pause, 10 bilingual cues",
+    "pass": true
+  },
+  {
+    "label": "iPhone",
+    "file": "novel-comic.html",
+    "test": "track 4 actual play, pause, 14 bilingual cues",
+    "pass": true
+  },
+  {
+    "label": "iPhone",
+    "file": "gift.html",
+    "test": "track 1 actual play, pause, 43 bilingual cues",
+    "pass": true
+  },
+  {
+    "label": "iPhone",
+    "file": "gift.html",
+    "test": "track 2 actual play, pause, 45 bilingual cues",
+    "pass": true
+  },
+  {
+    "label": "iPhone",
+    "file": "gift.html",
+    "test": "track 3 actual play, pause, 10 bilingual cues",
+    "pass": true
+  },
+  {
+    "label": "iPhone",
+    "file": "gift.html",
+    "test": "track 4 actual play, pause, 14 bilingual cues",
+    "pass": true
+  },
+  {
+    "label": "iPhone",
+    "file": "movie.html",
+    "test": "track 1 actual play, pause, 43 bilingual cues",
+    "pass": true
+  },
+  {
+    "label": "iPhone",
+    "file": "movie.html",
+    "test": "track 2 actual play, pause, 45 bilingual cues",
+    "pass": true
+  },
+  {
+    "label": "iPhone",
+    "file": "movie.html",
+    "test": "track 3 actual play, pause, 10 bilingual cues",
+    "pass": true
+  },
+  {
+    "label": "iPhone",
+    "file": "movie.html",
+    "test": "track 4 actual play, pause, 14 bilingual cues",
+    "pass": true
+  },
+  {
+    "label": "iPhone",
+    "test": "cross-page progress, pause preference, network failure and retry",
+    "pass": true
+  },
+  {
+    "label": "iPhone",
+    "test": "five stars, ending choices, reload, shared letter collection and two downloads",
+    "pass": true
+  },
+  {
+    "label": "Android",
+    "file": "index.html",
+    "errors": [],
+    "missing": [],
+    "overflow": false
+  },
+  {
+    "label": "Android",
+    "file": "movie.html",
+    "errors": [],
+    "missing": [],
+    "overflow": false
+  },
+  {
+    "label": "Android",
+    "file": "game.html",
+    "errors": [],
+    "missing": [],
+    "overflow": false
+  },
+  {
+    "label": "Android",
+    "file": "novel-comic.html",
+    "errors": [],
+    "missing": [],
+    "overflow": false
+  },
+  {
+    "label": "Android",
+    "file": "gift.html",
+    "errors": [],
+    "missing": [],
+    "overflow": false
+  },
+  {
+    "label": "Android",
+    "file": "starlight.html",
+    "errors": [],
+    "missing": [],
+    "overflow": false
+  },
+  {
+    "label": "Android",
+    "file": "install.html",
+    "errors": [],
+    "missing": [],
+    "overflow": false
+  },
+  {
+    "label": "Android",
+    "file": "materials.html",
+    "errors": [],
+    "missing": [],
+    "overflow": false
+  },
+  {
+    "label": "Android",
+    "file": "index.html",
+    "test": "track 1 actual play, pause, 43 bilingual cues",
+    "pass": true
+  },
+  {
+    "label": "Android",
+    "file": "index.html",
+    "test": "track 2 actual play, pause, 45 bilingual cues",
+    "pass": true
+  },
+  {
+    "label": "Android",
+    "file": "index.html",
+    "test": "track 3 actual play, pause, 10 bilingual cues",
+    "pass": true
+  },
+  {
+    "label": "Android",
+    "file": "index.html",
+    "test": "track 4 actual play, pause, 14 bilingual cues",
+    "pass": true
+  },
+  {
+    "label": "Android",
+    "file": "game.html",
+    "test": "track 1 actual play, pause, 43 bilingual cues",
+    "pass": true
+  },
+  {
+    "label": "Android",
+    "file": "game.html",
+    "test": "track 2 actual play, pause, 45 bilingual cues",
+    "pass": true
+  },
+  {
+    "label": "Android",
+    "file": "game.html",
+    "test": "track 3 actual play, pause, 10 bilingual cues",
+    "pass": true
+  },
+  {
+    "label": "Android",
+    "file": "game.html",
+    "test": "track 4 actual play, pause, 14 bilingual cues",
+    "pass": true
+  },
+  {
+    "label": "Android",
+    "file": "novel-comic.html",
+    "test": "track 1 actual play, pause, 43 bilingual cues",
+    "pass": true
+  },
+  {
+    "label": "Android",
+    "file": "novel-comic.html",
+    "test": "track 2 actual play, pause, 45 bilingual cues",
+    "pass": true
+  },
+  {
+    "label": "Android",
+    "file": "novel-comic.html",
+    "test": "track 3 actual play, pause, 10 bilingual cues",
+    "pass": true
+  },
+  {
+    "label": "Android",
+    "file": "novel-comic.html",
+    "test": "track 4 actual play, pause, 14 bilingual cues",
+    "pass": true
+  },
+  {
+    "label": "Android",
+    "file": "gift.html",
+    "test": "track 1 actual play, pause, 43 bilingual cues",
+    "pass": true
+  },
+  {
+    "label": "Android",
+    "file": "gift.html",
+    "test": "track 2 actual play, pause, 45 bilingual cues",
+    "pass": true
+  },
+  {
+    "label": "Android",
+    "file": "gift.html",
+    "test": "track 3 actual play, pause, 10 bilingual cues",
+    "pass": true
+  },
+  {
+    "label": "Android",
+    "file": "gift.html",
+    "test": "track 4 actual play, pause, 14 bilingual cues",
+    "pass": true
+  },
+  {
+    "label": "Android",
+    "file": "movie.html",
+    "test": "track 1 actual play, pause, 43 bilingual cues",
+    "pass": true
+  },
+  {
+    "label": "Android",
+    "file": "movie.html",
+    "test": "track 2 actual play, pause, 45 bilingual cues",
+    "pass": true
+  },
+  {
+    "label": "Android",
+    "file": "movie.html",
+    "test": "track 3 actual play, pause, 10 bilingual cues",
+    "pass": true
+  },
+  {
+    "label": "Android",
+    "file": "movie.html",
+    "test": "track 4 actual play, pause, 14 bilingual cues",
+    "pass": true
+  },
+  {
+    "label": "Android",
+    "test": "cross-page progress, pause preference, network failure and retry",
+    "pass": true
+  },
+  {
+    "label": "Android",
+    "test": "five stars, ending choices, reload, shared letter collection and two downloads",
+    "pass": true
+  },
+  {
+    "label": "small",
+    "file": "index.html",
+    "errors": [],
+    "missing": [],
+    "overflow": false
+  },
+  {
+    "label": "small",
+    "file": "movie.html",
+    "errors": [],
+    "missing": [],
+    "overflow": false
+  },
+  {
+    "label": "small",
+    "file": "game.html",
+    "errors": [],
+    "missing": [],
+    "overflow": false
+  },
+  {
+    "label": "small",
+    "file": "novel-comic.html",
+    "errors": [],
+    "missing": [],
+    "overflow": false
+  },
+  {
+    "label": "small",
+    "file": "gift.html",
+    "errors": [],
+    "missing": [],
+    "overflow": false
+  },
+  {
+    "label": "small",
+    "file": "starlight.html",
+    "errors": [],
+    "missing": [],
+    "overflow": false
+  },
+  {
+    "label": "small",
+    "file": "install.html",
+    "errors": [],
+    "missing": [],
+    "overflow": false
+  },
+  {
+    "label": "small",
+    "file": "materials.html",
+    "errors": [],
+    "missing": [],
+    "overflow": false
+  },
+  {
+    "test": "reduced motion intro and continuous film, denied storage, export fallback and existing favorites error",
+    "pass": true
+  }
+]

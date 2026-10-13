@@ -35,6 +35,8 @@ const completed=new Set(),picked=new Map();
 let selectedGameTrack=yitingMusicRead().index;$('bgm').src=YITING_TRACKS[selectedGameTrack].src;
 const gameSelect=document.createElement('select');gameSelect.id='gameTrack';gameSelect.setAttribute('aria-label','陪伴曲目');YITING_TRACKS.forEach((t,i)=>{const option=document.createElement('option');option.value=i;option.textContent=String(i+1).padStart(2,'0')+' '+t.title;gameSelect.append(option);});gameSelect.value=selectedGameTrack;document.querySelector('.settings>div').append(gameSelect);gameSelect.onchange=()=>{selectedGameTrack=Number(gameSelect.value);$('bgm').src=YITING_TRACKS[selectedGameTrack].src;musicOn=true;yitingMusicSave({index:selectedGameTrack,paused:false});startMusic();};
 window.yitingLyricPanel($('bgm'),()=>selectedGameTrack,document.querySelector('.settings>div'));
+$('bgm').addEventListener('yiting-retry',()=>{musicOn=true;musicPending=false;musicLabel();});
+$('bgm').addEventListener('ended',()=>{selectedGameTrack=(selectedGameTrack+1)%YITING_TRACKS.length;gameSelect.value=selectedGameTrack;yitingMusicSave({index:selectedGameTrack});$('bgm').src=YITING_TRACKS[selectedGameTrack].src;startMusic();});
 
 try{const save=JSON.parse(localStorage.getItem(key));if(save&&Number.isInteger(save.page)&&save.page>=0&&save.page<SPREADS.length){page=save.page;for(const n of save.completed||[])if(Number.isInteger(n)&&n>=0&&n<SPREADS.length)completed.add(n);} $('wish').value=localStorage.getItem('yiting-comic-wish-v1')||'';}catch{}
 function saveProgress(){try{localStorage.setItem(key,JSON.stringify({page,completed:[...completed]}));localStorage.setItem('yiting-last-mode','comic');}catch{}}

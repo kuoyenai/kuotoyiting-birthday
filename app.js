@@ -9,7 +9,7 @@ async function play(){song.pause();if(ended){ended=false;film.currentTime=0}try{
 function pause(){film.pause();song.pause()}
 function syncSong(){}
 function seek(t){ended=false;film.currentTime=Math.max(0,Math.min(t,film.duration||story.duration));syncSong();render()}
-function render(){const t=film.currentTime;$('time').textContent=fmt(t);$('progress').value=t;const sub=story.subtitles.find(s=>t>=s.start&&t<s.end);$('speaker').textContent=sub?.speaker||'';$('line').textContent=sub?.text||'';const c=lastChapterBefore(t);const ambient=['001','010','014','018','020'][Math.max(0,c)];if(!$('ambient').src.endsWith(ambient+'.webp'))$('ambient').src=`assets/${ambient}.webp`;document.querySelectorAll('[data-time]').forEach((b,i)=>{b.classList.toggle('active',i===c);if(i===c)b.setAttribute('aria-current','step');else b.removeAttribute('aria-current')});}
+function render(){const t=film.currentTime;$('time').textContent=fmt(t);$('progress').value=t;const sub=story.subtitles.find(s=>t>=s.start&&t<s.end);$('speaker').textContent=sub?.speaker||'';$('line').textContent=sub?.text||'';const c=lastChapterBefore(t);const cinema=document.querySelector('.cinema');if(cinema.dataset.chapter!==String(c)){cinema.dataset.chapter=String(c);cinema.dataset.shot=c===1||c===4?'eunho':c===3?'stage':'city';cinema.classList.remove('chapter-cut');void cinema.offsetWidth;cinema.classList.add('chapter-cut');}const ambient=['001','010','014','018','020'][Math.max(0,c)];if(!$('ambient').src.endsWith(ambient+'.webp'))$('ambient').src=`assets/${ambient}.webp`;document.querySelectorAll('[data-time]').forEach((b,i)=>{b.classList.toggle('active',i===c);if(i===c)b.setAttribute('aria-current','step');else b.removeAttribute('aria-current')});}
 
 film.addEventListener('timeupdate',render);film.addEventListener('seeking',()=>{song.pause();render()});film.addEventListener('seeked',syncSong);
 film.addEventListener('play',()=>{$('play').textContent='暫停';$('play').setAttribute('aria-label','暫停電影');$('loading').hidden=true});film.addEventListener('pause',()=>{$('play').textContent='播放';$('play').setAttribute('aria-label','播放電影');song.pause()});film.addEventListener('waiting',()=>{$('loading').hidden=false;song.pause()});film.addEventListener('playing',()=>{$('loading').hidden=true;syncSong()});film.addEventListener('loadedmetadata',()=>{$('progress').max=film.duration;if(!$('birthday').open&&!new URLSearchParams(location.search).has('chapter'))play()});film.addEventListener('error',()=>{$('loading').hidden=true;$('start').hidden=false;const code=film.error?.code;$('start').textContent='影片載入失敗，輕觸重試';toast(code===4?'此裝置無法播放影片格式。':code===2?'網路連線異常，請稍後重試。':'影片無法載入，請重新整理或檢查網路。')});film.addEventListener('ended',()=>{ended=true;$('play').textContent='重播';$('play').setAttribute('aria-label','重播電影')});
@@ -31,29 +31,22 @@ const birthdayTracks=window.YITING_TRACKS.map(t=>({...t,lyrics:[]}));
 let selectedBirthdayTrack=yitingMusicRead().index;
 const songButtons=[...document.querySelectorAll('[data-song-index]')];
 const songNotice=$('birthdaySongNotice');const birthdaySave=document.createElement('a');birthdaySave.className='download-link';birthdaySave.id='birthdaySongDownload';birthdaySave.textContent='下載目前歌曲影片 ↓';songNotice.after(birthdaySave);
+yitingBindAudio(song,()=>selectedBirthdayTrack,songNotice.parentElement);
 const songProgress=$('songProgress');
 const songTime=$('songTime');
 const songDuration=$('songDuration');
 const birthdaySongMessage=(message)=>{songNotice.textContent=message};
-// User-supplied cue start times; shared with the gift player.
-const lyricKeys=['first','fourth','second','third'];
-const lyricCues=lyricKeys.map(key=>{
-const rows=window.BIRTHDAY_TIMED_LYRICS?.[key]||[];let heading='Intro';
-return rows.map(([start,section,ko,zh],i)=>{if(section)heading=section;return {start,end:i+1<rows.length?rows[i+1][0]:Infinity,heading,ko,zh};});
-});
 let lastLyricKey='';
 function syncBirthdayLyrics(){
 const original=$('lyrics'),translated=$('lyricsZh');
-const index=selectedBirthdayTrack,cues=lyricCues[index]||[],time=song.currentTime||0;
-const cueIndex=cues.findIndex(c=>time>=c.start&&time<c.end);
-const cue=cueIndex>=0?cues[cueIndex]:null;
+const index=selectedBirthdayTrack,time=song.currentTime||0,cue=yitingCue(index,time),cueIndex=cue.number-1;
 const displayKey=index+':'+cueIndex;
 if(displayKey!==lastLyricKey){
 lastLyricKey=displayKey;
-original.textContent=cue?cue.ko:'♪ '+birthdayTracks[index].title+' ♪';
-translated.textContent=cue?(cue.zh||' '):'';
-const heading=$('lyricSection');if(heading)heading.textContent=cue?cue.heading:'INSTRUMENTAL';
-const count=$('lyricCount');if(count)count.textContent=cue?(cueIndex+1)+' / '+cues.length:'';
+original.textContent=cue.ko;
+translated.textContent=cue.zh;
+const heading=$('lyricSection');if(heading)heading.textContent=cue.heading;
+const count=$('lyricCount');if(count)count.textContent=cue.number?cue.number+' / '+cue.total:'';
 }
 songTime.textContent=fmt(time);
 songProgress.value=Math.min(time,Number(songProgress.max));
@@ -72,13 +65,14 @@ $('listen').textContent='播放歌曲 ▶';birthdaySongMessage('');
 syncBirthdayLyrics();
 }
 songButtons.forEach((button,i)=>button.addEventListener('click',()=>{selectBirthdayTrack(i);yitingMusicSave({index:i,paused:false});film.pause();song.play().catch(()=>birthdaySongMessage('輕觸播放歌曲開始。'));}));
-song.onplay=()=>{$('listen').textContent='暫停歌曲 ❚❚';syncBirthdayLyrics()};
-song.onpause=()=>{$('listen').textContent='播放歌曲 ▶';syncBirthdayLyrics()};
+song.onplay=()=>{$('listen').textContent='暫停歌曲 ❚❚';$('listen').setAttribute('aria-pressed','true');syncBirthdayLyrics()};
+song.onpause=()=>{$('listen').textContent='播放歌曲 ▶';$('listen').setAttribute('aria-pressed','false');syncBirthdayLyrics()};
 song.onended=()=>{selectBirthdayTrack((selectedBirthdayTrack+1)%birthdayTracks.length);yitingMusicSave({index:selectedBirthdayTrack});song.play().catch(()=>{});};
 song.onerror=()=>{birthdaySongMessage('這首歌曲暫時無法載入，請檢查網路後重試。');$('listen').textContent='重新播放 ▶'};
 $('listen').onclick=()=>{if(song.paused){yitingMusicSave({paused:false});film.pause();song.muted=false;song.play().catch(()=>birthdaySongMessage('目前無法播放這首歌曲，請確認音訊已上傳。'))}else {yitingMusicSave({paused:true});song.pause();}};
 songProgress.addEventListener('input',()=>{if(song.readyState>0){song.currentTime=Number(songProgress.value);syncBirthdayLyrics()}});
 song.ontimeupdate=syncBirthdayLyrics;song.onseeked=syncBirthdayLyrics;
+song.addEventListener('loadedmetadata',()=>{songProgress.max=song.duration;songDuration.textContent=fmt(song.duration);syncBirthdayLyrics();});
 selectBirthdayTrack(yitingMusicRead().index);
 if(document.modelContext?.registerTool){const lifecycle=new AbortController();try{Promise.resolve(document.modelContext.registerTool({name:'navigate_birthday_chapter',title:'前往生日電影章節',description:'前往指定章節並更新電影畫面；保留目前播放或暫停狀態。',inputSchema:{type:'object',properties:{chapter:{type:'integer',minimum:1,maximum:5}},required:['chapter'],additionalProperties:false},annotations:{readOnlyHint:false,untrustedContentHint:false},execute(input){if(!input||!Number.isInteger(input.chapter)||input.chapter<1||input.chapter>5||Object.keys(input).length!==1)throw new Error('chapter 必須為 1 到 5 的整數');seek(story.chapters[input.chapter-1]);return{chapter:input.chapter,time:film.currentTime,paused:film.paused}}},{signal:lifecycle.signal})).catch(()=>{});addEventListener('pagehide',()=>lifecycle.abort(),{once:true})}catch(e){}}
 

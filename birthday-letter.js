@@ -1,0 +1,26 @@
+(()=>{
+'use strict';
+const isEnding=!!document.getElementById('secret');
+const host=isEnding?document.getElementById('secret'):document.querySelector('.collection-end');
+if(!host)return;
+const key='yiting-birthday-letter-2026';let saved={};
+try{const value=JSON.parse(localStorage.getItem(key)||'{}');if(value&&typeof value==='object')saved=value;}catch{}
+const box=document.createElement('section');box.className='birthday-letter';box.setAttribute('aria-labelledby','birthdayLetterTitle');
+box.innerHTML='<p class="eyebrow">2026.10.20 · A LETTER FOR YITING</p><h2 id="birthdayLetterTitle">把今晚，寫給未來的妳。</h2><p>星光散去之後，喜歡的歌還會陪妳回到日常。打開這封生日信，也為未來的自己留下一句話。</p><button type="button" class="letter-open" aria-expanded="false" aria-controls="birthdayLetterBody">拆開生日信 ✉</button><div id="birthdayLetterBody" hidden><p class="letter-salutation">親愛的 YiTing：</p><p>2026 年 10 月 20 日，這個夜晚為妳留下了一個位置。從 Terra 的街道到 ASTERUM 的舞台，藝俊、諾亞、斑比、銀虎與河玟的五道星光，讓這場相遇有了不同的顏色。</p><p>銀虎把紅色星光放進妳的掌心。那不是要求妳永遠勇敢的約定，而是一個小小的提醒：累了可以休息，快樂也值得被記住。當熟悉的旋律響起，希望妳想起今晚，也想起自己值得被好好慶祝。</p><p>願新的一歲，有喜歡的事、有可以安心停留的地方，也有慢慢走向明天的力量。生日快樂，YiTing。</p><p class="letter-signature">From this little world of stars, with love.</p><label for="birthdayLetterReply">留給未來自己的話</label><textarea id="birthdayLetterReply" maxlength="240" rows="4" placeholder="下一個十月二十日，我想告訴自己…"></textarea><div class="letter-actions"><button type="button" class="letter-save">♡ 收藏生日信</button><button type="button" class="letter-export">下載文字紀念信 ↓</button><button type="button" class="letter-postcard">下載紅星紀念卡 ↓</button></div><p class="letter-status" role="status"></p><small>回信與收藏只留在目前瀏覽器，不會傳給作者。下載可另存留念；此信為粉絲虛構創作，非 PLAVE 成員本人發言。</small></div>';
+if(isEnding)host.append(box);else host.before(box);
+const body=box.querySelector('#birthdayLetterBody'),open=box.querySelector('.letter-open'),reply=box.querySelector('textarea'),status=box.querySelector('.letter-status'),save=box.querySelector('.letter-save');
+reply.value=typeof saved.reply==='string'?saved.reply.slice(0,240):'';
+const paint=()=>{save.textContent=saved.collected?'♥ 已收藏 · 更新回信':'♡ 收藏生日信';save.setAttribute('aria-pressed',String(!!saved.collected));};paint();
+open.onclick=()=>{body.hidden=!body.hidden;open.setAttribute('aria-expanded',String(!body.hidden));open.textContent=body.hidden?'再次拆開生日信 ✉':'收起生日信';};
+save.onclick=()=>{const next={collected:true,reply:reply.value,date:'2026-10-20'};try{localStorage.setItem(key,JSON.stringify(next));saved=next;paint();status.textContent='生日信與回信已收藏在這台裝置。';}catch{status.textContent='這個瀏覽器無法保存，請下載紀念信或紀念卡留念。';}};
+const download=(content,type,name)=>{const url=URL.createObjectURL(new Blob([content],{type}));const link=document.createElement('a');link.href=url;link.download=name;document.body.append(link);link.click();link.remove();setTimeout(()=>URL.revokeObjectURL(url),30000);status.textContent='已準備下載。手機若開啟預覽，可使用分享選單儲存到「檔案」。';};
+const text=()=>['YiTing · 2026.10.20 · Only for you','',...Array.from(body.querySelectorAll('p:not(.letter-status)')).map(p=>p.textContent),'','留給未來自己的話：',reply.value||'願下一年的妳，也記得今晚的星光。','','粉絲虛構創作，非 PLAVE 官方或成員本人發言。'].join('\n');
+box.querySelector('.letter-export').onclick=()=>download('\uFEFF'+text(),'text/plain;charset=utf-8','YiTing-2026-生日紀念信.txt');
+const escape=value=>value.replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&apos;'}[c]));
+box.querySelector('.letter-postcard').onclick=()=>{
+ const line=(reply.value||'願妳往後的每一年，都有屬於自己的星光。').replace(/\s+/g,' ');
+ const lines=Array.from(line.matchAll(/.{1,22}/gu)).map(m=>m[0]);
+ const svg='<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="1440" viewBox="0 0 1080 1440"><rect width="1080" height="1440" fill="#10182d"/><rect x="55" y="55" width="970" height="1330" rx="28" fill="none" stroke="#dabb88" stroke-width="2"/><g fill="#ead4a5" text-anchor="middle" font-family="serif"><text x="540" y="205" font-size="26" letter-spacing="8">ONLY FOR YOU</text><text x="540" y="325" font-size="100">YiTing</text><text x="540" y="410" font-size="40">2026.10.20 · 10:20 PM</text><text x="540" y="600" font-size="150" fill="#f18c98">✦</text><text x="540" y="740" font-size="42">把今晚的星光，留給明天的妳。</text>'+lines.map((t,i)=>'<text x="540" y="'+(835+i*40)+'" font-size="30">'+escape(t)+'</text>').join('')+'<text x="540" y="1310" font-size="22">YEJUN · NOAH · BAMBY · EUNHO · HAMIN</text><text x="540" y="1355" font-size="18">粉絲創作生日紀念 · 非官方發言</text></g></svg>';
+ download(svg,'image/svg+xml;charset=utf-8','YiTing-2026-紅星紀念卡.svg');
+};
+})();

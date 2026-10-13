@@ -1,0 +1,226 @@
+[
+  {
+    "label": "desktop",
+    "file": "index.html",
+    "errors": [],
+    "missing": [],
+    "overflow": false
+  },
+  {
+    "label": "desktop",
+    "file": "movie.html",
+    "errors": [],
+    "missing": [],
+    "overflow": false
+  },
+  {
+    "label": "desktop",
+    "file": "game.html",
+    "errors": [],
+    "missing": [],
+    "overflow": false
+  },
+  {
+    "label": "desktop",
+    "file": "novel-comic.html",
+    "errors": [],
+    "missing": [],
+    "overflow": false
+  },
+  {
+    "label": "desktop",
+    "file": "gift.html",
+    "errors": [],
+    "missing": [],
+    "overflow": false
+  },
+  {
+    "label": "desktop",
+    "file": "starlight.html",
+    "errors": [],
+    "missing": [],
+    "overflow": false
+  },
+  {
+    "label": "desktop",
+    "file": "install.html",
+    "errors": [],
+    "missing": [],
+    "overflow": false
+  },
+  {
+    "label": "desktop",
+    "file": "materials.html",
+    "errors": [],
+    "missing": [],
+    "overflow": false
+  },
+  {
+    "label": "iPhone",
+    "file": "index.html",
+    "errors": [],
+    "missing": [],
+    "overflow": false
+  },
+  {
+    "label": "iPhone",
+    "file": "movie.html",
+    "errors": [],
+    "missing": [],
+    "overflow": false
+  },
+  {
+    "label": "iPhone",
+    "file": "game.html",
+    "errors": [],
+    "missing": [],
+    "overflow": false
+  },
+  {
+    "label": "iPhone",
+    "file": "novel-comic.html",
+    "errors": [],
+    "missing": [],
+    "overflow": false
+  },
+  {
+    "label": "iPhone",
+    "file": "gift.html",
+    "errors": [],
+    "missing": [],
+    "overflow": false
+  },
+  {
+    "label": "iPhone",
+    "file": "starlight.html",
+    "errors": [],
+    "missing": [],
+    "overflow": false
+  },
+  {
+    "label": "iPhone",
+    "file": "install.html",
+    "errors": [],
+    "missing": [],
+    "overflow": false
+  },
+  {
+    "label": "iPhone",
+    "file": "materials.html",
+    "errors": [],
+    "missing": [],
+    "overflow": false
+  },
+  {
+    "label": "Android",
+    "file": "index.html",
+    "errors": [],
+    "missing": [],
+    "overflow": false
+  },
+  {
+    "label": "Android",
+    "file": "movie.html",
+    "errors": [],
+    "missing": [],
+    "overflow": false
+  },
+  {
+    "label": "Android",
+    "file": "game.html",
+    "errors": [],
+    "missing": [],
+    "overflow": false
+  },
+  {
+    "label": "Android",
+    "file": "novel-comic.html",
+    "errors": [],
+    "missing": [],
+    "overflow": false
+  },
+  {
+    "label": "Android",
+    "file": "gift.html",
+    "errors": [],
+    "missing": [],
+    "overflow": false
+  },
+  {
+    "label": "Android",
+    "file": "starlight.html",
+    "errors": [],
+    "missing": [],
+    "overflow": false
+  },
+  {
+    "label": "Android",
+    "file": "install.html",
+    "errors": [],
+    "missing": [],
+    "overflow": false
+  },
+  {
+    "label": "Android",
+    "file": "materials.html",
+    "errors": [],
+    "missing": [],
+    "overflow": false
+  },
+  {
+    "label": "small",
+    "file": "index.html",
+    "errors": [],
+    "missing": [],
+    "overflow": false
+  },
+  {
+    "label": "small",
+    "file": "movie.html",
+    "errors": [],
+    "missing": [],
+    "overflow": false
+  },
+  {
+    "label": "small",
+    "file": "game.html",
+    "errors": [],
+    "missing": [],
+    "overflow": false
+  },
+  {
+    "label": "small",
+    "file": "novel-comic.html",
+    "errors": [],
+    "missing": [],
+    "overflow": false
+  },
+  {
+    "label": "small",
+    "file": "gift.html",
+    "errors": [],
+    "missing": [],
+    "overflow": false
+  },
+  {
+    "label": "small",
+    "file": "starlight.html",
+    "errors": [],
+    "missing": [],
+    "overflow": false
+  },
+  {
+    "label": "small",
+    "file": "install.html",
+    "errors": [],
+    "missing": [],
+    "overflow": false
+  },
+  {
+    "label": "small",
+    "file": "materials.html",
+    "errors": [],
+    "missing": [],
+    "overflow": false
+  }
+]

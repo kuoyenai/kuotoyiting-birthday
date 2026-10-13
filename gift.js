@@ -9,6 +9,8 @@ $('saveWish').onclick=()=>{
 $('bookSize').onclick=()=>{const enlarged=document.querySelector('.novel').classList.toggle('large-print');$('bookSize').textContent=enlarged?'標準字體':'放大字體';};
 const tracks=window.YITING_TRACKS;
 let selectedTrack=yitingMusicRead().index,userPaused=yitingMusicRead().paused;song.src=tracks[selectedTrack].src;
+yitingBindAudio(song,()=>selectedTrack,document.querySelector('.gift-music'));
+song.addEventListener('yiting-retry',()=>{userPaused=false;});
 const musicButtons=[$('listen'),$('novelListen')];
 function musicStatus(text){document.querySelectorAll('.music-status').forEach(el=>el.textContent=text);}
 function syncMusic(){const title=tracks[selectedTrack].name.split('｜')[0],videos=tracks.map(t=>t.video);document.querySelectorAll('.selected-video-download').forEach(a=>{a.href=videos[selectedTrack];a.download=title+'.mp4';a.textContent='下載 '+title+' 影片 ↓';});musicButtons.forEach(button=>{button.textContent=song.paused?'播放歌曲':'暫停歌曲';button.setAttribute('aria-pressed',String(!song.paused));});document.querySelectorAll('.gift-track-choice').forEach(button=>button.setAttribute('aria-pressed',String(Number(button.dataset.track)===selectedTrack)));}
@@ -18,16 +20,14 @@ song.onended=()=>{selectedTrack=(selectedTrack+1)%tracks.length;yitingMusicSave(
 musicButtons.forEach(button=>button.onclick=()=>{if(song.paused){userPaused=false;yitingMusicSave({paused:false});playMusic();}else{userPaused=true;yitingMusicSave({paused:true});song.pause();musicStatus('音樂已暫停');}});
 document.querySelectorAll('.gift-track-choice').forEach(button=>button.onclick=()=>{selectedTrack=Number(button.dataset.track);song.pause();song.src=tracks[selectedTrack].src;userPaused=false;yitingMusicSave({index:selectedTrack,paused:false});$('lyrics').textContent='';syncMusic();playMusic();});
 function syncGiftTimedLyrics(){
-const key=['first','fourth','second','third'][selectedTrack],rows=window.BIRTHDAY_TIMED_LYRICS?.[key]||[];
-const t=song.currentTime||0;let i=-1;for(let j=0;j<rows.length;j++){if(t>=rows[j][0])i=j;else break;}
-const row=i>=0?rows[i]:null,ko=row?.[2]||'',zh=row?.[3]||'';
+const key=tracks[selectedTrack].key,t=song.currentTime||0,cue=yitingCue(selectedTrack,t),i=cue.number-1,ko=cue.ko,zh=cue.zh;
 const lyric=$('lyrics');if(lyric){const previous=lyric.dataset.cue;if(previous!==key+':'+i){lyric.dataset.cue=key+':'+i;lyric.textContent=ko||'♪ '+tracks[selectedTrack].name.split('｜')[0]+' ♪';}}
 const translation=$('giftLyricsZh');if(translation)translation.textContent=zh;
-const section=$('giftLyricSection');if(section){let heading='Intro';for(let j=0;j<=i;j++)if(rows[j][1])heading=rows[j][1];section.textContent=heading;}
+const section=$('giftLyricSection');if(section)section.textContent=cue.heading;
 const time=$('giftSongTime');if(time)time.textContent=String(Math.floor(t/60)).padStart(2,'0')+':'+String(Math.floor(t%60)).padStart(2,'0');
 const progress=$('giftSongProgress');if(progress&&!progress.matches(':active')){progress.max=Number.isFinite(song.duration)?song.duration:[182.276,182.8,62.113,70.263][selectedTrack];progress.value=t;}
 }
-song.ontimeupdate=syncGiftTimedLyrics;song.onseeked=syncGiftTimedLyrics;song.onloadedmetadata=syncGiftTimedLyrics;
+song.ontimeupdate=syncGiftTimedLyrics;song.onseeked=syncGiftTimedLyrics;song.onloadedmetadata=syncGiftTimedLyrics;song.addEventListener('emptied',syncGiftTimedLyrics);
 const giftSeek=$('giftSongProgress');if(giftSeek)giftSeek.addEventListener('input',()=>{if(song.readyState>0){song.currentTime=Number(giftSeek.value);syncGiftTimedLyrics();}});
 song.onerror=()=>musicStatus('歌曲暫時無法載入，請重新整理或切換曲目。');
 syncMusic();syncGiftTimedLyrics();if(!userPaused)playMusic();
