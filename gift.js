@@ -131,9 +131,10 @@ giftTabs.forEach((tab,index)=>{
 if(giftTabs.length){const requested=giftTabs.find(tab=>tab.id==='tab-'+location.hash.slice(1));selectGiftSection(requested||giftTabs[0],false);}
 const viewer=$('cardViewer');
 if(viewer){
+ const gallery=window.yitingGallerySetup({viewer,cards});
  document.querySelectorAll('.card-item').forEach((item,index)=>{
   const [name,img,text]=cards[index],detail=document.createElement('button');detail.className='card-detail';detail.textContent='放大查看 ↗';detail.setAttribute('aria-label','放大查看'+name+'小卡');
-  detail.onclick=()=>{if(typeof viewer.showModal!=='function'){window.open((img==='IMG_2091'?'assets/IMG_2091.webp':'assets/downloads/'+img+'.jpg'),'_blank','noopener');return;}$('cardViewerTitle').textContent=name+' / BIRTHDAY CARD';$('cardViewerImage').src='assets/'+img+'.webp';$('cardViewerImage').alt=name+'生日小卡';$('cardViewerWords').textContent=text;$('cardViewerSave').replaceChildren(window.assetDownloads((img==='IMG_2091'?'assets/IMG_2091.webp':'assets/downloads/'+img+'.jpg'),name+'-生日小卡.'+(img==='IMG_2091'?'webp':'jpg'),'保存小卡'));viewer.showModal();};item.append(detail);
+  detail.onclick=()=>{if(typeof viewer.showModal!=='function'){window.open((img==='IMG_2091'?'assets/IMG_2091.webp':'assets/downloads/'+img+'.jpg'),'_blank','noopener');return;}gallery.open(index);};item.append(detail);
  });
  $('closeCardViewer').onclick=()=>viewer.close();
 }
