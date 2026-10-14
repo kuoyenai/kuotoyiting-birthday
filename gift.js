@@ -31,7 +31,7 @@ song.ontimeupdate=syncGiftTimedLyrics;song.onseeked=syncGiftTimedLyrics;song.onl
 const giftSeek=$('giftSongProgress');if(giftSeek)giftSeek.addEventListener('input',()=>{if(song.readyState>0){song.currentTime=Number(giftSeek.value);syncGiftTimedLyrics();}});
 song.onerror=()=>musicStatus('歌曲暫時無法載入，請重新整理或切換曲目。');
 syncMusic();syncGiftTimedLyrics();if(!userPaused)playMusic();
-document.addEventListener('visibilitychange',()=>{if(document.hidden)song.pause();});
+document.addEventListener('visibilitychange',()=>{if(document.hidden&&!song.dataset.persistent)song.pause();});
 const cards=[['銀虎','022','希望每一天，妳都能笑得像今晚一樣。'],['藝俊','card-0000(1)','讓每一首歌，陪妳走向更好的明天。'],['諾亞','card-0000(5)','願妳的夢，永遠有光照著。'],['斑比','card-bamby-hands-v2','把快樂留給自己，也把勇氣留給夢想。'],['河玟','card-0000(4)','累的時候也沒關係，我們一直都在。'],['PLAVE','card-0000(2)','五道星光，一起祝妳生日快樂。']];
 cards.push(
  ['初次相遇','novel-welcome','不管妳從哪裡來，星光都會為妳留一個位置。歡迎妳，來到我們的世界。'],

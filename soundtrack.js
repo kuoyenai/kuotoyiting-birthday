@@ -18,7 +18,7 @@ window.yitingBindAudio=(audio,getTrack,host)=>{
  let lastWrite=0,failed=false,restoring=false,loadedIndex=-1;
  const matches=()=>YITING_TRACKS[getTrack()]&&new URL(YITING_TRACKS[getTrack()].src,document.baseURI).href===audio.src;
  const save=(force=false)=>{if(!matches()||loadedIndex!==getTrack()||!audio.readyState||restoring||failed)return;if(!force&&Date.now()-lastWrite<750)return;lastWrite=Date.now();try{localStorage.setItem(positionKey,JSON.stringify({...positions(),[YITING_TRACKS[getTrack()].key]:audio.ended?0:audio.currentTime}));}catch{}};
- const restore=()=>{if(!matches())return;loadedIndex=getTrack();failed=false;retry.hidden=true;const t=Number(positions()[YITING_TRACKS[getTrack()].key]);if(Number.isFinite(t)&&t>0&&Number.isFinite(audio.duration)&&t<audio.duration-1){restoring=true;audio.currentTime=t;}else restoring=false;};
+ const restore=()=>{if(!matches())return;if(audio.dataset.persistent){loadedIndex=getTrack();return;}loadedIndex=getTrack();failed=false;retry.hidden=true;const t=Number(positions()[YITING_TRACKS[getTrack()].key]);if(Number.isFinite(t)&&t>0&&Number.isFinite(audio.duration)&&t<audio.duration-1){restoring=true;audio.currentTime=t;}else restoring=false;};
  audio.addEventListener('loadstart',()=>{loadedIndex=-1;failed=false;retry.hidden=true;message.textContent='正在準備歌曲…';});
  audio.addEventListener('loadedmetadata',restore);audio.addEventListener('seeked',()=>{restoring=false;save(true);});audio.addEventListener('timeupdate',()=>save());
  audio.addEventListener('pause',()=>{save(true);if(!failed)message.textContent=document.hidden?'已暫停，回來後可繼續播放。':'歌曲已暫停';});
@@ -27,7 +27,7 @@ window.yitingBindAudio=(audio,getTrack,host)=>{
  audio.addEventListener('error',()=>{failed=true;retry.hidden=false;message.textContent=navigator.onLine?'歌曲無法載入，請重試或下載原影片。':'目前離線，歌曲需要網路；連線後可重試。';});
  audio.addEventListener('ended',()=>{if(loadedIndex<0)return;try{localStorage.setItem(positionKey,JSON.stringify({...positions(),[YITING_TRACKS[loadedIndex].key]:0}));}catch{}});
  retry.onclick=()=>{failed=false;audio.dispatchEvent(new Event('yiting-retry'));audio.load();yitingMusicSave({paused:false});audio.play().catch(()=>{message.textContent='請確認網路後，再輕觸重試播放。';retry.hidden=false;});};
- const suspend=()=>{save(true);audio.pause();};document.addEventListener('visibilitychange',()=>{if(document.hidden)suspend();});window.addEventListener('pagehide',suspend);
+ const suspend=()=>{save(true);if(!audio.dataset.persistent)audio.pause();};document.addEventListener('visibilitychange',()=>{if(document.hidden&&!audio.dataset.persistent)suspend();});window.addEventListener('pagehide',suspend);
  window.addEventListener('online',()=>{if(failed)message.textContent='已恢復連線，輕觸重試播放。';});
  document.querySelectorAll('video').forEach(video=>video.addEventListener('play',()=>{if(!video.muted)audio.pause();}));
  const binding={save,restore,notice};bound.set(audio,binding);if(audio.readyState)restore();return binding;

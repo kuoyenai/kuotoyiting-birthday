@@ -1,0 +1,1 @@
+(()=>{if(window.top!==window.self)return;const page=location.pathname.split('/').pop()||'index.html';if(['index.html','game.html','novel-comic.html','gift.html','starlight.html'].includes(page))location.replace('music-shell.html?view='+encodeURIComponent(page+location.search+location.hash));})();
