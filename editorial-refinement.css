@@ -71,3 +71,14 @@ body #cardViewer #cardViewerSave .asset-downloads{padding:0!important;gap:8px;ju
 body #cardViewer #cardViewerTitle::after,body #imageViewer #imageTitle::after{content:'';display:inline-block;width:6px;height:8px;margin-left:10px;vertical-align:middle;background:#a34f65;clip-path:polygon(50% 0,62% 37%,100% 50%,62% 63%,50% 100%,38% 63%,0 50%,38% 37%)}
 @media(max-width:600px){body.album-edition.gift-page #cardViewer,body #imageViewer,body .reading-viewer{padding:16px!important}body #cardViewer #cardViewerTitle,body #imageViewer #imageTitle{font-size:18px!important}body #cardViewer #cardViewerWords{font-size:13px!important;margin:12px auto!important}}
 @media(prefers-reduced-motion:reduce){body .card-detail::after,body .reading-zoom::after{transition:none}}
+
+/* A short paper reflection, kept away from the illustration's composition. */
+.photocard{--paper-reflection:#cee0ff}
+.card-item[data-series="journey"] .photocard{--paper-reflection:#d9cefa}
+.card-item[data-series="night"] .photocard{--paper-reflection:#f4d8a3}
+.photocard .card-paper-sheen{position:absolute!important;inset:0!important;padding:0!important;margin:0!important;pointer-events:none;z-index:3;border-radius:inherit;opacity:0;background:linear-gradient(115deg,transparent 25%,color-mix(in srgb,var(--member-ink,var(--paper-reflection)) 18%,transparent) 44%,#fff5 49%,transparent 65%);background-size:240% 100%;}
+.photocard.paper-turn .card-paper-sheen{animation:card-paper-light .65s ease-out both}
+.photocard.flipped .card-blessing{animation:card-blessing-arrival .36s .12s ease-out both}
+@keyframes card-paper-light{0%{opacity:0;background-position:100% 0}25%{opacity:.55}100%{opacity:0;background-position:0 0}}
+@keyframes card-blessing-arrival{from{opacity:.45;translate:0 3px}to{opacity:1;translate:0 0}}
+@media(prefers-reduced-motion:reduce){.photocard .card-paper-sheen{display:none}.photocard.flipped .card-blessing{animation:none}}
