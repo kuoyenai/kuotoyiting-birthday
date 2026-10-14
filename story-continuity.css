@@ -1,0 +1,13 @@
+
+.birthday-friend-letter{white-space:normal;line-height:2.15!important;text-align:left;overflow-wrap:anywhere}
+.friend-epilogue{border:1px solid #c6ad8750;position:relative;max-width:900px;box-sizing:border-box;margin-left:auto;margin-right:auto}
+.friend-epilogue .ending-collect{display:block;width:max-content;max-width:100%;margin:32px auto 0;padding:12px 24px;border:1px solid #b69a7155;color:#87596a;text-decoration:none;font:14px/1.8 'Invitation Song',serif;box-sizing:border-box;min-height:44px}
+.panel img.reading-art-pending{opacity:0}.panel img.reading-art-ready{opacity:1;transition:opacity .3s ease}
+.panel .art,.panel .art-button{background-color:#eee8de}
+.story-return-target{outline:1px solid #c3a577!important;outline-offset:5px;animation:story-return-gold 1.5s ease-out}
+.collection-return{display:inline-flex;align-items:center;min-height:44px;padding:10px 16px;margin:10px 0 24px;border:1px solid #c3a57755;color:#87596a;text-decoration:none;font:13px/1.6 'Invitation Song',serif}
+@keyframes story-return-gold{from{box-shadow:0 0 0 5px #c3a57725}to{box-shadow:0 0 0 0 transparent}}
+@media(max-width:600px){.friend-epilogue .birthday-friend-letter{font-size:15px!important;line-height:2.15!important}.friend-epilogue{padding:28px 20px}}
+@media(prefers-reduced-motion:reduce){.panel img.reading-art-ready{transition:none}.story-return-target{animation:none}}
+
+body.novel-edition #panels .panel .art-button,body.comic-page #sheet .panel .art{overflow:hidden!important;max-width:100%;box-sizing:border-box}
