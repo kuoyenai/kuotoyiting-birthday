@@ -4,3 +4,5 @@
 .card-back .card-edition-meta{color:#d9c5a4!important;margin:0 0 8px!important}.card-back .card-edition-theme{color:color-mix(in srgb,var(--member-ink,#a74962) 45%,#ffffff)!important}.card-back .card-blessing{color:#f4ede0!important}
 
 body.album-edition.gift-page .card-back{padding:12px!important}.card-back .card-edition-meta{line-height:1.4!important;margin:0 0 4px!important}.card-back .card-edition-theme{font-size:11px!important;line-height:1.4!important;margin:0 0 8px!important}.card-back .card-blessing{line-height:1.6!important}@media(max-width:600px){body.album-edition.gift-page .card-back{padding:10px!important}}
+
+.card-story-chapter{display:block;font:12px/1.8 'Invitation Song',serif;color:#78665e;text-align:center;margin:12px 0 4px}.card-story-chapter[hidden]{display:none}
