@@ -9,7 +9,7 @@ Object.defineProperty(proxy,'loop',{get:()=>false,set:()=>{}});proxy.play=()=>re
 const detach=manager.subscribe(name=>{if(name!=='ended')proxy.dispatchEvent(new Event(name));});window.addEventListener('pagehide',detach,{once:true});
 }
 document.addEventListener('click',event=>{const a=event.target.closest('a[href]');if(a&&!a.download&&a.target!=='_blank'){const url=new URL(a.href);if(url.origin===location.origin&&url.pathname!==location.pathname){event.preventDefault();manager.navigate(url.href);return;}}
-if(!event.target.closest('.audio-play,#homeMusic,#music,#listen,#novelListen,#musicToggle')&&!yitingMusicRead().paused)manager.play();},{capture:true});
+if(!event.target.closest('.audio-play,#homeMusic,#music,#listen,#novelListen,#musicToggle')&&manager.audio.paused&&manager.started)manager.play().catch(()=>{});},{capture:true});
 // Keep deep links and chapter changes reflected in the installed App URL.
 for(const method of ['replaceState','pushState']){const original=history[method].bind(history);history[method]=function(state,title,url){original(state,title,url);parent.history.replaceState({},'',location.href);};}
 window.addEventListener('hashchange',()=>parent.history.replaceState({},'',location.href));
