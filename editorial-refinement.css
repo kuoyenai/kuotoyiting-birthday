@@ -1,0 +1,52 @@
+/* Quiet paper controls; keep the illustration unobstructed. */
+body .panel .art-button::after{content:'放大查看'!important;position:static!important;display:block!important;inset:auto!important;background:#f5f1e9!important;color:#756556!important;font:12px/44px system-ui,sans-serif!important;padding:0 16px!important;text-align:right;border:0!important;border-radius:0!important;text-shadow:none!important;box-shadow:none!important;transform:none!important}
+body .reading-zoom,body .card-detail{background:transparent!important;color:#756556!important;border:0!important;border-bottom:1px solid #c9b9a555!important;border-radius:0!important;box-shadow:none!important;font:13px/1.6 system-ui,sans-serif!important;min-height:44px!important;padding:8px 4px!important;letter-spacing:.04em}
+body #cardViewer,body #imageViewer,body .reading-viewer{background:#f8f4ed!important;color:#343b4b!important;border:1px solid #d6cabb!important;border-radius:3px!important;box-shadow:0 20px 80px #19223630!important}
+body #cardViewer::backdrop,body #imageViewer::backdrop,body .reading-viewer::backdrop{background:#20263680!important;backdrop-filter:blur(6px)}
+body #cardViewer img,body #imageViewer img,body .reading-viewer img{background:transparent!important;object-fit:contain}
+body #cardViewer button,body #cardViewer a,body #imageViewer button,body #imageViewer a,body .reading-viewer button,body .reading-viewer a{background:transparent!important;color:#675846!important;border-color:#cfc1ad!important;border-radius:2px!important;box-shadow:none!important;min-height:44px;font-size:13px}
+body .collection-series .series-cover img{height:auto!important;aspect-ratio:auto!important;object-fit:contain!important}
+body .collection-series .series-cover strong{font-family:'Invitation Song','Songti TC',serif;font-weight:400;letter-spacing:.06em}
+body .collection-series .series-cover small{font-variant-numeric:tabular-nums}
+@media(max-width:600px){body .collection-series{gap:24px}body .collection-series .series-cover{display:block!important;padding-bottom:18px!important}body .collection-series .series-cover img{width:100%!important}body .collection-series .series-cover small{margin-bottom:0}}
+body .panel .speaker-name{display:flex!important;align-items:center;gap:8px;font-size:12px!important;line-height:1.6!important;color:#6b6261!important}
+.speaker-name::before{content:'';width:5px;height:5px;flex:0 0 5px;border-radius:50%;background:var(--speaker-color)}
+body .panel .bubble p{max-width:28em;line-height:1.9!important;text-wrap:pretty}
+body.novel-edition #panels.sheet>.quiet-moment{grid-column:1/-1!important;margin:46px 0!important;border:0!important;box-shadow:none!important;background:transparent!important}
+body.novel-edition .quiet-moment .panel-copy{padding:28px 8% 12px!important;text-align:center;background:transparent!important;border:0!important}
+body.novel-edition .quiet-moment .bubble p{margin:10px auto!important;font-size:21px!important;line-height:2!important;max-width:26em}
+body .quiet-moment .speaker-name{justify-content:center}
+body .quiet-moment .quiet-context{text-align:left;margin:24px auto 0;max-width:36em;font-size:14px;color:#77716c}
+.quiet-context summary{cursor:pointer;min-height:44px;line-height:44px;text-align:center;font-size:12px;letter-spacing:.06em}
+@media(min-width:1000px){body.novel-edition #panels.sheet>.dialogue-spread{grid-column:1/-1!important;display:grid;grid-template-columns:minmax(0,1.65fr) minmax(0,1fr);align-items:center;background:#f8f4ed!important}body.novel-edition .dialogue-spread .art-button{grid-column:1;grid-row:1;align-self:center}body.novel-edition .dialogue-spread .panel-copy{grid-column:2;grid-row:1;border:0!important;padding:22px!important;background:transparent!important}body.novel-edition .dialogue-spread .panel-tools,body.novel-edition .dialogue-spread .story-small-moment{grid-column:1/-1}body.novel-edition .dialogue-spread .panel-narration{font-size:14px!important;color:#79716b!important}body.novel-edition .dialogue-spread .bubble p{font-size:16px!important}}
+body.album-edition.gift-page .card-back{padding:24px!important;display:flex!important;flex-direction:column;align-items:center;justify-content:center!important;gap:7px;background:#172238!important;border:1px solid #d2b78988!important;box-shadow:inset 0 0 0 6px #172238,inset 0 0 0 7px #c4aa7755!important}
+body.album-edition.gift-page .card-back .card-edition-meta{position:absolute;left:16px;top:12px;font:9px/1.5 system-ui!important;margin:0!important;color:#cdbfa9!important;padding-right:36px}
+body.album-edition.gift-page .card-back .card-series-name{font:11px/1.5 'Invitation Song',serif!important;letter-spacing:.16em;color:#cab38c!important;margin-top:12px}
+body.album-edition.gift-page .card-back .card-identity{font:18px/1.5 'Invitation Song',serif!important;color:#f6eada!important;letter-spacing:.06em}
+body.album-edition.gift-page .card-back .card-blessing{font:14px/1.8 'Invitation Song',serif!important;color:#eee7da!important;margin:4px 0 0!important;padding:0!important;max-width:30em;text-align:center}
+.card-series-stamp{position:absolute;right:15px;top:13px;width:14px;height:14px;border:1px solid #cdb38a;opacity:.8}
+.stamp-members{transform:rotate(45deg)}.stamp-journey{border-radius:50%;transform:rotate(-25deg) scaleY(.55)}.stamp-night{border-radius:50%;background:linear-gradient(90deg,transparent 50%,#cdb38a 50%)}
+body .card-story-link{font:12px/1.6 'Invitation Song',serif!important;letter-spacing:.04em;min-height:44px;align-content:center;text-decoration:none;border-bottom:1px solid #c9b9a566}
+.collection-toast{position:fixed;bottom:calc(90px + env(safe-area-inset-bottom));left:50%;transform:translate(-50%,8px);opacity:0;transition:opacity .2s,transform .2s;pointer-events:none;z-index:9999;background:#f8f4ed;color:#695745;border:1px solid #ccbca3;padding:12px 22px;box-shadow:0 4px 25px #18213515;font-size:13px;white-space:nowrap}
+.collection-toast.visible{opacity:1;transform:translate(-50%,0)}
+.collection-spark{position:fixed;z-index:9998;width:38px;height:38px;margin:-19px;border:1px solid #b98b67;border-radius:50%;box-shadow:0 0 18px #d5aa7580;pointer-events:none;animation:collect-light .65s ease-out forwards}
+@keyframes collect-light{from{transform:scale(1.2);opacity:.8}to{transform:scale(.05);opacity:0}}
+@media(max-width:600px){body.album-edition.gift-page .card-back{padding:26px 18px 14px!important;gap:4px}body.album-edition.gift-page .card-back .card-identity{font-size:16px!important}body.album-edition.gift-page .card-back .card-blessing{font-size:13px!important;line-height:1.7!important}body.novel-edition .quiet-moment .bubble p{font-size:18px!important}body.novel-edition #panels.sheet>.quiet-moment{margin:32px 0!important}}
+@media(prefers-reduced-motion:reduce){.collection-toast{transition:none}.collection-spark{animation:none;display:none}}
+body.novel-edition #panels .panel .art-button::after{content:'放大查看'!important;display:block!important}
+body.novel-edition #panels .panel .bubble strong.speaker-name{display:flex!important;align-items:center;gap:8px;font-size:12px!important;color:#6b6261!important}
+body.novel-edition #panels .panel .bubble p{font-size:15px!important;line-height:1.9!important}
+body.novel-edition #panels .panel .panel-narration{font-size:14px!important;line-height:1.85!important}
+body.novel-edition #panels .panel .panel-copy{width:100%!important;padding:20px 24px!important}
+body.novel-edition #panels .quiet-moment .bubble{border:0!important;text-align:center!important;padding:0!important}
+body.novel-edition #panels .quiet-moment .bubble p{font-size:21px!important;text-align:center!important;margin:12px auto!important}
+body.novel-edition #panels .quiet-moment .panel-copy{padding:30px 7%!important}
+@media(min-width:1000px){body.novel-edition #panels .dialogue-spread .panel-copy{width:100%!important;padding:24px!important}body.comic-page:not(.novel-edition) #sheet>.dialogue-spread{grid-column:1/-1;display:grid;grid-template-columns:minmax(0,1.65fr) minmax(0,1fr);align-items:center}body.comic-page:not(.novel-edition) #sheet>.dialogue-spread>.art{grid-column:1;grid-row:1}body.comic-page:not(.novel-edition) #sheet>.dialogue-spread>figcaption{grid-column:2;grid-row:1;position:static;max-width:none;margin:0 20px;background:transparent;box-shadow:none;border:0}body.comic-page:not(.novel-edition) #sheet>.dialogue-spread>.reading-zoom{grid-column:1/-1}}
+@media(max-width:600px){body.novel-edition #panels .panel .panel-copy{padding:18px!important}body.novel-edition #panels .quiet-moment .bubble p{font-size:18px!important}}
+body.album-edition.gift-page .card-back .card-series-name,body.album-edition.gift-page .card-back .card-identity,body.album-edition.gift-page .card-back .card-series-stamp{padding:0!important}
+@media(max-width:600px){body.album-edition.gift-page .card-back{padding:24px 16px 10px!important;gap:3px}body.album-edition.gift-page .card-back .card-series-name{margin-top:0!important;font-size:10px!important}body.album-edition.gift-page .card-back .card-identity{font-size:15px!important}body.album-edition.gift-page .card-back .card-edition-meta{top:8px!important;font-size:8px!important}body.album-edition.gift-page .card-back .card-blessing{font-size:12px!important;line-height:1.65!important;margin-top:2px!important}}
+body #cardViewer #cardViewerTitle,body #cardViewer #cardViewerWords,body #imageViewer #imageTitle{color:#494236!important;background:none!important;-webkit-text-fill-color:currentColor!important}
+body #cardViewer .gallery-nav button,body #cardViewer #closeCardViewer,body #cardViewer #cardViewerSave a,body #cardViewer .gallery-story{color:#675846!important;border-color:#cfc1ad!important;background:transparent!important}
+body #cardViewer .gallery-nav span{color:#776d60!important}
+body.novel-edition #panels .quiet-moment .bubble:nth-of-type(n){border:0!important;padding:0!important;text-align:center!important}
+body.novel-edition #panels .panel .art-button::after{color:#756556!important;opacity:1!important}
