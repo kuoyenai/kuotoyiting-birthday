@@ -1,0 +1,79 @@
+{
+  "method": "Conservative static graph: all retained HTML entry points, manifest variants and service worker; dynamic asset stems protected. Candidates require manual review; no deletion.",
+  "unreachableCode": [
+    "downloads.js",
+    "locomotion.js",
+    "plave-3d.js",
+    "three.module.js",
+    "webtoon.css",
+    "world-3d.js",
+    "yiting-rig.js"
+  ],
+  "unreferencedMediaCandidates": [
+    {
+      "path": "apple-touch-icon-v2.png",
+      "bytes": 73712
+    },
+    {
+      "path": "assets/app-icon-180.png",
+      "bytes": 73712
+    },
+    {
+      "path": "assets/app-icon-192-v2.png",
+      "bytes": 82922
+    },
+    {
+      "path": "assets/app-icon-192.png",
+      "bytes": 82922
+    },
+    {
+      "path": "assets/app-icon-512-v2.png",
+      "bytes": 524980
+    },
+    {
+      "path": "assets/app-icon-512.png",
+      "bytes": 524980
+    },
+    {
+      "path": "assets/app-icon-maskable-v2.png",
+      "bytes": 233430
+    },
+    {
+      "path": "assets/app-icon-maskable.png",
+      "bytes": 233430
+    },
+    {
+      "path": "assets/downloads/novel-invitation-medium.jpg",
+      "bytes": 783551
+    },
+    {
+      "path": "assets/icon-maskable-512.png",
+      "bytes": 353175
+    },
+    {
+      "path": "assets/novel-invitation-medium.webp",
+      "bytes": 517020
+    },
+    {
+      "path": "game-members-v2.png",
+      "bytes": 2659267
+    },
+    {
+      "path": "game-members-v3.png",
+      "bytes": 2215857
+    },
+    {
+      "path": "game-walk-v3.png",
+      "bytes": 1986266
+    },
+    {
+      "path": "game-world-v2.png",
+      "bytes": 3373143
+    },
+    {
+      "path": "game-yiting-v2.png",
+      "bytes": 1777795
+    }
+  ],
+  "candidateMediaBytes": 15496162
+}

@@ -157,3 +157,11 @@ iPhone／Safari 主畫面圖示、鎖屏播放、系統下載及原生返回手�
 
 
 
+
+## 獨立 2D 遊戲試玩
+
+[雨夜城市・星光來信試玩](https://kuotoyiting-birthday.vercel.app/explore-test.html) · [素材、操作與測試紀錄](EXPLORE-TEST.md)。此為獨立實驗入口；目前指定穩定版仍為 20261016-9。
+
+## 未使用項目盤點
+
+[靜態引用候選清單](unused-audit.json) 以全部保留 HTML、manifest 與 Service Worker 為入口，保護動態素材名稱。發現7個未接入的程式／樣式檔：downloads.js、locomotion.js、plave-3d.js、three.module.js、webtoon.css、world-3d.js、yiting-rig.js。另有16個無引用媒體候選，合計15,496,162 bytes（約14.8MiB），主要為舊3D角色圖、舊App圖示與舊邀請插畫。已人工確認3D模組僅互相引用，現行漫畫未載入；downloads.js 的函式已有頁內版本。此清單是清理候選，不代表已刪除或所有函式／CSS選擇器都已判定；保留歷史連結、下載包與備份用途待清理時逐項處理。未追蹤的本機圖檔未納入。
