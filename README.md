@@ -209,3 +209,10 @@ iPhone／Safari 主畫面圖示、鎖屏播放、系統下載及原生返回手�
 - **修正**：`explore.html` 移除 `loop` 並載入 `soundtrack.js`；`explore-story.js` 依共用曲目清單在歌曲 `ended` 後切換下一首，依序 1 → 2 → 3 → 4 → 1，並同步曲目索引及使用者暫停偏好。
 - **相關提交**：[`f1a4f58`](https://github.com/snooy791123/kuotoyiting-birthday/commit/f1a4f584e8d9985822bb965f157fd94365a2e356)、[`998672e`](https://github.com/snooy791123/kuotoyiting-birthday/commit/998672eb1ca3a820286dbacec7821bd94be3981a)。
 - **驗證狀態**：已確認程式邏輯與 HTML 引用，尚未實測四首歌曲在 iPhone Safari 的完整連播。穩定版分支未修改。
+
+### 2026-10-16 — 持續優化：連續地圖預載與接縫防錯
+
+- **修改**：`explore-story.js` 會提前載入目前星光前後的地圖素材；場景圖片尚未準備好時，改用中性漸層底圖，避免誤顯其他場景背景。`explore.html` 更新腳本版本，降低瀏覽器沿用舊快取的機會。
+- **提交**：[`4e29215`](https://github.com/snooy791123/kuotoyiting-birthday/commit/4e29215046c8f308c9184be4b4ef6f9752ca103a)、[`02aad22`](https://github.com/snooy791123/kuotoyiting-birthday/commit/02aad2270667c987225142a49fbb1129ade28a94)。
+- **驗證**：完成靜態程式碼檢查；尚未在 iPhone Safari 實機確認完整小說路線、圖片接縫或長時間遊玩。
+- **待辦**：不同場景的美術接縫、完整故事終點、角色動畫節奏、尚未提供的專屬場景素材。
