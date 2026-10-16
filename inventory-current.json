@@ -1,7 +1,7 @@
 {
   "updated": "2026-10-16",
-  "appVersion": "20261016-9",
-  "baseline": "ab2d6f1",
+  "appVersion": "20261016-10",
+  "baseline": "yiting-stable-20261016-v9",
   "cards": 100,
   "novel": {
     "chapters": [
@@ -54,12 +54,12 @@
     "blessingsCSV": true
   },
   "trackedAssets": {
-    "files": 311,
-    "bytes": 308235947,
+    "files": 314,
+    "bytes": 316065269,
     "types": {
       "": 1,
       ".webp": 144,
-      ".png": 13,
+      ".png": 16,
       ".jpg": 139,
       ".zip": 1,
       ".mp4": 5,
@@ -68,6 +68,13 @@
       ".m4a": 4
     }
   },
-  "notes": "Tracked asset counts include icons, alternate illustrations and download originals; they are not counts of unique story panels. sources/ remains read-only."
+  "notes": "Tracked asset counts include icons, alternate illustrations and download originals; they are not counts of unique story panels. sources/ remains read-only.",
+  "game2D": {
+    "entry": "gift.html → explore.html",
+    "chapters": 10,
+    "storyEncounters": 95,
+    "generatedAssets": 3,
+    "localProgress": true,
+    "status": "Playable story-route first version; dedicated environments and animation refinement ongoing"
+  }
 }
-
