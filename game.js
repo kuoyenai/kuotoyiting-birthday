@@ -64,6 +64,7 @@ document.addEventListener('click',e=>{if(musicOn&&$('bgm').paused&&!$('movie').o
 async function playClip(index){const p=PAGES[index];if(p[5]===null)return;resumeMusic=musicOn;$('bgm').pause();$('video').muted=!musicOn;clipEnd=p[6];$('movieTitle').textContent=index===18?'YiTing，生日快樂。':p[3];$('caption').textContent='';$('movie').showModal();$('video').currentTime=p[5];try{await $('video').play();}catch{$('caption').textContent='輕觸影片上的播放鍵開始。';}}
 $('clip').onclick=()=>playClip(SPREADS[page].clip);
 function closeMovie(){$('video').pause();$('movie').close();if(resumeMusic){resumeMusic=false;startMusic();}}
+$('movie').addEventListener('close',()=>{$('video').pause();if(resumeMusic){resumeMusic=false;startMusic();}});
 $('closeMovie').onclick=closeMovie;$('movie').addEventListener('cancel',e=>{e.preventDefault();closeMovie();});$('video').addEventListener('timeupdate',()=>{const t=$('video').currentTime,sub=window.STORY.subtitles.find(s=>t>=s.start&&t<s.end);$('caption').textContent=sub?sub.speaker+'｜'+sub.text:'';if(t>=clipEnd){$('video').pause();$('caption').textContent='這段電影已播完，回到漫畫繼續故事。';}});
 $('saveWish').onclick=()=>{if(!$('wish').value.trim()){$('wishStatus').textContent='先留下一個只屬於妳的願望吧。';return;}try{localStorage.setItem('yiting-comic-wish-v1',$('wish').value);$('extra').classList.add('sealed');$('wishStatus').textContent='星光已收下願望。作者不會知道內容，願望只留在這台裝置。';finish('最後一枚星光，留給妳的願望。',$('saveWish'));}catch{$('wishStatus').textContent='星光已聽見妳的願望。此瀏覽器無法保存，但內容沒有上傳或寄送。';}};
 

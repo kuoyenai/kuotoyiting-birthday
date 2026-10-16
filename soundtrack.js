@@ -9,9 +9,12 @@ window.yitingMusicRead=()=>{try{const p=JSON.parse(localStorage.getItem(key))||{
 window.yitingMusicSave=patch=>{try{localStorage.setItem(key,JSON.stringify({...window.yitingMusicRead(),...patch}));}catch{}};
 window.yitingTime=t=>{t=Number.isFinite(t)?Math.max(0,t):0;return String(Math.floor(t/60)).padStart(2,'0')+':'+String(Math.floor(t%60)).padStart(2,'0');};
 window.yitingCue=(index,time)=>{const rows=window.BIRTHDAY_TIMED_LYRICS?.[YITING_TRACKS[index]?.key]||[];let cue,heading='INSTRUMENTAL',number=0;for(const row of rows){if(row[0]>time)break;cue=row;number++;if(row[1])heading=row[1];}return {ko:cue?.[2]||'♪ '+YITING_TRACKS[index].title+' ♪',zh:cue?.[3]||'',heading,number,total:rows.length};};
+// The persistent shell owns automatic track changes; use its actual source for lyrics and downloads.
+const resolveTrack=(audio,fallback)=>()=>{if(audio.dataset.persistent){const index=YITING_TRACKS.findIndex(t=>new URL(t.src,document.baseURI).href===audio.src);if(index>=0)return index;}return fallback();};
 const bound=new WeakMap(),positionKey='yiting-music-positions';
 const positions=()=>{try{const p=JSON.parse(localStorage.getItem(positionKey));return p&&typeof p==='object'&&!Array.isArray(p)?p:{};}catch{return {};}};
 window.yitingBindAudio=(audio,getTrack,host)=>{
+ getTrack=resolveTrack(audio,getTrack);
  if(bound.has(audio))return bound.get(audio);
  audio.preload='metadata';audio.loop=false;
  const notice=document.createElement('div');notice.className='soundtrack-status';const message=document.createElement('span');message.setAttribute('role','status');const retry=document.createElement('button');retry.type='button';retry.textContent='重試播放';retry.hidden=true;notice.append(message,retry);(host||audio.parentElement).append(notice);
@@ -33,12 +36,14 @@ window.yitingBindAudio=(audio,getTrack,host)=>{
  const binding={save,restore,notice};bound.set(audio,binding);if(audio.readyState)restore();return binding;
 };
 window.yitingLyricPanel=(audio,getTrack,host)=>{
+ getTrack=resolveTrack(audio,getTrack);
  const box=document.createElement('section');box.className='shared-lyrics';box.setAttribute('aria-label','目前歌曲雙語歌詞');box.innerHTML='<p class="lyric-original"></p><p class="lyric-translation"></p><label>歌曲進度 <input type="range" min="0" max="183" value="0" step="0.1" aria-label="歌曲播放進度"></label><a download>下載目前歌曲影片 ↓</a>';host.append(box);
  const range=box.querySelector('input'),save=box.querySelector('a'),time=document.createElement('p');time.className='soundtrack-time';range.parentElement.after(time);yitingBindAudio(audio,getTrack,box);let seeking=false;
  const update=()=>{const track=YITING_TRACKS[getTrack()],cue=yitingCue(getTrack(),audio.currentTime||0);box.querySelector('.lyric-original').textContent=cue.ko;box.querySelector('.lyric-translation').textContent=cue.zh;range.max=Number.isFinite(audio.duration)?audio.duration:track.duration;if(!seeking)range.value=audio.currentTime||0;time.textContent=yitingTime(audio.currentTime)+' / '+yitingTime(Number(range.max));range.setAttribute('aria-valuetext',time.textContent);save.href=track.video;save.download=track.title+'.mp4';save.textContent='下載 '+track.title+' 影片 ↓';};
  ['timeupdate','loadedmetadata','emptied','seeked','play','pause'].forEach(event=>audio.addEventListener(event,update));range.addEventListener('pointerdown',()=>seeking=true);range.addEventListener('pointerup',()=>{seeking=false;update();});range.addEventListener('pointercancel',()=>seeking=false);range.oninput=()=>{if(audio.readyState>0)audio.currentTime=Math.min(Number(range.value),Number(range.max));};update();return update;
 };
 window.yitingAlbumPlayer=(audio,{getTrack,selectTrack,toggle},host)=>{
+ getTrack=resolveTrack(audio,getTrack);
  const box=document.createElement('section');box.className='album-audio-player';box.setAttribute('aria-label','PLAVE 生日專輯播放器');box.dataset.playerVersion='20261014-4';
  box.innerHTML='<div class="audio-member-line" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div><header class="audio-album-header"><div class="audio-album-art" aria-hidden="true">✦</div><div><p class="audio-edition">PLAVE × YITING · BIRTHDAY EDITION</p><h3>為妳播放的星光</h3><p class="audio-current-title"></p></div></header><div class="audio-track-list" role="group" aria-label="四首生日曲目"></div><div class="audio-transport"><button type="button" class="audio-play" aria-pressed="false">播放歌曲</button><span class="audio-current-number"></span></div><div class="audio-progress"><span class="audio-elapsed">00:00</span><input type="range" class="audio-seek" min="0" max="183" value="0" step="0.1" aria-label="歌曲播放進度"><span class="audio-duration">03:03</span></div><div class="audio-lyrics"><div class="audio-lyric-meta"><span class="audio-section"></span><span class="audio-cue-count"></span></div><p class="audio-original"></p><p class="audio-translation"></p></div><div class="audio-status" role="status"></div><button type="button" class="audio-retry" hidden>重試播放</button><a class="audio-download" download>下載目前歌曲 MP4 ↓</a><p class="audio-fan-note">粉絲自製生日曲目 · ONLY FOR YITING</p>';
  host.append(box);const binding=yitingBindAudio(audio,getTrack,box),list=box.querySelector('.audio-track-list'),seek=box.querySelector('.audio-seek'),play=box.querySelector('.audio-play'),status=box.querySelector('.audio-status'),retry=box.querySelector('.audio-retry');let seeking=false;

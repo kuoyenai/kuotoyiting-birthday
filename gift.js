@@ -1,5 +1,6 @@
 const REPLACED_ART={'novel-bamby-closeup':'assets/E00F34EB-9BDE-4825-883E-9EA4E8C618A4.png','novel-welcome-teasing':'assets/D8AF4512-1868-4624-95B9-9FEC559B6A0C.png'};
 const artSource=img=>REPLACED_ART[img]||'assets/'+img+'.webp';
+const downloadSource=img=>REPLACED_ART[img]||(img==='IMG_2091'?'assets/IMG_2091.webp':'assets/downloads/'+img+'.jpg');
 const $=id=>document.getElementById(id),song=$('song');
 function setStatus(message){$('wishStatus').textContent=message;}
 try{$('wish').value=localStorage.getItem('yiting-birthday-wish')||'';}catch{}
@@ -135,10 +136,10 @@ giftTabs.forEach((tab,index)=>{
 if(giftTabs.length){const requested=giftTabs.find(tab=>tab.id==='tab-'+location.hash.slice(1));selectGiftSection(requested||giftTabs[0],false);}
 const viewer=$('cardViewer');
 if(viewer){
- const gallery=window.yitingGallerySetup({viewer,cards});
+ const gallery=window.yitingGallerySetup({viewer,cards,artSource,downloadSource});
  document.querySelectorAll('.card-item').forEach((item,index)=>{
   const [name,img,text]=cards[index],detail=document.createElement('button');detail.className='card-detail';detail.textContent='放大查看';detail.setAttribute('aria-label','放大查看'+name+'小卡');
-  detail.onclick=()=>{if(typeof viewer.showModal!=='function'){window.open((img==='IMG_2091'?'assets/IMG_2091.webp':'assets/downloads/'+img+'.jpg'),'_blank','noopener');return;}gallery.open(index);};item.append(detail);
+  detail.onclick=()=>{if(typeof viewer.showModal!=='function'){window.open(downloadSource(img),'_blank','noopener');return;}gallery.open(index);};item.append(detail);
  });
  $('closeCardViewer').onclick=()=>viewer.close();
 }
