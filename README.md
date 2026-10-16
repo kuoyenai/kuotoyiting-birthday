@@ -224,3 +224,9 @@ iPhone／Safari 主畫面圖示、鎖屏播放、系統下載及原生返回手�
 - **變更檔案**：`gift.html`、`gift.js`、`explore-story.js`。
 - **相關提交**：[`021d0af`](https://github.com/snooy791123/kuotoyiting-birthday/commit/021d0afe251fc31c6e31be3fa25670649326d075)、[`bc2148a`](https://github.com/snooy791123/kuotoyiting-birthday/commit/bc2148a693059a792c9a2c7a8f3978991e6568e9)、[`59f4c25`](https://github.com/snooy791123/kuotoyiting-birthday/commit/59f4c25281fcada85ef4528565240448f9cb3acd)、[`67da3c4`](https://github.com/snooy791123/kuotoyiting-birthday/commit/67da3c443210517f698d4a2420cbdac42d407671)。
 - **待驗證**：iPhone Safari 中嵌入畫面的操作手感、長頁捲動、背景音樂切換。穩定版分支未修改。
+
+### 2026-10-16 — 05 遊戲入口改為點擊後才開始
+
+- **依手機畫面回饋調整**：`gift.html` 的 `05 2D 遊戲` 分頁不再內嵌 `explore.html` 的遊戲畫面；移除 iframe，保留介紹圖文與獨立入口，按下「開啟旅程 →」才會進入遊戲頁。`gift.js` 移除不再需要的 iframe 載入與分頁切換程式。
+- **提交**：[`3108f21`](https://github.com/snooy791123/kuotoyiting-birthday/commit/3108f21e75795eaacac30d83c652cbdefb8d3a85)、[`1e5d983`](https://github.com/snooy791123/kuotoyiting-birthday/commit/1e5d98378fb25ce684f57962e16a6dcadcb3552d)、[`14f91e9`](https://github.com/snooy791123/kuotoyiting-birthday/commit/14f91e9e013eb2630033d80439cad51564a089be)。
+- **驗證**：已檢查程式變更，尚待 iPhone Safari 實機確認頁面布局與跳轉。穩定版分支未修改。
