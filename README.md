@@ -237,3 +237,10 @@ iPhone／Safari 主畫面圖示、鎖屏播放、系統下載及原生返回手�
 - **手機操作**：`explore-test.css` 將遊戲頁限制在可視視窗內，禁止遊戲區域的瀏覽器滑動、長按選取、呼叫複製選單及橡皮筋回彈；劇情對話框仍可捲動閱讀。`explore.html` 更新控制提示及腳本快取版本。
 - **提交**：[`9bd01dd`](https://github.com/snooy791123/kuotoyiting-birthday/commit/9bd01ddd8ce6ddfdb9060b1fb2af8dcc5bf8badc)、[`08df805`](https://github.com/snooy791123/kuotoyiting-birthday/commit/08df805c978ea47e824b462e917661fdc529f491)、[`66819a0`](https://github.com/snooy791123/kuotoyiting-birthday/commit/66819a03165d50178f9edd3470374a0721612351)。
 - **待驗證**：iPhone Safari 的動態工具列、安全區域、遊戲視窗高度與左右長按手勢；尚未進行實機驗證。穩定版未修改。
+
+### 2026-10-16 — 修正 iPhone 2D 遊戲頁面仍可上下滑動
+
+- **問題**：先前雖使用 `overflow:hidden` 與 `100dvh`，iPhone Safari 仍可能拖動整個網頁，遊戲框隨之位移。
+- **修正**：`explore-test.css` 將 `html` 固定於可視視窗，`body` 絕對定位並禁止觸控捲動；取消遊戲場景最小高度避免小螢幕撐出可捲動頁面；僅允許已開啟的劇情對話框捲動。`explore.html` 更新 CSS 版本避免快取。
+- **提交**：[`b2e00f2`](https://github.com/snooy791123/kuotoyiting-birthday/commit/b2e00f29a4e649157948db24492c72833cfe3e0f)、[`90c4489`](https://github.com/snooy791123/kuotoyiting-birthday/commit/90c4489baec3ece546a2030a0bb6ef5e1c161c5e)。
+- **驗證**：已靜態確認 CSS 約束，尚待 iPhone Safari 實機確認不同瀏覽器工具列高度、動態島與橫直向。穩定版分支未修改。
