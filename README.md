@@ -251,3 +251,11 @@ iPhone／Safari 主畫面圖示、鎖屏播放、系統下載及原生返回手�
 - **修正**：`explore-story.js` 在旅程結束時沿用最後場景做安全顯示、刷新結局進度與連結，並讓回顧星光依相機座標正確顯示；`explore.html` 更新腳本快取版本。
 - **提交**：[`d763213`](https://github.com/snooy791123/kuotoyiting-birthday/commit/d763213c377d79ed3098dfb38ced7281a6ad3aca)、[`163185f`](https://github.com/snooy791123/kuotoyiting-birthday/commit/163185fb36659eaaae19010f72c1e1c8c34da4f8)。
 - **驗證**：已核對程式碼路徑；尚未實際完整遊玩至終章或 iPhone 實機測試。未新增美術圖檔，待逐段盤點素材缺口。穩定版未修改。
+
+### 2026-10-16 21:53（台灣時間）— 2D 星光旅程終章安全性修正
+
+- **問題**：故事全部完成後 `refresh()` 仍使用 `window.yitingExploreScene(s)`，但此時 `s` 不存在，可能造成介面錯誤；回顧舊故事的最後一頁按鈕文字不夠明確。
+- **修正**：`explore-story.js` 的終章畫面改以最後一個有效場景顯示標籤與場景 ID；重溫劇情的結束按鈕顯示「結束重溫 →」。`explore.html` 更新 JS 快取版本。
+- **修改提交**：[`b76cdbe`](https://github.com/snooy791123/kuotoyiting-birthday/commit/b76cdbef35ce398e0aa6b793acc35b11e39a3c2e)、[`86b3d82`](https://github.com/snooy791123/kuotoyiting-birthday/commit/86b3d82346a10298c0309085110a291887d62ed3)。
+- **驗證**：完成靜態程式碼核對；尚未使用實機或瀏覽器完整通關測試。
+- **素材與後續**：本輪未新增圖片。仍需盤點整部小說漫畫各段場景專屬美術、實測場景接縫與手機效能；無法自動生成或上傳的素材將持續記錄，不宣稱已補齊。
