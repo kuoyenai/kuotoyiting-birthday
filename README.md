@@ -216,3 +216,11 @@ iPhone／Safari 主畫面圖示、鎖屏播放、系統下載及原生返回手�
 - **提交**：[`4e29215`](https://github.com/snooy791123/kuotoyiting-birthday/commit/4e29215046c8f308c9184be4b4ef6f9752ca103a)、[`02aad22`](https://github.com/snooy791123/kuotoyiting-birthday/commit/02aad2270667c987225142a49fbb1129ade28a94)。
 - **驗證**：完成靜態程式碼檢查；尚未在 iPhone Safari 實機確認完整小說路線、圖片接縫或長時間遊玩。
 - **待辦**：不同場景的美術接縫、完整故事終點、角色動畫節奏、尚未提供的專屬場景素材。
+
+### 2026-10-16 — 生日收藏導覽調整：2D 遊戲成為 05
+
+- **調整**：`gift.html` 移除頁首獨立 2D 遊戲入口，將完整 `explore.html` 以可操作的嵌入遊戲畫面放在 `04 小說` 後的新 `05 2D 遊戲` 分頁；原 `05 許願` 改為 `06 許願`，既有願望儲存功能不變。
+- **體驗**：首次切換至 05 才載入遊戲；保留全畫面開啟連結。切離 05 時傳送暫停音樂訊息，避免遊戲歌曲與禮物頁歌曲重疊。
+- **變更檔案**：`gift.html`、`gift.js`、`explore-story.js`。
+- **相關提交**：[`021d0af`](https://github.com/snooy791123/kuotoyiting-birthday/commit/021d0afe251fc31c6e31be3fa25670649326d075)、[`bc2148a`](https://github.com/snooy791123/kuotoyiting-birthday/commit/bc2148a693059a792c9a2c7a8f3978991e6568e9)、[`59f4c25`](https://github.com/snooy791123/kuotoyiting-birthday/commit/59f4c25281fcada85ef4528565240448f9cb3acd)、[`67da3c4`](https://github.com/snooy791123/kuotoyiting-birthday/commit/67da3c443210517f698d4a2420cbdac42d407671)。
+- **待驗證**：iPhone Safari 中嵌入畫面的操作手感、長頁捲動、背景音樂切換。穩定版分支未修改。
