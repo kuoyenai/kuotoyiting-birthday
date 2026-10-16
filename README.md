@@ -2,7 +2,7 @@
 
 [開啟網站](https://kuotoyiting-birthday.vercel.app/) · [GitHub Pages](https://snooy791123.github.io/kuotoyiting-birthday/)
 
-更新日期：2026-10-16；目前 App 版本：`20261016-12`。目前指定穩定版：`yiting-stable-20261016-v9`，對應 App `20261016-9`、網站程式提交 `108c7c1`。保留先前標籤 `yiting-stable-20261016-v8`（`4d1232a`）與 `yiting-stable-20261016`（`e5bb82b`），不移動任何既有穩定標籤。
+更新日期：2026-10-16；目前 App 版本：`20261016-13`。目前指定穩定版：`yiting-stable-20261016-v9`，對應 App `20261016-9`、網站程式提交 `108c7c1`。保留先前標籤 `yiting-stable-20261016-v8`（`4d1232a`）與 `yiting-stable-20261016`（`e5bb82b`），不移動任何既有穩定標籤。
 
 ## 穩定版紀錄
 
@@ -19,13 +19,18 @@
 | 電影互動漫畫 | 20 格原畫、7 回導覽 |
 | 陪伴曲目 | 4 首，主題曲置首；選哪首就下載該首 MP4 |
 | 完整收錄 | 100 張小卡、祝福 CSV 與說明，ZIP 79,250,017 bytes，約 76 MB |
-| Git 追蹤素材 | 316 個檔案，共 323,138,098 bytes；含圖示、備用圖、字型及下載原檔，不等於故事插畫數 |
+| Git 追蹤素材 | 317 個檔案，共 324,863,740 bytes；含圖示、備用圖、字型及下載原檔，不等於故事插畫數 |
 
 [下載完整收錄](assets/downloads/YITING-100-photocards.zip) · [機器可讀現況盤點](inventory-current.json) · [深度除錯紀錄](DEBUG-REPORT-20261016.md) · [接續製作說明](CONTINUE-HERE.md)
 
 `inventory.json` 與 `materials.csv` 是最初 38 份來源素材的歷史盤點，最新網站內容以 `inventory-current.json` 為準。`sources/` 為唯讀參考資料。
 
 ## 最新檢查與修正
+
+### 20261016-13｜60姿勢行走循環
+
+YITING改用分層2D骨架與每循環60個細分姿勢，加入膝蓋／腳掌／反向擺臂與起停過渡；動作依移動距離推進。390／1280驗證60份姿勢和繪製結果各不相同，停步回站姿與左右方向正常。新增1張角色分件素材，完整來源與限制記錄於 [製作紀錄](EXPLORE-TEST.md)。實際裝置更新率不保證固定60FPS。
+
 
 ### 20261016-12｜成員專用探索環境
 
