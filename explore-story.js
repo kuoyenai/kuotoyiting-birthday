@@ -36,11 +36,18 @@ function refresh(){const s=current(),done=!s;$("endLink").hidden=!done;document.
 const near=Math.abs(x-waypoint)<115;$('interact').disabled=!ready||!near||done;$('interact').textContent=done?'✦ 旅程已完成':near?'✦ 發現這段故事':'走近前方星光';canvas.dataset.index=String(index);canvas.dataset.playerX=String(Math.round(x));canvas.dataset.waypoint=String(waypoint);canvas.dataset.facing=String(facing);
 $('chapterMenu').replaceChildren();chapters.forEach((chapter,c)=>{const option=document.createElement('option'),first=route.findIndex(s=>s.chapter===c);option.value=first;option.textContent=chapter.title+(first>unlocked?' · 尚未抵達':'');option.disabled=first>unlocked;option.selected=c===(s?.chapter??9);$('chapterMenu').append(option);});}
 const sceneCache=new Map();function loadScene(source){if(!sceneCache.has(source)){const image=new Image();image.src=source;sceneCache.set(source,image.decode().then(()=>image).catch(error=>{sceneCache.delete(source);throw error;}));}return sceneCache.get(source);}
-async function changeBackground(){const token=++backgroundToken,scene=window.yitingExploreScene(current());ready=false;stop();$('loading').hidden=false;$('loading').textContent='正在走進下一段風景…';try{const [image]=await Promise.all([loadScene(scene.source),classicSprite.decode()]);if(token!==backgroundToken)return;background=image;sceneImages.set(scene.source,image);ready=true;$('loading').hidden=true;refresh();const next=route[index+1];if(next)loadScene(window.yitingExploreScene(next).source).then(img=>sceneImages.set(window.yitingExploreScene(next).source,img)).catch(()=>{});}catch{if(token!==backgroundToken)return;$('loading').replaceChildren(document.createTextNode('場景暫時無法載入。'));const retry=document.createElement('button');retry.textContent='重新載入';retry.onclick=changeBackground;$('loading').append(retry);}}
+// Prepare neighboring map segments before the camera reaches them, without resetting movement.
+function preloadWorldSegments(center=index){
+ for(let n=Math.max(0,center-1);n<=Math.min(route.length-1,center+3);n++){
+  const source=window.yitingExploreScene(route[n]).source;
+  if(!sceneImages.has(source))loadScene(source).then(img=>sceneImages.set(source,img)).catch(()=>{});
+ }
+}
+async function changeBackground(){const token=++backgroundToken,scene=window.yitingExploreScene(current());ready=false;stop();$('loading').hidden=false;$('loading').textContent='正在走進下一段風景…';try{const [image]=await Promise.all([loadScene(scene.source),classicSprite.decode()]);if(token!==backgroundToken)return;background=image;sceneImages.set(scene.source,image);preloadWorldSegments();ready=true;$('loading').hidden=true;refresh();const next=route[index+1];if(next)loadScene(window.yitingExploreScene(next).source).then(img=>sceneImages.set(window.yitingExploreScene(next).source,img)).catch(()=>{});}catch{if(token!==backgroundToken)return;$('loading').replaceChildren(document.createTextNode('場景暫時無法載入。'));const retry=document.createElement('button');retry.textContent='重新載入';retry.onclick=changeBackground;$('loading').append(retry);}}
 function showLine(){const s=current(),rows=[['故事旁白',s.narration],...s.lines];$('speaker').textContent=rows[line][0];$('line').textContent=rows[line][1];$('continue').textContent=line<rows.length-1?'繼續 →':index===route.length-1?'把星光帶回日常':'繼續旅程 →';}
 function openStory(){if(!current()||!ready)return;stop();line=0;const s=current(),image=$('storyArt');image.src=art(s.asset);image.alt=s.narration;$('artStatus').textContent='';showLine();dialog.showModal();}
 $('storyArt').onerror=()=>{$('artStatus').textContent='圖片暫時無法載入，輕觸此處重試';};$('artStatus').onclick=()=>{if(current())$('storyArt').src=art(current().asset)+'?retry='+Date.now();};$('storyArt').onload=()=>{$('artStatus').textContent='';};
-$('continue').onclick=()=>{const s=current();if(!s)return;if(line<s.lines.length){line++;showLine();return;}const previousChapter=s.chapter,previousScene=window.yitingExploreScene(s).id;index++;unlocked=Math.max(unlocked,index);dialog.close();stop();sceneStep++;waypoint=starAt(index);target=x;save();refresh();const nextSource=window.yitingExploreScene(current()).source;if(!sceneImages.has(nextSource))changeBackground();else {background=sceneImages.get(nextSource);ready=true;const ahead=route[index+1];if(ahead){const src=window.yitingExploreScene(ahead).source;loadScene(src).then(img=>sceneImages.set(src,img)).catch(()=>{});}}if(!current())$('endLink').hidden=false;};
+$('continue').onclick=()=>{const s=current();if(!s)return;if(line<s.lines.length){line++;showLine();return;}const previousChapter=s.chapter,previousScene=window.yitingExploreScene(s).id;index++;unlocked=Math.max(unlocked,index);dialog.close();stop();sceneStep++;waypoint=starAt(index);target=x;save();refresh();preloadWorldSegments();const nextSource=window.yitingExploreScene(current()).source;if(!sceneImages.has(nextSource))changeBackground();else {background=sceneImages.get(nextSource);ready=true;const ahead=route[index+1];if(ahead){const src=window.yitingExploreScene(ahead).source;loadScene(src).then(img=>sceneImages.set(src,img)).catch(()=>{});}}if(!current())$('endLink').hidden=false;};
 $('interact').onclick=()=>{if(!$('interact').disabled)openStory();};dialog.addEventListener('close',()=>{canvas.focus({preventScroll:true});});
 canvas.addEventListener('pointerdown',e=>{if(!ready||dialog.open||!current())return;const r=canvas.getBoundingClientRect();target=Math.max(x,Math.min(waypoint,camera+(e.clientX-r.left)/r.width*vw));audio();canvas.focus({preventScroll:true});});
 window.addEventListener('keydown',e=>{if(dialog.open||e.ctrlKey||e.metaKey||e.altKey||e.target.closest('button,a,select'))return;const k=e.key.toLowerCase();if(['arrowleft','arrowright','a','d'].includes(k)){e.preventDefault();keys.add(k);audio();}if(k==='e')$('interact').click();});window.addEventListener('keyup',e=>{keys.delete(e.key.toLowerCase());if(!keys.size)target=x;});window.addEventListener('blur',stop);document.addEventListener('visibilitychange',()=>{if(document.hidden)stop();});
@@ -54,13 +61,13 @@ $('restart').onclick=()=>{$('restartDialog').showModal();};$('cancelRestart').on
 function drawContinuousWorld(scale,h){
  const first=Math.max(0,Math.floor(camera/stageLength)-1),last=Math.min(route.length-1,Math.ceil((camera+vw)/stageLength)+1);
  for(let n=first;n<=last;n++){
-  const scene=window.yitingExploreScene(route[n]),img=sceneImages.get(scene.source)||background;
+  const scene=window.yitingExploreScene(route[n]),img=sceneImages.get(scene.source);
   const left=(n*stageLength-camera)*scale,width=stageLength*scale+1;
   if(img&&img.complete&&img.naturalWidth){
    // Match the right edge of each illustrated scene to the next without moving the player.
    const srcW=img.naturalWidth,srcH=img.naturalHeight;
    ctx.drawImage(img,0,0,srcW,srcH,left,0,width,h);
-  }else{ctx.fillStyle='#151b34';ctx.fillRect(left,0,width,h);}
+  }else{const sky=ctx.createLinearGradient(left,0,left,h);sky.addColorStop(0,'#121b38');sky.addColorStop(1,'#332444');ctx.fillStyle=sky;ctx.fillRect(left,0,width,h);}
   if(n>0){const fade=ctx.createLinearGradient(left,0,left+Math.min(width*.22,100),0);fade.addColorStop(0,'rgba(19,23,48,.32)');fade.addColorStop(1,'rgba(19,23,48,0)');ctx.fillStyle=fade;ctx.fillRect(left,0,Math.min(width*.22,100),h);}
  }
 }
