@@ -126,15 +126,7 @@ cards.forEach(([name,img,text],cardIndex)=>{
 const giftTabs=Array.from(document.querySelectorAll('.collection-tabs [role="tab"]'));
 function selectGiftSection(tab,updateHash=true){
  giftTabs.forEach(item=>{const active=item===tab;item.setAttribute('aria-selected',String(active));item.tabIndex=active?0:-1;document.getElementById(item.getAttribute('aria-controls')).hidden=!active;});
- const exploreFrame=document.getElementById('giftExploreFrame');
- if(tab.id==='tab-explore'){
-  if(exploreFrame&&!exploreFrame.getAttribute('src'))exploreFrame.src=exploreFrame.dataset.src;
-  // The embedded journey owns its four-song playlist while this panel is open.
-  if(!song.paused)song.pause();
- }else{
-  if(exploreFrame?.contentWindow)try{exploreFrame.contentWindow.postMessage({type:'yiting-explore-audio',action:'pause'},location.origin);}catch{}
-  if(tab.id==='tab-novel'&&!userPaused&&song.paused)playMusic();
- }
+ if(tab.id==='tab-novel'&&!userPaused&&song.paused)playMusic();
  if(updateHash)try{history.replaceState(null,'','#'+tab.id.slice(4));}catch{}
 }
 giftTabs.forEach((tab,index)=>{
