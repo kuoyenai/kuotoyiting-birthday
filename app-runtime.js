@@ -33,7 +33,7 @@
   const details=document.createElement('details');const summary=document.createElement('summary');summary.textContent='查看錯誤原因';
   const diagnostic=document.createElement('small');diagnostic.textContent=entry.name+'：'+entry.message;
   details.append(summary,diagnostic);
-  const reload=document.createElement('button');reload.type='button';reload.textContent='重新整理';reload.onclick=()=>location.reload();
+  const reload=document.createElement('button');reload.type='button';reload.textContent='重新整理';reload.onclick=()=>window.yitingReloadApp?window.yitingReloadApp():location.reload();
   const dismiss=document.createElement('button');dismiss.type='button';dismiss.textContent='關閉提示';dismiss.onclick=()=>bar.remove();
   bar.append(label,details,reload,dismiss);document.body.append(bar);
  };

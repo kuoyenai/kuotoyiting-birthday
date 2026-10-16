@@ -1,0 +1,72 @@
+{
+  "updated": "2026-10-16",
+  "appVersion": "20261016-6",
+  "baseline": "20283c7",
+  "cards": 100,
+  "novel": {
+    "chapters": [
+      "序章｜平凡的十月二十日",
+      "第一章｜來自另一個世界的訊息",
+      "第二章｜十點二十分的奇蹟",
+      "第三章｜歡迎來到 ASTERUM",
+      "第四章｜五個人的祕密任務",
+      "第五章｜銀虎的星星",
+      "第六章｜只為妳亮起的舞台",
+      "第七章｜十月二十日的願望",
+      "第八章｜星光不會消失",
+      "終章｜生日快樂，YiTing"
+    ],
+    "originalAndTerracePanels": 78,
+    "additionalShots": 17,
+    "totalPanels": 95,
+    "uniqueImages": 95
+  },
+  "movieComic": {
+    "pages": 20,
+    "spreads": 7
+  },
+  "tracks": [
+    {
+      "title": "열 시 이십 분의 별",
+      "audio": "assets/ten-twenty-star.m4a",
+      "video": "assets/ten-twenty-star.mp4"
+    },
+    {
+      "title": "너만을 위한 별빛",
+      "audio": "assets/only-for-you.m4a",
+      "video": "assets/gemini_generated_video_5D27E211.mp4"
+    },
+    {
+      "title": "너라는 별빛",
+      "audio": "assets/song.m4a",
+      "video": "assets/starlight-song.mp4"
+    },
+    {
+      "title": "10월의 밤",
+      "audio": "assets/moon-night.m4a",
+      "video": "assets/moon-night.mp4"
+    }
+  ],
+  "bundle": {
+    "path": "assets/downloads/YITING-100-photocards.zip",
+    "bytes": 79250017,
+    "images": 100,
+    "blessingsCSV": true
+  },
+  "trackedAssets": {
+    "files": 311,
+    "bytes": 308235947,
+    "types": {
+      "": 1,
+      ".webp": 144,
+      ".png": 13,
+      ".jpg": 139,
+      ".zip": 1,
+      ".mp4": 5,
+      ".txt": 2,
+      ".ttf": 2,
+      ".m4a": 4
+    }
+  },
+  "notes": "Tracked asset counts include icons, alternate illustrations and download originals; they are not counts of unique story panels. sources/ remains read-only."
+}

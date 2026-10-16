@@ -29,3 +29,11 @@
 沒有修改歌曲、影片、小說內容、100 張小卡原圖、完整收錄下載包、私人願望儲存方式或 sources 參考資料。未納入未提交的 offline.html、舊圖及字型。
 
 相關重現／回歸腳本：test-playlist-regression.cjs、test-auto-next.cjs、test-deep-interactions-20261016.cjs、test-video-dialog-exclusivity.cjs、test-all-card-source-consistency.cjs、test-hundred-cards.cjs、test-offline-debug-20261016.cjs。
+
+## 第二輪：20261016-6
+
+修正舊 chapter 連結嵌入音樂框架、更新只重載內頁、修飾鍵點擊遭攔截、手機漫畫底部更新按鈕被雙層導覽遮擋。
+
+整合回歸涵蓋三種舊連結、跨頁前進返回、同一音訊節點保留、整個 App 更新後章節 109 定位／歌曲暫停與 25 秒位置／測試願望保留；修飾鍵開新分頁測試通過。
+
+最新盤點：100 張小卡；小說漫畫 10 章、95 張獨立插畫；電影漫畫 20 格、7 回；4 首歌曲。已同步 README 與 inventory-current.json。

@@ -29,7 +29,14 @@ audio.addEventListener('loadedmetadata',()=>{
  if(Number.isFinite(t)&&t>0&&t<audio.duration-1)audio.currentTime=t;
 });
 window.addEventListener('popstate',()=>{const target=new URL(location.href);if(frame.contentWindow.location.href!==target.href)frame.contentWindow.location.replace(target.href);});
-frame.addEventListener('load',()=>{try{document.title=frame.contentDocument.title;}catch{}if(!leaving)play();});
+frame.addEventListener('load',()=>{
+ try{
+  const child=new URL(frame.contentWindow.location.href),page=child.pathname.split('/').pop()||'index.html';
+  if(child.origin===base.origin&&page==='movie.html'){leaving=true;audio.pause();location.replace(child.href);return;}
+  document.title=frame.contentDocument.title;
+ }catch{}
+ if(!leaving)play();
+});
 window.addEventListener('beforeunload',()=>{leaving=true;});document.addEventListener('visibilitychange',()=>{if(!document.hidden)play();});
 route(initial,true);play();
 })();
