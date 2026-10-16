@@ -275,3 +275,11 @@ iPhone／Safari 主畫面圖示、鎖屏播放、系統下載及原生返回手�
 - **提交**：[`73c8d74`](https://github.com/snooy791123/kuotoyiting-birthday/commit/73c8d74fc71f4b0f49c63a7b93de8d76af555bc9)、[`bec17ab`](https://github.com/snooy791123/kuotoyiting-birthday/commit/bec17abe10889aacaef0df1966045fdf15a983f7)。
 - **驗證**：已檢查原始碼邏輯；尚未於 iPhone Safari 實機回走全圖或通關測試。
 - **待補素材**：尚未生成新圖檔，仍需逐章盤點獨立背景與地圖接縫過渡素材。穩定分支不變。
+
+### 2026-10-16 — 缺少場景圖片時仍可繼續小說旅程
+
+- **問題**：`explore-story.js` 的 `changeBackground()` 原先在任何場景圖載入失敗時都停用移動並卡在載入畫面，可能讓完整小說漫畫旅程中斷。
+- **修正**：場景圖片讀取失敗時，只要原版角色逐格圖片可正常載入，仍開放探索及星光互動；`drawContinuousWorld()` 已具備深色漸層佔位畫面。角色圖片本身若失敗則明確顯示錯誤，避免隱藏真正阻礙。`explore.html` 同步更新腳本版本。
+- **提交**：[`532a100`](https://github.com/snooy791123/kuotoyiting-birthday/commit/532a100080019feefda928147a4dee8e13357b63)、[`d88dba7`](https://github.com/snooy791123/kuotoyiting-birthday/commit/d88dba7c79dc85590088843c77675c886409c368)。
+- **驗證**：程式碼路徑靜態檢查；尚未模擬網路斷線、手機 Safari 或完整通關。
+- **待補素材**：未新增圖片；需逐章確認背景是否存在及補足專屬場景。此項是防卡關機制，不等於素材已補齊。穩定版不變。
