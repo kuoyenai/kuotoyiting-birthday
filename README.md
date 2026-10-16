@@ -267,3 +267,11 @@ iPhone／Safari 主畫面圖示、鎖屏播放、系統下載及原生返回手�
 - **提交**：[`3de2c46`](https://github.com/snooy791123/kuotoyiting-birthday/commit/3de2c46fb227ac7dbc960671749f1b88ec234379)、[`4028f0a`](https://github.com/snooy791123/kuotoyiting-birthday/commit/4028f0a31ff102e94af1b315152af9c42ab86323)。
 - **驗證**：靜態程式碼檢查，尚未實際通關及 iPhone Safari 測試。
 - **待補素材**：各章專屬場景背景及場景接縫過渡美術仍待盤點，本輪未生成新圖片；不更動穩定版。
+
+### 2026-10-16 — 手機通關後回走控制與舊場景預載
+
+- **問題**：通關後左右手機控制鍵仍以 `current()` 是否存在限制按住移動；場景預載只以主線進度為中心，往回走時舊場景可能出現空白或深色佔位。
+- **修正**：`explore-story.js` 讓手機方向鍵在通關後仍可操作，並依相機所在的地圖區段預先載入周圍場景；`explore.html` 更新 JS 快取版本。保持主線解鎖進度、原版角色與四首歌曲設定不變。
+- **提交**：[`73c8d74`](https://github.com/snooy791123/kuotoyiting-birthday/commit/73c8d74fc71f4b0f49c63a7b93de8d76af555bc9)、[`bec17ab`](https://github.com/snooy791123/kuotoyiting-birthday/commit/bec17abe10889aacaef0df1966045fdf15a983f7)。
+- **驗證**：已檢查原始碼邏輯；尚未於 iPhone Safari 實機回走全圖或通關測試。
+- **待補素材**：尚未生成新圖檔，仍需逐章盤點獨立背景與地圖接縫過渡素材。穩定分支不變。
