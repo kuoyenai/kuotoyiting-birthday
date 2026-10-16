@@ -48,3 +48,20 @@
   showFailure(entry);
  });
 })();
+
+// A failed enlarged image can be retried without leaving the story or resetting music.
+(()=>{
+ const notices=new WeakMap();
+ const clear=image=>{notices.get(image)?.remove();notices.delete(image);};
+ const failed=image=>{
+  if(!(image instanceof HTMLImageElement)||!image.closest('dialog')||!image.getAttribute('src')||notices.has(image))return;
+  const notice=document.createElement('div');notice.className='image-retry';notice.setAttribute('role','status');
+  const text=document.createElement('p');text.textContent='圖片暫時無法載入，請確認網路後重試。';
+  const retry=document.createElement('button');retry.type='button';retry.textContent='重新載入圖片';
+  retry.onclick=()=>{clear(image);const url=new URL(image.src,document.baseURI);url.searchParams.set('image-retry',String(Date.now()));image.src=url.href;};
+  notice.append(text,retry);image.after(notice);notices.set(image,notice);
+ };
+ document.addEventListener('error',event=>failed(event.target),true);
+ document.addEventListener('load',event=>{if(event.target instanceof HTMLImageElement)clear(event.target);},true);
+ document.querySelectorAll('dialog img[src]').forEach(image=>{if(image.complete&&!image.naturalWidth)failed(image);});
+})();

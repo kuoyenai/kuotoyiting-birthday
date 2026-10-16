@@ -43,3 +43,9 @@
 確認瀏覽器拒絕 localStorage 讀寫時，音樂偏好會失去暫停與選曲設定。改為外層持有當次開啟的記憶體備援，內頁共用；不宣稱關閉後持久保存。
 
 test-storage-music.cjs 已先重現失敗再驗證修正；test-storage-blocked-browser.cjs 模擬 SecurityError／QuotaExceededError 並驗證跨頁保留；五頁 test-playlist-regression.cjs 一般儲存換曲回歸通過。內容盤點維持 100 小卡、95 小說插畫、四曲，未改 sources。
+
+## 第四輪：20261016-8
+
+修正小說新增分鏡放大標題誤用內部 ID，改用可見閱讀順序；為 dialog 圖片提供失敗提示與獨立重試，避免只有空白破圖。test-image-retry-sequence.cjs 驗證 panel109 顯示第7格，以及失敗回應後重試成功、視窗保持開啟。測試回應攔截使用 serviceWorkers:block，不將攔截層略過誤報為網站問題。
+
+素材與故事內容數量維持不變。
