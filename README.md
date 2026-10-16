@@ -283,3 +283,11 @@ iPhone／Safari 主畫面圖示、鎖屏播放、系統下載及原生返回手�
 - **提交**：[`532a100`](https://github.com/snooy791123/kuotoyiting-birthday/commit/532a100080019feefda928147a4dee8e13357b63)、[`d88dba7`](https://github.com/snooy791123/kuotoyiting-birthday/commit/d88dba7c79dc85590088843c77675c886409c368)。
 - **驗證**：程式碼路徑靜態檢查；尚未模擬網路斷線、手機 Safari 或完整通關。
 - **待補素材**：未新增圖片；需逐章確認背景是否存在及補足專屬場景。此項是防卡關機制，不等於素材已補齊。穩定版不變。
+
+### 2026-10-16 — 漫畫分鏡缺圖時的劇情畫面備援
+
+- **問題**：遊戲中個別小說漫畫分鏡圖片載入失敗時，對話框只會顯示缺圖，降低完整閱讀體驗。
+- **修正**：`explore-story.js` 在分鏡圖載入失敗時，改用該故事所在章節的場景背景暫代；保留文字與重試功能，重新開啟不同分鏡時清除前一次備援狀態。`explore.html` 更新腳本快取版本。
+- **提交**：[`d01c9b7`](https://github.com/snooy791123/kuotoyiting-birthday/commit/d01c9b724afaf4d0457e46640eabb5ee8fa65cae)、[`d5db8e2`](https://github.com/snooy791123/kuotoyiting-birthday/commit/d5db8e2c0196f247d864bc165955af0aa10d31ba)。
+- **驗證**：靜態程式碼檢查；尚未在手機實機模擬分鏡圖片 404。
+- **待補素材**：本輪未新增原創圖檔；需持續盤點缺失的逐格漫畫插畫與章節專屬背景。備援畫面不代表素材已完成。穩定版未修改。
