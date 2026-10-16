@@ -5,8 +5,18 @@ window.YITING_TRACKS=[
 {title:'너라는 별빛',name:'너라는 별빛｜妳這道星光',src:'assets/song.m4a',video:'assets/starlight-song.mp4',key:'second',duration:62.113},
 {title:'10월의 밤',name:'10월의 밤｜十月的夜晚',src:'assets/moon-night.m4a',video:'assets/moon-night.mp4',key:'third',duration:70}];
 const key='yiting-music-preferences';
-window.yitingMusicRead=()=>{try{const p=JSON.parse(localStorage.getItem(key))||{};return {index:Number.isInteger(p.index)&&p.index>=0&&p.index<4?p.index:0,paused:p.paused===true};}catch{return {index:0,paused:false};}};
-window.yitingMusicSave=patch=>{try{localStorage.setItem(key,JSON.stringify({...window.yitingMusicRead(),...patch}));}catch{}};
+let temporaryPreferences={index:0,paused:false},storageUnavailable=false;
+const preferenceOwner=()=>{try{return window.parent!==window&&window.parent.yitingPersistent?window.parent:null;}catch{return null;}};
+window.yitingMusicRead=()=>{
+ const owner=preferenceOwner();if(owner)return owner.yitingMusicRead();
+ if(!storageUnavailable)try{const p=JSON.parse(localStorage.getItem(key))||{};temporaryPreferences={index:Number.isInteger(p.index)&&p.index>=0&&p.index<4?p.index:0,paused:p.paused===true};}catch{storageUnavailable=true;}
+ return {...temporaryPreferences};
+};
+window.yitingMusicSave=patch=>{
+ const owner=preferenceOwner();if(owner){owner.yitingMusicSave(patch);return;}
+ temporaryPreferences={...window.yitingMusicRead(),...patch};
+ try{localStorage.setItem(key,JSON.stringify(temporaryPreferences));}catch{storageUnavailable=true;}
+};
 window.yitingTime=t=>{t=Number.isFinite(t)?Math.max(0,t):0;return String(Math.floor(t/60)).padStart(2,'0')+':'+String(Math.floor(t%60)).padStart(2,'0');};
 window.yitingCue=(index,time)=>{const rows=window.BIRTHDAY_TIMED_LYRICS?.[YITING_TRACKS[index]?.key]||[];let cue,heading='INSTRUMENTAL',number=0;for(const row of rows){if(row[0]>time)break;cue=row;number++;if(row[1])heading=row[1];}return {ko:cue?.[2]||'♪ '+YITING_TRACKS[index].title+' ♪',zh:cue?.[3]||'',heading,number,total:rows.length};};
 // The persistent shell owns automatic track changes; use its actual source for lyrics and downloads.

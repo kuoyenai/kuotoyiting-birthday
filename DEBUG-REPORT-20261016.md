@@ -37,3 +37,9 @@
 整合回歸涵蓋三種舊連結、跨頁前進返回、同一音訊節點保留、整個 App 更新後章節 109 定位／歌曲暫停與 25 秒位置／測試願望保留；修飾鍵開新分頁測試通過。
 
 最新盤點：100 張小卡；小說漫畫 10 章、95 張獨立插畫；電影漫畫 20 格、7 回；4 首歌曲。已同步 README 與 inventory-current.json。
+
+## 第三輪：20261016-7
+
+確認瀏覽器拒絕 localStorage 讀寫時，音樂偏好會失去暫停與選曲設定。改為外層持有當次開啟的記憶體備援，內頁共用；不宣稱關閉後持久保存。
+
+test-storage-music.cjs 已先重現失敗再驗證修正；test-storage-blocked-browser.cjs 模擬 SecurityError／QuotaExceededError 並驗證跨頁保留；五頁 test-playlist-regression.cjs 一般儲存換曲回歸通過。內容盤點維持 100 小卡、95 小說插畫、四曲，未改 sources。
