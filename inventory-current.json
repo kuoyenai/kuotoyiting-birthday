@@ -1,6 +1,6 @@
 {
   "updated": "2026-10-16",
-  "appVersion": "20261016-8",
+  "appVersion": "20261016-9",
   "baseline": "ab2d6f1",
   "cards": 100,
   "novel": {
@@ -70,3 +70,4 @@
   },
   "notes": "Tracked asset counts include icons, alternate illustrations and download originals; they are not counts of unique story panels. sources/ remains read-only."
 }
+
