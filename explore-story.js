@@ -29,6 +29,7 @@ function nextSong(){
  audio();
 }
 music.addEventListener('ended',nextSong);
+window.addEventListener('message',event=>{if(event.origin!==location.origin||event.data?.type!=='yiting-explore-audio')return;if(event.data.action==='pause')music.pause();});
 $('sound').textContent=muted?'音樂關閉':'音樂開啟';
 $('sound').setAttribute('aria-pressed',String(!muted));
 function theme(){return current()?.star||window.yitingExploreScene(current()).color;}
