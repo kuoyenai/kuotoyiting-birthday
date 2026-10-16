@@ -2,7 +2,7 @@
 
 [開啟網站](https://kuotoyiting-birthday.vercel.app/) · [GitHub Pages](https://snooy791123.github.io/kuotoyiting-birthday/)
 
-更新日期：2026-10-16；目前 App 版本：`20261016-11`。目前指定穩定版：`yiting-stable-20261016-v9`，對應 App `20261016-9`、網站程式提交 `108c7c1`。保留先前標籤 `yiting-stable-20261016-v8`（`4d1232a`）與 `yiting-stable-20261016`（`e5bb82b`），不移動任何既有穩定標籤。
+更新日期：2026-10-16；目前 App 版本：`20261016-12`。目前指定穩定版：`yiting-stable-20261016-v9`，對應 App `20261016-9`、網站程式提交 `108c7c1`。保留先前標籤 `yiting-stable-20261016-v8`（`4d1232a`）與 `yiting-stable-20261016`（`e5bb82b`），不移動任何既有穩定標籤。
 
 ## 穩定版紀錄
 
@@ -19,13 +19,17 @@
 | 電影互動漫畫 | 20 格原畫、7 回導覽 |
 | 陪伴曲目 | 4 首，主題曲置首；選哪首就下載該首 MP4 |
 | 完整收錄 | 100 張小卡、祝福 CSV 與說明，ZIP 79,250,017 bytes，約 76 MB |
-| Git 追蹤素材 | 314 個檔案，共 316,065,269 bytes；含圖示、備用圖、字型及下載原檔，不等於故事插畫數 |
+| Git 追蹤素材 | 316 個檔案，共 323,138,098 bytes；含圖示、備用圖、字型及下載原檔，不等於故事插畫數 |
 
 [下載完整收錄](assets/downloads/YITING-100-photocards.zip) · [機器可讀現況盤點](inventory-current.json) · [深度除錯紀錄](DEBUG-REPORT-20261016.md) · [接續製作說明](CONTINUE-HERE.md)
 
 `inventory.json` 與 `materials.csv` 是最初 38 份來源素材的歷史盤點，最新網站內容以 `inventory-current.json` 為準。`sources/` 為唯讀參考資料。
 
 ## 最新檢查與修正
+
+### 20261016-12｜成員專用探索環境
+
+新增藝俊音樂花園、諾亞月光溫室，依第四章故事段落切換；新增插畫也跟隨原分鏡的成員場景。加入下一種場景預載、載入失敗重試、鏡頭緩動與腳下陰影。390／1280場景切換與重試保留進度測試通過。遊戲素材累計5張、4個可步行環境；其他成員與舞台專用底圖持續補製。詳見 [素材與測試紀錄](EXPLORE-TEST.md)。
 
 ### 20261016-11｜手機控制與底部留白
 
@@ -173,5 +177,6 @@ iPhone／Safari 主畫面圖示、鎖屏播放、系統下載及原生返回手�
 ## 未使用項目盤點
 
 [靜態引用候選清單](unused-audit.json) 以全部保留 HTML、manifest 與 Service Worker 為入口，保護動態素材名稱。發現7個未接入的程式／樣式檔：downloads.js、locomotion.js、plave-3d.js、three.module.js、webtoon.css、world-3d.js、yiting-rig.js。另有16個無引用媒體候選，合計15,496,162 bytes（約14.8MiB），主要為舊3D角色圖、舊App圖示與舊邀請插畫。已人工確認3D模組僅互相引用，現行漫畫未載入；downloads.js 的函式已有頁內版本。此清單是清理候選，不代表已刪除或所有函式／CSS選擇器都已判定；保留歷史連結、下載包與備份用途待清理時逐項處理。未追蹤的本機圖檔未納入。
+
 
 

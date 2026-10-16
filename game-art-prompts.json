@@ -1,0 +1,16 @@
+{
+  "date": "2026-10-16",
+  "mode": "built-in imagegen",
+  "assets": [
+    {
+      "path": "assets/explore-garden-v1.png",
+      "reference": "assets/novel-music-garden-wide.webp",
+      "prompt": "Production 2D side-scrolling narrative game background, WIDE 16:9. Reference is style and architecture only. Recreate the magical music garden of the reference as a STRICT SIDE-ON eye-level stage: uninterrupted LEVEL HORIZONTAL marble pedestrian floor across entire bottom 25 percent, low gold balustrade BEHIND floor, no obstructions or stairs in walking lane. Elegant ivory gold flower arches behind walkway, cascading wisteria, blue white flowers, a guitar resting on a bench BEHIND playable lane, distant floating ASTERUM castles and starry blue violet sky. All human figures absent, no characters, no text, no logos. Detailed luminous Korean anime illustration, jewel blue moonlight, soft gold lanterns, tasteful rich floral atmosphere, clear depth layering. Not overhead, not a vanishing path, no close foreground flowers covering feet. Match reference colors and painting style. Do not copy reference people."
+    },
+    {
+      "path": "assets/explore-greenhouse-v1.png",
+      "reference": "assets/novel-greenhouse-wide.webp",
+      "prompt": "Production 2D side-scrolling game environment WIDE16:9. Use supplied picture for ornate greenhouse architecture and exact illustration mood only, OMIT both people. SIDE ON eye-level view INSIDE a magnificent domed glass greenhouse under moonlight, tall ivory-gold metal arches and hanging white purple flowers, glass roof revealing violet starry sky and luminous full moon. Uninterrupted FLAT HORIZONTAL marble walking floor extends across entire bottom25%, plants and flowers BEHIND playable lane, no stairs, no obstructing foreground shrubs. Windows look out on distant floating ASTERUM castles. Soft violet gentle moonlight with restrained warm lanterns. Highly detailed polished anime painting consistent reference. No people, no text, no logos. Comfortable restful intimate greenhouse, distinct from open air garden. Not overhead, not a path receding into depth, side-on walking level."
+    }
+  ]
+}
