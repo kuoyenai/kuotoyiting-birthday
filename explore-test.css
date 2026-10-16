@@ -3,3 +3,38 @@
 #fiveStars{display:flex;justify-content:center;gap:18px;flex-wrap:wrap;font-size:11px;margin:18px 0;letter-spacing:.04em}
 /* Long-press movement is a game control, not selectable page text. */
 .controls,.controls button,#world,#interact{-webkit-user-select:none;user-select:none;-webkit-touch-callout:none}.controls button,#world{touch-action:none}.controls button{-webkit-tap-highlight-color:transparent}
+
+/* Dedicated journey screen: gestures belong to the game, not to page scrolling or text selection. */
+html,body{width:100%;height:100%;height:100dvh;overflow:hidden;overscroll-behavior:none}
+body{display:flex;flex-direction:column;min-height:0;-webkit-user-select:none;user-select:none;-webkit-touch-callout:none}
+header{flex:0 0 auto}
+main{width:100%;max-width:1250px;flex:1 1 auto;min-height:0;display:flex;flex-direction:column;overflow:hidden;padding-bottom:max(8px,env(safe-area-inset-bottom))}
+.heading{flex:0 0 auto;margin:2px 0 8px}
+.heading h1{font-size:clamp(18px,3.5vw,29px);margin:3px 0}
+.heading #objective{margin:3px 0}
+.stage{flex:1 1 auto;height:auto;min-height:120px;touch-action:none}
+#world,.stage,.controls,.controls *{touch-action:none;-webkit-user-select:none;user-select:none;-webkit-touch-callout:none}
+.controls{flex:0 0 auto;margin:5px 0}
+#fiveStars{flex:0 0 auto;margin:3px 0}
+#journeyProgress{flex:0 0 auto;margin:4px 0 6px}
+.chapter-picker,.foot{flex:0 0 auto}
+#saveState,#storyLink,#endLink,main>.notice{display:none}
+dialog,.story-copy,dialog p,dialog h2{user-select:text;-webkit-user-select:text;-webkit-touch-callout:default}
+@media(max-width:520px){
+ header{padding:5px 12px}
+ header button{min-height:36px;padding:4px 9px;font-size:12px}
+ main{padding:0 9px max(5px,env(safe-area-inset-bottom))}
+ .heading{margin:0 0 4px}
+ .heading>p:first-child{margin:0}
+ .heading h1{font-size:19px;line-height:1.25;margin:2px 0}
+ .heading #objective{min-height:0;font-size:11px;line-height:1.4;margin:2px 0 5px}
+ .stage{height:auto;min-height:100px}
+ .controls{gap:12px;margin:4px 0}
+ .controls button{width:54px;min-height:42px}
+ .controls p{margin:0;line-height:1.3}
+ #fiveStars{gap:9px;font-size:10px}
+ .chapter-picker{grid-template-columns:1fr auto;gap:5px;font-size:10px}
+ .chapter-picker select{min-height:35px;padding:4px;max-width:160px}
+ .foot{font-size:10px}
+ .foot button{min-height:34px;padding:3px 9px}
+}
