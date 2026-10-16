@@ -259,3 +259,11 @@ iPhone／Safari 主畫面圖示、鎖屏播放、系統下載及原生返回手�
 - **修改提交**：[`b76cdbe`](https://github.com/snooy791123/kuotoyiting-birthday/commit/b76cdbef35ce398e0aa6b793acc35b11e39a3c2e)、[`86b3d82`](https://github.com/snooy791123/kuotoyiting-birthday/commit/86b3d82346a10298c0309085110a291887d62ed3)。
 - **驗證**：完成靜態程式碼核對；尚未使用實機或瀏覽器完整通關測試。
 - **素材與後續**：本輪未新增圖片。仍需盤點整部小說漫畫各段場景專屬美術、實測場景接縫與手機效能；無法自動生成或上傳的素材將持續記錄，不宣稱已補齊。
+
+### 2026-10-16 22:00（台灣時間）— 通關後仍可自由回頭重溫
+
+- **問題**：原本遊戲通關後 `current()` 為空，移動速度計算及地圖點擊均禁止移動，導致玩家無法走回先前星光重看小說。
+- **修正**：`explore-story.js` 移除通關後的移動封鎖，仍保留下一段劇情的解鎖限制；星光互動於素材尚未載入時維持停用。`explore.html` 更新腳本快取版本。
+- **提交**：[`3de2c46`](https://github.com/snooy791123/kuotoyiting-birthday/commit/3de2c46fb227ac7dbc960671749f1b88ec234379)、[`4028f0a`](https://github.com/snooy791123/kuotoyiting-birthday/commit/4028f0a31ff102e94af1b315152af9c42ab86323)。
+- **驗證**：靜態程式碼檢查，尚未實際通關及 iPhone Safari 測試。
+- **待補素材**：各章專屬場景背景及場景接縫過渡美術仍待盤點，本輪未生成新圖片；不更動穩定版。
