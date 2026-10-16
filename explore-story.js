@@ -13,7 +13,24 @@ let sceneStep=0,transitionUntil=0;const stageLength=960,starPosition=720;const s
 const colors={blue:'#77baff',purple:'#c5a2ef',pink:'#f2a3c0',green:'#8dd2b0',red:'#e57291'};
 const current=()=>route[index];const art=asset=>'assets/'+(replacement[asset]||asset+'.webp');
 function save(){try{localStorage.setItem(key,JSON.stringify({index,unlocked,updated:Date.now()}));$('saveState').textContent='進度已保存在這個瀏覽器';}catch{$('saveState').textContent='瀏覽器無法保存進度，本次仍可繼續遊玩';}}
-function stop(){keys.clear();target=x;speed=0;}function audio(){if(!muted)music.play().catch(()=>{});}
+function stop(){keys.clear();target=x;speed=0;}
+const playlist=window.YITING_TRACKS||[],stored=window.yitingMusicRead?.()||{index:0,paused:false};
+let musicIndex=Number.isInteger(stored.index)&&stored.index>=0&&stored.index<playlist.length?stored.index:0;
+muted=stored.paused===true;
+music.loop=false;
+if(playlist.length)music.src=playlist[musicIndex].src;
+function audio(){if(!muted)music.play().catch(()=>{});}
+function nextSong(){
+ if(!playlist.length||muted)return;
+ musicIndex=(musicIndex+1)%playlist.length;
+ window.yitingMusicSave?.({index:musicIndex,paused:false});
+ music.src=playlist[musicIndex].src;
+ music.load();
+ audio();
+}
+music.addEventListener('ended',nextSong);
+$('sound').textContent=muted?'音樂關閉':'音樂開啟';
+$('sound').setAttribute('aria-pressed',String(!muted));
 function theme(){return current()?.star||window.yitingExploreScene(current()).color;}
 function refresh(){const s=current(),done=!s;$("endLink").hidden=!done;document.body.dataset.chapter=String(s?.chapter??9);$('chapterName').textContent=done?'生日快樂，YiTing':chapters[s.chapter].title;$('objective').textContent=done?'妳已走完整段星光旅程。謝謝妳來到這個世界。':window.yitingExploreScene(s).hint;$('progress').textContent=(Math.min(index+1,route.length))+' / '+route.length+' · '+(done?'旅程完成':chapters[s.chapter].label);$('fiveStars').replaceChildren();for(const [color,name] of Object.entries({blue:'希望',purple:'溫柔',pink:'快樂',green:'勇氣',red:'陪伴'})){const badge=document.createElement('span'),owned=route.slice(0,unlocked).some(s=>s.star===color);badge.textContent=(owned?'✦ ':'· ')+name;badge.style.color=owned?colors[color]:'#73788a';badge.setAttribute('aria-label',name+(owned?'已收集':'尚未收集'));$('fiveStars').append(badge);}$('journeyProgress').max=route.length;$('journeyProgress').value=index;$('sceneLabel').textContent=window.yitingExploreScene(s).label;canvas.dataset.scene=window.yitingExploreScene(s).id;$('storyLink').href='novel-comic.html#chapter-'+(s?.chapter??9)+'-panel-'+(s?.panel??0);$('storyLink').hidden=done;
 const near=Math.abs(x-waypoint)<115;$('interact').disabled=!ready||!near||done;$('interact').textContent=done?'✦ 旅程已完成':near?'✦ 發現這段故事':'走近前方星光';canvas.dataset.index=String(index);canvas.dataset.playerX=String(Math.round(x));canvas.dataset.waypoint=String(waypoint);canvas.dataset.facing=String(facing);
@@ -28,7 +45,7 @@ $('interact').onclick=()=>{if(!$('interact').disabled)openStory();};dialog.addEv
 canvas.addEventListener('pointerdown',e=>{if(!ready||dialog.open||!current())return;const r=canvas.getBoundingClientRect();target=Math.max(x,Math.min(waypoint,camera+(e.clientX-r.left)/r.width*vw));audio();canvas.focus({preventScroll:true});});
 window.addEventListener('keydown',e=>{if(dialog.open||e.ctrlKey||e.metaKey||e.altKey||e.target.closest('button,a,select'))return;const k=e.key.toLowerCase();if(['arrowleft','arrowright','a','d'].includes(k)){e.preventDefault();keys.add(k);audio();}if(k==='e')$('interact').click();});window.addEventListener('keyup',e=>{keys.delete(e.key.toLowerCase());if(!keys.size)target=x;});window.addEventListener('blur',stop);document.addEventListener('visibilitychange',()=>{if(document.hidden)stop();});
 for(const [id,key]of[['left','arrowleft'],['right','arrowright']]){const b=$(id);b.addEventListener('pointerdown',e=>{if(dialog.open||!current())return;e.preventDefault();b.setPointerCapture(e.pointerId);keys.add(key);audio();});for(const event of ['pointerup','pointercancel','lostpointercapture'])b.addEventListener(event,()=>{keys.delete(key);target=x;});}
-$('sound').onclick=()=>{muted=!muted;if(muted)music.pause();else audio();$('sound').textContent=muted?'音樂關閉':'音樂開啟';$('sound').setAttribute('aria-pressed',String(!muted));};
+$('sound').onclick=()=>{muted=!muted;window.yitingMusicSave?.({index:musicIndex,paused:muted});if(muted)music.pause();else audio();$('sound').textContent=muted?'音樂關閉':'音樂開啟';$('sound').setAttribute('aria-pressed',String(!muted));};
 $('chapterMenu').onchange=()=>{const next=Number($('chapterMenu').value);if(!valid(next)||next>unlocked)return;stop();index=next;x=target=Math.max(180,starAt(index-1));camera=Math.max(0,x-250);waypoint=starAt(index);$('endLink').hidden=true;save();refresh();changeBackground();};
 $('restart').onclick=()=>{$('restartDialog').showModal();};$('cancelRestart').onclick=()=>$('restartDialog').close();$('confirmRestart').onclick=()=>{$('restartDialog').close();stop();index=0;unlocked=0;x=target=180;camera=0;waypoint=starAt(0);$('endLink').hidden=true;save();refresh();changeBackground();};
 
