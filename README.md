@@ -230,3 +230,10 @@ iPhone／Safari 主畫面圖示、鎖屏播放、系統下載及原生返回手�
 - **依手機畫面回饋調整**：`gift.html` 的 `05 2D 遊戲` 分頁不再內嵌 `explore.html` 的遊戲畫面；移除 iframe，保留介紹圖文與獨立入口，按下「開啟旅程 →」才會進入遊戲頁。`gift.js` 移除不再需要的 iframe 載入與分頁切換程式。
 - **提交**：[`3108f21`](https://github.com/snooy791123/kuotoyiting-birthday/commit/3108f21e75795eaacac30d83c652cbdefb8d3a85)、[`1e5d983`](https://github.com/snooy791123/kuotoyiting-birthday/commit/1e5d98378fb25ce684f57962e16a6dcadcb3552d)、[`14f91e9`](https://github.com/snooy791123/kuotoyiting-birthday/commit/14f91e9e013eb2630033d80439cad51564a089be)。
 - **驗證**：已檢查程式變更，尚待 iPhone Safari 實機確認頁面布局與跳轉。穩定版分支未修改。
+
+### 2026-10-16 — 支援回頭重看星光劇情、鎖定遊戲畫面
+
+- **玩法**：`explore-story.js` 開放人物向左移動，走回已收集的星光時可重新開啟對應小說漫畫劇情，重看不增加解鎖進度；往右仍可繼續推進。保留原版逐格人物圖。
+- **手機操作**：`explore-test.css` 將遊戲頁限制在可視視窗內，禁止遊戲區域的瀏覽器滑動、長按選取、呼叫複製選單及橡皮筋回彈；劇情對話框仍可捲動閱讀。`explore.html` 更新控制提示及腳本快取版本。
+- **提交**：[`9bd01dd`](https://github.com/snooy791123/kuotoyiting-birthday/commit/9bd01ddd8ce6ddfdb9060b1fb2af8dcc5bf8badc)、[`08df805`](https://github.com/snooy791123/kuotoyiting-birthday/commit/08df805c978ea47e824b462e917661fdc529f491)、[`66819a0`](https://github.com/snooy791123/kuotoyiting-birthday/commit/66819a03165d50178f9edd3470374a0721612351)。
+- **待驗證**：iPhone Safari 的動態工具列、安全區域、遊戲視窗高度與左右長按手勢；尚未進行實機驗證。穩定版未修改。
