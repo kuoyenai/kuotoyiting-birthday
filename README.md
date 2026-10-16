@@ -244,3 +244,10 @@ iPhone／Safari 主畫面圖示、鎖屏播放、系統下載及原生返回手�
 - **修正**：`explore-test.css` 將 `html` 固定於可視視窗，`body` 絕對定位並禁止觸控捲動；取消遊戲場景最小高度避免小螢幕撐出可捲動頁面；僅允許已開啟的劇情對話框捲動。`explore.html` 更新 CSS 版本避免快取。
 - **提交**：[`b2e00f2`](https://github.com/snooy791123/kuotoyiting-birthday/commit/b2e00f29a4e649157948db24492c72833cfe3e0f)、[`90c4489`](https://github.com/snooy791123/kuotoyiting-birthday/commit/90c4489baec3ece546a2030a0bb6ef5e1c161c5e)。
 - **驗證**：已靜態確認 CSS 約束，尚待 iPhone Safari 實機確認不同瀏覽器工具列高度、動態島與橫直向。穩定版分支未修改。
+
+### 2026-10-16 — 小說結局與回顧星光顯示修正
+
+- **問題**：完成最後一段故事後 `current()` 變成空值，場景顯示仍讀取其屬性，可能造成結局畫面繪製失敗；回頭看已解鎖星光時，星光座標相對於錯誤的參考點。
+- **修正**：`explore-story.js` 在旅程結束時沿用最後場景做安全顯示、刷新結局進度與連結，並讓回顧星光依相機座標正確顯示；`explore.html` 更新腳本快取版本。
+- **提交**：[`d763213`](https://github.com/snooy791123/kuotoyiting-birthday/commit/d763213c377d79ed3098dfb38ced7281a6ad3aca)、[`163185f`](https://github.com/snooy791123/kuotoyiting-birthday/commit/163185fb36659eaaae19010f72c1e1c8c34da4f8)。
+- **驗證**：已核對程式碼路徑；尚未實際完整遊玩至終章或 iPhone 實機測試。未新增美術圖檔，待逐段盤點素材缺口。穩定版未修改。
