@@ -1,6 +1,6 @@
 {
   "updated": "2026-10-16",
-  "appVersion": "20261016-13",
+  "appVersion": "20261016-14",
   "baseline": "yiting-stable-20261016-v9",
   "cards": 100,
   "novel": {
@@ -54,12 +54,12 @@
     "blessingsCSV": true
   },
   "trackedAssets": {
-    "files": 317,
-    "bytes": 324863740,
+    "files": 318,
+    "bytes": 328124036,
     "types": {
       "": 1,
       ".webp": 144,
-      ".png": 19,
+      ".png": 20,
       ".jpg": 139,
       ".zip": 1,
       ".mp4": 5,
@@ -73,14 +73,15 @@
     "entry": "gift.html → explore.html",
     "chapters": 10,
     "storyEncounters": 95,
-    "generatedAssets": 6,
+    "generatedAssets": 7,
     "localProgress": true,
     "status": "Playable story-route first version; dedicated environments and animation refinement ongoing",
     "walkableEnvironments": [
       "雨夜城市",
       "ASTERUM步道",
       "藝俊音樂花園",
-      "諾亞月光溫室"
+      "諾亞月光溫室",
+      "斑比粉色廣場"
     ],
     "walkAnimation": {
       "method": "layered 2D inverse-kinematic rig",

@@ -11,6 +11,12 @@
       "path": "assets/explore-greenhouse-v1.png",
       "reference": "assets/novel-greenhouse-wide.webp",
       "prompt": "Production 2D side-scrolling game environment WIDE16:9. Use supplied picture for ornate greenhouse architecture and exact illustration mood only, OMIT both people. SIDE ON eye-level view INSIDE a magnificent domed glass greenhouse under moonlight, tall ivory-gold metal arches and hanging white purple flowers, glass roof revealing violet starry sky and luminous full moon. Uninterrupted FLAT HORIZONTAL marble walking floor extends across entire bottom25%, plants and flowers BEHIND playable lane, no stairs, no obstructing foreground shrubs. Windows look out on distant floating ASTERUM castles. Soft violet gentle moonlight with restrained warm lanterns. Highly detailed polished anime painting consistent reference. No people, no text, no logos. Comfortable restful intimate greenhouse, distinct from open air garden. Not overhead, not a path receding into depth, side-on walking level."
+    },
+    {
+      "path": "assets/explore-plaza-v1.png",
+      "reference": "assets/novel-bamby-plaza-wide.webp",
+      "prompt": "Create a wide16:9 side-scrolling 2D game background of BAMBY'S JOY PLAZA. Use supplied reference for detailed Korean anime painting style, pink star floor motifs, floating ASTERUM neon skyline. Omit both people. STRICT SIDE-ON eye-level camera, flat LEVEL HORIZONTAL walking lane spanning entire bottom25%, feet can move left-right at same height. Large luminous pink star pattern on polished violet glass floor, low silver railing BEHIND walking lane, background floating city towers and curved sky bridges under deep violet starry night. Playful pink musical light accents near railing, restrained luminous reflections. No stairs or obstacles blocking foreground. No characters, no people, no text, no logos. Distinct open public plaza, not a garden. High quality intricate anime environment, consistent reference color and drawing texture. No overhead view, no road receding into depth.",
+      "tool": "built-in imagegen"
     }
   ]
 }
