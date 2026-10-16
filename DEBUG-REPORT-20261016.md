@@ -49,3 +49,7 @@ test-storage-music.cjs 已先重現失敗再驗證修正；test-storage-blocked-
 修正小說新增分鏡放大標題誤用內部 ID，改用可見閱讀順序；為 dialog 圖片提供失敗提示與獨立重試，避免只有空白破圖。test-image-retry-sequence.cjs 驗證 panel109 顯示第7格，以及失敗回應後重試成功、視窗保持開啟。測試回應攔截使用 serviceWorkers:block，不將攔截層略過誤報為網站問題。
 
 素材與故事內容數量維持不變。
+
+## 第五輪：穩定版驗證可重現性
+
+2026-10-16 將先前只在本機的圖片重試／分鏡順序回歸測試收錄為 `tests/image-retry-sequence.cjs`，改用儲存庫相對根目錄與可配置瀏覽器，附 `tests/README.md` 執行說明。以目前穩定版實際執行通過兩項斷言；未變更網站行為或素材，因此 App 仍為 20261016-8。其他歷史瀏覽器腳本尚未全數搬入儲存庫。
