@@ -2,7 +2,7 @@
 
 [開啟網站](https://kuotoyiting-birthday.vercel.app/) · [GitHub Pages](https://snooy791123.github.io/kuotoyiting-birthday/)
 
-更新日期：2026-10-16；目前 App 版本：`20261016-10`。目前指定穩定版：`yiting-stable-20261016-v9`，對應 App `20261016-9`、網站程式提交 `108c7c1`。保留先前標籤 `yiting-stable-20261016-v8`（`4d1232a`）與 `yiting-stable-20261016`（`e5bb82b`），不移動任何既有穩定標籤。
+更新日期：2026-10-16；目前 App 版本：`20261016-11`。目前指定穩定版：`yiting-stable-20261016-v9`，對應 App `20261016-9`、網站程式提交 `108c7c1`。保留先前標籤 `yiting-stable-20261016-v8`（`4d1232a`）與 `yiting-stable-20261016`（`e5bb82b`），不移動任何既有穩定標籤。
 
 ## 穩定版紀錄
 
@@ -26,6 +26,10 @@
 `inventory.json` 與 `materials.csv` 是最初 38 份來源素材的歷史盤點，最新網站內容以 `inventory-current.json` 為準。`sources/` 為唯讀參考資料。
 
 ## 最新檢查與修正
+
+### 20261016-11｜手機控制與底部留白
+
+遊戲方向鍵與畫布停用長按選字／長按選單，保留對白選字。安裝／更新工具與底部導覽增加留白；390寬測得邀請及禮物87px、兩個漫畫頁127px間距。測試覆蓋選字與contextmenu事件防護；iPhone系統選單仍需實機確認。
 
 ### 20261016-10｜2D 星光旅程
 
@@ -169,4 +173,5 @@ iPhone／Safari 主畫面圖示、鎖屏播放、系統下載及原生返回手�
 ## 未使用項目盤點
 
 [靜態引用候選清單](unused-audit.json) 以全部保留 HTML、manifest 與 Service Worker 為入口，保護動態素材名稱。發現7個未接入的程式／樣式檔：downloads.js、locomotion.js、plave-3d.js、three.module.js、webtoon.css、world-3d.js、yiting-rig.js。另有16個無引用媒體候選，合計15,496,162 bytes（約14.8MiB），主要為舊3D角色圖、舊App圖示與舊邀請插畫。已人工確認3D模組僅互相引用，現行漫畫未載入；downloads.js 的函式已有頁內版本。此清單是清理候選，不代表已刪除或所有函式／CSS選擇器都已判定；保留歷史連結、下載包與備份用途待清理時逐項處理。未追蹤的本機圖檔未納入。
+
 

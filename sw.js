@@ -1,4 +1,4 @@
-const APP_VERSION='20261016-10';
+const APP_VERSION='20261016-11';
 const CACHE='yiting-shell-'+APP_VERSION;
 const local=path=>new URL(path,self.registration.scope).href;
 self.addEventListener('install',event=>{event.waitUntil(caches.open(CACHE).then(cache=>cache.addAll(['offline.html','apple-touch-icon.png','icon-192.png','icon-512.png','icon-512-maskable.png','manifest.json'].map(local))).then(()=>self.skipWaiting()));});
@@ -13,5 +13,6 @@ self.addEventListener('fetch',event=>{
   catch{const stored=await cache.match(request);if(stored)return stored;if(request.mode==='navigate')return cache.match(local('offline.html'));return Response.error();}
  })());
 });
+
 
 

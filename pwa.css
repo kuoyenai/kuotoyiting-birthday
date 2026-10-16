@@ -20,3 +20,5 @@ button,[role=button],summary{touch-action:manipulation;-webkit-user-select:none;
 @media(max-width:760px){body.comic-page .app-tools{margin-bottom:calc(110px + env(safe-area-inset-bottom));}}
 
 .image-retry{padding:12px 16px;border:1px solid #b68e65;background:#192236;color:#eee0c6;text-align:center}.image-retry p{font-size:14px;line-height:1.7}.image-retry button{min-height:44px;padding:10px 18px;border:1px solid #c5ab83;background:transparent;color:inherit;font:inherit}
+/* Keep installation tools comfortably above the fixed mobile navigation. */
+@media(max-width:760px){body .app-tools{margin-bottom:calc(110px + env(safe-area-inset-bottom,0px));padding-bottom:28px}body.comic-page .app-tools{margin-bottom:calc(150px + env(safe-area-inset-bottom,0px))}}

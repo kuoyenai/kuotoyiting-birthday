@@ -27,3 +27,4 @@ const [sx,sy,sw,sh]=frames[step],size=h*.39/705;ctx.save();ctx.translate((x-came
 Promise.all([city.decode(),sprite.decode()]).then(()=>{ready=true;$('loading').hidden=true;update();}).catch(()=>{$('loading').textContent='素材暫時無法載入，請重新整理再試。';});requestAnimationFrame(draw);
 })();
 
+(()=>{for(const element of document.querySelectorAll('.controls,#world,#interact')){element.addEventListener('contextmenu',event=>event.preventDefault());element.addEventListener('selectstart',event=>event.preventDefault());}})();

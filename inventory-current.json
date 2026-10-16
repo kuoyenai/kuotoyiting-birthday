@@ -1,6 +1,6 @@
 {
   "updated": "2026-10-16",
-  "appVersion": "20261016-10",
+  "appVersion": "20261016-11",
   "baseline": "yiting-stable-20261016-v9",
   "cards": 100,
   "novel": {
@@ -78,3 +78,4 @@
     "status": "Playable story-route first version; dedicated environments and animation refinement ongoing"
   }
 }
+

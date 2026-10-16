@@ -23,3 +23,5 @@
 完整路線測試 tests/explore-story.cjs：從禮物進入，實際移動至95個節點並逐句讀完，逐張 decode 插畫、驗證結尾／本機保存／已解鎖章節重玩、390寬無橫向溢出及無JS錯誤。修正對話 close 事件延後清空新輸入造成停步。桌面與手機控制基礎已有序章測試；未宣稱iPhone實機驗收。
 
 待持續製作：目前探索底圖是雨夜城市與ASTERUM兩張，各成員的花園、溫室、廣場、觀景台、銀虎步道與生日舞台需要專用側向場景；角色動畫是第一版影格，尚可改善接觸腳與過渡；互動仍以故事探索為主，後續加入符合各章的小任務。原有穩定版標籤保留。
+
+20261016-11：方向控制與畫布加入 -webkit-user-select / -webkit-touch-callout，contextmenu/selectstart限制於遊戲操作區，對白保留可選字。tests/mobile-controls-spacing.cjs 驗證按鈕防護與四頁底部間距；Chrome測試不等同iPhone系統選單驗收。

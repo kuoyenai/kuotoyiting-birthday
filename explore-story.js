@@ -38,3 +38,5 @@ refresh();changeBackground();requestAnimationFrame(draw);
 
 
 
+// Suppress iOS selection/callout only on play controls; story text stays selectable.
+(()=>{for(const element of document.querySelectorAll('.controls,#world,#interact')){element.addEventListener('contextmenu',event=>event.preventDefault());element.addEventListener('selectstart',event=>event.preventDefault());}})();
