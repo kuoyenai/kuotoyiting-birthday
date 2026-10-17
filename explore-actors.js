@@ -5,9 +5,10 @@ const configs={
  yejun:{source:'assets/explore-yejun-npc-v1.png',crop:{x:10,y:50,w:1014,h:1436},height:.36},
  noah:{source:'assets/explore-noah-npc-v1.png',crop:{x:262,y:15,w:660,h:1510},height:.42,origin:.39},
  bamby:{source:'assets/explore-bamby-npc-v1.png',crop:{x:195,y:8,w:588,h:1506},height:.41,origin:.59},
+ concert:{source:'assets/explore-plave-concert-group-v1.png',crop:{x:0,y:0,w:1536,h:1024},height:.33},
  hamin:{source:'assets/explore-hamin-npc-v1.png',crop:{x:144,y:7,w:830,h:1518},height:.435,origin:.4}
 };
-const members={asterum:'eunho',eunho:'eunho',garden:'yejun',greenhouse:'noah',plaza:'bamby',observatory:'hamin'},records=new Map();
+const members={asterum:'eunho',eunho:'eunho',garden:'yejun',greenhouse:'noah',plaza:'bamby',observatory:'hamin',birthday:'concert'},records=new Map();
 const preloads={'portal-city':['eunho'],asterum:['eunho','yejun'],garden:['yejun','noah'],greenhouse:['noah','bamby'],plaza:['bamby','hamin'],observatory:['hamin','eunho']};
 let anchors=[],lastScene='',visible=0;
 function discard(member){records.get(member)?.image.removeAttribute('src');records.delete(member);}
@@ -27,17 +28,23 @@ new MutationObserver(prepare).observe(canvas,{attributes:true,attributeFilter:['
 window.YitingActors={
  configure(items){anchors=items.filter(item=>Number.isFinite(item.x)&&item.x>=0).map(item=>({...item}));},
  draw(ctx,{id,w,h,camera,scale}){
-  visible=0;const member=members[id],art=records.get(member)?.art,config=configs[member];if(!art||!config)return;
-  // Crop only transparent padding; preserve the entire physical silhouette.
-  const crop=config.crop,height=h*config.height,width=height*crop.w/crop.h,ground=h*.85;
+  visible=0;
+  const stage=anchors.filter(actor=>actor.scene===id&&actor.group==='concert');
+  if(stage.length){
+   const left=(Math.min(...stage.map(actor=>actor.x))-160-camera)*scale,right=(Math.max(...stage.map(actor=>actor.x))+160-camera)*scale;
+   if(right>=0&&left<=w){ctx.save();ctx.fillStyle='#19213e99';ctx.strokeStyle='#e5cb8c88';ctx.lineWidth=1;ctx.beginPath();ctx.ellipse((left+right)/2,h*.69,(right-left)/2,h*.024,0,0,Math.PI*2);ctx.fill();ctx.stroke();ctx.restore();}
+  }
   for(const actor of anchors){
-   if(actor.scene!==id||actor.member!==member)continue;const cx=(actor.x-camera)*scale;
-   if(cx+width/2<0||cx-width/2>w)continue;
+   if(actor.scene!==id)continue;
+   const config=configs[actor.member],art=records.get(actor.member)?.art;if(!config||!art)continue;
+   // Crop only transparent padding; preserve the entire physical silhouette.
+   const crop=config.crop,height=h*config.height*(actor.heightScale??1),width=height*crop.w/crop.h,ground=h*(actor.ground??.85),cx=(actor.x-camera)*scale;
+   if(cx+width<0||cx-width>w)continue;
    ctx.save();const shadow=ctx.createRadialGradient(cx,ground,0,cx,ground,width*.52);
    shadow.addColorStop(0,'#11152e66');shadow.addColorStop(1,'#11152e00');ctx.fillStyle=shadow;
    ctx.save();ctx.translate(cx,ground);ctx.scale(1,.18);ctx.translate(-cx,-ground);ctx.beginPath();ctx.arc(cx,ground,width*.52,0,Math.PI*2);ctx.fill();ctx.restore();
    ctx.imageSmoothingEnabled=true;ctx.drawImage(art,crop.x,crop.y,crop.w,crop.h,cx-width*(config.origin??.5),ground-height,width,height);ctx.restore();visible++;
   }
- },get ready(){return !!records.get(members[canvas.dataset.scene])?.art;},get visible(){return visible;},get count(){return anchors.length;},get cachedActors(){return records.size;},get cachedMembers(){return [...records.keys()];}
+ },get ready(){const scene=canvas.dataset.scene;return !!records.get(members[scene])?.art;},get visible(){return visible;},get count(){return anchors.length;},get cachedActors(){return records.size;},get cachedMembers(){return [...records.keys()];}
 };
 })();

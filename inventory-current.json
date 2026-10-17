@@ -1,7 +1,7 @@
 {
   "updated": "2026-10-17",
-  "appVersion": "20261017-23",
-  "baseline": "2e31011",
+  "appVersion": "20261017-24",
+  "baseline": "b5db602",
   "cards": 100,
   "novel": {
     "chapters": [
@@ -54,12 +54,12 @@
     "blessingsCSV": true
   },
   "trackedAssets": {
-    "files": 336,
-    "bytes": 361308944,
+    "files": 337,
+    "bytes": 363524801,
     "types": {
       "": 1,
       ".webp": 144,
-      ".png": 35,
+      ".png": 36,
       ".jpg": 142,
       ".zip": 1,
       ".mp4": 5,
@@ -75,7 +75,7 @@
     "storyEncounters": 95,
     "generatedAssets": 22,
     "localProgress": true,
-    "status": "Continuous95-panel novel journey,11 environments,4 foreground sets and all five PLAVE members at six world encounters; original player/dialogue retained",
+    "status": "Continuous95-panel novel journey,11 environments,4 foreground sets,six solo encounters and one user-provided five-person concert image; original player/dialogue retained",
     "walkableEnvironments": [
       "雨夜城市",
       "十點二十分穿越城市",
@@ -238,6 +238,27 @@
         "missingArtDoesNotBlock": true
       }
     ],
-    "actorCacheLimit": 2
+    "actorCacheLimit": 2,
+    "actorCachePolicy": {
+      "exploration": 2,
+      "birthdayStage": 1,
+      "releaseOnPhysicalExit": true
+    },
+    "concertCast": {
+      "members": [
+        "YEJUN",
+        "NOAH",
+        "BAMBY",
+        "EUNHO",
+        "HAMIN"
+      ],
+      "anchor": "novel-concert-wide",
+      "source": "assets/explore-plave-concert-group-v1.png",
+      "userProvided": true,
+      "newImages": 1,
+      "newGeneratedImages": 0,
+      "raisedPlatform": true,
+      "originalConcertArtRetained": true
+    }
   }
 }

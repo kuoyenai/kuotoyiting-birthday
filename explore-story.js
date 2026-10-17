@@ -91,6 +91,7 @@ const actorAnchors=[
  {asset:'novel-bamby-rhythm',scene:'plaza',member:'bamby',offset:160},
  {asset:'novel-hamin-stargazing',scene:'observatory',member:'hamin'}
 ];
+actorAnchors.push({asset:'novel-concert-wide',scene:'birthday',member:'concert',offset:0,group:'concert',ground:.69});
 window.YitingActors?.configure(actorAnchors.map(actor=>({...actor,x:starAt(route.findIndex(story=>story.asset===actor.asset))+(actor.offset??140)})));
 function drawContinuousWorld(scale,h){
  for(const region of worldRegions){
