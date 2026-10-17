@@ -123,3 +123,7 @@ explore-arrival.js/css新增實際場景五色小星與細框、名稱700ms淡�
 ## 20261018-3 接續
 
 掌心紀念視窗新增可收合五道星光手帳，explore-starbook.js/css由原NOVEL_PANELS與extra shots取得星光索引、原畫、對白及章節連結。只讀進度，不另存；展開才建圖，收合移除來源。未收集不顯示內容，無新增主畫面按鈕或新素材。手機桌機與缺圖測試見README。原同行未啟用狀態保持，下一輪繼續深化體驗。
+
+## 2026-10-18 銀虎步行研究接續（無App版本變更）
+
+兩次imagegen步行表拒收：4橫格鞋尖越界；2×2完整但四姿勢過近，無交替通過。提示與理由：art-reviews/eunho-walk-20261018.json。原圖本機material-review/eunho-walk-rejected-row-v1.png與eunho-walk-rejected-grid-v2.png，不在assets、不啟用同行。App仍20261018-3。下一輪先分別製作接地和通過關鍵姿勢，核對膝踝與角色一致再接線，勿沿用已拒收表假裝完成。

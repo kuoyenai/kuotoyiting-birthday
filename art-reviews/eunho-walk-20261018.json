@@ -1,0 +1,26 @@
+{
+  "date": "2026-10-18",
+  "purpose": "EUNHO companion walk-cycle prototype",
+  "productionIntegrated": false,
+  "attempts": [
+    {
+      "layout": "4 horizontal cells",
+      "prompt": "Create ONE transparent PNG FOUR-FRAME WALK CYCLE SPRITE SHEET for EUNHO from PLAVE. Reference1 is the EXISTING full-body game NPC: preserve this precise same silver wavy hair, red eyes, gentle sharp adult face, blue denim jacket over plain white T-shirt, charcoal trousers and gray-white sneakers, same refined hand-painted Korean anime rendering. Reference2 official sheet: EUNHO in upper half ONLY for facial identity; do not use black-haired HAMIN. This is an animation asset, not a poster or comic. Wide landscape 16:9 canvas, exactly FOUR evenly spaced equal-width vertical cells in a single horizontal row, each cell containing ONE complete SAME character, same apparent scale and same head height, shoe soles on common baseline, clear margins around hair and shoes and both edges. Each figure has two arms, two legs, two feet, one head, no extra body parts. Every figure faces and walks toward image LEFT in a mild three-quarter side view, head and torso orientation constant across all four cells, relaxed friendly face. BOTH HANDS stay naturally inside denim jacket pockets in all frames, no exposed malformed fingers. Natural small gentle WALK sequence: frame1 left leg contacts forward while right leg trails; frame2 right leg passing under body while left supports; frame3 right leg contacts forward while left trails; frame4 left leg passing under body while right supports. Anatomically plausible alternating hips, knees and ankles, no crossed or fused legs, no running, no dramatic lunge; subtle body-height variation only. Same jacket design, seams, buttons, lighting, proportions and exact facial identity in every cell. Physical opaque silhouette ONLY with pure true alpha outside, no aura clouds or gradient haze, no shadow baked in, no floor, no backdrop, no white or checkerboard. NO labels, no frame borders, no text, no illustration scenery, no extra people. Full chin and entire head and all shoes must remain inside each cell.",
+      "reference": [
+        "assets/explore-eunho-npc-v1.png",
+        "assets/reference-eunho-hamin.jpg (upper EUNHO only)"
+      ],
+      "result": "Rejected: shoe silhouettes cross equal cell edges; contact and passing phases not sufficiently distinct."
+    },
+    {
+      "layout": "2 by 2 grid",
+      "prompt": "Make a corrected animation sprite sheet from the reference silver-haired EUNHO walking character, preserving exact red eyes, silver wavy hair, denim jacket white tee dark trousers gray-white sneakers and anime drawing style. IMPORTANT LAYOUT: TWO columns and TWO rows (2 by 2 grid), FOUR small full-body figures TOTAL. The wide canvas is divided into four equal quadrants. Each character is centered in its own quadrant with generous TRANSPARENT GAP on all four sides. Each figure occupies only 70 percent of its quadrant height and at most 55 percent of its quadrant width. No physical silhouette, shoes or hair may touch or cross any quadrant edge. Wide landscape 16:9 overall sheet. All four figures are the SAME adult man at exactly the same scale, same face, constant mild three-quarter LEFT-facing walking orientation, hands hidden naturally inside denim jacket pockets. The four frames in reading order must show DISTINCT phases of a SMALL natural WALK: upper-left left foot forward contact, upper-right right leg passing forward under torso, lower-left right foot forward contact while left leg trails (opposite of frame1), lower-right left leg passing under torso while right supports (opposite of frame2). Gently bent knees and correct ankles, no exaggerated strides or crossed/fused legs. Exactly two legs, two feet, two arms, one head per frame. BOTH shoes must be fully visible; hair and full chin must be fully visible. Same baseline relative to each quadrant and same head height. The character has no wings, tails, props or extra limbs. No scenery, aura, haze, baked shadow, labels, text, grid lines or frame borders. Pure alpha transparency everywhere outside the four physical character silhouettes. This is an animation production sheet, not a poster. The empty gutters are essential: no sprite overlap, no shoe entering the next cell.",
+      "reference": [
+        "first rejected sprite sheet"
+      ],
+      "result": "Rejected: all full-body silhouettes fit quadrants, but frames remain extended-stride poses without a proper alternating contact/passing cycle."
+    }
+  ],
+  "preserved": "Existing YITING walking, original solo EUNHO NPC, five-member concert image, 95-panel route and deployed 20261018-3 are unchanged.",
+  "next": "Generate and inspect contact and passing poses independently with fixed identity, height and baseline; accept only after complete silhouette and alternating knee/ankle checks, then wire bounded follow ranges and test scene exits."
+}
