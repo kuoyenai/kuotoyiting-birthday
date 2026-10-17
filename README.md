@@ -525,3 +525,11 @@ iPhone／Safari 主畫面圖示、鎖屏播放、系統下載及原生返回手�
 - **程式 Commit SHA**：[`5112ae4e1e952432f1d6ec955cc705b8be309dfe`](https://github.com/snooy791123/kuotoyiting-birthday/commit/5112ae4e1e952432f1d6ec955cc705b8be309dfe)；本段 README 紀錄另以獨立 Commit 提交。
 - **驗證**：確認故事冊頁的 `invitation.js` 會產生第三個連結，且原版 `explore.html` 路徑存在；尚未於 iPhone Safari 實機確認切換列三個按鈕的版面及跳轉。
 - **未完成**：iPhone 版按鈕寬度／換行檢查、縮短遊戲行走距離、團員依劇情同行及專屬場景素材補齊。穩定分支不修改。
+
+### 2026-10-17 21:42（台灣時間）— 2D 遊戲移至故事頁，加入旅程介紹入口
+
+- **修改摘要**：故事頁的「2D 遊戲」分頁先開啟獨立介紹頁 `explore-intro.html`，保留雨夜城市圖片、星光旅程介紹與「開啟旅程 →」按鈕，按下後才進入 `explore.html`。禮物頁移除 `05 2D 遊戲` 分頁，原 `06 許願` 恢復為 `05 許願`。
+- **受影響檔案**：`explore-intro.html`（新增）、`invitation.js`、`gift.html`、`README.md`。
+- **程式 Commit SHA**：`ccdce26a013250068c57522dc2401ab2ad104dcf`（介紹頁）、`fcb7fdc87cb4255cc4bff83964838417451721d4`（故事入口）、`ff126f6cb103141a4e26efeb88e5b60afd7489bf`（禮物頁）。README 紀錄另行提交。
+- **驗證**：核對來源檔案中的故事切換連結、介紹頁開始按鈕及禮物分頁標記；尚未於 iPhone Safari 實機確認版面及操作。
+- **未完成**：iPhone 實機確認、縮短節點行走距離、團員依劇情同行、專屬場景素材。穩定分支不修改。
