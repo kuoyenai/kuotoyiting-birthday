@@ -1,7 +1,7 @@
 {
   "updated": "2026-10-17",
-  "appVersion": "20261017-7",
-  "baseline": "9a58eed",
+  "appVersion": "20261017-8",
+  "baseline": "62f5fe8",
   "cards": 100,
   "novel": {
     "chapters": [
@@ -75,7 +75,7 @@
     "storyEncounters": 95,
     "generatedAssets": 12,
     "localProgress": true,
-    "status": "Continuous mobile world with ten walkable environments and all 95 novel encounters; original sprite retained; optional Yejun flower interaction and earned red-star keepsake through return",
+    "status": "Continuous mobile world with ten walkable environments and all 95 novel encounters; original sprite retained; optional Yejun flowers, Noah moonlight and earned red-star keepsake",
     "walkableEnvironments": [
       "雨夜城市",
       "ASTERUM步道",
@@ -98,6 +98,7 @@
     "backtracking": true,
     "optionalInteractions": [
       "藝俊三朵藍色花光／希望小記／任意順序",
+      "諾亞月光滑桿／溫柔小記／無倒數",
       "觀景台找綠色星光／勇氣小記",
       "銀虎三句陪伴／本機紅色星光小記",
       "生日舞台五色微光／自由開關／減少動態",
