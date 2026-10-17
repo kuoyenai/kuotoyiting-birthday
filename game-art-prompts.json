@@ -23,6 +23,12 @@
       "reference": "assets/novel-observatory-wide.webp",
       "tool": "built-in imagegen",
       "prompt": "Production 2D side-scrolling narrative game environment WIDE16:9. Use reference for detailed anime painting style and ASTERUM observatory architecture, OMIT both people. STRICT eye-level SIDE-ON camera, uninterrupted LEVEL HORIZONTAL polished stone walkway over entire bottom25 percent, gold-silver low balustrade BEHIND walking lane. Quiet observatory terrace at night, a small ornate astronomical telescope behind the railing on one side, immense starry deep blue violet sky, distant floating castle islands reflected in cloud sea. One subtle green star among stars, restrained warm lanterns, cool peaceful atmosphere distinctly less pink than a plaza. No people no text no labels no logos, no stairs or obstacles in playable lane, no foreground bushes blocking feet. No overhead camera or vanishing-point path. Beautiful refined Korean anime illustration consistent source. Main visual emphasis on open sky and far horizon."
+    },
+    {
+      "path": "assets/explore-eunho-bridge-v1.png",
+      "reference": "assets/novel-quiet-bridge.webp",
+      "tool": "built-in imagegen",
+      "prompt": "Production 2D side-scrolling narrative game environment, wide16:9. Use reference for exact illustrated fantasy architecture, blue violet star river, warm gold bridge rail and subtle RED star accent, OMIT both characters. STRICT eye-level SIDE VIEW. Uninterrupted FLAT HORIZONTAL polished bridge walkway spans entire bottom25 percent, decorative balustrade BEHIND the walking lane. Quiet intimate starlit bridge, ornate gothic palace rising on far left, distant floating slender towers, immense blue planet and a gentle star river. One small red crystal star on a low railing pillar behind walkway near center-right. Navy indigo and lilac palette with restrained crimson accents and warm lamps, emotionally warm and peaceful, not an intense concert. Highly detailed polished Korean anime painting matching reference. No people no text no logos. No stairs or obstacles on lane, no foreground railing across feet. No overhead view, no vanishing road perspective."
     }
   ]
 }
