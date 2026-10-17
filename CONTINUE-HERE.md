@@ -131,3 +131,7 @@ explore-arrival.js/css新增實際場景五色小星與細框、名稱700ms淡�
 ## 20261018-4 接續
 
 銀虎同行接線：encounter17之後index18..19且sceneasterum；encounter48之後index49..56且sceneeunho。4張獨立PNG原身形留白，不用前輪拒收圖表。距離110一循環，四姿勢／停步原NPC，依方向翻轉；對話dt0。減少動態或缺姿勢則原固定相遇，離場釋放並重試。YITING原圖／400地圖／五人合照不改。follow、原NPC與舞台測試已過；完整95格、六處相遇、原插畫結尾及11張背景比例亦重新通過。提示在game-art-prompts.json。
+
+## 20261018-5 接續
+
+同行從附近原anchor起步，max300世界單位／秒，停步faceplayer；遠距存檔仍直接恢復到身邊。follow資料新增phase供只讀診斷。無新圖，原4步姿與同行段保持。新增start測試逐幀查位置與速度，follow及缺圖／減少動態回歸通過；95格沿用App4完整結果。提示與素材總量保持。

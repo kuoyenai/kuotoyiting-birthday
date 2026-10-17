@@ -1,7 +1,7 @@
 {
   "updated": "2026-10-18",
-  "appVersion": "20261018-4",
-  "baseline": "f43d390",
+  "appVersion": "20261018-5",
+  "baseline": "397c3e0",
   "cards": 100,
   "novel": {
     "chapters": [
@@ -291,7 +291,7 @@
       "giftEntry": false
     },
     "followingCompanions": {
-      "status": "EUNHO only, story-earned and scene-bounded; full95 and targeted regressions passed",
+      "status": "EUNHO scene-bounded following; continuous start and speed cap verified",
       "enabled": true,
       "member": "EUNHO",
       "ranges": [
@@ -319,7 +319,10 @@
       "missingPose": "original stationary encounter; retry on physical reentry",
       "extraImageCacheLimit": 4,
       "release": "on leaving follow scene/range or reduced-motion preference",
-      "modal": "position and phase frozen"
+      "modal": "position and phase frozen",
+      "start": "nearby encounter anchor; distant restored position starts alongside",
+      "maxSpeedWorldUnitsPerSecond": 300,
+      "idleFacing": "toward YiTing"
     },
     "sceneArrival": {
       "source": "explore-arrival.js",

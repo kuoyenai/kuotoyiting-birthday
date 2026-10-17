@@ -59,8 +59,11 @@ window.YitingActors={
    const config=configs[companion.member],standing=records.get(companion.member)?.art;
    if(config&&standing){
     const desired=playerX-(playerFacing||1)*110,previous=followPositions.get(companion.member);
-    const oldX=previous?.x??desired,px=Math.abs(oldX-desired)>450?desired:oldX+(desired-oldX)*(1-Math.exp(-Math.max(0,dt)*5));
-    const distance=px-oldX,stepping=Math.abs(distance)>.04,phase=((previous?.phase??0)+Math.abs(distance)/110)%1,direction=stepping?Math.sign(distance):(previous?.direction??playerFacing??1);
+    // Continue from the encounter when it is nearby; a distant restored save starts alongside YiTing.
+    const oldX=previous?.x??(Math.abs(companion.x-desired)<=450?companion.x:desired),limit=300*Math.min(.04,Math.max(0,dt));
+    const eased=(desired-oldX)*(1-Math.exp(-Math.max(0,dt)*5)),step=Math.max(-limit,Math.min(limit,eased));
+    const px=Math.abs(oldX-desired)>450?desired:oldX+step;
+    const distance=px-oldX,stepping=Math.abs(distance)>.04,phase=((previous?.phase??0)+Math.abs(distance)/110)%1,direction=stepping?Math.sign(distance):(Math.sign(playerX-px)||playerFacing||1);
     followPositions.set(companion.member,{x:px,phase,direction});
     const ground=h*.85,cx=(px-camera)*scale,height=h*config.height,frame=stepping?Math.floor(phase*4)%4:-1;
     if(cx+height>=0&&cx-height<=w){
@@ -68,7 +71,7 @@ window.YitingActors={
      ctx.translate(cx,ground);ctx.scale(direction>0?-1:1,1);ctx.imageSmoothingEnabled=true;
      if(frame>=0){const image=walk.images[frame],unit=height/1507;ctx.drawImage(image,0,0,1024,1536,-512*unit,-walkFrames[frame][1]*unit,1024*unit,1536*unit);}
      else{const crop=config.crop,width=height*crop.w/crop.h;ctx.drawImage(standing,crop.x,crop.y,crop.w,crop.h,-width*.5,-height,width,height);}
-     ctx.restore();visible++;follower={member:companion.member,x:px,frame,direction};
+     ctx.restore();visible++;follower={member:companion.member,x:px,frame,direction,phase};
     }
    }
   }
