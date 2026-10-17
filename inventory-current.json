@@ -1,7 +1,7 @@
 {
   "updated": "2026-10-17",
-  "appVersion": "20261017-3",
-  "baseline": "17ddca8",
+  "appVersion": "20261017-4",
+  "baseline": "4e2700e",
   "cards": 100,
   "novel": {
     "chapters": [
@@ -54,12 +54,12 @@
     "blessingsCSV": true
   },
   "trackedAssets": {
-    "files": 320,
-    "bytes": 334720359,
+    "files": 321,
+    "bytes": 338067427,
     "types": {
       "": 1,
       ".webp": 144,
-      ".png": 22,
+      ".png": 23,
       ".jpg": 139,
       ".zip": 1,
       ".mp4": 5,
@@ -73,9 +73,9 @@
     "entry": "gift.html → explore.html",
     "chapters": 10,
     "storyEncounters": 95,
-    "generatedAssets": 9,
+    "generatedAssets": 10,
     "localProgress": true,
-    "status": "Continuous mobile world with seven walkable environments; original sprite retained; optional Eunho companion interaction; dedicated birthday stage pending",
+    "status": "Continuous mobile world with eight walkable environments and all 95 novel encounters; original sprite retained; optional observatory, Eunho companion and birthday stage interactions",
     "walkableEnvironments": [
       "雨夜城市",
       "ASTERUM步道",
@@ -83,7 +83,8 @@
       "諾亞月光溫室",
       "斑比粉色廣場",
       "河玟觀景台",
-      "銀虎星光步道"
+      "銀虎星光步道",
+      "生日演唱舞台"
     ],
     "walkAnimation": {
       "method": "classic sprite animation restored on mobile",
@@ -95,7 +96,8 @@
     "backtracking": true,
     "optionalInteractions": [
       "觀景台找綠色星光／勇氣小記",
-      "銀虎三句陪伴／本機紅色星光小記"
+      "銀虎三句陪伴／本機紅色星光小記",
+      "生日舞台五色微光／自由開關／減少動態"
     ]
   }
 }

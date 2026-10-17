@@ -29,6 +29,12 @@
       "reference": "assets/novel-quiet-bridge.webp",
       "tool": "built-in imagegen",
       "prompt": "Production 2D side-scrolling narrative game environment, wide16:9. Use reference for exact illustrated fantasy architecture, blue violet star river, warm gold bridge rail and subtle RED star accent, OMIT both characters. STRICT eye-level SIDE VIEW. Uninterrupted FLAT HORIZONTAL polished bridge walkway spans entire bottom25 percent, decorative balustrade BEHIND the walking lane. Quiet intimate starlit bridge, ornate gothic palace rising on far left, distant floating slender towers, immense blue planet and a gentle star river. One small red crystal star on a low railing pillar behind walkway near center-right. Navy indigo and lilac palette with restrained crimson accents and warm lamps, emotionally warm and peaceful, not an intense concert. Highly detailed polished Korean anime painting matching reference. No people no text no logos. No stairs or obstacles on lane, no foreground railing across feet. No overhead view, no vanishing road perspective."
+    },
+    {
+      "path": "assets/explore-birthday-stage-v1.png",
+      "reference": "assets/novel-birthday-stage.webp",
+      "tool": "built-in imagegen",
+      "prompt": "Use case illustration-story. Production 2D side scrolling narrative game environment, wide 16:9. Reference image is ONLY environment, anime painting style and concert lighting reference. OMIT ALL PEOPLE. Create a dedicated birthday concert stage in ASTERUM with grand luminous palace towers, delicate floating orbital star chandelier above center, dark indigo violet cosmic sky and blue planets. Five restrained stage light beams blue, violet, pink, red and green above an elegant golden star-shaped background installation. Strict eye-level SIDE ON playable stage. Uninterrupted flat horizontal polished navy marble walking floor spans entire bottom 25 percent, fully clear, no stairs or equipment obstructing the walking lane. All rails and ornate gold architecture BEHIND the lane. Warm gold birthday starlight, refined luxurious Korean anime illustration matching reference, detailed luminous environment, not overpowering white glare. No people, no characters, no faces, no text, no logos, no microphones. No road disappearing into depth, no overhead perspective. Clear level floor on which a small 2D character can walk left-right."
     }
   ]
 }
