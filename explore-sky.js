@@ -1,0 +1,12 @@
+(()=>{'use strict';const canvas=document.getElementById('world');if(!canvas)return;
+const key='yiting-explore-courage-note';let owned=false,found=false;try{owned=localStorage.getItem(key)==='1';}catch{}
+const entry=document.createElement('button');entry.type='button';entry.className='sky-entry';entry.id='lookSky';entry.hidden=true;entry.setAttribute('aria-haspopup','dialog');document.querySelector('.stage').append(entry);
+const dialog=document.createElement('dialog');dialog.id='skyDialog';dialog.className='sky-dialog';dialog.setAttribute('aria-labelledby','skyTitle');dialog.innerHTML='<div class="sky-map"><p class="sky-edition">HAMIN / A LITTLE COURAGE</p><h2 id="skyTitle">那顆很小，卻一直發光的星</h2><p class="sky-instruction">河玟說：妳看那裡。找找看，那道綠色的微光。</p><div class="sky-stars" role="group" aria-label="選擇星光"><button type="button" data-star="blue" aria-label="藍白色星光">✦</button><button type="button" data-star="green" aria-label="綠色星光">✦</button><button type="button" data-star="purple" aria-label="紫色星光">✦</button></div><div class="sky-message" role="status" aria-live="polite"></div><button type="button" id="closeSky">回到觀景台</button></div>';document.body.append(dialog);
+const message=dialog.querySelector('.sky-message'),close=dialog.querySelector('#closeSky');
+function sync(){entry.hidden=canvas.dataset.scene!=='observatory';entry.textContent=owned?'✦ 重看那顆綠色星星':'✦ 和河玟一起看星星';}
+entry.onclick=()=>{found=false;window.dispatchEvent(new Event('yiting-explore-modal'));dialog.querySelectorAll('[data-star]').forEach(b=>b.setAttribute('aria-pressed','false'));message.textContent='不用著急，慢慢看。';close.textContent='回到觀景台';dialog.showModal();};
+dialog.querySelectorAll('[data-star]').forEach(button=>{button.onclick=()=>{if(found)return;if(button.dataset.star!=='green'){message.textContent='再看看，那顆很小，卻仍亮著的綠色星光。';return;}found=true;owned=true;button.setAttribute('aria-pressed','true');let saved=true;try{localStorage.setItem(key,'1');}catch{saved=false;}message.textContent='河玟：「雖然它很小，但還是一直在發光。」 '+(saved?'勇氣小記已收藏在這個瀏覽器。':'把這份勇氣留在心裡。瀏覽器目前無法保存小記。');close.textContent='把勇氣留在心裡';sync();};});
+close.onclick=()=>dialog.close();dialog.addEventListener('close',()=>{canvas.focus({preventScroll:true});});
+dialog.addEventListener('contextmenu',event=>{if(event.target.closest('[data-star]'))event.preventDefault();});
+new MutationObserver(sync).observe(canvas,{attributes:true,attributeFilter:['data-scene']});sync();
+})();

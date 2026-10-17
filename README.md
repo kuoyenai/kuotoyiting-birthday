@@ -2,7 +2,7 @@
 
 [開啟網站](https://kuotoyiting-birthday.vercel.app/) · [GitHub Pages](https://snooy791123.github.io/kuotoyiting-birthday/)
 
-更新日期：2026-10-17；目前 App 版本：`20261017-1`。目前指定穩定版：`yiting-stable-20261016-v9`，對應 App `20261016-9`、網站程式提交 `108c7c1`。保留先前標籤 `yiting-stable-20261016-v8`（`4d1232a`）與 `yiting-stable-20261016`（`e5bb82b`），不移動任何既有穩定標籤。
+更新日期：2026-10-17；目前 App 版本：`20261017-2`。目前指定穩定版：`yiting-stable-20261016-v9`，對應 App `20261016-9`、網站程式提交 `108c7c1`。保留先前標籤 `yiting-stable-20261016-v8`（`4d1232a`）與 `yiting-stable-20261016`（`e5bb82b`），不移動任何既有穩定標籤。
 
 ## 穩定版紀錄
 
@@ -19,13 +19,21 @@
 | 電影互動漫畫 | 20 格原畫、7 回導覽 |
 | 陪伴曲目 | 4 首，主題曲置首；選哪首就下載該首 MP4 |
 | 完整收錄 | 100 張小卡、祝福 CSV 與說明，ZIP 79,250,017 bytes，約 76 MB |
-| Git 追蹤素材 | 318 個檔案，共 328,124,036 bytes；含圖示、備用圖、字型及下載原檔，不等於故事插畫數 |
+| Git 追蹤素材 | 319 個檔案，共 331,405,702 bytes；含圖示、備用圖、字型及下載原檔，不等於故事插畫數 |
 
 [下載完整收錄](assets/downloads/YITING-100-photocards.zip) · [機器可讀現況盤點](inventory-current.json) · [深度除錯紀錄](DEBUG-REPORT-20261016.md) · [接續製作說明](CONTINUE-HERE.md)
 
 `inventory.json` 與 `materials.csv` 是最初 38 份來源素材的歷史盤點，最新網站內容以 `inventory-current.json` 為準。`sources/` 為唯讀參考資料。
 
 ## 最新檢查與修正
+
+### 20261017-2｜河玟觀景台與綠色星光
+
+在手機連續地圖基礎上加入觀景台底圖與可選的「一起看星星」。入口隨角色實際到達／回頭離場顯示，找對綠色星光可保存本機勇氣小記，不跳過故事。新入口位於畫布內，保留固定畫面與原人物圖。
+
+390／1280驗證進出區域、開視窗停止移動、錯誤選擇提示、保存與儲存失敗提示、重開恢復及故事進度保留；手機銜接回歸亦通過。完整內容與生成提示見 [製作紀錄](EXPLORE-TEST.md)。目前6種探索環境；銀虎步道及生日舞台仍待補製。
+
+
 
 ### 20261017-1｜接續手機端最新進度
 
@@ -301,3 +309,5 @@ iPhone／Safari 主畫面圖示、鎖屏播放、系統下載及原生返回手�
 - **提交**：[`d01c9b7`](https://github.com/snooy791123/kuotoyiting-birthday/commit/d01c9b724afaf4d0457e46640eabb5ee8fa65cae)、[`d5db8e2`](https://github.com/snooy791123/kuotoyiting-birthday/commit/d5db8e2c0196f247d864bc165955af0aa10d31ba)。
 - **驗證**：靜態程式碼檢查；尚未在手機實機模擬分鏡圖片 404。
 - **待補素材**：本輪未新增原創圖檔；需持續盤點缺失的逐格漫畫插畫與章節專屬背景。備援畫面不代表素材已完成。穩定版未修改。
+
+2026-10-17 補充驗證：手機連續地圖95個節點已依序通過，含逐張原圖載入與結尾入口；採虛擬時鐘加速移動，詳見 tests/explore-continuous-story.cjs。

@@ -1,7 +1,7 @@
 {
   "updated": "2026-10-17",
-  "appVersion": "20261017-1",
-  "baseline": "59850d8",
+  "appVersion": "20261017-2",
+  "baseline": "17ddca8",
   "cards": 100,
   "novel": {
     "chapters": [
@@ -54,12 +54,12 @@
     "blessingsCSV": true
   },
   "trackedAssets": {
-    "files": 318,
-    "bytes": 328124036,
+    "files": 319,
+    "bytes": 331405702,
     "types": {
       "": 1,
       ".webp": 144,
-      ".png": 20,
+      ".png": 21,
       ".jpg": 139,
       ".zip": 1,
       ".mp4": 5,
@@ -73,15 +73,16 @@
     "entry": "gift.html → explore.html",
     "chapters": 10,
     "storyEncounters": 95,
-    "generatedAssets": 7,
+    "generatedAssets": 8,
     "localProgress": true,
-    "status": "Mobile main 59850d8 synchronized; ending boundaries, revisit marker, fallback explanation and collection return fixed. Dedicated environment work ongoing.",
+    "status": "Continuous mobile world with six walkable environments; original sprite retained; dedicated Eunho bridge and birthday stage pending",
     "walkableEnvironments": [
       "雨夜城市",
       "ASTERUM步道",
       "藝俊音樂花園",
       "諾亞月光溫室",
-      "斑比粉色廣場"
+      "斑比粉色廣場",
+      "河玟觀景台"
     ],
     "walkAnimation": {
       "method": "classic sprite animation restored on mobile",
@@ -90,6 +91,9 @@
       "actualDisplayRate": "device dependent"
     },
     "continuousWorld": true,
-    "backtracking": true
+    "backtracking": true,
+    "optionalInteractions": [
+      "觀景台找綠色星光／勇氣小記"
+    ]
   }
 }
