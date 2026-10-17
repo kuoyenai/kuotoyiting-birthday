@@ -3,7 +3,8 @@ const configs={
  garden:{source:'assets/explore-garden-foreground-v1.png',next:'greenhouse',alpha:.76,scale:1},
  greenhouse:{source:'assets/explore-moon-foreground-v1.png',next:'eunho',alpha:.68,scale:.96,crop:{width:.38,top:.5,bottom:.44}},
  eunho:{source:'assets/explore-eunho-foreground-v1.png',next:'birthday',alpha:.73,scale:.9,crop:{width:.38,top:.5,bottom:.44}},
- birthday:{source:'assets/explore-stage-foreground-v1.png',alpha:.6,scale:.85}
+ birthday:{source:'assets/explore-stage-foreground-v1.png',next:'farewell',alpha:.6,scale:.85},
+ farewell:{source:'assets/explore-farewell-foreground-v1.png',alpha:.55,scale:.85,crop:{width:.25,top:.52,bottom:.34}}
 };
 const layers=new Map();let previousScene='';
 function discard(id){const record=layers.get(id);layers.delete(id);record?.image.removeAttribute('src');}
@@ -19,6 +20,7 @@ function prepare(){
  if(configs[scene])wanted=[scene,configs[scene].next].filter(Boolean);
  else if(scene==='asterum'&&chapter===4)wanted=['garden','greenhouse'];
  else if(scene==='plaza'||scene==='observatory')wanted=['eunho'];
+ else if(scene==='wish')wanted=['farewell'];
  for(const id of layers.keys())if(!wanted.includes(id))discard(id);
  for(const id of wanted)load(id,entered&&id===scene);
  if(entered&&layers.has(scene))layers.get(scene).started=null;

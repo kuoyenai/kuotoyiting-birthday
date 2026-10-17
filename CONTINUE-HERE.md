@@ -115,3 +115,7 @@ explore-actors.js新增首位EUNHO全身站姿立繪，第三章novel-arrival-me
 ## 20261018-1 接續
 
 explore-arrival.js/css新增實際場景五色小星與細框、名稱700ms淡入，中文朗讀與終章城市識別；減少動態時靜止。無新素材、存檔或輸入處理。12次場景進出與回頭測試；world-proportions舊960斷言已改400／280並重測11張背景。原手機入口與400地圖保持，同行仍未啟用。下一輪可繼續深化敘事，勿把既有站姿立繪平移誤稱完整行走動畫。
+
+## 20261018-2 接續
+
+新增第5份透明前景explore-farewell-foreground-v1.png，imagegen提示在game-art-prompts.json。farewell配置alpha.55/scale.85/crop .25,.52,.34；birthday預載farewell，wish保留farewell，city釋放。原圖89.8% alpha≤8、中央欄位最大1。新素材無人物，不增加小卡數。手機桌機缺圖重試與中央透明測試通過，詳README。繼續保留手機400地圖及故事介紹入口，同行基礎仍未啟用。

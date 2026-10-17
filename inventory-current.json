@@ -1,7 +1,7 @@
 {
   "updated": "2026-10-18",
-  "appVersion": "20261018-1",
-  "baseline": "84d2dff",
+  "appVersion": "20261018-2",
+  "baseline": "23415b8",
   "cards": 100,
   "novel": {
     "chapters": [
@@ -54,12 +54,12 @@
     "blessingsCSV": true
   },
   "trackedAssets": {
-    "files": 337,
-    "bytes": 363524801,
+    "files": 338,
+    "bytes": 364304203,
     "types": {
       "": 1,
       ".webp": 144,
-      ".png": 36,
+      ".png": 37,
       ".jpg": 142,
       ".zip": 1,
       ".mp4": 5,
@@ -73,9 +73,9 @@
     "entry": "Story tabs → explore-intro.html → explore.html",
     "chapters": 10,
     "storyEncounters": 95,
-    "generatedAssets": 22,
+    "generatedAssets": 23,
     "localProgress": true,
-    "status": "Continuous95-panel novel journey,11 environments,4 foreground sets,six solo encounters and one user-provided five-person concert image; original player/dialogue retained",
+    "status": "Continuous95-panel novel journey,11 environments,5 foreground sets,six solo encounters and one user-provided five-person concert image; original player/dialogue retained",
     "walkableEnvironments": [
       "雨夜城市",
       "十點二十分穿越城市",
@@ -159,6 +159,17 @@
         "source": "assets/explore-stage-foreground-v1.png",
         "alphaTransparency": true,
         "motion": "sparse champagne ribbon and five-color crystal corners; static when reduced motion"
+      },
+      {
+        "scene": "farewell",
+        "source": "assets/explore-farewell-foreground-v1.png",
+        "alphaTransparency": true,
+        "motion": "subtle corner sway and camera parallax; static when reduced motion",
+        "preload": [
+          "birthday",
+          "wish"
+        ],
+        "release": "city"
       }
     ],
     "localResume": {
