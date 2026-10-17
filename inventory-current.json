@@ -1,7 +1,7 @@
 {
-  "updated": "2026-10-16",
-  "appVersion": "20261016-14",
-  "baseline": "yiting-stable-20261016-v9",
+  "updated": "2026-10-17",
+  "appVersion": "20261017-1",
+  "baseline": "59850d8",
   "cards": 100,
   "novel": {
     "chapters": [
@@ -75,7 +75,7 @@
     "storyEncounters": 95,
     "generatedAssets": 7,
     "localProgress": true,
-    "status": "Playable story-route first version; dedicated environments and animation refinement ongoing",
+    "status": "Mobile main 59850d8 synchronized; ending boundaries, revisit marker, fallback explanation and collection return fixed. Dedicated environment work ongoing.",
     "walkableEnvironments": [
       "雨夜城市",
       "ASTERUM步道",
@@ -84,10 +84,12 @@
       "斑比粉色廣場"
     ],
     "walkAnimation": {
-      "method": "layered 2D inverse-kinematic rig",
-      "posesPerCycle": 60,
-      "interpolated": true,
+      "method": "classic sprite animation restored on mobile",
+      "posesPerCycle": 4,
+      "source": "assets/explore-yiting-walk-v1.png",
       "actualDisplayRate": "device dependent"
-    }
+    },
+    "continuousWorld": true,
+    "backtracking": true
   }
 }
