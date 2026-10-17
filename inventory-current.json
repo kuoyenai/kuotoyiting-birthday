@@ -1,7 +1,7 @@
 {
-  "updated": "2026-10-17",
-  "appVersion": "20261017-25",
-  "baseline": "f9801f9",
+  "updated": "2026-10-18",
+  "appVersion": "20261017-26",
+  "baseline": "3398670",
   "cards": 100,
   "novel": {
     "chapters": [
@@ -70,7 +70,7 @@
   },
   "notes": "Tracked asset counts include icons, alternate illustrations and download originals; they are not counts of unique story panels. sources/ remains read-only.",
   "game2D": {
-    "entry": "gift.html → explore.html",
+    "entry": "Story tabs → explore-intro.html → explore.html",
     "chapters": 10,
     "storyEncounters": 95,
     "generatedAssets": 22,
@@ -109,8 +109,10 @@
     ],
     "backgroundRendering": {
       "method": "native image ratio, clipped consecutive scene regions and mirrored repeats",
-      "storyCoordinateSpacing": 960,
-      "saveCompatible": true
+      "storyCoordinateSpacing": 400,
+      "saveCompatible": true,
+      "mapVersion": 2,
+      "legacyPositionMigration": "960 to 400 spacing, preserves story index and unlocked progress"
     },
     "responsiveLayout": {
       "portrait": "vertical stage and controls",
@@ -266,6 +268,20 @@
       "reducedMotion": "immediate full opacity",
       "start": "later of scene entry and decoded image readiness",
       "replayOnPhysicalReentry": true
+    },
+    "introduction": {
+      "resume": "read-only existing save",
+      "progress": "completed panels / dynamically derived total",
+      "refresh": [
+        "pageshow",
+        "storage"
+      ],
+      "gameReturn": "explore-intro.html",
+      "giftEntry": false
+    },
+    "followingCompanions": {
+      "status": "rendering groundwork only; no follow ranges or player arguments configured",
+      "enabled": false
     }
   }
 }
