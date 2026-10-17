@@ -193,3 +193,12 @@ tests/explore-atmosphere.cjs於390／1280驗證實際像素的四角構圖、中
 tests/explore-premium-scenes.cjs於390／1280核對兩種新前景的實際像素、中央透明、不同素材、景深位移／搖曳、減少動態、邀請卡字型載入、高對比文字，以及實際回頭走入花園後遠處紅晶前景已釋放。tests/explore-atmosphere.cjs重測花園及缺圖重試；tests/explore-world-proportions.cjs核對十種場景與裁片原比例；tests/explore-responsive.cjs核對十個章名在四種手機橫直向尺寸不溢出、不壓扁場景。手機重溫、圖片重試、四曲與結尾入口回歸亦通過。已檢視手機與桌機畫面。
 
 本輪為前景與字型，小說路線、存檔及人物行走程式未改；完整95格沿用20261017-14驗證。本版素材326檔，生成遊戲素材15張（含歷史分件），前景3種，可行走環境10種；100小卡、95小說插畫保持不變。
+
+
+## 20261017-16｜穿越城市接續
+
+同步檢查：開始時 HEAD 與 origin/main 同為 1fdebee，ahead/behind 為 0/0。新增 assets/explore-portal-city-v1.png（1672×941），完整內建 imagegen 提示及原畫參考已存 game-art-prompts.json。新背景不重畫主角或成員，保留原人物素材；遊戲現有11種行走環境、95格故事與100小卡。
+
+tests/explore-portal.cjs 於390／1280驗證普通城市→穿越城市→ASTERUM與實際後退探索，走路不改閱讀進度；已檢視兩種尺寸畫面。tests/explore-world-proportions.cjs 已驗證11種背景等比與原960故事座標。mobile-handoff-regression通過四曲、禮物獨立入口、圖片重試與結尾。invariants通過700本地路徑與保留頁面，audit通過App/PWA版本一致。
+
+完整流程驗證：tests/explore-continuous-story.cjs 已重新走完95格，逐格解碼原插畫並抵達結尾；沒有瀏覽器程式錯誤。本輪未改人物與對白，保留既有穩定標籤。

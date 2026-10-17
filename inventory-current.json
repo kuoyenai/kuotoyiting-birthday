@@ -1,7 +1,7 @@
 {
   "updated": "2026-10-17",
-  "appVersion": "20261017-15",
-  "baseline": "cdcaddb",
+  "appVersion": "20261017-16",
+  "baseline": "1fdebee",
   "cards": 100,
   "novel": {
     "chapters": [
@@ -54,12 +54,12 @@
     "blessingsCSV": true
   },
   "trackedAssets": {
-    "files": 326,
-    "bytes": 347352828,
+    "files": 327,
+    "bytes": 350694546,
     "types": {
       "": 1,
       ".webp": 144,
-      ".png": 28,
+      ".png": 29,
       ".jpg": 139,
       ".zip": 1,
       ".mp4": 5,
@@ -73,11 +73,12 @@
     "entry": "gift.html → explore.html",
     "chapters": 10,
     "storyEncounters": 95,
-    "generatedAssets": 15,
+    "generatedAssets": 16,
     "localProgress": true,
-    "status": "Continuous 95-panel novel journey with ten environments; richer PLAVE-inspired painted garden foreground; local position and dialogue resume; original character art retained",
+    "status": "Continuous 95-panel novel journey with eleven environments; chapter2 portal city, painted foreground depth and local reading resume; original character art retained",
     "walkableEnvironments": [
       "雨夜城市",
+      "十點二十分穿越城市",
       "ASTERUM步道",
       "藝俊音樂花園",
       "諾亞月光溫室",

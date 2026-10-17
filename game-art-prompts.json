@@ -70,6 +70,14 @@
       "transparent_background": true,
       "prompt": "Use case illustration-story. TRANSPARENT PNG foreground overlay for an elegant 2D Korean anime story game, wide16:9, true alpha transparency, no backdrop and no painted checkerboard. Reference ONLY for polished luminous anime painting, fine gold bridge details and warm RED five-point crystal star symbol. OMIT BOTH PEOPLE and all architecture. Four isolated very SPARSE little corner clusters: upper-left and upper-right contain delicate short fine gold chains with one small deep crimson five-point faceted star crystal pendant each, a little silver edge catching moonlight; bottom-left and bottom-right have just subtle warm gold curving filigree fragments with a tiny crimson crystal gleam and faint soft red reflected light, no flowers. No connecting frame border. Each complete cluster fully contained inside outer24% width; upper clusters top36% height, lower clusters bottom28% height, clear empty transparent gutters before those limits. Central52% width completely EMPTY transparent from top to bottom. Keep entire middle area empty. Restrained navy-compatible crimson and champagne gold, emotionally warm quiet companionship, not a concert, no overwhelming glow. No people, no hands, no buildings, no sky, no floor, no text, no logos. Crisp painterly star crystal texture, foreground depth softness only at very lowest outer edges. Premium romantic illustrated atmosphere matching reference.",
       "generatedOn": "2026-10-17"
+    },
+    {
+      "path": "assets/explore-portal-city-v1.png",
+      "reference": "assets/novel-frozen-city.webp",
+      "tool": "built-in imagegen",
+      "generatedOn": "2026-10-17",
+      "prompt": "Use case: illustration-story. Create a polished widescreen 16:9 hand-painted anime background for a side-scrolling 2D birthday story game. Reference image is style and story mood only: luminous violet-blue Korean city at night, wet reflective paving, warm windows, delicate detailed linework and soft painterly shading. NEW composition must be strict side-on, level horizon, horizontal continuous walkable empty sidewalk across bottom 28%, no perspective road receding into center. Story: time stopped at 10:20 PM, a large electronic billboard above the sidewalk has become a swirling indigo-violet star portal, a few suspended autumn leaves, thin silver stars and a subtle crimson star glow near portal. Layered skyscrapers and elevated pedestrian bridge behind. Premium PLAVE fan birthday atmosphere, elegant and emotionally quiet, no clutter of particles. Absolutely NO people, no characters, no body parts, no cars in foreground, no text or logos. Ground must remain clear for separately rendered YITING sprite. One coherent landscape, not collage, no UI, no border. Preserve original reference painting quality.",
+      "transparent_background": false
     }
   ],
   "updated": "2026-10-17"
