@@ -1,7 +1,7 @@
 {
   "updated": "2026-10-18",
-  "appVersion": "20261018-2",
-  "baseline": "23415b8",
+  "appVersion": "20261018-3",
+  "baseline": "7528b17",
   "cards": 100,
   "novel": {
     "chapters": [
@@ -303,6 +303,17 @@
       "accessibleChineseStatus": true,
       "reducedMotion": "static",
       "changesProgress": false
+    },
+    "starbook": {
+      "entry": "earned palm keepsake dialog → expandable journal",
+      "members": 5,
+      "illustrations": "existing original star-award panels",
+      "storyLinks": true,
+      "readOnlyProgress": true,
+      "unearnedSpoilers": false,
+      "mount": "on expansion",
+      "release": "on collapse or dialog close",
+      "newAssets": 0
     }
   }
 }

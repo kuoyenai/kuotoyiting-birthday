@@ -119,3 +119,7 @@ explore-arrival.js/css新增實際場景五色小星與細框、名稱700ms淡�
 ## 20261018-2 接續
 
 新增第5份透明前景explore-farewell-foreground-v1.png，imagegen提示在game-art-prompts.json。farewell配置alpha.55/scale.85/crop .25,.52,.34；birthday預載farewell，wish保留farewell，city釋放。原圖89.8% alpha≤8、中央欄位最大1。新素材無人物，不增加小卡數。手機桌機缺圖重試與中央透明測試通過，詳README。繼續保留手機400地圖及故事介紹入口，同行基礎仍未啟用。
+
+## 20261018-3 接續
+
+掌心紀念視窗新增可收合五道星光手帳，explore-starbook.js/css由原NOVEL_PANELS與extra shots取得星光索引、原畫、對白及章節連結。只讀進度，不另存；展開才建圖，收合移除來源。未收集不顯示內容，無新增主畫面按鈕或新素材。手機桌機與缺圖測試見README。原同行未啟用狀態保持，下一輪繼續深化體驗。
