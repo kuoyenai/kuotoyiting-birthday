@@ -1,7 +1,7 @@
 {
   "updated": "2026-10-17",
-  "appVersion": "20261017-22",
-  "baseline": "1841973",
+  "appVersion": "20261017-23",
+  "baseline": "2e31011",
   "cards": 100,
   "novel": {
     "chapters": [
@@ -54,12 +54,12 @@
     "blessingsCSV": true
   },
   "trackedAssets": {
-    "files": 335,
-    "bytes": 359638845,
+    "files": 336,
+    "bytes": 361308944,
     "types": {
       "": 1,
       ".webp": 144,
-      ".png": 34,
+      ".png": 35,
       ".jpg": 142,
       ".zip": 1,
       ".mp4": 5,
@@ -73,9 +73,9 @@
     "entry": "gift.html → explore.html",
     "chapters": 10,
     "storyEncounters": 95,
-    "generatedAssets": 21,
+    "generatedAssets": 22,
     "localProgress": true,
-    "status": "Continuous95-panel novel journey,11 environments,4 foreground sets and EUNHO/YEJUN/NOAH/BAMBY encounters; original player/dialogue retained",
+    "status": "Continuous95-panel novel journey,11 environments,4 foreground sets and all five PLAVE members at six world encounters; original player/dialogue retained",
     "walkableEnvironments": [
       "雨夜城市",
       "十點二十分穿越城市",
@@ -224,6 +224,16 @@
           "novel-bamby-rhythm"
         ],
         "pose": "full-body playful dance-preparation stance with five-finger greeting palm; other hand in pocket",
+        "originalDialogueRetained": true,
+        "missingArtDoesNotBlock": true
+      },
+      {
+        "member": "HAMIN",
+        "source": "assets/explore-hamin-npc-v1.png",
+        "anchors": [
+          "novel-hamin-stargazing"
+        ],
+        "pose": "full-body stargazing guide with index pointing; folded digits and pocket occlusion visually inspected",
         "originalDialogueRetained": true,
         "missingArtDoesNotBlock": true
       }

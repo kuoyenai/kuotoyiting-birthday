@@ -88,7 +88,8 @@ const actorAnchors=[
  {asset:'novel-eunho-conversation',scene:'eunho',member:'eunho'},
  {asset:'novel-yejun-listening',scene:'garden',member:'yejun',offset:180},
  {asset:'novel-noah-pause',scene:'greenhouse',member:'noah',offset:160},
- {asset:'novel-bamby-rhythm',scene:'plaza',member:'bamby',offset:160}
+ {asset:'novel-bamby-rhythm',scene:'plaza',member:'bamby',offset:160},
+ {asset:'novel-hamin-stargazing',scene:'observatory',member:'hamin'}
 ];
 window.YitingActors?.configure(actorAnchors.map(actor=>({...actor,x:starAt(route.findIndex(story=>story.asset===actor.asset))+(actor.offset??140)})));
 function drawContinuousWorld(scale,h){
