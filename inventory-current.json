@@ -1,7 +1,7 @@
 {
   "updated": "2026-10-17",
-  "appVersion": "20261017-13",
-  "baseline": "1e05d38",
+  "appVersion": "20261017-14",
+  "baseline": "07f7c28",
   "cards": 100,
   "novel": {
     "chapters": [
@@ -54,12 +54,12 @@
     "blessingsCSV": true
   },
   "trackedAssets": {
-    "files": 323,
-    "bytes": 344424954,
+    "files": 324,
+    "bytes": 345100318,
     "types": {
       "": 1,
       ".webp": 144,
-      ".png": 25,
+      ".png": 26,
       ".jpg": 139,
       ".zip": 1,
       ".mp4": 5,
@@ -73,9 +73,9 @@
     "entry": "gift.html → explore.html",
     "chapters": 10,
     "storyEncounters": 95,
-    "generatedAssets": 12,
+    "generatedAssets": 13,
     "localProgress": true,
-    "status": "Continuous mobile world with ten walkable environments and all 95 novel encounters; original sprite retained; five member interactions, private birthday wish and earned red-star keepsake",
+    "status": "Continuous 95-panel novel journey with ten environments; richer PLAVE-inspired painted garden foreground; local position and dialogue resume; original character art retained",
     "walkableEnvironments": [
       "雨夜城市",
       "ASTERUM步道",
@@ -131,6 +131,28 @@
       "retryOriginal": true,
       "fallbackScene": true,
       "ignoreStaleLoads": true
+    },
+    "foregroundLayers": [
+      {
+        "scene": "garden",
+        "source": "assets/explore-garden-foreground-v1.png",
+        "alphaTransparency": true,
+        "motion": "subtle corner sway and camera parallax; static when reduced motion"
+      }
+    ],
+    "localResume": {
+      "legacySaveCompatible": true,
+      "fields": [
+        "index",
+        "unlocked",
+        "x",
+        "reading.asset",
+        "reading.line",
+        "updated"
+      ],
+      "movingSaveIntervalMs": 1500,
+      "pagehideSave": true,
+      "autoOpenDialog": false
     }
   }
 }

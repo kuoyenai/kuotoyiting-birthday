@@ -97,3 +97,7 @@ dialog[open] .story-copy{touch-action:pan-y}
 .story-art-frame[data-loading=false]:not([data-failed=true]) #storyArt{animation:story-art-arrival .18s ease-out}
 @keyframes story-art-arrival{from{opacity:.3}to{opacity:1}}
 @media(prefers-reduced-motion:reduce){.story-art-frame[data-loading=false]:not([data-failed=true]) #storyArt{animation:none}}
+
+#saveState[data-failed=true]{display:block;position:absolute;z-index:4;left:14px;right:14px;bottom:76px;margin:0;padding:8px 12px;border:1px solid #b1849380;border-radius:5px;background:#281c2be8;color:#e5c6ce;font:11px/1.6 system-ui,sans-serif;text-align:center;pointer-events:none}
+
+#storySaveStatus{font:11px/1.7 system-ui,sans-serif;letter-spacing:0;color:#d9aab7;margin:12px 0}#storySaveStatus[hidden]{display:none}

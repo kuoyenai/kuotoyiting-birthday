@@ -47,6 +47,13 @@
       "reference": "assets/novel-return-wide.webp",
       "tool": "built-in imagegen",
       "prompt": "Use case illustration-story. Production 2D side scrolling narrative game environment, WIDE16:9. Use reference only for ornate floating ASTERUM palaces, pink violet horizon, blue violet star sky and luminous return portal design and polished Korean anime painting style. OMIT BOTH PEOPLE and ALL PEOPLE. Strict side-on eye-level view of a farewell terrace. Uninterrupted FLAT LEVEL HORIZONTAL glossy navy marble walking lane across entire bottom25 percent, floor stays same height all the way left-right. Delicate gold glass balustrade BEHIND walking lane. Grand ornate ivory gold portal arch in background right third BEHIND the lane with gentle swirling lilac light inside, not blinding white. Beyond railing floating castle islands, fine sky bridges and a soft peach horizon beneath deep violet stars. Restrained tiny red star ornament embedded in railing near left-center, warm nostalgic farewell mood, detailed luminous anime painting matching supplied illustration. No stairs, no foreground obstacles, no vanishing path, no overhead camera, no text, no logos, no characters, no hands. Character must be able to walk uninterrupted in front of portal."
+    },
+    {
+      "path": "assets/explore-garden-foreground-v1.png",
+      "reference": "assets/novel-music-garden-wide.webp",
+      "tool": "built-in imagegen",
+      "transparent_background": true,
+      "prompt": "Use case illustration-story. Create a TRANSPARENT PNG game foreground overlay, WIDE16:9, with real alpha transparency, no solid backdrop, no checkerboard drawn. Reference image ONLY for polished Korean anime painting texture and palette of ivory white blue flowers, violet wisteria and tiny warm gold highlights. NO people. This is a very SPARSE premium framing overlay for a 2D side-scrolling magical music garden. Small delicate hanging violet wisteria and a few fine leaves ONLY in the upper-left and upper-right outer corners, each within outer 12% width and top 12% height. A low softly out-of-focus cluster of tiny white and pale-blue flowers with subtle lilac petals ONLY at the bottom-left and bottom-right outer corners, within outer 15% width and bottom 10% height. Keep entire center 70% width COMPLETELY EMPTY TRANSPARENT from top to bottom, and keep the central lower walking lane transparent. NO arch, NO frame border, NO buildings, NO sky, NO floor, NO full background, NO text, NO logos, NO sparkles scattered through center. Restrained hand-painted floral detail with gentle foreground depth blur matching reference. Asymmetric organic little clusters, not a thick decorative border. Entire canvas is mostly empty alpha."
     }
   ]
 }
