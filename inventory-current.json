@@ -1,7 +1,7 @@
 {
   "updated": "2026-10-17",
-  "appVersion": "20261017-11",
-  "baseline": "2f3c752",
+  "appVersion": "20261017-12",
+  "baseline": "e544e86",
   "cards": 100,
   "novel": {
     "chapters": [
@@ -122,6 +122,7 @@
       ],
       "rotationStopsMovement": true,
       "safeAreaInsets": true
-    }
+    },
+    "dialogBackBehavior": "Back closes open story or optional dialog; manual close removes temporary history; no story progress change"
   }
 }
