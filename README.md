@@ -2,7 +2,7 @@
 
 [開啟網站](https://kuotoyiting-birthday.vercel.app/) · [GitHub Pages](https://snooy791123.github.io/kuotoyiting-birthday/)
 
-更新日期：2026-10-17；目前 App 版本：`20261017-19`。目前指定穩定版：`yiting-stable-20261016-v9`，對應 App `20261016-9`、網站程式提交 `108c7c1`。保留先前標籤 `yiting-stable-20261016-v8`（`4d1232a`）與 `yiting-stable-20261016`（`e5bb82b`），不移動任何既有穩定標籤。
+更新日期：2026-10-17；目前 App 版本：`20261017-20`。目前指定穩定版：`yiting-stable-20261016-v9`，對應 App `20261016-9`、網站程式提交 `108c7c1`。保留先前標籤 `yiting-stable-20261016-v8`（`4d1232a`）與 `yiting-stable-20261016`（`e5bb82b`），不移動任何既有穩定標籤。
 
 ## 穩定版紀錄
 
@@ -19,13 +19,21 @@
 | 電影互動漫畫 | 20 格原畫、7 回導覽 |
 | 陪伴曲目 | 4 首，主題曲置首；選哪首就下載該首 MP4 |
 | 完整收錄 | 100 張小卡、祝福 CSV 與說明，ZIP 79,250,017 bytes，約 76 MB |
-| Git 追蹤素材 | 330 個檔案，共 353,433,709 bytes；含圖示、備用圖、字型及下載原檔，不等於故事插畫數 |
+| Git 追蹤素材 | 332 個檔案，共 355,820,756 bytes；含圖示、備用圖、字型及下載原檔，不等於故事插畫數 |
 
 [下載完整收錄](assets/downloads/YITING-100-photocards.zip) · [機器可讀現況盤點](inventory-current.json) · [深度除錯紀錄](DEBUG-REPORT-20261016.md) · [接續製作說明](CONTINUE-HERE.md)
 
 `inventory.json` 與 `materials.csv` 是最初 38 份來源素材的歷史盤點，最新網站內容以 `inventory-current.json` 為準。`sources/` 為唯讀參考資料。
 
 ## 最新檢查與修正
+
+### 20261017-20｜藝俊的音樂花園相遇
+
+新增藝俊坐姿抱吉他透明立繪，固定在第四章novel-yejun-listening附近世界位置。依使用者官方S__302653445_0.jpg下半部YEJUN（另存reference-yejun.jpg）與原小說花園插畫核對深藍髮、藍眼、格紋襯衫與吉他。完整保留頭部、下巴、吉他琴頭、鞋子及木椅；檢視握琴手部的五指、指節、琴頸遮擋和雙腿，沒有額外肢體。生成提示與參考記錄在game-art-prompts.json。原小說插畫與藍色花光互動保留。
+
+人物載入依場景切換，抵達ASTERUM時預載藝俊，進入花園後釋放銀虎；最多兩位成員素材，載入失敗不擋故事，下次實際進場會重試。藝俊坐姿採獨立高度與全圖比例，不拉長身體。現有銀虎兩處與藝俊一處相遇，共兩位成員、三個站位，後續繼續補其餘成員。
+
+驗證：tests/explore-actors.cjs於390／1280核對三處相遇、各自全圖裁片、地面與比例、原對白推進、離場釋放；另模擬銀虎缺圖、藝俊預載503，均能繼續故事並於實際相遇重試。tests/explore-garden-interaction.cjs通過花園三花任意順序、去重、圖片重試、暫停、儲存、靜音、減少動態與回頭探索；tests/explore-world-proportions.cjs通過11背景及人物原比例。已檢視手機與桌機兩人花園畫面。完整95格路線未更動，沿用App16整段驗證。
 
 ### 20261017-19｜在場景中遇見銀虎
 

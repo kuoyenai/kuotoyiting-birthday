@@ -75,3 +75,7 @@ App 20261017-6，最新精確版本仍以README與inventory-current.json為準�
 ## 20261017-19 接續
 
 explore-actors.js新增首位EUNHO全身站姿立繪，第三章novel-arrival-medium與第五章novel-eunho-conversation世界位置+140。只有相關場景載入，離開釋放，失敗下次進場重試。原YITING行走與95格小說不改。後續可依各成員官方參考逐步補齊相遇立繪，必須先核對臉、雙手遮擋與肢體，再整合。完整提示與官方參考已保存。
+
+## 20261017-20 接續
+
+音樂花園新增YEJUN完整吉他坐姿。explore-actors.js改成按成員來源／裁片／高度渲染，最多快取2位，ASTERUM預載藝俊，花園只保留藝俊，缺圖實際進場重試。已有EUNHO／YEJUN兩位、三處相遇。其餘成員尚待官方參考核對與生成；小說路線／原人物行走／四曲保留。

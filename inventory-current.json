@@ -1,7 +1,7 @@
 {
   "updated": "2026-10-17",
-  "appVersion": "20261017-19",
-  "baseline": "2ac38ce",
+  "appVersion": "20261017-20",
+  "baseline": "1231261",
   "cards": 100,
   "novel": {
     "chapters": [
@@ -54,13 +54,13 @@
     "blessingsCSV": true
   },
   "trackedAssets": {
-    "files": 330,
-    "bytes": 353433709,
+    "files": 332,
+    "bytes": 355820756,
     "types": {
       "": 1,
       ".webp": 144,
-      ".png": 31,
-      ".jpg": 140,
+      ".png": 32,
+      ".jpg": 141,
       ".zip": 1,
       ".mp4": 5,
       ".txt": 2,
@@ -73,9 +73,9 @@
     "entry": "gift.html → explore.html",
     "chapters": 10,
     "storyEncounters": 95,
-    "generatedAssets": 18,
+    "generatedAssets": 19,
     "localProgress": true,
-    "status": "Continuous95-panel novel journey,11 environments,4 foreground sets and first world-positioned EUNHO NPC; original player and dialogue art retained",
+    "status": "Continuous95-panel novel journey with11 environments,4 foreground sets and EUNHO/YEJUN world encounters; original player/dialogue retained",
     "walkableEnvironments": [
       "雨夜城市",
       "十點二十分穿越城市",
@@ -196,7 +196,18 @@
         "pose": "full-body standing, hands naturally occluded in jacket pockets",
         "originalDialogueRetained": true,
         "missingArtDoesNotBlock": true
+      },
+      {
+        "member": "YEJUN",
+        "source": "assets/explore-yejun-npc-v1.png",
+        "anchors": [
+          "novel-yejun-listening"
+        ],
+        "pose": "full-body seated guitar pose, complete shoes/stool/guitar, inspected hand and fretboard occlusion",
+        "originalDialogueRetained": true,
+        "missingArtDoesNotBlock": true
       }
-    ]
+    ],
+    "actorCacheLimit": 2
   }
 }
