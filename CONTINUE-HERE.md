@@ -99,3 +99,7 @@ explore-actors.js新增首位EUNHO全身站姿立繪，第三章novel-arrival-me
 ## 20261017-24 接續
 
 生日舞台改用使用者指定的完整五人合照 assets/explore-plave-concert-group-v1.png，原序YEJUN、NOAH、BAMBY、EUNHO、HAMIN，取代未發布的分開姿勢拼排。6單獨相遇＋1合照，共7個配置；常態快取2、生日1，實際離場釋放。來源PNG原封不動保存，等比完整呈現，缺圖不擋閱讀，重返重試。測試詳見README。保留每小時排程，穩定標籤不移動。
+
+## 20261017-25 接續
+
+角色單獨相遇與使用者指定的五人合照新增650ms柔和入場，只改透明度，減少動態直接顯示。以max(enteredAt,readyAt)避免預載或慢圖突然跳出；繪圖save/restore避免影響玩家。入場測試與手機桌機相遇／合照缺圖測試見README。沒有新增素材，95格流程保持，後續繼續深化劇情演出。

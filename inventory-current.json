@@ -1,7 +1,7 @@
 {
   "updated": "2026-10-17",
-  "appVersion": "20261017-24",
-  "baseline": "b5db602",
+  "appVersion": "20261017-25",
+  "baseline": "f9801f9",
   "cards": 100,
   "novel": {
     "chapters": [
@@ -259,6 +259,13 @@
       "newGeneratedImages": 0,
       "raisedPlatform": true,
       "originalConcertArtRetained": true
+    },
+    "actorEntrance": {
+      "durationMs": 650,
+      "changes": "opacity only",
+      "reducedMotion": "immediate full opacity",
+      "start": "later of scene entry and decoded image readiness",
+      "replayOnPhysicalReentry": true
     }
   }
 }

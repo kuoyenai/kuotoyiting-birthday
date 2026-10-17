@@ -10,16 +10,16 @@ const configs={
 };
 const members={asterum:'eunho',eunho:'eunho',garden:'yejun',greenhouse:'noah',plaza:'bamby',observatory:'hamin',birthday:'concert'},records=new Map();
 const preloads={'portal-city':['eunho'],asterum:['eunho','yejun'],garden:['yejun','noah'],greenhouse:['noah','bamby'],plaza:['bamby','hamin'],observatory:['hamin','eunho']};
-let anchors=[],lastScene='',visible=0;
+let anchors=[],lastScene='',visible=0,enteredAt=0;
 function discard(member){records.get(member)?.image.removeAttribute('src');records.delete(member);}
 function load(member,retry){
  const old=records.get(member);if(old&&(old.art||old.pending||!retry))return;if(old)discard(member);
  const image=new Image(),next={image,art:null,pending:true};records.set(member,next);
  image.decoding='async';image.fetchPriority='low';image.src=configs[member].source;
- image.decode().then(()=>{if(records.get(member)===next)next.art=image;}).catch(()=>{}).finally(()=>next.pending=false);
+ image.decode().then(()=>{if(records.get(member)===next){next.art=image;next.readyAt=performance.now();}}).catch(()=>{}).finally(()=>next.pending=false);
 }
 function prepare(){
- const scene=canvas.dataset.scene,entered=scene!==lastScene;lastScene=scene;
+ const scene=canvas.dataset.scene,entered=scene!==lastScene;lastScene=scene;if(entered)enteredAt=performance.now();
  const current=members[scene],wanted=preloads[scene]??(current?[current]:[]);
  for(const member of records.keys())if(!wanted.includes(member))discard(member);
  for(const member of wanted)load(member,entered&&member===current);
@@ -27,7 +27,7 @@ function prepare(){
 new MutationObserver(prepare).observe(canvas,{attributes:true,attributeFilter:['data-scene']});prepare();
 window.YitingActors={
  configure(items){anchors=items.filter(item=>Number.isFinite(item.x)&&item.x>=0).map(item=>({...item}));},
- draw(ctx,{id,w,h,camera,scale}){
+ draw(ctx,{id,w,h,camera,scale,t=performance.now(),reduced=false}){
   visible=0;
   const stage=anchors.filter(actor=>actor.scene===id&&actor.group==='concert');
   if(stage.length){
@@ -36,11 +36,12 @@ window.YitingActors={
   }
   for(const actor of anchors){
    if(actor.scene!==id)continue;
-   const config=configs[actor.member],art=records.get(actor.member)?.art;if(!config||!art)continue;
+   const config=configs[actor.member],record=records.get(actor.member),art=record?.art;if(!config||!art)continue;
    // Crop only transparent padding; preserve the entire physical silhouette.
    const crop=config.crop,height=h*config.height*(actor.heightScale??1),width=height*crop.w/crop.h,ground=h*(actor.ground??.85),cx=(actor.x-camera)*scale;
    if(cx+width<0||cx-width>w)continue;
-   ctx.save();const shadow=ctx.createRadialGradient(cx,ground,0,cx,ground,width*.52);
+   const elapsed=Math.max(0,t-Math.max(enteredAt,record.readyAt??0)),progress=Math.min(1,elapsed/650);
+   ctx.save();ctx.globalAlpha*=reduced?1:progress*progress*(3-2*progress);const shadow=ctx.createRadialGradient(cx,ground,0,cx,ground,width*.52);
    shadow.addColorStop(0,'#11152e66');shadow.addColorStop(1,'#11152e00');ctx.fillStyle=shadow;
    ctx.save();ctx.translate(cx,ground);ctx.scale(1,.18);ctx.translate(-cx,-ground);ctx.beginPath();ctx.arc(cx,ground,width*.52,0,Math.PI*2);ctx.fill();ctx.restore();
    ctx.imageSmoothingEnabled=true;ctx.drawImage(art,crop.x,crop.y,crop.w,crop.h,cx-width*(config.origin??.5),ground-height,width,height);ctx.restore();visible++;
