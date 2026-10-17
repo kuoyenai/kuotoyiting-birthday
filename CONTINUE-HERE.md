@@ -83,3 +83,7 @@ explore-actors.js新增首位EUNHO全身站姿立繪，第三章novel-arrival-me
 ## 20261017-21 接續
 
 月光溫室新增NOAH全身迎接立繪。花園預載諾亞，溫室只保留諾亞；origin:.39以身體中心定位，完整手掌與頭腳。現有EUNHO／YEJUN／NOAH三位、四處相遇；斑比、河玟待補。官方參考三張皆已存assets/reference-eunho-hamin.jpg、reference-yejun.jpg、reference-noah-bamby.jpg；提示見game-art-prompts.json。
+
+## 每小時排程與錯誤接續
+
+2026-10-17啟用本對話排程yiting-2d，每小時接續。Bad Request不代表使用者暫停：先保存、核對請求、同輪最多重試3次，仍失敗下次排程再接續，已有執行句柄先查詢不重複啟動。每次發布後更新README。使用者說暫停時，停止目標並暫停該排程；原yiting排程已不存在，勿以舊id更新或再建立重複排程。
