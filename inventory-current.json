@@ -1,7 +1,7 @@
 {
   "updated": "2026-10-17",
-  "appVersion": "20261017-21",
-  "baseline": "7abd0d5",
+  "appVersion": "20261017-22",
+  "baseline": "1841973",
   "cards": 100,
   "novel": {
     "chapters": [
@@ -54,12 +54,12 @@
     "blessingsCSV": true
   },
   "trackedAssets": {
-    "files": 334,
-    "bytes": 357914800,
+    "files": 335,
+    "bytes": 359638845,
     "types": {
       "": 1,
       ".webp": 144,
-      ".png": 33,
+      ".png": 34,
       ".jpg": 142,
       ".zip": 1,
       ".mp4": 5,
@@ -73,9 +73,9 @@
     "entry": "gift.html → explore.html",
     "chapters": 10,
     "storyEncounters": 95,
-    "generatedAssets": 20,
+    "generatedAssets": 21,
     "localProgress": true,
-    "status": "Continuous95-panel novel journey,11 environments,4 foreground sets and EUNHO/YEJUN/NOAH encounters; original player and dialogue retained",
+    "status": "Continuous95-panel novel journey,11 environments,4 foreground sets and EUNHO/YEJUN/NOAH/BAMBY encounters; original player/dialogue retained",
     "walkableEnvironments": [
       "雨夜城市",
       "十點二十分穿越城市",
@@ -214,6 +214,16 @@
           "novel-noah-pause"
         ],
         "pose": "full-body standing with welcome palm; five fingers and pocket occlusion visually inspected",
+        "originalDialogueRetained": true,
+        "missingArtDoesNotBlock": true
+      },
+      {
+        "member": "BAMBY",
+        "source": "assets/explore-bamby-npc-v1.png",
+        "anchors": [
+          "novel-bamby-rhythm"
+        ],
+        "pose": "full-body playful dance-preparation stance with five-finger greeting palm; other hand in pocket",
         "originalDialogueRetained": true,
         "missingArtDoesNotBlock": true
       }

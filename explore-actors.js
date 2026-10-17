@@ -3,9 +3,11 @@ const canvas=document.getElementById('world');if(!canvas)return;
 const configs={
  eunho:{source:'assets/explore-eunho-npc-v1.png',crop:{x:256,y:14,w:528,h:1507},height:.43},
  yejun:{source:'assets/explore-yejun-npc-v1.png',crop:{x:10,y:50,w:1014,h:1436},height:.36},
- noah:{source:'assets/explore-noah-npc-v1.png',crop:{x:262,y:15,w:660,h:1510},height:.42,origin:.39}
+ noah:{source:'assets/explore-noah-npc-v1.png',crop:{x:262,y:15,w:660,h:1510},height:.42,origin:.39},
+ bamby:{source:'assets/explore-bamby-npc-v1.png',crop:{x:195,y:8,w:588,h:1506},height:.41,origin:.59}
 };
-const members={asterum:'eunho',eunho:'eunho',garden:'yejun',greenhouse:'noah'},records=new Map();
+const members={asterum:'eunho',eunho:'eunho',garden:'yejun',greenhouse:'noah',plaza:'bamby'},records=new Map();
+const preloads={'portal-city':['eunho'],asterum:['eunho','yejun'],garden:['yejun','noah'],greenhouse:['noah','bamby'],observatory:['eunho']};
 let anchors=[],lastScene='',visible=0;
 function discard(member){records.get(member)?.image.removeAttribute('src');records.delete(member);}
 function load(member,retry){
@@ -16,7 +18,7 @@ function load(member,retry){
 }
 function prepare(){
  const scene=canvas.dataset.scene,entered=scene!==lastScene;lastScene=scene;
- const current=members[scene],wanted=scene==='asterum'?['eunho','yejun']:scene==='garden'?['yejun','noah']:scene==='portal-city'||scene==='observatory'?['eunho']:current?[current]:[];
+ const current=members[scene],wanted=preloads[scene]??(current?[current]:[]);
  for(const member of records.keys())if(!wanted.includes(member))discard(member);
  for(const member of wanted)load(member,entered&&member===current);
 }
