@@ -1,7 +1,7 @@
 {
   "updated": "2026-10-17",
-  "appVersion": "20261017-18",
-  "baseline": "914f875",
+  "appVersion": "20261017-19",
+  "baseline": "2ac38ce",
   "cards": 100,
   "novel": {
     "chapters": [
@@ -54,13 +54,13 @@
     "blessingsCSV": true
   },
   "trackedAssets": {
-    "files": 328,
-    "bytes": 351377049,
+    "files": 330,
+    "bytes": 353433709,
     "types": {
       "": 1,
       ".webp": 144,
-      ".png": 30,
-      ".jpg": 139,
+      ".png": 31,
+      ".jpg": 140,
       ".zip": 1,
       ".mp4": 5,
       ".txt": 2,
@@ -73,9 +73,9 @@
     "entry": "gift.html → explore.html",
     "chapters": 10,
     "storyEncounters": 95,
-    "generatedAssets": 17,
+    "generatedAssets": 18,
     "localProgress": true,
-    "status": "Continuous 95-panel novel journey; eleven environments, four painted foreground layers, local position and reading resume; original character art retained",
+    "status": "Continuous95-panel novel journey,11 environments,4 foreground sets and first world-positioned EUNHO NPC; original player and dialogue art retained",
     "walkableEnvironments": [
       "雨夜城市",
       "十點二十分穿越城市",
@@ -184,6 +184,19 @@
       "rendering": "world-positioned translucent ellipse and sparse particles behind character",
       "reducedMotion": "static",
       "changesProgress": false
-    }
+    },
+    "worldActors": [
+      {
+        "member": "EUNHO",
+        "source": "assets/explore-eunho-npc-v1.png",
+        "anchors": [
+          "novel-arrival-medium",
+          "novel-eunho-conversation"
+        ],
+        "pose": "full-body standing, hands naturally occluded in jacket pockets",
+        "originalDialogueRetained": true,
+        "missingArtDoesNotBlock": true
+      }
+    ]
   }
 }

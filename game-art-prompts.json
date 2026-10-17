@@ -86,6 +86,18 @@
       "generatedOn": "2026-10-17",
       "transparent_background": true,
       "prompt": "Use case: illustration-story. Asset: TRUE TRANSPARENT RGBA PNG foreground overlay for the birthday concert chapter of a polished Korean anime 2D story game. Reference is STYLE AND MATERIAL ONLY: delicate champagne gold star ornaments, jewel violet-blue night, intricate luminous hand-painted anime illustration. Isolated FOUR VERY SPARSE CORNER ACCENTS ONLY, no connecting frame: top left a short curved gold ribbon and two tiny hanging crystal five-point stars; top right matching airy ribbon with five tiny crystal glints in blue, violet, pink, crimson and green; bottom corners only a few warm gold soft bokeh flecks and one little curved gold streamer each. Entire central 60% width completely transparent from top to bottom. All art stays within outermost20% width, top25% or bottom18%, with transparent gutters around clusters. Elegant premium limited birthday album aesthetic, restrained not gaudy; faint gold sparkles and fine translucent crystal texture. No scenery, no stage, no buildings, no sky, no ground, no people, no body parts, no lettering or logos, no painted background, no checkerboard. Do not reproduce reference environment. Wide16:9. This will overlay a richly painted stage, so keep extremely sparse and clear."
+    },
+    {
+      "path": "assets/explore-eunho-npc-v1.png",
+      "references": [
+        "assets/reference-eunho-hamin.jpg (upper EUNHO only)",
+        "assets/novel-eunho-reassurance.webp",
+        "assets/reference-b.webp (drawing finish only)"
+      ],
+      "tool": "built-in imagegen",
+      "generatedOn": "2026-10-17",
+      "transparent_background": true,
+      "prompt": "Use case: illustration-story / identity-preserve character asset. Create ONE full-body EUNHO from PLAVE as a clean TRUE TRANSPARENT PNG 2D standing NPC cutout for a side-scrolling birthday story game. Reference1 official sheet: use ONLY EUNHO in upper half, NEVER Hamin in lower half; identity reference for silver-white center/side-parted wavy hair with dark short undercut at back, sharp warm RED eyes, distinct angular handsome face, slim tall athletic adult proportions. Reference2 birthday novel closeup: match polished hand-painted Korean anime drawing and the blue denim jacket over simple WHITE T-shirt. Reference3 YITING model sheet: only drawing finish and readable full-body sprite scale; do NOT copy woman or her clothes. Character must be recognizably same EUNHO, not a generic silver-haired boy. Natural quiet relaxed standing, gentle reassuring small smile, torso and head in three-quarter view looking toward image LEFT where YITING will approach. Entire head with hair margin, full jaw/chin, full shoes shown. Blue denim jacket, white crewneck shirt, dark charcoal straight jeans, simple white gray sneakers. BOTH HANDS naturally inside jacket side pockets, arms visibly anatomically connected, no gesturing and no exposed partial or extra fingers. Exactly one head, two arms, two legs, two feet; natural knees and shoulders; no extra limbs. Hair should follow official parted wave silhouette not spiky mass. No props, no background, no glow cloud, no ground or baked shadow, no text labels no watermark no border no second figure. Muted cool moonlight and very subtle warm rim suited for violet star bridge, clean antialiased edges and true alpha. Single full-length character centered vertically, portrait composition with clear transparent margins, not sprite sheet, not collage, not chibi, not 3D."
     }
   ],
   "updated": "2026-10-17"
