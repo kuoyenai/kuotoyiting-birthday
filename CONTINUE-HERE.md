@@ -1,6 +1,6 @@
 # YiTing 生日網站｜換電腦接續製作
 
-最新版以本儲存庫 `main` 分支為準。網站：https://snooy791123.github.io/kuotoyiting-birthday/
+最新版以本儲存庫 `main` 分支為準。網站：https://kuotoyiting-birthday.vercel.app/ （另保留GitHub Pages）
 
 ## 到另一台電腦
 
@@ -51,3 +51,7 @@
 ## 2026-10-17 手機端銜接
 
 已同步手機 main 59850d8（47筆新增提交），以連續地圖、回頭重溫、原人物圖、四曲輪播與禮物第05頁啟動為基礎。不要把歷史60姿勢骨架自動切回啟用。最新版本與回歸結果見README；未發布觀景台改動備份於本機 material-review/desktop-pending-before-mobile-20261017。
+
+## 2026-10-17 遊戲接續重點
+
+App 20261017-6，最新精確版本仍以README與inventory-current.json為準。2D遊戲入口為禮物第05頁→explore.html；原手機人物、連續世界與回頭重溫需保留，未啟用歷史60姿勢骨架。95格小說都在同一條路線，現有10種行走環境與觀景台、銀虎陪伴、舞台燈光、心裡許願、贈星紀念互動。許願不收集內容；掌心紀念依既有已讀進度解鎖，不能提早出現。後續深化其他成員互動、地圖視覺銜接與手機操作。每次先同步main，再測試並更新README，保留既有穩定標籤，不修改sources。
