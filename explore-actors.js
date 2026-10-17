@@ -2,9 +2,10 @@
 const canvas=document.getElementById('world');if(!canvas)return;
 const configs={
  eunho:{source:'assets/explore-eunho-npc-v1.png',crop:{x:256,y:14,w:528,h:1507},height:.43},
- yejun:{source:'assets/explore-yejun-npc-v1.png',crop:{x:10,y:50,w:1014,h:1436},height:.36}
+ yejun:{source:'assets/explore-yejun-npc-v1.png',crop:{x:10,y:50,w:1014,h:1436},height:.36},
+ noah:{source:'assets/explore-noah-npc-v1.png',crop:{x:262,y:15,w:660,h:1510},height:.42,origin:.39}
 };
-const members={asterum:'eunho',eunho:'eunho',garden:'yejun'},records=new Map();
+const members={asterum:'eunho',eunho:'eunho',garden:'yejun',greenhouse:'noah'},records=new Map();
 let anchors=[],lastScene='',visible=0;
 function discard(member){records.get(member)?.image.removeAttribute('src');records.delete(member);}
 function load(member,retry){
@@ -15,7 +16,7 @@ function load(member,retry){
 }
 function prepare(){
  const scene=canvas.dataset.scene,entered=scene!==lastScene;lastScene=scene;
- const current=members[scene],wanted=scene==='asterum'?['eunho','yejun']:scene==='portal-city'||scene==='observatory'?['eunho']:current?[current]:[];
+ const current=members[scene],wanted=scene==='asterum'?['eunho','yejun']:scene==='garden'?['yejun','noah']:scene==='portal-city'||scene==='observatory'?['eunho']:current?[current]:[];
  for(const member of records.keys())if(!wanted.includes(member))discard(member);
  for(const member of wanted)load(member,entered&&member===current);
 }
@@ -32,8 +33,8 @@ window.YitingActors={
    ctx.save();const shadow=ctx.createRadialGradient(cx,ground,0,cx,ground,width*.52);
    shadow.addColorStop(0,'#11152e66');shadow.addColorStop(1,'#11152e00');ctx.fillStyle=shadow;
    ctx.save();ctx.translate(cx,ground);ctx.scale(1,.18);ctx.translate(-cx,-ground);ctx.beginPath();ctx.arc(cx,ground,width*.52,0,Math.PI*2);ctx.fill();ctx.restore();
-   ctx.imageSmoothingEnabled=true;ctx.drawImage(art,crop.x,crop.y,crop.w,crop.h,cx-width/2,ground-height,width,height);ctx.restore();visible++;
+   ctx.imageSmoothingEnabled=true;ctx.drawImage(art,crop.x,crop.y,crop.w,crop.h,cx-width*(config.origin??.5),ground-height,width,height);ctx.restore();visible++;
   }
- },get ready(){return !!records.get(members[canvas.dataset.scene])?.art;},get visible(){return visible;},get count(){return anchors.length;},get cachedActors(){return records.size;}
+ },get ready(){return !!records.get(members[canvas.dataset.scene])?.art;},get visible(){return visible;},get count(){return anchors.length;},get cachedActors(){return records.size;},get cachedMembers(){return [...records.keys()];}
 };
 })();

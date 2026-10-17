@@ -1,7 +1,7 @@
 {
   "updated": "2026-10-17",
-  "appVersion": "20261017-20",
-  "baseline": "1231261",
+  "appVersion": "20261017-21",
+  "baseline": "7abd0d5",
   "cards": 100,
   "novel": {
     "chapters": [
@@ -54,13 +54,13 @@
     "blessingsCSV": true
   },
   "trackedAssets": {
-    "files": 332,
-    "bytes": 355820756,
+    "files": 334,
+    "bytes": 357914800,
     "types": {
       "": 1,
       ".webp": 144,
-      ".png": 32,
-      ".jpg": 141,
+      ".png": 33,
+      ".jpg": 142,
       ".zip": 1,
       ".mp4": 5,
       ".txt": 2,
@@ -73,9 +73,9 @@
     "entry": "gift.html → explore.html",
     "chapters": 10,
     "storyEncounters": 95,
-    "generatedAssets": 19,
+    "generatedAssets": 20,
     "localProgress": true,
-    "status": "Continuous95-panel novel journey with11 environments,4 foreground sets and EUNHO/YEJUN world encounters; original player/dialogue retained",
+    "status": "Continuous95-panel novel journey,11 environments,4 foreground sets and EUNHO/YEJUN/NOAH encounters; original player and dialogue retained",
     "walkableEnvironments": [
       "雨夜城市",
       "十點二十分穿越城市",
@@ -204,6 +204,16 @@
           "novel-yejun-listening"
         ],
         "pose": "full-body seated guitar pose, complete shoes/stool/guitar, inspected hand and fretboard occlusion",
+        "originalDialogueRetained": true,
+        "missingArtDoesNotBlock": true
+      },
+      {
+        "member": "NOAH",
+        "source": "assets/explore-noah-npc-v1.png",
+        "anchors": [
+          "novel-noah-pause"
+        ],
+        "pose": "full-body standing with welcome palm; five fingers and pocket occlusion visually inspected",
         "originalDialogueRetained": true,
         "missingArtDoesNotBlock": true
       }

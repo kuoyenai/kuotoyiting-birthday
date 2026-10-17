@@ -79,3 +79,7 @@ explore-actors.js新增首位EUNHO全身站姿立繪，第三章novel-arrival-me
 ## 20261017-20 接續
 
 音樂花園新增YEJUN完整吉他坐姿。explore-actors.js改成按成員來源／裁片／高度渲染，最多快取2位，ASTERUM預載藝俊，花園只保留藝俊，缺圖實際進場重試。已有EUNHO／YEJUN兩位、三處相遇。其餘成員尚待官方參考核對與生成；小說路線／原人物行走／四曲保留。
+
+## 20261017-21 接續
+
+月光溫室新增NOAH全身迎接立繪。花園預載諾亞，溫室只保留諾亞；origin:.39以身體中心定位，完整手掌與頭腳。現有EUNHO／YEJUN／NOAH三位、四處相遇；斑比、河玟待補。官方參考三張皆已存assets/reference-eunho-hamin.jpg、reference-yejun.jpg、reference-noah-bamby.jpg；提示見game-art-prompts.json。

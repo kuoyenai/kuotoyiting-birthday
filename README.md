@@ -2,7 +2,7 @@
 
 [開啟網站](https://kuotoyiting-birthday.vercel.app/) · [GitHub Pages](https://snooy791123.github.io/kuotoyiting-birthday/)
 
-更新日期：2026-10-17；目前 App 版本：`20261017-20`。目前指定穩定版：`yiting-stable-20261016-v9`，對應 App `20261016-9`、網站程式提交 `108c7c1`。保留先前標籤 `yiting-stable-20261016-v8`（`4d1232a`）與 `yiting-stable-20261016`（`e5bb82b`），不移動任何既有穩定標籤。
+更新日期：2026-10-17；目前 App 版本：`20261017-21`。目前指定穩定版：`yiting-stable-20261016-v9`，對應 App `20261016-9`、網站程式提交 `108c7c1`。保留先前標籤 `yiting-stable-20261016-v8`（`4d1232a`）與 `yiting-stable-20261016`（`e5bb82b`），不移動任何既有穩定標籤。
 
 ## 穩定版紀錄
 
@@ -19,13 +19,22 @@
 | 電影互動漫畫 | 20 格原畫、7 回導覽 |
 | 陪伴曲目 | 4 首，主題曲置首；選哪首就下載該首 MP4 |
 | 完整收錄 | 100 張小卡、祝福 CSV 與說明，ZIP 79,250,017 bytes，約 76 MB |
-| Git 追蹤素材 | 332 個檔案，共 355,820,756 bytes；含圖示、備用圖、字型及下載原檔，不等於故事插畫數 |
+| Git 追蹤素材 | 334 個檔案，共 357,914,800 bytes；含圖示、備用圖、字型及下載原檔，不等於故事插畫數 |
 
 [下載完整收錄](assets/downloads/YITING-100-photocards.zip) · [機器可讀現況盤點](inventory-current.json) · [深度除錯紀錄](DEBUG-REPORT-20261016.md) · [接續製作說明](CONTINUE-HERE.md)
 
 `inventory.json` 與 `materials.csv` 是最初 38 份來源素材的歷史盤點，最新網站內容以 `inventory-current.json` 為準。`sources/` 為唯讀參考資料。
 
 ## 最新檢查與修正
+
+### 20261017-21｜諾亞的月光溫室相遇
+
+新增諾亞全身透明立繪，在第四章novel-noah-pause的世界位置等待YITING。依官方S__302653444_0.jpg上半部NOAH（另存reference-noah-bamby.jpg）與原小說溫室插畫核對金色層次髮、紫眼、灰藍格紋外套、白上衣與藍色牛仔褲。完整保留頭部、下巴、迎接手掌與鞋子，檢視張開手的五指及另一手口袋遮擋、雙臂雙腿。透明邊界只裁空白，站位以身體中心校準，沒有拉寬身體；完整內建imagegen提示見game-art-prompts.json。
+
+花園先預載諾亞，實際走入溫室後釋放藝俊，只保留目前成員。最多兩位立繪素材；失敗不阻斷原對白，實際進場重試。原月光滑桿、溫柔小記、原小說插畫、YITING行走與四曲保持。現有三位成員、四處相遇；斑比與河玟後續補齊。
+
+
+驗證：tests/explore-actors.cjs在390／1280核對四處相遇的實際人物圖來源、完整裁片、地面與比例、原對白、離場釋放；模擬EUNHO缺圖及YEJUN／NOAH預載503，均能於實際進場重試並釋放舊成員。tests/explore-moon.cjs通過觸控／鍵盤月光滑桿、暫停、重試、關閉、儲存、靜音、減少動態與回頭探索；world-proportions通過11背景與人物原比例，invariants通過706路徑，audit通過App21一致。已檢視手機與桌機溫室相遇；小說資料與95格路線未改，整段沿用App16驗證。
 
 ### 20261017-20｜藝俊的音樂花園相遇
 

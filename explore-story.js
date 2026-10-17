@@ -83,7 +83,7 @@ $('restart').onclick=()=>{$('restartDialog').showModal();};$('cancelRestart').on
 const worldRegions=[];
 route.forEach((story,n)=>{const source=window.yitingExploreScene(story).source,last=worldRegions.at(-1);if(last?.source===source)last.end=(n+1)*stageLength;else worldRegions.push({source,start:n*stageLength,end:(n+1)*stageLength});});
 window.YitingPassages?.configure([3,9].map(chapter=>({x:route.findIndex(story=>story.chapter===chapter)*stageLength,returning:chapter===9})));
-window.YitingActors?.configure([{asset:'novel-arrival-medium',scene:'asterum',member:'eunho'},{asset:'novel-eunho-conversation',scene:'eunho',member:'eunho'},{asset:'novel-yejun-listening',scene:'garden',member:'yejun'}].map(actor=>({...actor,x:starAt(route.findIndex(story=>story.asset===actor.asset))+(actor.member==='yejun'?180:140)})));
+window.YitingActors?.configure([{asset:'novel-arrival-medium',scene:'asterum',member:'eunho'},{asset:'novel-eunho-conversation',scene:'eunho',member:'eunho'},{asset:'novel-yejun-listening',scene:'garden',member:'yejun'},{asset:'novel-noah-pause',scene:'greenhouse',member:'noah'}].map(actor=>({...actor,x:starAt(route.findIndex(story=>story.asset===actor.asset))+(actor.member==='yejun'?180:actor.member==='noah'?160:140)})));
 function drawContinuousWorld(scale,h){
  for(const region of worldRegions){
   if(region.end<camera||region.start>camera+vw)continue;
