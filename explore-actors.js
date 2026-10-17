@@ -11,7 +11,11 @@ const configs={
 const members={asterum:'eunho',eunho:'eunho',garden:'yejun',greenhouse:'noah',plaza:'bamby',observatory:'hamin',birthday:'concert'},records=new Map();
 const preloads={'portal-city':['eunho'],asterum:['eunho','yejun'],garden:['yejun','noah'],greenhouse:['noah','bamby'],plaza:['bamby','hamin'],observatory:['hamin','eunho']};
 let anchors=[],lastScene='',visible=0,enteredAt=0;const followPositions=new Map();
-const following=index=>anchors.find(actor=>actor.member!=='concert'&&Number.isInteger(actor.followFrom)&&index>=actor.followFrom&&index<actor.followUntil);
+const following=(index,scene=canvas.dataset.scene)=>anchors.find(actor=>actor.member==='eunho'&&actor.scene===scene&&Number.isInteger(actor.followFrom)&&index>=actor.followFrom&&index<actor.followUntil);
+const walkFrames=[['assets/explore-eunho-walk-contact-a-v1.png',1488],['assets/explore-eunho-walk-pass-a-v1.png',1515],['assets/explore-eunho-walk-contact-b-v1.png',1475],['assets/explore-eunho-walk-pass-b-v1.png',1496]];
+let walk=null,follower=null;const motion=typeof matchMedia==='function'?matchMedia('(prefers-reduced-motion: reduce)'):null;
+function clearWalk(){if(walk)for(const image of walk.images)image.removeAttribute('src');walk=null;followPositions.clear();follower=null;}
+function loadWalk(retry){if(walk&&(walk.ready||walk.pending||!retry))return;clearWalk();const record={images:[],ready:false,pending:true};walk=record;const jobs=walkFrames.map(([name])=>{const image=new Image();image.decoding='async';image.fetchPriority='low';image.src=name;record.images.push(image);return image.decode();});Promise.all(jobs).then(()=>{if(walk===record)record.ready=true;}).catch(()=>{}).finally(()=>{record.pending=false;});}
 function discard(member){records.get(member)?.image.removeAttribute('src');records.delete(member);}
 function load(member,retry){
  const old=records.get(member);if(old&&(old.art||old.pending||!retry))return;if(old)discard(member);
@@ -22,15 +26,16 @@ function load(member,retry){
 function prepare(){
  const scene=canvas.dataset.scene,entered=scene!==lastScene;lastScene=scene;if(entered)enteredAt=performance.now();
  const current=members[scene],wanted=[...(preloads[scene]??(current?[current]:[]))];
- const companion=following(Number(canvas.dataset.index));if(companion&&!wanted.includes(companion.member))wanted.push(companion.member);
+ const companion=motion?.matches?null:following(Number(canvas.dataset.index));if(companion&&!wanted.includes(companion.member))wanted.push(companion.member);
  for(const member of records.keys())if(!wanted.includes(member))discard(member);
  for(const member of wanted)load(member,entered&&member===current);
+ if(companion)loadWalk(entered);else clearWalk();
 }
-new MutationObserver(prepare).observe(canvas,{attributes:true,attributeFilter:['data-scene','data-index']});prepare();
+new MutationObserver(prepare).observe(canvas,{attributes:true,attributeFilter:['data-scene','data-index']});motion?.addEventListener('change',prepare);prepare();
 window.YitingActors={
  configure(items){anchors=items.filter(item=>Number.isFinite(item.x)&&item.x>=0).map(item=>({...item}));followPositions.clear();prepare();},
- draw(ctx,{id,w,h,camera,scale,t=performance.now(),reduced=false,playerX=0,playerFacing=1,moving=false,dt=0,index=-1}){
-  visible=0;const companion=following(index);
+ draw(ctx,{id,w,h,camera,scale,t=performance.now(),reduced=false,playerX=0,playerFacing=1,dt=0,index=-1}){
+  visible=0;follower=null;const companion=!(motion?.matches??reduced)&&walk?.ready?following(index,id):null;
   const stage=anchors.filter(actor=>actor.scene===id&&actor.group==='concert');
   if(stage.length){
    const left=(Math.min(...stage.map(actor=>actor.x))-160-camera)*scale,right=(Math.max(...stage.map(actor=>actor.x))+160-camera)*scale;
@@ -48,24 +53,25 @@ window.YitingActors={
    ctx.save();ctx.translate(cx,ground);ctx.scale(1,.18);ctx.translate(-cx,-ground);ctx.beginPath();ctx.arc(cx,ground,width*.52,0,Math.PI*2);ctx.fill();ctx.restore();
    ctx.imageSmoothingEnabled=true;ctx.drawImage(art,crop.x,crop.y,crop.w,crop.h,cx-width*(config.origin??.5),ground-height,width,height);ctx.restore();visible++;
   }
-  // Only the character who has already met YiTing follows her to the next story location.
-  // Use the original NPC illustration; this is a gentle motion treatment, not a new sprite animation.
+  // Four separately reviewed key poses advance with travelled distance.
+  // If any pose fails to decode, the original encounter remains stationary.
   if(companion&&Number.isFinite(playerX)){
-   const config=configs[companion.member],art=records.get(companion.member)?.art;
-   if(config&&art){
-    const desired=playerX-(playerFacing||1)*90,previous=followPositions.get(companion.member);
-    const px=previous===undefined||Math.abs(previous-desired)>450?desired:previous+(desired-previous)*(1-Math.exp(-Math.max(0,dt)*5));
-    followPositions.set(companion.member,px);
-    const crop=config.crop,height=h*config.height,width=height*crop.w/crop.h,ground=h*.85,cx=(px-camera)*scale;
-    if(cx+width>=0&&cx-width<=w){
-     const bob=!reduced&&moving?Math.sin(t*.013)*Math.min(3,h*.005):0;
-     ctx.save();ctx.globalAlpha*=.94;ctx.imageSmoothingEnabled=true;
-     ctx.fillStyle='#11152e44';ctx.beginPath();ctx.ellipse(cx,ground,width*.24,height*.018,0,0,Math.PI*2);ctx.fill();
-     ctx.drawImage(art,crop.x,crop.y,crop.w,crop.h,cx-width*(config.origin??.5),ground-height+bob,width,height);
-     ctx.restore();visible++;
+   const config=configs[companion.member],standing=records.get(companion.member)?.art;
+   if(config&&standing){
+    const desired=playerX-(playerFacing||1)*110,previous=followPositions.get(companion.member);
+    const oldX=previous?.x??desired,px=Math.abs(oldX-desired)>450?desired:oldX+(desired-oldX)*(1-Math.exp(-Math.max(0,dt)*5));
+    const distance=px-oldX,stepping=Math.abs(distance)>.04,phase=((previous?.phase??0)+Math.abs(distance)/110)%1,direction=stepping?Math.sign(distance):(previous?.direction??playerFacing??1);
+    followPositions.set(companion.member,{x:px,phase,direction});
+    const ground=h*.85,cx=(px-camera)*scale,height=h*config.height,frame=stepping?Math.floor(phase*4)%4:-1;
+    if(cx+height>=0&&cx-height<=w){
+     ctx.save();ctx.fillStyle='#11152e44';ctx.beginPath();ctx.ellipse(cx,ground,height*.13,height*.018,0,0,Math.PI*2);ctx.fill();
+     ctx.translate(cx,ground);ctx.scale(direction>0?-1:1,1);ctx.imageSmoothingEnabled=true;
+     if(frame>=0){const image=walk.images[frame],unit=height/1507;ctx.drawImage(image,0,0,1024,1536,-512*unit,-walkFrames[frame][1]*unit,1024*unit,1536*unit);}
+     else{const crop=config.crop,width=height*crop.w/crop.h;ctx.drawImage(standing,crop.x,crop.y,crop.w,crop.h,-width*.5,-height,width,height);}
+     ctx.restore();visible++;follower={member:companion.member,x:px,frame,direction};
     }
    }
   }
- },get ready(){const scene=canvas.dataset.scene;return !!records.get(members[scene])?.art;},get visible(){return visible;},get count(){return anchors.length;},get cachedActors(){return records.size;},get cachedMembers(){return [...records.keys()];}
+ },get ready(){const scene=canvas.dataset.scene;return !!records.get(members[scene])?.art;},get visible(){return visible;},get count(){return anchors.length;},get cachedActors(){return records.size;},get cachedMembers(){return [...records.keys()];},get walkReady(){return !!walk?.ready;},get walkingFrames(){return walk?.images.length??0;},get follower(){return follower?{...follower}:null;}
 };
 })();

@@ -127,3 +127,7 @@ explore-arrival.js/css新增實際場景五色小星與細框、名稱700ms淡�
 ## 2026-10-18 銀虎步行研究接續（無App版本變更）
 
 兩次imagegen步行表拒收：4橫格鞋尖越界；2×2完整但四姿勢過近，無交替通過。提示與理由：art-reviews/eunho-walk-20261018.json。原圖本機material-review/eunho-walk-rejected-row-v1.png與eunho-walk-rejected-grid-v2.png，不在assets、不啟用同行。App仍20261018-3。下一輪先分別製作接地和通過關鍵姿勢，核對膝踝與角色一致再接線，勿沿用已拒收表假裝完成。
+
+## 20261018-4 接續
+
+銀虎同行接線：encounter17之後index18..19且sceneasterum；encounter48之後index49..56且sceneeunho。4張獨立PNG原身形留白，不用前輪拒收圖表。距離110一循環，四姿勢／停步原NPC，依方向翻轉；對話dt0。減少動態或缺姿勢則原固定相遇，離場釋放並重試。YITING原圖／400地圖／五人合照不改。follow、原NPC與舞台測試已過；完整95格、六處相遇、原插畫結尾及11張背景比例亦重新通過。提示在game-art-prompts.json。

@@ -22,5 +22,49 @@
     }
   ],
   "preserved": "Existing YITING walking, original solo EUNHO NPC, five-member concert image, 95-panel route and deployed 20261018-3 are unchanged.",
-  "next": "Generate and inspect contact and passing poses independently with fixed identity, height and baseline; accept only after complete silhouette and alternating knee/ankle checks, then wire bounded follow ranges and test scene exits."
+  "next": "Generate and inspect contact and passing poses independently with fixed identity, height and baseline; accept only after complete silhouette and alternating knee/ankle checks, then wire bounded follow ranges and test scene exits.",
+  "followup": {
+    "date": "2026-10-18",
+    "status": "four individual key poses accepted for 20261018-4 after visual, full95 and targeted tests",
+    "oldSheetsRemainRejected": true,
+    "acceptedSources": [
+      "assets/explore-eunho-walk-contact-a-v1.png",
+      "assets/explore-eunho-walk-pass-a-v1.png",
+      "assets/explore-eunho-walk-contact-b-v1.png",
+      "assets/explore-eunho-walk-pass-b-v1.png"
+    ],
+    "prompts": "game-art-prompts.json",
+    "canvas": [
+      1024,
+      1536
+    ],
+    "physicalSilhouetteBounds": [
+      [
+        194,
+        12,
+        865,
+        1488
+      ],
+      [
+        278,
+        12,
+        784,
+        1515
+      ],
+      [
+        163,
+        12,
+        937,
+        1475
+      ],
+      [
+        279,
+        12,
+        784,
+        1496
+      ]
+    ],
+    "renderer": "full source images; no equal-cell sprite cutting",
+    "remaining": "Other members remain original fixed encounters; future walking work must preserve seated poses and role identity."
+  }
 }

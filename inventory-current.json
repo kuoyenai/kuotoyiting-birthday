@@ -1,7 +1,7 @@
 {
   "updated": "2026-10-18",
-  "appVersion": "20261018-3",
-  "baseline": "7528b17",
+  "appVersion": "20261018-4",
+  "baseline": "f43d390",
   "cards": 100,
   "novel": {
     "chapters": [
@@ -54,12 +54,12 @@
     "blessingsCSV": true
   },
   "trackedAssets": {
-    "files": 338,
-    "bytes": 364304203,
+    "files": 342,
+    "bytes": 371416040,
     "types": {
       "": 1,
       ".webp": 144,
-      ".png": 37,
+      ".png": 41,
       ".jpg": 142,
       ".zip": 1,
       ".mp4": 5,
@@ -73,7 +73,7 @@
     "entry": "Story tabs → explore-intro.html → explore.html",
     "chapters": 10,
     "storyEncounters": 95,
-    "generatedAssets": 23,
+    "generatedAssets": 27,
     "localProgress": true,
     "status": "Continuous95-panel novel journey,11 environments,5 foreground sets,six solo encounters and one user-provided five-person concert image; original player/dialogue retained",
     "walkableEnvironments": [
@@ -291,8 +291,35 @@
       "giftEntry": false
     },
     "followingCompanions": {
-      "status": "rendering groundwork only; no follow ranges or player arguments configured",
-      "enabled": false
+      "status": "EUNHO only, story-earned and scene-bounded; full95 and targeted regressions passed",
+      "enabled": true,
+      "member": "EUNHO",
+      "ranges": [
+        {
+          "scene": "asterum",
+          "from": 18,
+          "until": 20
+        },
+        {
+          "scene": "eunho",
+          "from": 49,
+          "until": 57
+        }
+      ],
+      "keyPoses": 4,
+      "sources": [
+        "assets/explore-eunho-walk-contact-a-v1.png",
+        "assets/explore-eunho-walk-pass-a-v1.png",
+        "assets/explore-eunho-walk-contact-b-v1.png",
+        "assets/explore-eunho-walk-pass-b-v1.png"
+      ],
+      "phase": "distance driven, 110 world units/cycle",
+      "idle": "original encounter NPC",
+      "reducedMotion": "original stationary encounter; no walking images loaded",
+      "missingPose": "original stationary encounter; retry on physical reentry",
+      "extraImageCacheLimit": 4,
+      "release": "on leaving follow scene/range or reduced-motion preference",
+      "modal": "position and phase frozen"
     },
     "sceneArrival": {
       "source": "explore-arrival.js",

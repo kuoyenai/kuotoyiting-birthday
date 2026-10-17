@@ -156,6 +156,47 @@
       "generatedOn": "2026-10-18",
       "transparent_background": true,
       "prompt": "Create one transparent PNG foreground overlay for a refined hand-painted Korean anime 2D birthday story game. Use the provided farewell city illustration only as a STYLE AND COLOR reference, not as the background. The output must contain ONLY four separate delicate foreground corner ornament clusters, with a huge completely transparent center and transparent side corridors. Top left and top right: a few fine champagne silver chains suspending small faceted lavender and blush-pink translucent star crystals, fine metallic detail, softly painted luminous edges, three small ruby-red star shards as emotional accents, restrained luxury Korean idol photobook design. Bottom left and bottom right: tiny scattered crystal star fragments and two narrow curling blush translucent ribbons, much smaller and lower density than top corners. Keep all physical decorations within outermost 20 percent horizontal corner zones and outermost 25 percent vertical corner zones, no border connecting corners, no enclosing frame. At least 70 percent of image is pure alpha transparency. Wide 16:9 layout. Match elegant gold railing, cool violet starlight and rose dawn ambience of supplied illustration, painterly crisp anime detail, no photorealism, no 3D render. No buildings, no sky, no portal, no floor, no background, no letters, no logo, no characters, no hands or limbs. No opaque black/white/checkerboard backdrop. Only sparse physical ornaments with clear alpha silhouette and restrained glow."
+    },
+    {
+      "path": "assets/explore-eunho-walk-contact-a-v1.png",
+      "references": [
+        "assets/explore-eunho-walk-pass-a-v1.png"
+      ],
+      "prompt": "Edit this EUNHO animation key pose into its matching WALK CONTACT pose. Preserve the entire head, face, silver wavy hair, red eyes, chin, neck, denim jacket, hands in pockets and white shirt EXACTLY as in the reference, same locations and size; keep the same full-body image composition and hand-painted anime finish, no new glow/background. Change only below the hips: straighten the previously lifted bent leg into a SMALL forward contact step toward image LEFT, heel on baseline; let the other leg trail a short distance behind toward RIGHT, knee soft and rear heel naturally raised. Both feet must be connected correctly to their own ankles and legs, no crossed or fused legs. Modest ordinary walking stride, not a wide split or lunge. BOTH full sneakers visible on a common ground baseline, same body height/scale as reference. Exactly two legs and two feet, keep upper body fixed and unchanged. Full hair and chin and shoes inside the frame with transparent margins. Preserve true alpha transparency, no ground plane, no cast shadow, no extra figures, no labels, no grid, no text.",
+      "tool": "built-in imagegen",
+      "generatedOn": "2026-10-18",
+      "transparent_background": true
+    },
+    {
+      "path": "assets/explore-eunho-walk-pass-a-v1.png",
+      "references": [
+        "assets/explore-eunho-npc-v1.png",
+        "assets/reference-eunho-hamin.jpg (upper EUNHO only)"
+      ],
+      "prompt": "Create ONE full-body transparent PNG animation KEY POSE of EUNHO from PLAVE, matching the first reference's EXACT silver wavy hair, red eyes, adult sharp friendly face, blue denim jacket, white T-shirt, charcoal trousers and white-gray sneakers; second official reference EUNHO in TOP half is identity only, ignore HAMIN. Keep the hand-painted Korean anime illustration finish. FULL BODY in a three-quarter SIDE view facing LEFT. MOST IMPORTANT: WALKING PASSING POSITION, NOT A STRIDE. The supporting leg is nearly VERTICAL directly under the hips, its entire shoe flat on the ground baseline. The other leg is LIFTED with a visibly bent knee pointing gently forward toward LEFT; the lifted foot is close beside the supporting ankle, heel lifted and toe still about 10 centimeters ABOVE the baseline. The knees and feet must be CLOSE beneath the body, no wide V-shaped stance, neither leg extended far forward or far backward, no long split stride. Clearly natural mid-walk passing pose, not running, no martial arts, no crossed or merged legs. Both hands rest inside denim jacket pockets so fingers are naturally occluded, shoulders relaxed, torso upright and head gentle constant left-facing. Exactly ONE head, TWO arms, TWO legs and TWO correctly connected feet. Full hair, full chin, both knees and BOTH shoes completely visible with transparent margins. Single isolated figure only, centered portrait composition, shoes anatomically correct; no grid, no second figure, no scene, no ground, no cast shadow, no external glow cloud, no text/logo. Pure alpha transparency outside physical character silhouette.",
+      "tool": "built-in imagegen",
+      "generatedOn": "2026-10-18",
+      "transparent_background": true
+    },
+    {
+      "path": "assets/explore-eunho-walk-contact-b-v1.png",
+      "references": [
+        "assets/explore-eunho-walk-contact-a-v1.png"
+      ],
+      "prompt": "Edit ONLY BELOW THE HIPS to create the OPPOSITE FOOT WALK CONTACT keyframe of this same EUNHO. Keep every detail and pixel location of silver hair, face, head, chin, neck, jacket, hands in pockets, shirt, upper body size and identity unchanged. In the supplied reference the nearer leg on image LEFT is stretched forward; in this new frame REVERSE THE LEGS: the farther leg from image LEFT hip should TRAIL BACK toward image RIGHT with a softly bent knee and heel raised, while the nearer leg from image RIGHT hip extends gently forward toward image LEFT and its full shoe touches heel-first on the same common ground baseline. The two legs must remain correctly connected to the two hips, anatomically plausible knees and ankles, no duplicated legs, no fused feet. Show a small normal stride in the same LEFT-facing 3/4 side view, no full-body mirror, no running or crossed stance. Exactly two legs and two full sneakers, entire hair and chin preserved, transparent padding around all physical edges. Same canvas, same rendering, true transparent background outside silhouette, no shadow floor glow cloud text logo or extra figure. This must visibly alternate the supporting/leading leg compared with the reference contact pose while keeping his upper body fixed.",
+      "tool": "built-in imagegen",
+      "generatedOn": "2026-10-18",
+      "transparent_background": true
+    },
+    {
+      "path": "assets/explore-eunho-walk-pass-b-v1.png",
+      "references": [
+        "assets/explore-eunho-walk-pass-a-v1.png"
+      ],
+      "prompt": "Create the OPPOSITE-LEG WALK PASSING KEYFRAME by editing ONLY BELOW THE HIPS of the reference. Keep EUNHO's entire head, exact face, hair, neck, torso, jacket, pockets, hands and shirt in exactly the same positions and scale. Keep the same portrait canvas, true transparent background and drawing finish. In this new frame the NEARER leg (the leg on image RIGHT emerging from the right jacket side) must be the STRAIGHT SUPPORTING LEG, shoe on the same ground baseline. The FARTHER leg (from image LEFT hip) must swing forward toward image LEFT with a clearly BENT KNEE, its sneaker lifted close beside and just in FRONT of the supporting ankle, toe and heel above ground. This is the OPPOSITE support/swing arrangement from the supplied picture, not a duplicate and not a wide stride. Knees close under hips, natural small relaxed walking pass, anatomically correct hips knees ankles, exactly two legs/two feet. Show both full sneakers. Do not mirror the entire man, do not change head direction or facial identity, do not shift the torso. Full hair and chin unchanged, no crop at shoes or head. No scene, floor, cast shadow, aura cloud, extra figure, labels or text, transparent outside only.",
+      "tool": "built-in imagegen",
+      "generatedOn": "2026-10-18",
+      "transparent_background": true
     }
   ],
   "updated": "2026-10-18"
