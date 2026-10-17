@@ -58,3 +58,6 @@ dialog[open] .story-copy{touch-action:pan-y}
 
 /* Keep the completed-journey return action visible in the locked viewport. */
 #endLink:not([hidden]){display:flex;flex:0 0 auto;align-self:center;align-items:center;justify-content:center;min-height:44px;margin:4px 0;padding:5px 18px;border:1px solid #c5aa7b66;border-radius:4px;color:#e4cfa8;text-decoration:none;font-size:12px}
+
+/* Keep scene names readable over bright illustrated stages. */
+.scene-label{top:14px;left:14px;max-width:calc(100% - 28px);padding:5px 8px;line-height:1.3;border:1px solid #cbb28933;border-radius:3px;background:linear-gradient(90deg,#0b1020e8,#0b1020b8);color:#e8dfd2;text-shadow:none}

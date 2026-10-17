@@ -9,8 +9,8 @@ let index=valid(saved.index)?saved.index:0,unlocked=valid(saved.unlocked)?saved.
 unlocked=Math.max(index,unlocked);
 let x=180,target=180,waypoint=720,speed=0,facing=1,camera=0,vw=1600,last=0,walkPhase=0,motionBlend=0,muted=false,ready=false,line=0,backgroundToken=0;
 const classicSprite=new Image();classicSprite.src='assets/explore-yiting-walk-v1.png';const classicFrames=[[28,18,250,705],[326,18,370,705],[677,18,310,705],[1000,18,410,705],[1400,18,345,705],[1790,18,250,705]];
-let reviewIndex=null;const stageLength=960,starPosition=720;const starAt=n=>starPosition+n*stageLength;const worldLength=route.length*stageLength,worldRight=worldLength-80;const movementLimit=()=>Math.min(worldRight,waypoint);waypoint=starAt(index);x=target=Math.max(180,index===0?180:starAt(index-1));camera=Math.max(0,x-250);let background=new Image();const sceneImages=new Map();const keys=new Set(),reduced=matchMedia('(prefers-reduced-motion: reduce)').matches;
-const colors={blue:'#77baff',purple:'#c5a2ef',pink:'#f2a3c0',green:'#8dd2b0',red:'#e57291'};
+let reviewIndex=null;const stageLength=960,starPosition=720;const starAt=n=>starPosition+n*stageLength;const worldLength=route.length*stageLength,worldRight=worldLength-80;const movementLimit=()=>Math.min(worldRight,waypoint);waypoint=starAt(index);x=target=Math.max(180,index===0?180:starAt(index-1));camera=Math.max(0,x-250);const sceneImages=new Map();const keys=new Set(),reduced=matchMedia('(prefers-reduced-motion: reduce)').matches;
+const colors={blue:'#77baff',purple:'#c5a2ef',pink:'#f2a3c0',green:'#8dd2b0',red:'#e57291',gold:'#e7c789'};
 const current=()=>route[index];const sceneForDisplay=()=>window.yitingExploreScene(route[Math.max(0,Math.min(route.length-1,Math.floor(x/stageLength)))]);const art=asset=>'assets/'+(replacement[asset]||asset+'.webp');
 function save(){try{localStorage.setItem(key,JSON.stringify({index,unlocked,updated:Date.now()}));$('saveState').textContent='進度已保存在這個瀏覽器';}catch{$('saveState').textContent='瀏覽器無法保存進度，本次仍可繼續遊玩';}}
 function stop(){keys.clear();target=x;speed=0;}const modalOpen=()=>!!document.querySelector('dialog[open]');window.addEventListener('yiting-explore-modal',stop);
@@ -44,12 +44,12 @@ function preloadWorldSegments(center=index){
   if(!sceneImages.has(source))loadScene(source).then(img=>sceneImages.set(source,img)).catch(()=>{});
  }
 }
-async function changeBackground(){const token=++backgroundToken,scene=sceneForDisplay();ready=false;stop();$('loading').hidden=false;$('loading').textContent='正在走進下一段風景…';try{const [image]=await Promise.all([loadScene(scene.source),classicSprite.decode()]);if(token!==backgroundToken)return;background=image;sceneImages.set(scene.source,image);preloadWorldSegments();ready=true;$('loading').hidden=true;refresh();preloadWorldSegments();const next=route[index+1];if(next)loadScene(window.yitingExploreScene(next).source).then(img=>sceneImages.set(window.yitingExploreScene(next).source,img)).catch(()=>{});}catch{if(token!==backgroundToken)return;/* Missing scene art should not prevent finishing the novel. */try{await classicSprite.decode();}catch{$('loading').textContent='角色圖片暫時無法載入，請重新整理遊戲。';return;}ready=true;$('loading').hidden=true;refresh();preloadWorldSegments();}}
+async function changeBackground(){const token=++backgroundToken,scene=sceneForDisplay();ready=false;stop();$('loading').hidden=false;$('loading').textContent='正在走進下一段風景…';try{const [image]=await Promise.all([loadScene(scene.source),classicSprite.decode()]);if(token!==backgroundToken)return;sceneImages.set(scene.source,image);preloadWorldSegments();ready=true;$('loading').hidden=true;refresh();preloadWorldSegments();const next=route[index+1];if(next)loadScene(window.yitingExploreScene(next).source).then(img=>sceneImages.set(window.yitingExploreScene(next).source,img)).catch(()=>{});}catch{if(token!==backgroundToken)return;/* Missing scene art should not prevent finishing the novel. */try{await classicSprite.decode();}catch{$('loading').textContent='角色圖片暫時無法載入，請重新整理遊戲。';return;}ready=true;$('loading').hidden=true;refresh();preloadWorldSegments();}}
 function nearbyStory(){if(Math.abs(x-waypoint)<115&&current())return index;for(let n=Math.min(index-1,route.length-1);n>=0;n--){if(Math.abs(x-starAt(n))<115)return n;}return -1;}
 function showLine(){const s=route[reviewIndex??index],rows=[['故事旁白',s.narration],...s.lines];$('speaker').textContent=rows[line][0];$('line').textContent=rows[line][1];$('continue').textContent=line<rows.length-1?'繼續 →':reviewIndex!==null?'結束重溫 →':index===route.length-1?'把星光帶回日常':'繼續旅程 →';}
 function openStory(){const found=nearbyStory();if(found<0||!ready)return;stop();reviewIndex=found<index?found:null;line=0;const s=route[found],image=$('storyArt');delete image.dataset.fallback;image.src=art(s.asset);image.alt=s.narration;$('artStatus').textContent='';showLine();dialog.showModal();}
 $('storyArt').onerror=()=>{const shot=route[reviewIndex??index],fallback=shot&&window.yitingExploreScene(shot).source;const image=$('storyArt');if(fallback&&!image.dataset.fallback){image.dataset.fallback='1';image.src=fallback;$('artStatus').textContent='此格插畫尚未載入，先以場景背景呈現；輕觸可重試';return;}$('artStatus').textContent='圖片暫時無法載入，輕觸此處重試';};$('artStatus').onclick=()=>{if(route[reviewIndex??index])(delete $('storyArt').dataset.fallback,$('storyArt').src=art(route[reviewIndex??index].asset)+'?retry='+Date.now());};$('storyArt').onload=()=>{if(!$('storyArt').dataset.fallback)$('artStatus').textContent='';};
-$('continue').onclick=()=>{const s=route[reviewIndex??index];if(!s)return;if(line<s.lines.length){line++;showLine();return;}if(reviewIndex!==null){reviewIndex=null;dialog.close();refresh();return;}index++;unlocked=Math.max(unlocked,index);dialog.close();stop();waypoint=starAt(index);target=x;save();refresh();preloadWorldSegments();const nextSource=sceneForDisplay().source;if(!sceneImages.has(nextSource))changeBackground();else {background=sceneImages.get(nextSource);ready=true;const ahead=route[index+1];if(ahead){const src=window.yitingExploreScene(ahead).source;loadScene(src).then(img=>sceneImages.set(src,img)).catch(()=>{});}}if(!current()){$('endLink').hidden=false;refresh();}};
+$('continue').onclick=()=>{const s=route[reviewIndex??index];if(!s)return;if(line<s.lines.length){line++;showLine();return;}if(reviewIndex!==null){reviewIndex=null;dialog.close();refresh();return;}index++;unlocked=Math.max(unlocked,index);dialog.close();stop();waypoint=starAt(index);target=x;save();refresh();preloadWorldSegments();const nextSource=sceneForDisplay().source;if(!sceneImages.has(nextSource))changeBackground();else {ready=true;const ahead=route[index+1];if(ahead){const src=window.yitingExploreScene(ahead).source;loadScene(src).then(img=>sceneImages.set(src,img)).catch(()=>{});}}if(!current()){$('endLink').hidden=false;refresh();}};
 $('interact').onclick=()=>{if(!$('interact').disabled)openStory();};dialog.addEventListener('close',()=>{canvas.focus({preventScroll:true});});
 canvas.addEventListener('pointerdown',e=>{if(!ready||modalOpen())return;const r=canvas.getBoundingClientRect();target=Math.max(80,Math.min(movementLimit(),camera+(e.clientX-r.left)/r.width*vw));audio();canvas.focus({preventScroll:true});});
 window.addEventListener('keydown',e=>{if(modalOpen()||e.ctrlKey||e.metaKey||e.altKey||e.target.closest('button,a,select'))return;const k=e.key.toLowerCase();if(['arrowleft','arrowright','a','d'].includes(k)){e.preventDefault();keys.add(k);audio();}if(k==='e')$('interact').click();});window.addEventListener('keyup',e=>{keys.delete(e.key.toLowerCase());if(!keys.size)target=x;});window.addEventListener('blur',stop);document.addEventListener('visibilitychange',()=>{if(document.hidden)stop();});
@@ -60,36 +60,49 @@ $('restart').onclick=()=>{$('restartDialog').showModal();};$('cancelRestart').on
 
 // Lightweight scene dressing: each discovered star advances the environment
 // without requiring a duplicate background image or changing the character artwork.
+// Consecutive story nodes share one environment strip; narrative coordinates stay unchanged.
+const worldRegions=[];
+route.forEach((story,n)=>{const source=window.yitingExploreScene(story).source,last=worldRegions.at(-1);if(last?.source===source)last.end=(n+1)*stageLength;else worldRegions.push({source,start:n*stageLength,end:(n+1)*stageLength});});
 function drawContinuousWorld(scale,h){
- const first=Math.max(0,Math.floor(camera/stageLength)-1),last=Math.min(route.length-1,Math.ceil((camera+vw)/stageLength)+1);
- for(let n=first;n<=last;n++){
-  const scene=window.yitingExploreScene(route[n]),img=sceneImages.get(scene.source);
-  const left=(n*stageLength-camera)*scale,width=stageLength*scale+1;
-  if(img&&img.complete&&img.naturalWidth){
-   // Match the right edge of each illustrated scene to the next without moving the player.
-   const srcW=img.naturalWidth,srcH=img.naturalHeight;
-   ctx.drawImage(img,0,0,srcW,srcH,left,0,width,h);
-  }else{const sky=ctx.createLinearGradient(left,0,left,h);sky.addColorStop(0,'#121b38');sky.addColorStop(1,'#332444');ctx.fillStyle=sky;ctx.fillRect(left,0,width,h);}
-  if(n>0){const fade=ctx.createLinearGradient(left,0,left+Math.min(width*.22,100),0);fade.addColorStop(0,'rgba(19,23,48,.32)');fade.addColorStop(1,'rgba(19,23,48,0)');ctx.fillStyle=fade;ctx.fillRect(left,0,Math.min(width*.22,100),h);}
+ for(const region of worldRegions){
+  if(region.end<camera||region.start>camera+vw)continue;
+  const left=(region.start-camera)*scale,width=(region.end-region.start)*scale,img=sceneImages.get(region.source);
+  ctx.save();ctx.beginPath();ctx.rect(left,0,width,h);ctx.clip();
+  const sky=ctx.createLinearGradient(0,0,0,h);sky.addColorStop(0,'#121b38');sky.addColorStop(1,'#332444');ctx.fillStyle=sky;ctx.fillRect(left,0,width,h);
+  if(img?.complete&&img.naturalWidth){
+   // Scale both axes equally. Mirrored repetitions join matching edges without compressing the artwork.
+   const tileWidth=h*img.naturalWidth/img.naturalHeight,worldTileWidth=tileWidth/scale;
+   const first=Math.max(0,Math.floor((camera-region.start)/worldTileWidth)),last=Math.ceil((Math.min(region.end,camera+vw)-region.start)/worldTileWidth);
+   for(let tile=first;tile<last;tile++){
+    const px=(region.start+tile*worldTileWidth-camera)*scale;
+    ctx.save();ctx.imageSmoothingEnabled=true;
+    if(tile%2){ctx.translate(px+tileWidth,0);ctx.scale(-1,1);ctx.drawImage(img,0,0,tileWidth,h);}
+    else ctx.drawImage(img,px,0,tileWidth,h);
+    ctx.restore();
+   }
+  }
+  if(region.start>0){const edge=Math.min(100,width*.12),fade=ctx.createLinearGradient(left,0,left+edge,0);fade.addColorStop(0,'rgba(19,23,48,.32)');fade.addColorStop(1,'rgba(19,23,48,0)');ctx.fillStyle=fade;ctx.fillRect(left,0,edge,h);}
+  ctx.restore();
  }
 }
+
 function drawSceneDetails(t,w,h,scale){
  const scene=sceneForDisplay(),tone=colors[scene.color]||'#e7c9a4';
- const seed=Math.floor(x/stageLength)*3,drift=reduced?0:t*.00022;
+ const seed={city:1,asterum:2,garden:3,greenhouse:4,plaza:5,observatory:6,eunho:7,birthday:8,wish:9,farewell:10}[scene.id]||0,drift=reduced?0:t*.00022;
  ctx.save();
  const haze=ctx.createLinearGradient(0,0,0,h);
  haze.addColorStop(0,'rgba(12,18,43,0)');haze.addColorStop(.74,tone+'0b');haze.addColorStop(1,tone+'26');
  ctx.fillStyle=haze;ctx.fillRect(0,0,w,h);
  if(!reduced){for(let i=0;i<20;i++){
- const world=((i*173+seed*67)%960)+Math.floor(camera/960)*960,px=(world-camera*.78)*scale;
+ const span=vw+240,world=(((i*173+seed*67-camera*.12)%span)+span)%span-120,px=world*scale;
  const py=h*(.15+((i*7+seed)%13)/19)+Math.sin(drift+i*2)*4;
  if(px<0||px>w)continue;
  ctx.globalAlpha=.22+.22*Math.sin(drift*2+i)**2;
  ctx.fillStyle=i%4===0?'#fff8e8':tone;ctx.beginPath();ctx.arc(px,py,1.2+(i%3)*.8,0,Math.PI*2);ctx.fill();
  }ctx.globalAlpha=1;}
  // Ground lights guide the player toward the next story beat.
- for(let i=0;i<8;i++){
- const wx=320+i*110+Math.floor(camera/960)*960,px=(wx-camera)*scale;
+ for(let i=Math.floor(camera/110)-1;i<=Math.ceil((camera+vw)/110)+1;i++){
+ const wx=i*110,px=(wx-camera)*scale;
  if(px<0||px>w)continue;
  ctx.globalAlpha=.12+.09*Math.sin(drift*4+i)**2;
  ctx.fillStyle=tone;ctx.beginPath();ctx.ellipse(px,h*.847,14*scale,3*scale,0,0,Math.PI*2);ctx.fill();
