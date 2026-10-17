@@ -12,10 +12,20 @@ unlocked=Math.max(index,unlocked);
 let resumeReading=saved.reading&&typeof saved.reading.asset==='string'&&Number.isInteger(saved.reading.line)&&saved.reading.line>=0?{asset:saved.reading.asset,line:saved.reading.line}:null;
 let x=180,target=180,waypoint=720,speed=0,facing=1,camera=0,vw=1600,last=0,walkPhase=0,motionBlend=0,muted=false,ready=false,line=0,backgroundToken=0;
 const classicSprite=new Image();classicSprite.src='assets/explore-yiting-walk-v1.png';const classicFrames=[[28,18,250,705],[326,18,370,705],[677,18,310,705],[1000,18,410,705],[1400,18,345,705],[1790,18,250,705]];
-let reviewIndex=null;const stageLength=960,starPosition=720;const starAt=n=>starPosition+n*stageLength;const worldLength=route.length*stageLength,worldRight=worldLength-80;const movementLimit=()=>Math.min(worldRight,waypoint);waypoint=starAt(index);x=target=Number.isFinite(saved.x)?Math.max(80,Math.min(movementLimit(),saved.x)):Math.max(180,index===0?180:starAt(index-1));let lastSavedX=x,lastPositionSave=0;camera=Math.max(0,x-250);const sceneImages=new Map();const keys=new Set(),reduced=matchMedia('(prefers-reduced-motion: reduce)').matches;
+let reviewIndex=null;
+// Version 2 keeps every story node, but makes walking between stars less repetitive.
+// Old saves use 960-unit intervals; migrate their position once without changing story progress.
+const mapVersion=2,oldStageLength=960,oldStarPosition=720,stageLength=400,starPosition=280;
+const starAt=n=>starPosition+n*stageLength;
+const migratePosition=oldX=>oldX<=180?oldX:oldX<=oldStarPosition?180+(oldX-180)*(starPosition-180)/(oldStarPosition-180):starPosition+(oldX-oldStarPosition)*stageLength/oldStageLength;
+const worldLength=route.length*stageLength,worldRight=worldLength-80;
+const movementLimit=()=>Math.min(worldRight,waypoint);
+waypoint=starAt(index);
+const savedPosition=Number.isFinite(saved.x)?(saved.mapVersion===mapVersion?saved.x:migratePosition(saved.x)):Math.max(180,index===0?180:starAt(index-1));
+x=target=Math.max(80,Math.min(movementLimit(),savedPosition));let lastSavedX=x,lastPositionSave=0;camera=Math.max(0,x-250);const sceneImages=new Map();const keys=new Set(),reduced=matchMedia('(prefers-reduced-motion: reduce)').matches;
 const colors={blue:'#77baff',purple:'#c5a2ef',pink:'#f2a3c0',green:'#8dd2b0',red:'#e57291',gold:'#e7c789'};
 const current=()=>route[index];const sceneForDisplay=()=>window.yitingExploreScene(route[Math.max(0,Math.min(route.length-1,Math.floor(x/stageLength)))]);const art=asset=>'assets/'+(replacement[asset]||asset+'.webp');
-function save(){try{localStorage.setItem(key,JSON.stringify({index,unlocked,x,reading:resumeReading,updated:Date.now()}));lastSavedX=x;readingSaveNotice.hidden=true;readingSaveNotice.textContent='';delete $('saveState').dataset.failed;$('saveState').textContent='位置與閱讀進度已保存在這個瀏覽器';}catch{if(!$('saveState').dataset.failed){$('saveState').textContent='瀏覽器目前無法保存進度；本次仍可繼續，下次可能從較早的位置接續。';readingSaveNotice.textContent='這段暫時無法保存，下次可能需要重新閱讀；本次仍可繼續。';}$('saveState').dataset.failed='true';readingSaveNotice.hidden=false;}}
+function save(){try{localStorage.setItem(key,JSON.stringify({mapVersion,index,unlocked,x,reading:resumeReading,updated:Date.now()}));lastSavedX=x;readingSaveNotice.hidden=true;readingSaveNotice.textContent='';delete $('saveState').dataset.failed;$('saveState').textContent='位置與閱讀進度已保存在這個瀏覽器';}catch{if(!$('saveState').dataset.failed){$('saveState').textContent='瀏覽器目前無法保存進度；本次仍可繼續，下次可能從較早的位置接續。';readingSaveNotice.textContent='這段暫時無法保存，下次可能需要重新閱讀；本次仍可繼續。';}$('saveState').dataset.failed='true';readingSaveNotice.hidden=false;}}
 function stop(){keys.clear();target=x;speed=0;if(ready&&Math.abs(x-lastSavedX)>1)save();}const modalOpen=()=>!!document.querySelector('dialog[open]');window.addEventListener('yiting-explore-modal',stop);
 const playlist=window.YITING_TRACKS||[],stored=window.yitingMusicRead?.()||{index:0,paused:false};
 let musicIndex=Number.isInteger(stored.index)&&stored.index>=0&&stored.index<playlist.length?stored.index:0;
@@ -53,7 +63,7 @@ function rememberedLine(shot){return shot&&resumeReading&&resumeReading.asset===
 function interactionLabel(near){return near<0?'走近星光':rememberedLine(route[near])>0?'✦ 接續上次閱讀':near<index?'✦ 重溫這段故事':'✦ 發現這段故事';}
 function theme(){return current()?.star||sceneForDisplay().color;}
 function refresh(){const s=current(),done=!s;$("endLink").hidden=!done;document.body.dataset.chapter=String(s?.chapter??9);$('chapterName').textContent=done?'生日快樂，YiTing':chapters[s.chapter].title;$('objective').textContent=done?'妳已走完整段星光旅程。謝謝妳來到這個世界。':window.yitingExploreScene(s).hint;$('chapterKicker').textContent=(done||s.chapter===9?'10:21 PM · ':'10:20 PM · ')+(done?'THE STARLIGHT JOURNEY':chapters[s.chapter].kicker);$('progress').textContent=(Math.min(index+1,route.length))+' / '+route.length+' · '+(done?'旅程完成':chapters[s.chapter].label);$('fiveStars').replaceChildren();for(const [color,name] of Object.entries({blue:'希望',purple:'溫柔',pink:'快樂',green:'勇氣',red:'陪伴'})){const badge=document.createElement('span'),owned=route.slice(0,unlocked).some(s=>s.star===color);badge.textContent=(owned?'✦ ':'· ')+name;badge.style.color=owned?colors[color]:'#73788a';badge.setAttribute('aria-label',name+(owned?'已收集':'尚未收集'));$('fiveStars').append(badge);}$('journeyProgress').max=route.length;$('journeyProgress').value=index;$('sceneLabel').textContent=sceneForDisplay().label;canvas.dataset.scene=sceneForDisplay().id;document.querySelector('.stage').setAttribute('aria-label',sceneForDisplay().label);$('storyLink').href='novel-comic.html#chapter-'+(s?.chapter??9)+'-panel-'+(s?.panel??0);$('storyLink').hidden=done;
-const near=nearbyStory();$('interact').disabled=!ready||near<0;$('interact').textContent=interactionLabel(near);canvas.dataset.index=String(index);canvas.dataset.keepsake=String(route.slice(0,unlocked).some(s=>s.asset==='novel-star-closeup'));canvas.dataset.playerX=String(Math.round(x));canvas.dataset.waypoint=String(waypoint);canvas.dataset.facing=String(facing);
+const near=nearbyStory();$('interact').disabled=!ready||near<0;$('interact').textContent=interactionLabel(near);canvas.dataset.index=String(index);canvas.dataset.mapVersion=String(mapVersion);canvas.dataset.stageLength=String(stageLength);canvas.dataset.keepsake=String(route.slice(0,unlocked).some(s=>s.asset==='novel-star-closeup'));canvas.dataset.playerX=String(Math.round(x));canvas.dataset.waypoint=String(waypoint);canvas.dataset.facing=String(facing);
 $('chapterMenu').replaceChildren();chapters.forEach((chapter,c)=>{const option=document.createElement('option'),first=route.findIndex(s=>s.chapter===c);option.value=first;option.textContent=chapter.title+(first>unlocked?' · 尚未抵達':'');option.disabled=first>unlocked;option.selected=c===(s?.chapter??9);$('chapterMenu').append(option);});if(ready)warmStoryArt();}
 const sceneCache=new Map();function loadScene(source){if(!sceneCache.has(source)){const image=new Image();image.src=source;sceneCache.set(source,image.decode().then(()=>image).catch(error=>{sceneCache.delete(source);throw error;}));}return sceneCache.get(source);}
 // Prepare neighboring map segments before the camera reaches them, without resetting movement.
@@ -92,7 +102,7 @@ const actorAnchors=[
  {asset:'novel-hamin-stargazing',scene:'observatory',member:'hamin'}
 ];
 actorAnchors.push({asset:'novel-concert-wide',scene:'birthday',member:'concert',offset:0,group:'concert',ground:.69});
-window.YitingActors?.configure(actorAnchors.map(actor=>({...actor,x:starAt(route.findIndex(story=>story.asset===actor.asset))+(actor.offset??140)})));
+window.YitingActors?.configure(actorAnchors.map(actor=>({...actor,x:starAt(route.findIndex(story=>story.asset===actor.asset))+(actor.offset??140)*stageLength/oldStageLength})));
 function drawContinuousWorld(scale,h){
  for(const region of worldRegions){
   if(region.end<camera||region.start>camera+vw)continue;
