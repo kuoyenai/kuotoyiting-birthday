@@ -1,7 +1,7 @@
 {
   "updated": "2026-10-17",
-  "appVersion": "20261017-17",
-  "baseline": "409f61b",
+  "appVersion": "20261017-18",
+  "baseline": "914f875",
   "cards": 100,
   "novel": {
     "chapters": [
@@ -174,6 +174,16 @@
       "autoOpenDialog": false
     },
     "foregroundCacheLimit": 2,
-    "titleStyle": "Existing invitation Bodoni/Song serif pairing with cream-gold foil; all10 chapter names checked"
+    "titleStyle": "Existing invitation Bodoni/Song serif pairing with cream-gold foil; all10 chapter names checked",
+    "worldPassages": {
+      "count": 2,
+      "boundaries": [
+        "chapter3 ASTERUM arrival",
+        "chapter9 TERRA return"
+      ],
+      "rendering": "world-positioned translucent ellipse and sparse particles behind character",
+      "reducedMotion": "static",
+      "changesProgress": false
+    }
   }
 }
