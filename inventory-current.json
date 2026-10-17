@@ -1,7 +1,7 @@
 {
   "updated": "2026-10-18",
-  "appVersion": "20261017-26",
-  "baseline": "3398670",
+  "appVersion": "20261018-1",
+  "baseline": "84d2dff",
   "cards": 100,
   "novel": {
     "chapters": [
@@ -282,6 +282,16 @@
     "followingCompanions": {
       "status": "rendering groundwork only; no follow ranges or player arguments configured",
       "enabled": false
+    },
+    "sceneArrival": {
+      "source": "explore-arrival.js",
+      "labelAnimationMs": 700,
+      "palette": "member colors, champagne gold for birthday and wish",
+      "physicalSceneBased": true,
+      "returnCityDistinct": true,
+      "accessibleChineseStatus": true,
+      "reducedMotion": "static",
+      "changesProgress": false
     }
   }
 }
