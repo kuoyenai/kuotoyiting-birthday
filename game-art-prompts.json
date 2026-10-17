@@ -78,6 +78,14 @@
       "generatedOn": "2026-10-17",
       "prompt": "Use case: illustration-story. Create a polished widescreen 16:9 hand-painted anime background for a side-scrolling 2D birthday story game. Reference image is style and story mood only: luminous violet-blue Korean city at night, wet reflective paving, warm windows, delicate detailed linework and soft painterly shading. NEW composition must be strict side-on, level horizon, horizontal continuous walkable empty sidewalk across bottom 28%, no perspective road receding into center. Story: time stopped at 10:20 PM, a large electronic billboard above the sidewalk has become a swirling indigo-violet star portal, a few suspended autumn leaves, thin silver stars and a subtle crimson star glow near portal. Layered skyscrapers and elevated pedestrian bridge behind. Premium PLAVE fan birthday atmosphere, elegant and emotionally quiet, no clutter of particles. Absolutely NO people, no characters, no body parts, no cars in foreground, no text or logos. Ground must remain clear for separately rendered YITING sprite. One coherent landscape, not collage, no UI, no border. Preserve original reference painting quality.",
       "transparent_background": false
+    },
+    {
+      "path": "assets/explore-stage-foreground-v1.png",
+      "reference": "assets/explore-birthday-stage-v1.png",
+      "tool": "built-in imagegen",
+      "generatedOn": "2026-10-17",
+      "transparent_background": true,
+      "prompt": "Use case: illustration-story. Asset: TRUE TRANSPARENT RGBA PNG foreground overlay for the birthday concert chapter of a polished Korean anime 2D story game. Reference is STYLE AND MATERIAL ONLY: delicate champagne gold star ornaments, jewel violet-blue night, intricate luminous hand-painted anime illustration. Isolated FOUR VERY SPARSE CORNER ACCENTS ONLY, no connecting frame: top left a short curved gold ribbon and two tiny hanging crystal five-point stars; top right matching airy ribbon with five tiny crystal glints in blue, violet, pink, crimson and green; bottom corners only a few warm gold soft bokeh flecks and one little curved gold streamer each. Entire central 60% width completely transparent from top to bottom. All art stays within outermost20% width, top25% or bottom18%, with transparent gutters around clusters. Elegant premium limited birthday album aesthetic, restrained not gaudy; faint gold sparkles and fine translucent crystal texture. No scenery, no stage, no buildings, no sky, no ground, no people, no body parts, no lettering or logos, no painted background, no checkerboard. Do not reproduce reference environment. Wide16:9. This will overlay a richly painted stage, so keep extremely sparse and clear."
     }
   ],
   "updated": "2026-10-17"

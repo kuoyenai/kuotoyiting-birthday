@@ -2,7 +2,8 @@
 const configs={
  garden:{source:'assets/explore-garden-foreground-v1.png',next:'greenhouse',alpha:.76,scale:1},
  greenhouse:{source:'assets/explore-moon-foreground-v1.png',next:'eunho',alpha:.68,scale:.96,crop:{width:.38,top:.5,bottom:.44}},
- eunho:{source:'assets/explore-eunho-foreground-v1.png',alpha:.73,scale:.9,crop:{width:.38,top:.5,bottom:.44}}
+ eunho:{source:'assets/explore-eunho-foreground-v1.png',next:'birthday',alpha:.73,scale:.9,crop:{width:.38,top:.5,bottom:.44}},
+ birthday:{source:'assets/explore-stage-foreground-v1.png',alpha:.6,scale:.85}
 };
 const layers=new Map();let previousScene='';
 function discard(id){const record=layers.get(id);layers.delete(id);record?.image.removeAttribute('src');}

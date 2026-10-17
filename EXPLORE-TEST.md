@@ -196,3 +196,7 @@ tests/explore-premium-scenes.cjs於390／1280核對兩種新前景的實際像�
 tests/explore-portal.cjs 於390／1280驗證普通城市→穿越城市→ASTERUM與實際後退探索，走路不改閱讀進度；已檢視兩種尺寸畫面。tests/explore-world-proportions.cjs 已驗證11種背景等比與原960故事座標。mobile-handoff-regression通過四曲、禮物獨立入口、圖片重試與結尾。invariants通過700本地路徑與保留頁面，audit通過App/PWA版本一致。
 
 完整流程驗證：tests/explore-continuous-story.cjs 已重新走完95格，逐格解碼原插畫並抵達結尾；沒有瀏覽器程式錯誤。本輪未改人物與對白，保留既有穩定標籤。
+
+## 20261017-17 舞台前景
+
+20261017-17驗證：tests/explore-premium-scenes.cjs於390／1280檢查諾亞、銀虎與生日舞台前景的實際像素、中央透明、等比角落、景深動態、減少動態與字型；tests/explore-stage.cjs確認舞台燈光開關、未到達不顯示、實際回頭探索、進度不變。tests/explore-stage-art-failure.cjs模擬前景503，故事與燈光仍能使用，實際離場／重返可重新載入，快取不超過兩組。已檢視手機與桌機畫面，invariants通過701本地路徑及原頁面，audit通過App/PWA一致。只改裝飾與預載，未改小說路線、人物與走路；完整95格沿用20261017-16的整段驗證。生成遊戲素材17張（含歷史分件），前景4組、行走環境11種，小說95圖與小卡100張維持。

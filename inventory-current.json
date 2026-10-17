@@ -1,7 +1,7 @@
 {
   "updated": "2026-10-17",
-  "appVersion": "20261017-16",
-  "baseline": "1fdebee",
+  "appVersion": "20261017-17",
+  "baseline": "409f61b",
   "cards": 100,
   "novel": {
     "chapters": [
@@ -54,12 +54,12 @@
     "blessingsCSV": true
   },
   "trackedAssets": {
-    "files": 327,
-    "bytes": 350694546,
+    "files": 328,
+    "bytes": 351377049,
     "types": {
       "": 1,
       ".webp": 144,
-      ".png": 29,
+      ".png": 30,
       ".jpg": 139,
       ".zip": 1,
       ".mp4": 5,
@@ -73,9 +73,9 @@
     "entry": "gift.html → explore.html",
     "chapters": 10,
     "storyEncounters": 95,
-    "generatedAssets": 16,
+    "generatedAssets": 17,
     "localProgress": true,
-    "status": "Continuous 95-panel novel journey with eleven environments; chapter2 portal city, painted foreground depth and local reading resume; original character art retained",
+    "status": "Continuous 95-panel novel journey; eleven environments, four painted foreground layers, local position and reading resume; original character art retained",
     "walkableEnvironments": [
       "雨夜城市",
       "十點二十分穿越城市",
@@ -151,6 +151,12 @@
         "source": "assets/explore-eunho-foreground-v1.png",
         "alphaTransparency": true,
         "motion": "warm crimson crystal corners; static reduced motion"
+      },
+      {
+        "scene": "birthday",
+        "source": "assets/explore-stage-foreground-v1.png",
+        "alphaTransparency": true,
+        "motion": "sparse champagne ribbon and five-color crystal corners; static when reduced motion"
       }
     ],
     "localResume": {
