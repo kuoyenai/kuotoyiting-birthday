@@ -61,3 +61,29 @@ dialog[open] .story-copy{touch-action:pan-y}
 
 /* Keep scene names readable over bright illustrated stages. */
 .scene-label{top:14px;left:14px;max-width:calc(100% - 28px);padding:5px 8px;line-height:1.3;border:1px solid #cbb28933;border-radius:3px;background:linear-gradient(90deg,#0b1020e8,#0b1020b8);color:#e8dfd2;text-shadow:none}
+
+/* Portrait safe areas and comfortable touch targets for installed mobile play. */
+@media(max-width:520px){
+ header{padding:calc(5px + env(safe-area-inset-top)) max(12px,env(safe-area-inset-right)) 5px max(12px,env(safe-area-inset-left))}
+ header button,.controls button,.chapter-picker select,.foot button{min-height:44px}
+ main{padding-left:max(9px,env(safe-area-inset-left));padding-right:max(9px,env(safe-area-inset-right))}
+}
+/* A landscape phone keeps its illustrated stage beside the controls. */
+@media(orientation:landscape) and (max-height:560px) and (min-width:520px){
+ header{padding:calc(4px + env(safe-area-inset-top)) max(12px,env(safe-area-inset-right)) 4px max(12px,env(safe-area-inset-left));gap:10px}
+ header span{display:none}header a{font-size:12px}header button{min-height:44px;padding:5px 10px;font-size:12px}
+ main{display:grid;grid-template-columns:minmax(0,1fr) clamp(180px,27vw,230px);grid-template-rows:auto 50px 24px 3px 58px minmax(44px,1fr);gap:5px 12px;padding:0 max(12px,env(safe-area-inset-right)) max(5px,env(safe-area-inset-bottom)) max(12px,env(safe-area-inset-left))}
+ .heading{grid-column:1/-1;grid-row:1;margin:0}.heading h1{font-size:18px;line-height:1.25;margin:1px 0}.heading #objective{font-size:10px;line-height:1.3;margin:2px 0 3px}
+ .stage{grid-column:1;grid-row:2/-1;align-self:stretch;height:auto;min-height:0}
+ .controls{grid-column:2;grid-row:2;gap:6px;margin:0;align-self:center}.controls button{width:48px;min-height:44px;padding:5px}.controls p{flex:1;min-width:0;margin:0;font-size:10px;line-height:1.4}.controls p small{display:none}
+ #fiveStars{grid-column:2;grid-row:3;align-self:center;justify-content:center;gap:5px;margin:0;font-size:8px;line-height:1.4}
+ #journeyProgress{grid-column:2;grid-row:4;align-self:center;width:100%;height:3px;margin:0}
+ .chapter-picker{grid-column:2;grid-row:5;display:flex;flex-direction:column;align-items:stretch;gap:2px;font-size:9px;line-height:1.3}.chapter-picker select{width:100%;max-width:none;min-height:44px;padding:4px;font-size:10px}
+ .foot{grid-column:2;grid-row:6;align-self:start;height:44px;gap:6px;font-size:9px;letter-spacing:0}.foot button{min-height:44px;padding:4px 8px;font-size:11px}
+ main:has(#endLink:not([hidden])) .foot{width:70px;justify-self:end;justify-content:flex-end}main:has(#endLink:not([hidden])) .foot span{display:none}#endLink:not([hidden]){grid-column:2;grid-row:6;align-self:start;justify-self:start;width:calc(100% - 76px);min-height:44px;margin:0;padding:5px;font-size:10px;text-align:center}
+ .scene-label{top:8px;left:10px;padding:4px 6px;font-size:9px}
+ .garden-entry,.moon-entry,.companion-entry,.sky-entry,.wish-entry,.birthday-stage-entry{top:38px}
+ .birthday-stage-status{top:86px;font-size:10px}
+ .plaza-joy{top:38px;padding:6px 10px}.plaza-joy p{margin:3px 0 2px;font-size:11px;line-height:1.3}.joy-dots{font-size:10px}.plaza-joy small{font-size:8px;line-height:1.2}
+ #interact{bottom:10px;min-height:44px;padding:6px 10px;font-size:12px}.keepsake-entry{bottom:10px}
+}

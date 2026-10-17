@@ -1,7 +1,7 @@
 {
   "updated": "2026-10-17",
-  "appVersion": "20261017-10",
-  "baseline": "4ff5b8a",
+  "appVersion": "20261017-11",
+  "baseline": "2f3c752",
   "cards": 100,
   "novel": {
     "chapters": [
@@ -110,6 +110,18 @@
       "method": "native image ratio, clipped consecutive scene regions and mirrored repeats",
       "storyCoordinateSpacing": 960,
       "saveCompatible": true
+    },
+    "responsiveLayout": {
+      "portrait": "vertical stage and controls",
+      "compactLandscape": "stage left, controls right",
+      "testedViewports": [
+        "568x320",
+        "844x390",
+        "390x844",
+        "320x568"
+      ],
+      "rotationStopsMovement": true,
+      "safeAreaInsets": true
     }
   }
 }
