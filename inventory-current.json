@@ -1,7 +1,7 @@
 {
   "updated": "2026-10-17",
-  "appVersion": "20261017-12",
-  "baseline": "e544e86",
+  "appVersion": "20261017-13",
+  "baseline": "1e05d38",
   "cards": 100,
   "novel": {
     "chapters": [
@@ -123,6 +123,14 @@
       "rotationStopsMovement": true,
       "safeAreaInsets": true
     },
-    "dialogBackBehavior": "Back closes open story or optional dialog; manual close removes temporary history; no story progress change"
+    "dialogBackBehavior": "Back closes open story or optional dialog; manual close removes temporary history; no story progress change",
+    "storyArtLoading": {
+      "nearbyPreloads": 3,
+      "releaseOutsideRange": true,
+      "stableFrame": "16:9 container with contain, capped at 49dvh",
+      "retryOriginal": true,
+      "fallbackScene": true,
+      "ignoreStaleLoads": true
+    }
   }
 }
