@@ -54,6 +54,23 @@
       "tool": "built-in imagegen",
       "transparent_background": true,
       "prompt": "Use case illustration-story. Create a TRANSPARENT PNG game foreground overlay, WIDE16:9, with real alpha transparency, no solid backdrop, no checkerboard drawn. Reference image ONLY for polished Korean anime painting texture and palette of ivory white blue flowers, violet wisteria and tiny warm gold highlights. NO people. This is a very SPARSE premium framing overlay for a 2D side-scrolling magical music garden. Small delicate hanging violet wisteria and a few fine leaves ONLY in the upper-left and upper-right outer corners, each within outer 12% width and top 12% height. A low softly out-of-focus cluster of tiny white and pale-blue flowers with subtle lilac petals ONLY at the bottom-left and bottom-right outer corners, within outer 15% width and bottom 10% height. Keep entire center 70% width COMPLETELY EMPTY TRANSPARENT from top to bottom, and keep the central lower walking lane transparent. NO arch, NO frame border, NO buildings, NO sky, NO floor, NO full background, NO text, NO logos, NO sparkles scattered through center. Restrained hand-painted floral detail with gentle foreground depth blur matching reference. Asymmetric organic little clusters, not a thick decorative border. Entire canvas is mostly empty alpha."
+    },
+    {
+      "path": "assets/explore-moon-foreground-v1.png",
+      "reference": "assets/novel-greenhouse-wide.webp",
+      "tool": "built-in imagegen",
+      "transparent_background": true,
+      "prompt": "Use case illustration-story. TRANSPARENT PNG foreground overlay for a premium 2D Korean anime narrative game, wide16:9, true alpha, no backdrop and no painted checkerboard. Reference ONLY for elegant moonlit glass greenhouse, polished anime illustration texture, ivory-silver and lilac-gold palette. OMIT ALL PEOPLE and buildings. Four VERY SPARSE isolated corner clusters, no connecting border: upper-left and upper-right each contain a small delicate fragment of curved silver-gold glass filigree and a tiny translucent crescent crystal pendant with pale violet reflections; lower-left and lower-right contain a soft shallow cluster of white orchids and pale lilac petals with gentle depth blur. Each complete cluster fully contained within outer25% width; upper clusters within top38% height, lower clusters within bottom30% height, fading to empty alpha before these boundaries. Keep central50% width completely empty alpha, and keep all middle space empty. No large moon disc, no full arch, no skyline, no sky, no floor, no people, no hands, no lettering, no logos, no dense sparkles. Fine understated details, soft romantic moonlight, much more glass and crystal than hanging flowers; refined intimate rest scene, matching reference painting.",
+      "generatedOn": "2026-10-17"
+    },
+    {
+      "path": "assets/explore-eunho-foreground-v1.png",
+      "reference": "assets/novel-quiet-bridge.webp",
+      "tool": "built-in imagegen",
+      "transparent_background": true,
+      "prompt": "Use case illustration-story. TRANSPARENT PNG foreground overlay for an elegant 2D Korean anime story game, wide16:9, true alpha transparency, no backdrop and no painted checkerboard. Reference ONLY for polished luminous anime painting, fine gold bridge details and warm RED five-point crystal star symbol. OMIT BOTH PEOPLE and all architecture. Four isolated very SPARSE little corner clusters: upper-left and upper-right contain delicate short fine gold chains with one small deep crimson five-point faceted star crystal pendant each, a little silver edge catching moonlight; bottom-left and bottom-right have just subtle warm gold curving filigree fragments with a tiny crimson crystal gleam and faint soft red reflected light, no flowers. No connecting frame border. Each complete cluster fully contained inside outer24% width; upper clusters top36% height, lower clusters bottom28% height, clear empty transparent gutters before those limits. Central52% width completely EMPTY transparent from top to bottom. Keep entire middle area empty. Restrained navy-compatible crimson and champagne gold, emotionally warm quiet companionship, not a concert, no overwhelming glow. No people, no hands, no buildings, no sky, no floor, no text, no logos. Crisp painterly star crystal texture, foreground depth softness only at very lowest outer edges. Premium romantic illustrated atmosphere matching reference.",
+      "generatedOn": "2026-10-17"
     }
-  ]
+  ],
+  "updated": "2026-10-17"
 }

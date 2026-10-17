@@ -101,3 +101,12 @@ dialog[open] .story-copy{touch-action:pan-y}
 #saveState[data-failed=true]{display:block;position:absolute;z-index:4;left:14px;right:14px;bottom:76px;margin:0;padding:8px 12px;border:1px solid #b1849380;border-radius:5px;background:#281c2be8;color:#e5c6ce;font:11px/1.6 system-ui,sans-serif;text-align:center;pointer-events:none}
 
 #storySaveStatus{font:11px/1.7 system-ui,sans-serif;letter-spacing:0;color:#d9aab7;margin:12px 0}#storySaveStatus[hidden]{display:none}
+
+/* Reuse the invitation's verified serif pairing for the chapter cover line. */
+@font-face{font-family:'Yiting Journey Bodoni';src:url('assets/fonts/BodoniModa.ttf') format('truetype');font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:'Yiting Journey Song';src:url('assets/fonts/invitation-chinese.ttf') format('truetype');font-weight:400;font-style:normal;font-display:swap}
+.heading h1{font-family:'Yiting Journey Bodoni','Yiting Journey Song','Songti TC',serif;font-weight:400;font-synthesis:none;letter-spacing:.045em;color:#ebd9bc}
+@supports((-webkit-background-clip:text) or (background-clip:text)){.heading h1{background-image:linear-gradient(112deg,#c5ad8b 0%,#f7eddc 20%,#dfc9a9 43%,#fff7e9 52%,#dcc19b 70%,#f6e8d3 100%);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;filter:drop-shadow(0 1px 1px #0005)}}
+@media(max-width:520px){.heading h1{font-size:clamp(17px,4.85vw,19px);line-height:1.35;letter-spacing:.035em}}
+@media(orientation:landscape) and (max-height:560px) and (min-width:520px){.heading h1{font-size:18px;line-height:1.3;letter-spacing:.035em}}
+@media(forced-colors:active){.heading h1{background:none;-webkit-text-fill-color:CanvasText;color:CanvasText;filter:none}}

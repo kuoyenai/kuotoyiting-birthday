@@ -1,7 +1,7 @@
 {
   "updated": "2026-10-17",
-  "appVersion": "20261017-14",
-  "baseline": "07f7c28",
+  "appVersion": "20261017-15",
+  "baseline": "cdcaddb",
   "cards": 100,
   "novel": {
     "chapters": [
@@ -54,12 +54,12 @@
     "blessingsCSV": true
   },
   "trackedAssets": {
-    "files": 324,
-    "bytes": 345100318,
+    "files": 326,
+    "bytes": 347352828,
     "types": {
       "": 1,
       ".webp": 144,
-      ".png": 26,
+      ".png": 28,
       ".jpg": 139,
       ".zip": 1,
       ".mp4": 5,
@@ -73,7 +73,7 @@
     "entry": "gift.html → explore.html",
     "chapters": 10,
     "storyEncounters": 95,
-    "generatedAssets": 13,
+    "generatedAssets": 15,
     "localProgress": true,
     "status": "Continuous 95-panel novel journey with ten environments; richer PLAVE-inspired painted garden foreground; local position and dialogue resume; original character art retained",
     "walkableEnvironments": [
@@ -138,6 +138,18 @@
         "source": "assets/explore-garden-foreground-v1.png",
         "alphaTransparency": true,
         "motion": "subtle corner sway and camera parallax; static when reduced motion"
+      },
+      {
+        "scene": "greenhouse",
+        "source": "assets/explore-moon-foreground-v1.png",
+        "alphaTransparency": true,
+        "motion": "subtle moonlit corner parallax; static reduced motion"
+      },
+      {
+        "scene": "eunho",
+        "source": "assets/explore-eunho-foreground-v1.png",
+        "alphaTransparency": true,
+        "motion": "warm crimson crystal corners; static reduced motion"
       }
     ],
     "localResume": {
@@ -153,6 +165,8 @@
       "movingSaveIntervalMs": 1500,
       "pagehideSave": true,
       "autoOpenDialog": false
-    }
+    },
+    "foregroundCacheLimit": 2,
+    "titleStyle": "Existing invitation Bodoni/Song serif pairing with cream-gold foil; all10 chapter names checked"
   }
 }
