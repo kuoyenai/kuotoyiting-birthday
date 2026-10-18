@@ -1,7 +1,7 @@
 {
   "updated": "2026-10-18",
-  "appVersion": "20261018-14",
-  "baseline": "9be908d",
+  "appVersion": "20261018-15",
+  "baseline": "8eea842",
   "cards": 100,
   "novel": {
     "chapters": [
@@ -112,7 +112,15 @@
       "storyCoordinateSpacing": 400,
       "saveCompatible": true,
       "mapVersion": 2,
-      "legacyPositionMigration": "960 to 400 spacing, preserves story index and unlocked progress"
+      "legacyPositionMigration": "960 to 400 spacing, preserves story index and unlocked progress",
+      "seamBlend": {
+        "module": "explore-seams.js",
+        "worldWidth": 48,
+        "preservesNativeRatio": true,
+        "renderedBeforeActors": true,
+        "cache": "visible joins only; camera reuse; resize rebuild",
+        "newAssets": 0
+      }
     },
     "responsiveLayout": {
       "portrait": "vertical stage and controls",

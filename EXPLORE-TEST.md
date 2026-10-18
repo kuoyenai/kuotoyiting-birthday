@@ -366,3 +366,7 @@ starbook notes表對應hope/gentleness/joy/courage/companion五個既有活動�
 ## 20261018-14 接續
 
 章節選單切換首度保存revisitOrigin={index,x,reading}至原key.revisit，原點只設一次，多章切換保持；resume選項還原並清除。mapVersion2才恢復合法原點，x限80..原waypoint/worldRight，書籤核對route；unlocked不倒退。新格推進到原index清除過期原點，重啟亦清除。介紹頁只讀顯示接續重溫與原格數，不新增按鈕或頁面。390／1280多次切章／重載／介紹往返／座標與書籤／手動靜音／95完成返回／壞資料通過；intro、migration、四直橫版、737路徑及版本通過。無新素材；95格沿用App10全程結果，角色與音樂保持。
+
+## 20261018-15 接續
+
+explore-seams.js在drawContinuousWorld後／details與角色前，融合48世界單位交界，取代原暗邊；來源原比例、鏡像延伸。只快取可見窄畫布，camera不重建、resize重建、缺來源略過、不可見釋放。seams兩尺寸像素中央混色／外側不變／快取／狀態／進度通過；11背景比例與四直橫版、738路徑／版本通過。無新圖，95格沿用App10，角色／音樂／存檔未改。
