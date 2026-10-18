@@ -1,6 +1,6 @@
 {
   "updated": "2026-10-18",
-  "appVersion": "20261018-42",
+  "appVersion": "20261018-43",
   "baseline": "efab385",
   "cards": 100,
   "novel": {
@@ -380,7 +380,7 @@
             "garden",
             "greenhouse"
           ],
-          "from": 23,
+          "from": 25,
           "until": 29
         },
         {
@@ -389,7 +389,7 @@
             "greenhouse",
             "plaza"
           ],
-          "from": 29,
+          "from": 33,
           "until": 35
         },
         {
@@ -398,7 +398,7 @@
             "plaza",
             "observatory"
           ],
-          "from": 35,
+          "from": 40,
           "until": 42
         },
         {
@@ -407,7 +407,7 @@
             "observatory",
             "eunho"
           ],
-          "from": 42,
+          "from": 46,
           "until": 49
         },
         {
@@ -581,7 +581,7 @@
       "keepsWishPrivate": true
     },
     "stationaryReplay": {
-      "segments": 6,
+      "segments": 10,
       "singlePhysicalEntry": true,
       "keepsMainProgress": true,
       "sequence": "original panel order; close at segment end or latest read panel",
@@ -645,15 +645,15 @@
     "cancelOnModalBlurResize": true,
     "persisted": false,
     "fullRouteVerification": {
-      "date": "2026-10-18",
-      "version": "20261018-42",
+      "date": "2026-10-19",
+      "version": "20261018-43",
       "storyPanels": 95,
-      "automatedTransfers": 67,
-      "fixedTransitions": 27,
+      "automatedTransfers": 51,
+      "fixedTransitions": 43,
       "viewport": "390x844",
       "browser": "Chrome headless with virtual clock",
       "physicalIPhone": false,
-      "result": "passed95, fixed welcome-party world coordinates;27 fixed/67 movement transitions,7 encounters,original art and ending"
+      "result": "passed95;43 fixed/51 movement transitions,7 encounters,original art and ending; complete each member conversation before following"
     }
   },
   "exploreFinale": {

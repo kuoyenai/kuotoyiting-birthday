@@ -33,7 +33,7 @@ function prepare(){
  const companion=motion?.matches?null:following(Number(canvas.dataset.index));if(companion)wanted=[...new Set([companion.member,current,...wanted].filter(Boolean))].slice(0,2);
  for(const member of records.keys())if(!wanted.includes(member))discard(member);
  for(const member of wanted)load(member,entered&&member===current);
- if(companion)loadWalk(companion.member,entered);else clearWalk();
+ if(companion)loadWalk(companion.member,entered);else if(walk)clearWalk(!(motion?.matches));else if(retiring&&(entered||motion?.matches))clearRetiring();
 }
 new MutationObserver(prepare).observe(canvas,{attributes:true,attributeFilter:['data-scene','data-index']});motion?.addEventListener('change',prepare);prepare();
 window.YitingActors={
