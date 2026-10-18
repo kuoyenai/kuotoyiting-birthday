@@ -1,5 +1,7 @@
 # YiTing 生日網站｜換電腦接續製作
 
+目前使用者指定穩定版：`yiting-stable-20261018-v34`，App `20261018-34`，程式提交 `52bbadf`。還原請使用此標籤；後續更新另行提交，保留所有既有穩定標籤。
+
 GitHub 帳號現為 `kuoyenai`；後續以 `kuoyenai/kuotoyiting-birthday` 為準。本機 origin 與每小時排程已同步新帳號。
 
 最新版以本儲存庫 `main` 分支為準。網站：https://kuotoyiting-birthday.vercel.app/ （另保留GitHub Pages）

@@ -633,5 +633,13 @@
     "url": "https://github.com/kuoyenai/kuotoyiting-birthday",
     "pages": "https://kuoyenai.github.io/kuotoyiting-birthday/",
     "production": "https://kuotoyiting-birthday.vercel.app/"
+  },
+  "stableRelease": {
+    "tag": "yiting-stable-20261018-v34",
+    "commit": "52bbadf396f40ac6814091a0f931fce74c24f179",
+    "appVersion": "20261018-34",
+    "confirmedByUser": "2026-10-18",
+    "previousTag": "yiting-stable-20261016-v9",
+    "immutable": true
   }
 }
