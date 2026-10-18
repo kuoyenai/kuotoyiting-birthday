@@ -1,7 +1,7 @@
 {
   "updated": "2026-10-18",
-  "appVersion": "20261018-37",
-  "baseline": "bb0d215",
+  "appVersion": "20261018-38",
+  "baseline": "f34aab0",
   "cards": 100,
   "novel": {
     "chapters": [
@@ -122,6 +122,7 @@
         "newAssets": 0
       },
       "fixedTableaux": [
+        "chapter1 signal 4..7",
         "fifth-chapter terrace 54..56",
         "chapter6 stage 57..65",
         "chapter7 cake 66..75",
@@ -568,7 +569,7 @@
       "keepsWishPrivate": true
     },
     "stationaryReplay": {
-      "segments": 4,
+      "segments": 5,
       "singlePhysicalEntry": true,
       "keepsMainProgress": true,
       "sequence": "original panel order; close at segment end or latest read panel",
@@ -616,14 +617,14 @@
     "persisted": false,
     "fullRouteVerification": {
       "date": "2026-10-18",
-      "version": "20261018-35",
+      "version": "20261018-38",
       "storyPanels": 95,
-      "automatedTransfers": 71,
-      "fixedTransitions": 23,
+      "automatedTransfers": 68,
+      "fixedTransitions": 26,
       "viewport": "390x844",
       "browser": "Chrome headless with virtual clock",
       "physicalIPhone": false,
-      "result": "See tests/release-20261018-35-reader.json; original art/order, seven encounters and ending"
+      "result": "passed final95,26 fixed and68 movement transitions,7 encounters, original art/order and ending"
     }
   },
   "exploreFinale": {
@@ -679,5 +680,15 @@
     "reducedMotion": "off",
     "newAssets": 0,
     "newNetworkRequests": 0
+  },
+  "tabletNavigation": {
+    "media": "min-width761px and any-pointer:coarse",
+    "destinations": 4,
+    "minTargetPx": 52,
+    "labelPx": 13,
+    "iconsPx": 22,
+    "viewports": 8,
+    "originalDesktopPreserved": true,
+    "physicalIPad": false
   }
 }

@@ -17,7 +17,7 @@ let reviewIndex=null,autoDestination=null;
 // Old saves use 960-unit intervals; migrate their position once without changing story progress.
 const mapVersion=2,oldStageLength=960,oldStarPosition=720,stageLength=400,starPosition=280;
 const starAt=n=>starPosition+n*stageLength;
-const stationarySegments=[{first:route.findIndex(s=>s.chapter===6),last:route.findLastIndex(s=>s.chapter===6)},{first:route.findIndex(s=>s.chapter===7),last:route.findLastIndex(s=>s.chapter===7)},{first:route.findIndex(s=>s.asset==='novel-terrace-before-stage-wide'),last:route.findIndex(s=>s.asset==='novel-yiting-terrace-reaction')},{first:route.findIndex(s=>s.asset==='novel-city-return-wide'),last:route.findIndex(s=>s.asset==='novel-final-message')}].filter(s=>s.first>=0&&s.last>=s.first);
+const stationarySegments=[{first:route.findIndex(s=>s.chapter===1),last:route.findLastIndex(s=>s.chapter===1)},{first:route.findIndex(s=>s.chapter===6),last:route.findLastIndex(s=>s.chapter===6)},{first:route.findIndex(s=>s.chapter===7),last:route.findLastIndex(s=>s.chapter===7)},{first:route.findIndex(s=>s.asset==='novel-terrace-before-stage-wide'),last:route.findIndex(s=>s.asset==='novel-yiting-terrace-reaction')},{first:route.findIndex(s=>s.asset==='novel-city-return-wide'),last:route.findIndex(s=>s.asset==='novel-final-message')}].filter(s=>s.first>=0&&s.last>=s.first);
 const isFixedStory=n=>stationarySegments.some(s=>n>=s.first&&n<=s.last);
 const stationaryStart=n=>stationarySegments.find(s=>n>=s.first&&n<=s.last)?.first??n;
 const storyWaypoint=n=>starAt(stationaryStart(n));
