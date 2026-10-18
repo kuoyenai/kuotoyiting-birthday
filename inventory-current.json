@@ -1,7 +1,7 @@
 {
   "updated": "2026-10-18",
-  "appVersion": "20261018-26",
-  "baseline": "b7906d8",
+  "appVersion": "20261018-27",
+  "baseline": "1d3bfb2",
   "cards": 100,
   "novel": {
     "chapters": [
@@ -134,7 +134,10 @@
       "rotationStopsMovement": true,
       "safeAreaInsets": true
     },
-    "dialogBackBehavior": "Back closes open story or optional dialog; manual close removes temporary history; no story progress change",
+    "dialogBackBehavior": {
+      "behavior": "Back closes open story or optional dialog; manual close removes temporary history; no story progress change",
+      "stackedDialogs": true
+    },
     "storyArtLoading": {
       "nearbyPreloads": 3,
       "releaseOutsideRange": true,
@@ -496,6 +499,16 @@
       "keepsFunctionalWalking": true,
       "test": "tests/explore-live-motion.cjs",
       "newAssets": 0
+    },
+    "storyArtViewer": {
+      "fullComposition": true,
+      "zoom": 2,
+      "pan": true,
+      "download": "current illustration only",
+      "nestedBack": true,
+      "readingBookmarkRetained": true,
+      "releaseOnClose": true,
+      "newAssets": 0
     }
   },
   "exploreDialogueNavigation": {
@@ -523,13 +536,13 @@
     "persisted": false,
     "fullRouteVerification": {
       "date": "2026-10-18",
-      "version": "20261018-26",
+      "version": "20261018-27",
       "storyPanels": 95,
       "automatedTransfers": 94,
       "viewport": "390x844",
       "browser": "Chrome headless with virtual clock",
       "physicalIPhone": false,
-      "result": "passed: 95 panels, 94 auto transfers, 7 encounters including farewell, city return and ending"
+      "result": "passed95, 94 transfers, 7 encounters, native dialog history and ending"
     }
   },
   "exploreFinale": {
@@ -553,5 +566,12 @@
     "pointerEvents": "none",
     "announcement": "only on member changes",
     "newAssets": 0
+  },
+  "repository": {
+    "owner": "kuoyenai",
+    "name": "kuotoyiting-birthday",
+    "url": "https://github.com/kuoyenai/kuotoyiting-birthday",
+    "pages": "https://kuoyenai.github.io/kuotoyiting-birthday/",
+    "production": "https://kuotoyiting-birthday.vercel.app/"
   }
 }

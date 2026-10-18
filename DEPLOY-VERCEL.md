@@ -14,7 +14,7 @@
 ## 在 Vercel 新增專案
 
 1. 用原本 J-Pera 使用的 Vercel 帳號進入 New Project。
-2. 匯入 snooy791123/kuotoyiting-birthday。新增生日專案，勿取代 J-Pera。
+2. 匯入 kuoyenai/kuotoyiting-birthday。新增生日專案，勿取代 J-Pera。
 3. Framework Preset 選 Other；Root Directory 保留儲存庫根目錄；不執行編譯；若需要指定 Output Directory，使用 .。
 4. 不需要新增 API key、環境變數、資料庫或登入功能。
 5. 部署後用正式 production 網址測試公開存取、兩個 icon-check 頁、正式首頁加入預覽、實際主畫面圖示與獨立視窗開啟。

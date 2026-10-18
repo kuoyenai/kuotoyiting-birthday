@@ -1,0 +1,9 @@
+.story-art-zoom{position:absolute;right:10px;bottom:10px;min-height:44px;padding:7px 12px;font:12px/1.4 system-ui,sans-serif;color:#f1e4ce;background:#0b1020dd;border-color:#cbb28977;z-index:1}.story-art-zoom:disabled{display:none}
+#storyArtViewer{width:min(1400px,calc(100vw - 24px));max-height:calc(100dvh - 24px);padding:12px;touch-action:auto}
+.art-viewer-toolbar{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:12px}.art-viewer-toolbar button{min-height:44px;font-size:12px;padding:8px 12px}
+.art-viewer-scroll{max-height:70dvh;overflow:auto;background:#080d19;touch-action:pan-x pan-y pinch-zoom;overscroll-behavior:contain}
+#storyArtViewer #fullStoryArt{display:block;width:auto;height:auto;max-height:70dvh;max-width:100%;object-fit:contain;margin:auto}
+#storyArtViewer[data-zoomed=true] #fullStoryArt{max-width:none;max-height:none;margin:0}
+#fullStoryArtStatus{font:12px/1.7 system-ui,sans-serif;color:#c9bba8;margin:10px 0 0}#fullStoryArtStatus:empty{display:none}
+
+.art-viewer-download{display:flex;align-items:center;min-height:44px;padding:10px 2px 0;color:#dec59d;font:12px/1.6 system-ui,sans-serif;text-decoration:none}.art-viewer-download[hidden]{display:none}

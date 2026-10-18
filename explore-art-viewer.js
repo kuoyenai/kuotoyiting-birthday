@@ -1,0 +1,14 @@
+(()=>{'use strict';
+const story=document.getElementById('story'),source=document.getElementById('storyArt'),frame=source?.parentElement;if(!story||!source||!frame)return;
+const open=document.createElement('button');open.id='openStoryArt';open.type='button';open.className='story-art-zoom';open.textContent='放大 ↗';open.setAttribute('aria-label','放大這一格插畫');open.disabled=true;frame.append(open);
+const viewer=document.createElement('dialog');viewer.id='storyArtViewer';viewer.setAttribute('aria-label','完整插畫檢視');viewer.innerHTML='<div class="art-viewer-toolbar"><button type="button" id="closeStoryArt">← 返回故事</button><button type="button" id="zoomStoryArt" aria-pressed="false">放大 2×</button></div><div class="art-viewer-scroll"><img id="fullStoryArt" alt=""></div><p id="fullStoryArtStatus" role="status"></p><a id="downloadStoryArt" class="art-viewer-download" download hidden>保存這張插畫 ↓</a>';document.body.append(viewer);
+const image=viewer.querySelector('img'),area=viewer.querySelector('.art-viewer-scroll'),zoom=viewer.querySelector('#zoomStoryArt'),status=viewer.querySelector('#fullStoryArtStatus'),download=viewer.querySelector('#downloadStoryArt');let token=0;
+function sync(){open.disabled=source.classList.contains('is-loading')||!source.complete||!source.naturalWidth;}
+source.addEventListener('load',sync);source.addEventListener('error',sync);new MutationObserver(sync).observe(source,{attributes:true,attributeFilter:['src','class']});sync();
+function fit(){image.style.width='';viewer.dataset.zoomed='false';zoom.setAttribute('aria-pressed','false');zoom.textContent='放大 2×';area.scrollLeft=area.scrollTop=0;}
+open.onclick=()=>{if(open.disabled||!story.open)return;const current=++token;fit();image.alt=source.alt;status.textContent='正在打開完整插畫…';image.onload=()=>{if(current===token){status.textContent='';download.hidden=false;}};image.onerror=()=>{if(current===token){status.textContent='插畫暫時無法載入，請返回故事後再試。';download.hidden=true;}};const address=source.currentSrc||source.src;download.hidden=true;download.href=address;download.download='YITING-'+new URL(address,location.href).pathname.split('/').at(-1);image.src=address;viewer.showModal();};
+viewer.querySelector('#closeStoryArt').onclick=()=>viewer.close();
+zoom.onclick=()=>{if(viewer.dataset.zoomed==='true'){fit();return;}const fitWidth=image.clientWidth;viewer.dataset.zoomed='true';image.style.width=(fitWidth*2)+'px';zoom.setAttribute('aria-pressed','true');zoom.textContent='完整構圖';area.scrollLeft=(area.scrollWidth-area.clientWidth)/2;area.scrollTop=Math.max(0,(area.scrollHeight-area.clientHeight)/2);};
+viewer.addEventListener('close',()=>{token++;image.onload=image.onerror=null;image.removeAttribute('src');download.hidden=true;download.removeAttribute('href');image.alt='';status.textContent='';fit();if(story.open)open.focus({preventScroll:true});});
+story.addEventListener('close',()=>{if(viewer.open)viewer.close();});
+})();

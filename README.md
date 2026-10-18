@@ -1,8 +1,8 @@
 # YITING · 10.20 · ONLY FOR YOU｜生日限定專輯
 
-[開啟網站](https://kuotoyiting-birthday.vercel.app/) · [GitHub Pages](https://snooy791123.github.io/kuotoyiting-birthday/)
+[開啟網站](https://kuotoyiting-birthday.vercel.app/) · [GitHub Pages](https://kuoyenai.github.io/kuotoyiting-birthday/)
 
-更新日期：2026-10-18；目前 App 版本：`20261018-26`。目前指定穩定版：`yiting-stable-20261016-v9`，對應 App `20261016-9`、網站程式提交 `108c7c1`。保留先前標籤 `yiting-stable-20261016-v8`（`4d1232a`）與 `yiting-stable-20261016`（`e5bb82b`），不移動任何既有穩定標籤。
+更新日期：2026-10-18；目前 App 版本：`20261018-27`。目前指定穩定版：`yiting-stable-20261016-v9`，對應 App `20261016-9`、網站程式提交 `108c7c1`。保留先前標籤 `yiting-stable-20261016-v8`（`4d1232a`）與 `yiting-stable-20261016`（`e5bb82b`），不移動任何既有穩定標籤。
 
 ## 穩定版紀錄
 
@@ -34,6 +34,14 @@
 使用者說「暫停」後停止製作並暫停此排程。這是需要本機專案的排程，電腦需開機且桌面App保持執行；參見[OpenAI排程說明](https://learn.chatgpt.com/docs/automations?surface=app)。不修改sources參考與既有穩定標籤。
 
 ## 最新檢查與修正
+
+### 20261018-27｜原畫放大檢視與新GitHub帳號
+
+- GitHub帳號更新為 **kuoyenai**，本機origin、儲存庫／歷史提交連結、GitHub Pages與每小時排程來源已同步。新儲存庫：[kuoyenai/kuotoyiting-birthday](https://github.com/kuoyenai/kuotoyiting-birthday)。Vercel正式網址保持不變。
+- 故事插畫新增「放大」，先看完整構圖，再放大兩倍、平移查看人物細節；保存插畫集中在檢視視窗，對應當前圖片。圖片關閉後回到原句與原書籤，不推進劇情。
+- 返回會先關圖片、再關故事；反覆開關不累積返回紀錄，也不會用前進重開舊圖片。圖片與保存來源關閉後釋放，無新增圖檔。
+- 四種手機直橫／桌機尺寸的構圖、真實2×、平移、44px按鍵、保存連結與兩層返回通過；原八種互動視窗、續讀／短視窗／結尾／旋轉回歸通過。最新完整95格、七處相遇、原圖與結尾已重跑通過，764路徑與版本審核通過。iPhone Safari實機待確認。
+
 
 ### 20261018-26｜銀虎陪妳走完告別前的一段路
 
@@ -653,7 +661,7 @@ iPhone／Safari 主畫面圖示、鎖屏播放、系統下載及原生返回手�
 
 ### 2026-10-16 — 持續優化追蹤啟用
 
-- **現有遊戲改動**：`explore-story.js` 已加入連續世界座標、人物與鏡頭持續前進、下一場景預載，以及原版逐格走路圖；`explore.html` 已更新載入版本。參考提交：[`6797c37`](https://github.com/snooy791123/kuotoyiting-birthday/commit/6797c37ddef7490a1c1aa25a34796b587d02c923)、[`8a3c87a`](https://github.com/snooy791123/kuotoyiting-birthday/commit/8a3c87a6633fe45f7013a12ecbc7e1de2c19bb17)。
+- **現有遊戲改動**：`explore-story.js` 已加入連續世界座標、人物與鏡頭持續前進、下一場景預載，以及原版逐格走路圖；`explore.html` 已更新載入版本。參考提交：[`6797c37`](https://github.com/kuoyenai/kuotoyiting-birthday/commit/6797c37ddef7490a1c1aa25a34796b587d02c923)、[`8a3c87a`](https://github.com/kuoyenai/kuotoyiting-birthday/commit/8a3c87a6633fe45f7013a12ecbc7e1de2c19bb17)。
 - **本次更新**：建立 README 開發紀錄與定期檢查規範；此筆不代表遊戲畫面或素材已新增。
 - **待驗證**：iPhone Safari 實機、長時間移動、背景接縫、整部漫畫的路線與結局、不同畫面比例及效能。
 - **待補素材**：依各段故事逐一盤點專屬背景、過渡插畫與互動視覺；未確認存在或未上傳的圖檔不可標記為完成。優先以既有授權素材及程式化光影補足，避免擅自更改角色外觀。
@@ -663,13 +671,13 @@ iPhone／Safari 主畫面圖示、鎖屏播放、系統下載及原生返回手�
 
 - **問題**：`explore.html` 的 `<audio>` 帶有 `loop` 且固定第一首，造成 2D 遊戲重複單曲。
 - **修正**：`explore.html` 移除 `loop` 並載入 `soundtrack.js`；`explore-story.js` 依共用曲目清單在歌曲 `ended` 後切換下一首，依序 1 → 2 → 3 → 4 → 1，並同步曲目索引及使用者暫停偏好。
-- **相關提交**：[`f1a4f58`](https://github.com/snooy791123/kuotoyiting-birthday/commit/f1a4f584e8d9985822bb965f157fd94365a2e356)、[`998672e`](https://github.com/snooy791123/kuotoyiting-birthday/commit/998672eb1ca3a820286dbacec7821bd94be3981a)。
+- **相關提交**：[`f1a4f58`](https://github.com/kuoyenai/kuotoyiting-birthday/commit/f1a4f584e8d9985822bb965f157fd94365a2e356)、[`998672e`](https://github.com/kuoyenai/kuotoyiting-birthday/commit/998672eb1ca3a820286dbacec7821bd94be3981a)。
 - **驗證狀態**：已確認程式邏輯與 HTML 引用，尚未實測四首歌曲在 iPhone Safari 的完整連播。穩定版分支未修改。
 
 ### 2026-10-16 — 持續優化：連續地圖預載與接縫防錯
 
 - **修改**：`explore-story.js` 會提前載入目前星光前後的地圖素材；場景圖片尚未準備好時，改用中性漸層底圖，避免誤顯其他場景背景。`explore.html` 更新腳本版本，降低瀏覽器沿用舊快取的機會。
-- **提交**：[`4e29215`](https://github.com/snooy791123/kuotoyiting-birthday/commit/4e29215046c8f308c9184be4b4ef6f9752ca103a)、[`02aad22`](https://github.com/snooy791123/kuotoyiting-birthday/commit/02aad2270667c987225142a49fbb1129ade28a94)。
+- **提交**：[`4e29215`](https://github.com/kuoyenai/kuotoyiting-birthday/commit/4e29215046c8f308c9184be4b4ef6f9752ca103a)、[`02aad22`](https://github.com/kuoyenai/kuotoyiting-birthday/commit/02aad2270667c987225142a49fbb1129ade28a94)。
 - **驗證**：完成靜態程式碼檢查；尚未在 iPhone Safari 實機確認完整小說路線、圖片接縫或長時間遊玩。
 - **待辦**：不同場景的美術接縫、完整故事終點、角色動畫節奏、尚未提供的專屬場景素材。
 
@@ -678,41 +686,41 @@ iPhone／Safari 主畫面圖示、鎖屏播放、系統下載及原生返回手�
 - **調整**：`gift.html` 移除頁首獨立 2D 遊戲入口，將完整 `explore.html` 以可操作的嵌入遊戲畫面放在 `04 小說` 後的新 `05 2D 遊戲` 分頁；原 `05 許願` 改為 `06 許願`，既有願望儲存功能不變。
 - **體驗**：首次切換至 05 才載入遊戲；保留全畫面開啟連結。切離 05 時傳送暫停音樂訊息，避免遊戲歌曲與禮物頁歌曲重疊。
 - **變更檔案**：`gift.html`、`gift.js`、`explore-story.js`。
-- **相關提交**：[`021d0af`](https://github.com/snooy791123/kuotoyiting-birthday/commit/021d0afe251fc31c6e31be3fa25670649326d075)、[`bc2148a`](https://github.com/snooy791123/kuotoyiting-birthday/commit/bc2148a693059a792c9a2c7a8f3978991e6568e9)、[`59f4c25`](https://github.com/snooy791123/kuotoyiting-birthday/commit/59f4c25281fcada85ef4528565240448f9cb3acd)、[`67da3c4`](https://github.com/snooy791123/kuotoyiting-birthday/commit/67da3c443210517f698d4a2420cbdac42d407671)。
+- **相關提交**：[`021d0af`](https://github.com/kuoyenai/kuotoyiting-birthday/commit/021d0afe251fc31c6e31be3fa25670649326d075)、[`bc2148a`](https://github.com/kuoyenai/kuotoyiting-birthday/commit/bc2148a693059a792c9a2c7a8f3978991e6568e9)、[`59f4c25`](https://github.com/kuoyenai/kuotoyiting-birthday/commit/59f4c25281fcada85ef4528565240448f9cb3acd)、[`67da3c4`](https://github.com/kuoyenai/kuotoyiting-birthday/commit/67da3c443210517f698d4a2420cbdac42d407671)。
 - **待驗證**：iPhone Safari 中嵌入畫面的操作手感、長頁捲動、背景音樂切換。穩定版分支未修改。
 
 ### 2026-10-16 — 05 遊戲入口改為點擊後才開始
 
 - **依手機畫面回饋調整**：`gift.html` 的 `05 2D 遊戲` 分頁不再內嵌 `explore.html` 的遊戲畫面；移除 iframe，保留介紹圖文與獨立入口，按下「開啟旅程 →」才會進入遊戲頁。`gift.js` 移除不再需要的 iframe 載入與分頁切換程式。
-- **提交**：[`3108f21`](https://github.com/snooy791123/kuotoyiting-birthday/commit/3108f21e75795eaacac30d83c652cbdefb8d3a85)、[`1e5d983`](https://github.com/snooy791123/kuotoyiting-birthday/commit/1e5d98378fb25ce684f57962e16a6dcadcb3552d)、[`14f91e9`](https://github.com/snooy791123/kuotoyiting-birthday/commit/14f91e9e013eb2630033d80439cad51564a089be)。
+- **提交**：[`3108f21`](https://github.com/kuoyenai/kuotoyiting-birthday/commit/3108f21e75795eaacac30d83c652cbdefb8d3a85)、[`1e5d983`](https://github.com/kuoyenai/kuotoyiting-birthday/commit/1e5d98378fb25ce684f57962e16a6dcadcb3552d)、[`14f91e9`](https://github.com/kuoyenai/kuotoyiting-birthday/commit/14f91e9e013eb2630033d80439cad51564a089be)。
 - **驗證**：已檢查程式變更，尚待 iPhone Safari 實機確認頁面布局與跳轉。穩定版分支未修改。
 
 ### 2026-10-16 — 支援回頭重看星光劇情、鎖定遊戲畫面
 
 - **玩法**：`explore-story.js` 開放人物向左移動，走回已收集的星光時可重新開啟對應小說漫畫劇情，重看不增加解鎖進度；往右仍可繼續推進。保留原版逐格人物圖。
 - **手機操作**：`explore-test.css` 將遊戲頁限制在可視視窗內，禁止遊戲區域的瀏覽器滑動、長按選取、呼叫複製選單及橡皮筋回彈；劇情對話框仍可捲動閱讀。`explore.html` 更新控制提示及腳本快取版本。
-- **提交**：[`9bd01dd`](https://github.com/snooy791123/kuotoyiting-birthday/commit/9bd01ddd8ce6ddfdb9060b1fb2af8dcc5bf8badc)、[`08df805`](https://github.com/snooy791123/kuotoyiting-birthday/commit/08df805c978ea47e824b462e917661fdc529f491)、[`66819a0`](https://github.com/snooy791123/kuotoyiting-birthday/commit/66819a03165d50178f9edd3470374a0721612351)。
+- **提交**：[`9bd01dd`](https://github.com/kuoyenai/kuotoyiting-birthday/commit/9bd01ddd8ce6ddfdb9060b1fb2af8dcc5bf8badc)、[`08df805`](https://github.com/kuoyenai/kuotoyiting-birthday/commit/08df805c978ea47e824b462e917661fdc529f491)、[`66819a0`](https://github.com/kuoyenai/kuotoyiting-birthday/commit/66819a03165d50178f9edd3470374a0721612351)。
 - **待驗證**：iPhone Safari 的動態工具列、安全區域、遊戲視窗高度與左右長按手勢；尚未進行實機驗證。穩定版未修改。
 
 ### 2026-10-16 — 修正 iPhone 2D 遊戲頁面仍可上下滑動
 
 - **問題**：先前雖使用 `overflow:hidden` 與 `100dvh`，iPhone Safari 仍可能拖動整個網頁，遊戲框隨之位移。
 - **修正**：`explore-test.css` 將 `html` 固定於可視視窗，`body` 絕對定位並禁止觸控捲動；取消遊戲場景最小高度避免小螢幕撐出可捲動頁面；僅允許已開啟的劇情對話框捲動。`explore.html` 更新 CSS 版本避免快取。
-- **提交**：[`b2e00f2`](https://github.com/snooy791123/kuotoyiting-birthday/commit/b2e00f29a4e649157948db24492c72833cfe3e0f)、[`90c4489`](https://github.com/snooy791123/kuotoyiting-birthday/commit/90c4489baec3ece546a2030a0bb6ef5e1c161c5e)。
+- **提交**：[`b2e00f2`](https://github.com/kuoyenai/kuotoyiting-birthday/commit/b2e00f29a4e649157948db24492c72833cfe3e0f)、[`90c4489`](https://github.com/kuoyenai/kuotoyiting-birthday/commit/90c4489baec3ece546a2030a0bb6ef5e1c161c5e)。
 - **驗證**：已靜態確認 CSS 約束，尚待 iPhone Safari 實機確認不同瀏覽器工具列高度、動態島與橫直向。穩定版分支未修改。
 
 ### 2026-10-16 — 小說結局與回顧星光顯示修正
 
 - **問題**：完成最後一段故事後 `current()` 變成空值，場景顯示仍讀取其屬性，可能造成結局畫面繪製失敗；回頭看已解鎖星光時，星光座標相對於錯誤的參考點。
 - **修正**：`explore-story.js` 在旅程結束時沿用最後場景做安全顯示、刷新結局進度與連結，並讓回顧星光依相機座標正確顯示；`explore.html` 更新腳本快取版本。
-- **提交**：[`d763213`](https://github.com/snooy791123/kuotoyiting-birthday/commit/d763213c377d79ed3098dfb38ced7281a6ad3aca)、[`163185f`](https://github.com/snooy791123/kuotoyiting-birthday/commit/163185fb36659eaaae19010f72c1e1c8c34da4f8)。
+- **提交**：[`d763213`](https://github.com/kuoyenai/kuotoyiting-birthday/commit/d763213c377d79ed3098dfb38ced7281a6ad3aca)、[`163185f`](https://github.com/kuoyenai/kuotoyiting-birthday/commit/163185fb36659eaaae19010f72c1e1c8c34da4f8)。
 - **驗證**：已核對程式碼路徑；尚未實際完整遊玩至終章或 iPhone 實機測試。未新增美術圖檔，待逐段盤點素材缺口。穩定版未修改。
 
 ### 2026-10-16 21:53（台灣時間）— 2D 星光旅程終章安全性修正
 
 - **問題**：故事全部完成後 `refresh()` 仍使用 `window.yitingExploreScene(s)`，但此時 `s` 不存在，可能造成介面錯誤；回顧舊故事的最後一頁按鈕文字不夠明確。
 - **修正**：`explore-story.js` 的終章畫面改以最後一個有效場景顯示標籤與場景 ID；重溫劇情的結束按鈕顯示「結束重溫 →」。`explore.html` 更新 JS 快取版本。
-- **修改提交**：[`b76cdbe`](https://github.com/snooy791123/kuotoyiting-birthday/commit/b76cdbef35ce398e0aa6b793acc35b11e39a3c2e)、[`86b3d82`](https://github.com/snooy791123/kuotoyiting-birthday/commit/86b3d82346a10298c0309085110a291887d62ed3)。
+- **修改提交**：[`b76cdbe`](https://github.com/kuoyenai/kuotoyiting-birthday/commit/b76cdbef35ce398e0aa6b793acc35b11e39a3c2e)、[`86b3d82`](https://github.com/kuoyenai/kuotoyiting-birthday/commit/86b3d82346a10298c0309085110a291887d62ed3)。
 - **驗證**：完成靜態程式碼核對；尚未使用實機或瀏覽器完整通關測試。
 - **素材與後續**：本輪未新增圖片。仍需盤點整部小說漫畫各段場景專屬美術、實測場景接縫與手機效能；無法自動生成或上傳的素材將持續記錄，不宣稱已補齊。
 
@@ -720,7 +728,7 @@ iPhone／Safari 主畫面圖示、鎖屏播放、系統下載及原生返回手�
 
 - **問題**：原本遊戲通關後 `current()` 為空，移動速度計算及地圖點擊均禁止移動，導致玩家無法走回先前星光重看小說。
 - **修正**：`explore-story.js` 移除通關後的移動封鎖，仍保留下一段劇情的解鎖限制；星光互動於素材尚未載入時維持停用。`explore.html` 更新腳本快取版本。
-- **提交**：[`3de2c46`](https://github.com/snooy791123/kuotoyiting-birthday/commit/3de2c46fb227ac7dbc960671749f1b88ec234379)、[`4028f0a`](https://github.com/snooy791123/kuotoyiting-birthday/commit/4028f0a31ff102e94af1b315152af9c42ab86323)。
+- **提交**：[`3de2c46`](https://github.com/kuoyenai/kuotoyiting-birthday/commit/3de2c46fb227ac7dbc960671749f1b88ec234379)、[`4028f0a`](https://github.com/kuoyenai/kuotoyiting-birthday/commit/4028f0a31ff102e94af1b315152af9c42ab86323)。
 - **驗證**：靜態程式碼檢查，尚未實際通關及 iPhone Safari 測試。
 - **待補素材**：各章專屬場景背景及場景接縫過渡美術仍待盤點，本輪未生成新圖片；不更動穩定版。
 
@@ -728,7 +736,7 @@ iPhone／Safari 主畫面圖示、鎖屏播放、系統下載及原生返回手�
 
 - **問題**：通關後左右手機控制鍵仍以 `current()` 是否存在限制按住移動；場景預載只以主線進度為中心，往回走時舊場景可能出現空白或深色佔位。
 - **修正**：`explore-story.js` 讓手機方向鍵在通關後仍可操作，並依相機所在的地圖區段預先載入周圍場景；`explore.html` 更新 JS 快取版本。保持主線解鎖進度、原版角色與四首歌曲設定不變。
-- **提交**：[`73c8d74`](https://github.com/snooy791123/kuotoyiting-birthday/commit/73c8d74fc71f4b0f49c63a7b93de8d76af555bc9)、[`bec17ab`](https://github.com/snooy791123/kuotoyiting-birthday/commit/bec17abe10889aacaef0df1966045fdf15a983f7)。
+- **提交**：[`73c8d74`](https://github.com/kuoyenai/kuotoyiting-birthday/commit/73c8d74fc71f4b0f49c63a7b93de8d76af555bc9)、[`bec17ab`](https://github.com/kuoyenai/kuotoyiting-birthday/commit/bec17abe10889aacaef0df1966045fdf15a983f7)。
 - **驗證**：已檢查原始碼邏輯；尚未於 iPhone Safari 實機回走全圖或通關測試。
 - **待補素材**：尚未生成新圖檔，仍需逐章盤點獨立背景與地圖接縫過渡素材。穩定分支不變。
 
@@ -736,7 +744,7 @@ iPhone／Safari 主畫面圖示、鎖屏播放、系統下載及原生返回手�
 
 - **問題**：`explore-story.js` 的 `changeBackground()` 原先在任何場景圖載入失敗時都停用移動並卡在載入畫面，可能讓完整小說漫畫旅程中斷。
 - **修正**：場景圖片讀取失敗時，只要原版角色逐格圖片可正常載入，仍開放探索及星光互動；`drawContinuousWorld()` 已具備深色漸層佔位畫面。角色圖片本身若失敗則明確顯示錯誤，避免隱藏真正阻礙。`explore.html` 同步更新腳本版本。
-- **提交**：[`532a100`](https://github.com/snooy791123/kuotoyiting-birthday/commit/532a100080019feefda928147a4dee8e13357b63)、[`d88dba7`](https://github.com/snooy791123/kuotoyiting-birthday/commit/d88dba7c79dc85590088843c77675c886409c368)。
+- **提交**：[`532a100`](https://github.com/kuoyenai/kuotoyiting-birthday/commit/532a100080019feefda928147a4dee8e13357b63)、[`d88dba7`](https://github.com/kuoyenai/kuotoyiting-birthday/commit/d88dba7c79dc85590088843c77675c886409c368)。
 - **驗證**：程式碼路徑靜態檢查；尚未模擬網路斷線、手機 Safari 或完整通關。
 - **待補素材**：未新增圖片；需逐章確認背景是否存在及補足專屬場景。此項是防卡關機制，不等於素材已補齊。穩定版不變。
 
@@ -744,7 +752,7 @@ iPhone／Safari 主畫面圖示、鎖屏播放、系統下載及原生返回手�
 
 - **問題**：遊戲中個別小說漫畫分鏡圖片載入失敗時，對話框只會顯示缺圖，降低完整閱讀體驗。
 - **修正**：`explore-story.js` 在分鏡圖載入失敗時，改用該故事所在章節的場景背景暫代；保留文字與重試功能，重新開啟不同分鏡時清除前一次備援狀態。`explore.html` 更新腳本快取版本。
-- **提交**：[`d01c9b7`](https://github.com/snooy791123/kuotoyiting-birthday/commit/d01c9b724afaf4d0457e46640eabb5ee8fa65cae)、[`d5db8e2`](https://github.com/snooy791123/kuotoyiting-birthday/commit/d5db8e2c0196f247d864bc165955af0aa10d31ba)。
+- **提交**：[`d01c9b7`](https://github.com/kuoyenai/kuotoyiting-birthday/commit/d01c9b724afaf4d0457e46640eabb5ee8fa65cae)、[`d5db8e2`](https://github.com/kuoyenai/kuotoyiting-birthday/commit/d5db8e2c0196f247d864bc165955af0aa10d31ba)。
 - **驗證**：靜態程式碼檢查；尚未在手機實機模擬分鏡圖片 404。
 - **待補素材**：本輪未新增原創圖檔；需持續盤點缺失的逐格漫畫插畫與章節專屬背景。備援畫面不代表素材已完成。穩定版未修改。
 
@@ -754,7 +762,7 @@ iPhone／Safari 主畫面圖示、鎖屏播放、系統下載及原生返回手�
 
 - **修改摘要**：依手機畫面回饋，在電影互動漫畫與小說漫畫並列的故事冊切換列新增「2D 遊戲」入口，連結至 `explore.html`；原有兩個故事冊及遊戲進度儲存方式保持不變。
 - **受影響檔案**：`invitation.js`（功能）、`README.md`（紀錄）。
-- **程式 Commit SHA**：[`5112ae4e1e952432f1d6ec955cc705b8be309dfe`](https://github.com/snooy791123/kuotoyiting-birthday/commit/5112ae4e1e952432f1d6ec955cc705b8be309dfe)；本段 README 紀錄另以獨立 Commit 提交。
+- **程式 Commit SHA**：[`5112ae4e1e952432f1d6ec955cc705b8be309dfe`](https://github.com/kuoyenai/kuotoyiting-birthday/commit/5112ae4e1e952432f1d6ec955cc705b8be309dfe)；本段 README 紀錄另以獨立 Commit 提交。
 - **驗證**：確認故事冊頁的 `invitation.js` 會產生第三個連結，且原版 `explore.html` 路徑存在；尚未於 iPhone Safari 實機確認切換列三個按鈕的版面及跳轉。
 - **未完成**：iPhone 版按鈕寬度／換行檢查、縮短遊戲行走距離、團員依劇情同行及專屬場景素材補齊。穩定分支不修改。
 

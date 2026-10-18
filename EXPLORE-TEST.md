@@ -432,3 +432,11 @@ loadWalk換成不同member時，若原follower已呈現，保留單一retiring={
 依原第八章novel-farewell-medium（index79）補EUNHO原全身相遇，讀完後80..<86以已審視v2側身步姿陪走，包含傾聽、贈星與走向傳送門原劇情；chapter9/index86回到Terra即結束。沿用EUNHO圖、完整頭腳與口袋遮手，未生成新圖／文字。actors members新增farewell:eunho，wish僅預載原站姿，未提早顯示；新anchor followUntil依chapter9查找，其他銀虎兩段維持。總計五位七處原畫相遇，原舞台五人圖保留。
 
 farewell-companion390／1280：相遇前不跟、相遇後正反向／idle、原index80不跳過紀念星星、正確同行提示、減少動態保留站姿、城市無銀虎／步圖釋放、缺任一pose固定與重溫重試通過。原EUNHO follow、四交接淡出／釋放、四直橫與旋轉、761路徑／App26通過。wish兩尺寸隱私、keepsake兩尺寸贈星／回城、finale三尺寸、電影／100卡／四曲所選下載與手動靜音通過。App26完整95格自動前往94段／七相遇／原畫解碼／結尾及無pageerror已重跑通過；tests/explore-continuous-story.cjs新增正確相遇期待，不更動小說原順序。已看390告別場景實圖。353素材385509156 bytes不變，sources唯讀、穩定標籤保留；iPhone實機待確認。繼續按實際小說需求深化，Bad Request保存並最多3次重試，排程不停用。
+
+## 20261018-27 接續｜插畫細節檢視與GitHub帳號更新
+
+GitHub使用者改為kuoyenai，origin已改https://github.com/kuoyenai/kuotoyiting-birthday.git並核對同一main；README／CONTINUE／DEPLOY-VERCEL連結更新，新Pages https://kuoyenai.github.io/kuotoyiting-birthday/ 已HTTP200。Vercel網址不改。透過automation_update更新原yiting-2d prompt為新owner，已回讀TOML確認新owner、ACTIVE與原每小時rrule不變，不建立重複排程。
+
+新explore-art-viewer.js/css在原故事圖右下加放大，圖片成功載入才可用；獨立native dialog完整構圖自動適應寬高，從實際適應寬精確2×並可平移／還原，保存連結只對應當前source。關閉解除圖片來源與下載href，不改原對白／書籤／劇情／音樂。原圖不裁切、不生成新素材。history改stack，圖片返回先關子視窗、再返回關故事；手動close會消耗虛擬history，前進略過過期overlay、不重開舊圖；失敗保留原生關閉。快速close/open與一般視窗原機制保留。
+
+art-viewer四尺寸320×568、390×844、844×390、1280×844通過完整ratio／初次無需捲動即可看構圖／實際2×／平移／44px／目前圖片下載href／子Back及Escape只關圖片／原句與書籤／parentBack／正常離頁；六次重開不累積，Forward不重開。dialog-history原八種視窗390／1280、反覆Escape／快速換窗／正常推進／history失效備援通過。dialogue-back三尺寸、story-scroll三短視窗、finale三尺寸／缺圖、四直橫／旋轉、764路徑／App27通過。完整95格、94次自動前往、七處相遇、全部原圖與結尾無pageerror已通過。新owner與影像viewer都在本輪範圍，鏡像同步；iPhone實機仍待確認。353素材385509156 bytes不變，穩定標籤／sources保持；排程與持續目標維持，Bad Request保存重試至使用者暫停。

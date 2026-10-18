@@ -1,0 +1,34 @@
+{
+  "appVersion": "20261018-27",
+  "repoOwner": "kuoyenai",
+  "artViewerWidths": [
+    320,
+    390,
+    844,
+    1280
+  ],
+  "completeFitAndActual2x": true,
+  "nestedBackAndEscape": true,
+  "currentArtDownloadOnly": true,
+  "bookmarkPreserved": true,
+  "repeatedChildHistoryBounded": true,
+  "staleForwardSkipped": true,
+  "originalDialogsBack": 8,
+  "completeRoute": {
+    "panels": 95,
+    "transfers": 94,
+    "memberEncounters": 7,
+    "originalArtDecoded": true,
+    "ending": true,
+    "pageErrors": 0
+  },
+  "invariantPaths": 764,
+  "physicalIPhone": false,
+  "newAssets": 0,
+  "automation": {
+    "id": "yiting-2d",
+    "ownerUpdated": true,
+    "status": "ACTIVE",
+    "schedulePreserved": true
+  }
+}
