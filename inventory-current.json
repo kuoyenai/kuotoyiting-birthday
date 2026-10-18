@@ -1,7 +1,7 @@
 {
   "updated": "2026-10-18",
-  "appVersion": "20261018-36",
-  "baseline": "2d2eed1",
+  "appVersion": "20261018-37",
+  "baseline": "bb0d215",
   "cards": 100,
   "novel": {
     "chapters": [
@@ -668,5 +668,16 @@
     "confirmedByUser": "2026-10-18",
     "previousTag": "yiting-stable-20261016-v9",
     "immutable": true
+  },
+  "cityWeather": {
+    "source": "explore-city-weather.js",
+    "rainLines": 24,
+    "physicalSceneBased": true,
+    "city": "subtle moving rain at edges",
+    "portal-city": "time-stopped rain",
+    "homecoming": "rain resumes",
+    "reducedMotion": "off",
+    "newAssets": 0,
+    "newNetworkRequests": 0
   }
 }
