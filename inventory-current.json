@@ -1,7 +1,7 @@
 {
   "updated": "2026-10-18",
-  "appVersion": "20261018-27",
-  "baseline": "1d3bfb2",
+  "appVersion": "20261018-28",
+  "baseline": "427cf80",
   "cards": 100,
   "novel": {
     "chapters": [
@@ -54,12 +54,12 @@
     "blessingsCSV": true
   },
   "trackedAssets": {
-    "files": 353,
-    "bytes": 385509156,
+    "files": 354,
+    "bytes": 385883448,
     "types": {
       ".jpg": 142,
       ".webp": 144,
-      ".png": 52,
+      ".png": 53,
       ".mp4": 5,
       ".txt": 2,
       ".m4a": 4,
@@ -73,9 +73,9 @@
     "entry": "Story tabs → explore-intro.html → explore.html",
     "chapters": 10,
     "storyEncounters": 95,
-    "generatedAssets": 38,
+    "generatedAssets": 39,
     "localProgress": true,
-    "status": "Continuous 95-panel novel journey, 11 environments, 7 foreground sets, all five members follow after their story encounter; original player/dialogue retained",
+    "status": "Continuous 95-panel novel journey, 11 environments, 8 foreground sets, all five members follow after their story encounter; original player/dialogue retained",
     "walkableEnvironments": [
       "雨夜城市",
       "十點二十分穿越城市",
@@ -169,7 +169,8 @@
         "scene": "birthday",
         "source": "assets/explore-stage-foreground-v1.png",
         "alphaTransparency": true,
-        "motion": "sparse champagne ribbon and five-color crystal corners; static when reduced motion"
+        "motion": "sparse champagne ribbon and five-color crystal corners; static when reduced motion",
+        "next": "wish"
       },
       {
         "scene": "farewell",
@@ -177,7 +178,6 @@
         "alphaTransparency": true,
         "motion": "subtle corner sway and camera parallax; static when reduced motion",
         "preload": [
-          "birthday",
           "wish"
         ],
         "release": "city"
@@ -197,6 +197,14 @@
         "motion": "sparse ribbon and crystal corner parallax; static reduced motion",
         "preload": "greenhouse",
         "next": "observatory"
+      },
+      {
+        "scene": "wish",
+        "source": "assets/explore-wish-foreground-v1.png",
+        "alphaTransparency": true,
+        "motion": "sparse candlelit corners; static reduced motion",
+        "preload": "birthday",
+        "next": "farewell"
       }
     ],
     "localResume": {
