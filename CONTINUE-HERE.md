@@ -195,3 +195,7 @@ explore-seams.js在drawContinuousWorld後／details與角色前，融合48世界
 ## 20261018-17 接續
 
 core reduced由開頁const改為let並監聽motionPreference change，沿用既有draw參數；不停止功能行走，不修改曲目／存檔。live-motion在390／1280兩初始模式，全畫布時序像素對照＋即時切換兩方向、手動／自動／回頭操作通過；銀虎follow含偏好切換／缺圖通過，739路徑及App17版本通過。無新圖／提示，95主線沿用App15整體驗收。
+
+## 20261018-18 接續
+
+銀虎phase改distance/(h*config.height/scale*.6)，取代固定110；follow.stride唯讀供診斷。YITING原公式／原圖不改，仍四v2側步＋idle。start兩尺寸逐幀查stride與位移相位及原速度／方向／停步，follow／缺圖／減少動態、四直橫與739路徑／版本通過。無新圖，95格沿用App15完整驗收。

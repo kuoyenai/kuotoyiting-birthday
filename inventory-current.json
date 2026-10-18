@@ -1,7 +1,7 @@
 {
   "updated": "2026-10-18",
-  "appVersion": "20261018-17",
-  "baseline": "1fd8968",
+  "appVersion": "20261018-18",
+  "baseline": "2533c4a",
   "cards": 100,
   "novel": {
     "chapters": [
@@ -349,7 +349,8 @@
       "idleFacing": "toward YiTing using side idle pose",
       "idleSource": "assets/explore-eunho-side-idle-v2.png",
       "camera": "right-facing side profile matching YiTing",
-      "cachedImages": 5
+      "cachedImages": 5,
+      "stride": "rendered actor height / world scale * 0.6, distance driven"
     },
     "sceneArrival": {
       "source": "explore-arrival.js",

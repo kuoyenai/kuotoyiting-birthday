@@ -63,7 +63,8 @@ window.YitingActors={
     const oldX=previous?.x??(Math.abs(companion.x-desired)<=450?companion.x:desired),limit=300*Math.min(.04,Math.max(0,dt));
     const eased=(desired-oldX)*(1-Math.exp(-Math.max(0,dt)*5)),step=Math.max(-limit,Math.min(limit,eased));
     const px=Math.abs(oldX-desired)>450?desired:oldX+step;
-    const distance=px-oldX,stepping=Math.abs(distance)>.04,phase=((previous?.phase??0)+Math.abs(distance)/110)%1,direction=stepping?Math.sign(distance):(Math.sign(playerX-px)||playerFacing||1);
+    const stride=Math.max(1,h*config.height/scale*.6);
+    const distance=px-oldX,stepping=Math.abs(distance)>.04,phase=((previous?.phase??0)+Math.abs(distance)/stride)%1,direction=stepping?Math.sign(distance):(Math.sign(playerX-px)||playerFacing||1);
     followPositions.set(companion.member,{x:px,phase,direction});
     const ground=h*.85,cx=(px-camera)*scale,height=h*config.height,frame=stepping?Math.floor(phase*4)%4:-1;
     if(cx+height>=0&&cx-height<=w){
@@ -71,7 +72,7 @@ window.YitingActors={
      ctx.translate(cx,ground);ctx.scale(direction>0?1:-1,1);ctx.imageSmoothingEnabled=true;
      const pose=frame>=0?walkFrames[frame]:idleFrame,image=walk.images[frame>=0?frame:4],unit=height/(pose[1]-pose[2]);
      ctx.drawImage(image,0,0,image.naturalWidth,image.naturalHeight,-pose[3]*unit,-pose[1]*unit,image.naturalWidth*unit,image.naturalHeight*unit);
-     ctx.restore();visible++;follower={member:companion.member,x:px,frame,direction,phase};
+     ctx.restore();visible++;follower={member:companion.member,x:px,frame,direction,phase,stride};
     }
    }
   }
