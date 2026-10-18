@@ -1,5 +1,9 @@
 (()=>{'use strict';
 const $=id=>document.getElementById(id),canvas=$('world'),ctx=canvas.getContext('2d'),dialog=$('story'),music=$('music');
+// An explicit exit also works on touch devices without a hardware Escape key.
+const storyToolbar=document.createElement('div');storyToolbar.className='story-toolbar';
+$('storyContext').before(storyToolbar);storyToolbar.append($('storyContext'));
+const closeStory=document.createElement('button');closeStory.id='closeStory';closeStory.type='button';closeStory.textContent='返回旅程';closeStory.setAttribute('aria-label','暫停閱讀並返回旅程，保留目前對白');closeStory.onclick=()=>dialog.close();storyToolbar.append(closeStory);
 const replacement={'novel-bamby-closeup':'E00F34EB-9BDE-4825-883E-9EA4E8C618A4.png','novel-welcome-teasing':'D8AF4512-1868-4624-95B9-9FEC559B6A0C.png'};
 const chapters=window.YITING_NOVEL_CHAPTERS,route=[];
 window.NOVEL_PANELS.forEach((panels,chapter)=>panels.forEach(([asset,narration,lines,star],panel)=>{route.push({asset,narration,lines,star,chapter,panel});(window.YITING_EXTRA_SHOTS||[]).filter(s=>s.chapter===chapter&&s.after===asset).forEach(s=>route.push({asset:s.asset,narration:s.narration,lines:[],chapter,sourcePanel:panel,panel:s.id}));}));
