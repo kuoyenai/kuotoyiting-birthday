@@ -1,7 +1,7 @@
 {
   "updated": "2026-10-18",
-  "appVersion": "20261018-15",
-  "baseline": "8eea842",
+  "appVersion": "20261018-16",
+  "baseline": "f5ae7d7",
   "cards": 100,
   "novel": {
     "chapters": [
@@ -399,6 +399,16 @@
       "survivesReload": true,
       "introExplainsRevisit": true,
       "resumesAutomaticMovement": false,
+      "newAssets": 0
+    },
+    "starCollectionFeedback": {
+      "source": "explore-star-moment.js",
+      "durationMs": 900,
+      "colors": 5,
+      "firstNarrativeCollectionOnly": true,
+      "drawnBehindActors": true,
+      "interruptsAutomaticWalking": false,
+      "reducedMotion": "accessible status and existing earned badge only",
       "newAssets": 0
     }
   },

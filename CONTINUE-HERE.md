@@ -187,3 +187,7 @@ explore-seams.js在drawContinuousWorld後／details與角色前，融合48世界
 ## 20261018-15 整體驗收接續
 
 目前最終版本95格全自動前往／六處相遇重跑通過；七互動兩尺寸通過，許願測試欄位白名單補mapVersion/revisit，仍查無願望存送。preservation-audit.cjs核對電影連播四時間點、100卡翻面、四曲所選下載與禮物分頁靜音；ZIP100圖CRC通過。摘要tests/release-20261018-15-audit.json。標籤需用^{ }解參照檢查（實際Git語法^{}），仍108c7c1；小說原素材未修改。App15不升版，只有測試／紀錄。排程保留，後續依需求改善，勿為版本號新增無關內容。
+
+## 20261018-16 接續
+
+原新故事末句完成前檢查s.star及route.slice(0,unlocked)已收色，首次才派送yiting-explore-star；重溫分支先return不觸發。star-moment模組繪900ms八點光環，主draw在角色前，MQL即時減少動態不繪；視窗／旋轉／hidden清除。無存檔或音效變更。五色×390／1280原劇情／自動前往／消失／重溫／減少動態通過，對白回看三尺寸及739路徑版本通過。無新圖，95全程沿用App15整體驗收。

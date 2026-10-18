@@ -1,0 +1,11 @@
+(()=>{'use strict';
+const canvas=document.getElementById('world');if(!canvas)return;
+const colors={blue:['#77baff','希望的藍色'],purple:['#c5a2ef','溫柔的紫色'],pink:['#f2a3c0','快樂的粉色'],green:['#8dd2b0','勇氣的綠色'],red:['#e57291','陪伴的紅色']},motion=matchMedia('(prefers-reduced-motion: reduce)');let moment=null;
+const status=document.createElement('span');status.id='starMomentStatus';status.className='scene-arrival-status';status.setAttribute('role','status');status.setAttribute('aria-atomic','true');document.querySelector('.stage').append(status);
+window.addEventListener('yiting-explore-star',event=>{const color=event.detail?.color;if(!colors[color])return;status.textContent='收下了代表'+colors[color][1]+'星光。';moment=motion.matches?null:{color,at:performance.now()};});
+const clear=()=>{moment=null;};window.addEventListener('yiting-explore-modal',clear);window.addEventListener('resize',clear);document.addEventListener('visibilitychange',()=>{if(document.hidden)clear();});motion.addEventListener('change',clear);
+window.YitingStarMoment={draw(ctx,{t,x,camera,scale,ground,height,facing}){if(!moment||motion.matches)return;const progress=Math.max(0,(t-moment.at)/900);if(progress>=1){clear();return;}const cx=(x-camera)*scale+(facing||1)*height*.15,cy=ground-height*.43,r=height*(.09+progress*.13),fade=Math.sin(progress*Math.PI)*.42;
+ ctx.save();ctx.strokeStyle=ctx.fillStyle=colors[moment.color][0];ctx.lineWidth=.8;ctx.globalAlpha=fade*.5;ctx.beginPath();ctx.ellipse(cx,cy,r,r*.7,0,0,Math.PI*2);ctx.stroke();ctx.globalAlpha=fade;
+ for(let i=0;i<8;i++){const angle=i*Math.PI/4,px=cx+Math.cos(angle)*r,py=cy+Math.sin(angle)*r*.7,size=1+(i%2)*.6;ctx.beginPath();ctx.moveTo(px-size,py);ctx.lineTo(px+size,py);ctx.moveTo(px,py-size);ctx.lineTo(px,py+size);ctx.stroke();}ctx.restore();
+},get active(){return !!moment&&!motion.matches&&performance.now()-moment.at<900;}};
+})();
