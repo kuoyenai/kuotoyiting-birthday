@@ -1,7 +1,7 @@
 {
   "updated": "2026-10-18",
-  "appVersion": "20261018-41",
-  "baseline": "08854b9",
+  "appVersion": "20261018-42",
+  "baseline": "efab385",
   "cards": 100,
   "novel": {
     "chapters": [
@@ -122,6 +122,7 @@
         "newAssets": 0
       },
       "fixedTableaux": [
+        "chapter3 welcome 18..19",
         "chapter1 signal 4..7",
         "fifth-chapter terrace 54..56",
         "chapter6 stage 57..65",
@@ -580,7 +581,7 @@
       "keepsWishPrivate": true
     },
     "stationaryReplay": {
-      "segments": 5,
+      "segments": 6,
       "singlePhysicalEntry": true,
       "keepsMainProgress": true,
       "sequence": "original panel order; close at segment end or latest read panel",
@@ -599,7 +600,9 @@
       "preload": "portal-city",
       "release": "outside portal-city/asterum",
       "failure": "original actor/story; retry on physical reentry",
-      "reducedMotion": "static group retained"
+      "reducedMotion": "static group retained",
+      "worldAnchor": 7480,
+      "followsPlayer": false
     }
   },
   "exploreDialogueNavigation": {
@@ -643,14 +646,14 @@
     "persisted": false,
     "fullRouteVerification": {
       "date": "2026-10-18",
-      "version": "20261018-41",
+      "version": "20261018-42",
       "storyPanels": 95,
-      "automatedTransfers": 68,
-      "fixedTransitions": 26,
+      "automatedTransfers": 67,
+      "fixedTransitions": 27,
       "viewport": "390x844",
       "browser": "Chrome headless with virtual clock",
       "physicalIPhone": false,
-      "result": "passed95 with viewport-aware background residency,26 fixed/68 movement,7 encounters, original art and ending"
+      "result": "passed95, fixed welcome-party world coordinates;27 fixed/67 movement transitions,7 encounters,original art and ending"
     }
   },
   "exploreFinale": {

@@ -17,7 +17,7 @@ let reviewIndex=null,autoDestination=null;
 // Old saves use 960-unit intervals; migrate their position once without changing story progress.
 const mapVersion=2,oldStageLength=960,oldStarPosition=720,stageLength=400,starPosition=280;
 const starAt=n=>starPosition+n*stageLength;
-const stationarySegments=[{first:route.findIndex(s=>s.chapter===1),last:route.findLastIndex(s=>s.chapter===1)},{first:route.findIndex(s=>s.chapter===6),last:route.findLastIndex(s=>s.chapter===6)},{first:route.findIndex(s=>s.chapter===7),last:route.findLastIndex(s=>s.chapter===7)},{first:route.findIndex(s=>s.asset==='novel-terrace-before-stage-wide'),last:route.findIndex(s=>s.asset==='novel-yiting-terrace-reaction')},{first:route.findIndex(s=>s.asset==='novel-city-return-wide'),last:route.findIndex(s=>s.asset==='novel-final-message')}].filter(s=>s.first>=0&&s.last>=s.first);
+const stationarySegments=[{first:route.findIndex(s=>s.asset==='novel-asterum-arrival-overlook'),last:route.findIndex(s=>s.asset==='novel-welcome-teasing')},{first:route.findIndex(s=>s.chapter===1),last:route.findLastIndex(s=>s.chapter===1)},{first:route.findIndex(s=>s.chapter===6),last:route.findLastIndex(s=>s.chapter===6)},{first:route.findIndex(s=>s.chapter===7),last:route.findLastIndex(s=>s.chapter===7)},{first:route.findIndex(s=>s.asset==='novel-terrace-before-stage-wide'),last:route.findIndex(s=>s.asset==='novel-yiting-terrace-reaction')},{first:route.findIndex(s=>s.asset==='novel-city-return-wide'),last:route.findIndex(s=>s.asset==='novel-final-message')}].filter(s=>s.first>=0&&s.last>=s.first);
 const isFixedStory=n=>stationarySegments.some(s=>n>=s.first&&n<=s.last);
 const stationaryStart=n=>stationarySegments.find(s=>n>=s.first&&n<=s.last)?.first??n;
 const storyWaypoint=n=>starAt(stationaryStart(n));
@@ -118,7 +118,7 @@ $('restart').onclick=()=>{$('restartDialog').showModal();};$('cancelRestart').on
 const worldRegions=[];
 route.forEach((story,n)=>{const source=window.yitingExploreScene(story).source,last=worldRegions.at(-1);if(last?.source===source)last.end=(n+1)*stageLength;else worldRegions.push({source,start:n*stageLength,end:(n+1)*stageLength});});
 window.YitingPassages?.configure([3,9].map(chapter=>({x:route.findIndex(story=>story.chapter===chapter)*stageLength,returning:chapter===9})));
-window.YitingWelcomeParty?.configure({start:route.findIndex(s=>s.asset==='novel-asterum-arrival-overlook')*stageLength,end:route.findIndex(s=>s.chapter===4)*stageLength});
+window.YitingWelcomeParty?.configure({anchor:starAt(route.findIndex(s=>s.asset==='novel-asterum-arrival-overlook')),start:route.findIndex(s=>s.asset==='novel-asterum-arrival-overlook')*stageLength,end:route.findIndex(s=>s.chapter===4)*stageLength});
 const actorAnchors=[
  {asset:'novel-arrival-medium',scene:'asterum',member:'eunho'},
  {asset:'novel-eunho-conversation',scene:'eunho',member:'eunho'},
