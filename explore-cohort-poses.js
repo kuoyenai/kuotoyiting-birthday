@@ -1,0 +1,1 @@
+(()=>{'use strict';window.YitingCohortPoses=[["assets/explore-cohort-walk-a-v1.png",905,93,975],["assets/explore-cohort-walk-b-v1.png",908,91,975],["assets/explore-cohort-walk-c-v1.png",891,92,975],["assets/explore-cohort-walk-d-v1.png",886,91,975],["assets/explore-cohort-idle-v1.png",909,88,975]];})();

@@ -1,0 +1,34 @@
+{
+  "appVersion": "20261018-35",
+  "baseline": "27388d1",
+  "stableTagPreserved": "yiting-stable-20261018-v34",
+  "fullRoute": {
+    "panels": 95,
+    "autoTransfers": 71,
+    "fixedTransitions": 23,
+    "encounters": 7,
+    "originalArtAndOrder": true,
+    "ending": true,
+    "viewport": "390x844",
+    "virtualClock": true,
+    "physicalIPhone": false,
+    "result": "passed final unified-six-person integration"
+  },
+  "regressions": [
+    "cohort-frames 320x568 /390x844 /568x320 /1280x844: four distinct poses, idle, no duplicate player, reverse, reduced motion, full bounds",
+    "group-celebration 390/1280: full fixed chapters6/7, all five farewell, freeze, cache5, city release",
+    "farewell-companion 390/1280: all five, idle, reverse, failure fallback, retry, gift, city alone",
+    "tableau-segments 390/1280: legacy saves, terrace, final phone, unchanged order, scene exit",
+    "wish and keepsake 390/1280: privacy, failure retry, pauses, candle, revisit, original progress",
+    "responsive four ratios and rotation",
+    "dialog-history eight dialogs 390/1280, bounded history and rapid close-open",
+    "art-viewer 320/390/844/1280: full image, pan, downloads, nested back",
+    "six optional activities at five portrait/landscape sizes:44px, bounds, clear titles and companions",
+    "birthday stage 390/1280: lights, reduced motion, original progress, backtracking",
+    "preservation 390/1280: continuous film,100 flip cards, ZIP, four selected videos, manual mute",
+    "JS syntax,784 local paths,12 original pages,unchanged bilingual lyrics",
+    "App35 version and icon audit"
+  ],
+  "newAssets": {"files":6,"bytes":12251806,"walkingKeyPoses":4,"standingPose":1,"cakeBackground":1},
+  "limits": ["Browser automation is not physical iPhone Safari acceptance", "Four source walking poses, not 60 independent paintings", "Hidden fingers cannot be counted; visible anatomy and occlusion visually reviewed"]
+}

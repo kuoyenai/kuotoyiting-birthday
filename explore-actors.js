@@ -28,6 +28,7 @@ function load(member,retry){
 }
 function prepare(){
  const scene=canvas.dataset.scene,entered=scene!==lastScene;lastScene=scene;if(entered)enteredAt=performance.now();
+ if(window.YitingGroupCompanions?.active){clearWalk();for(const member of [...records.keys()])discard(member);return;}
  const current=members[scene];let wanted=[...(preloads[scene]??(current?[current]:[]))];
  const companion=motion?.matches?null:following(Number(canvas.dataset.index));if(companion)wanted=[...new Set([companion.member,current,...wanted].filter(Boolean))].slice(0,2);
  for(const member of records.keys())if(!wanted.includes(member))discard(member);
@@ -38,7 +39,7 @@ new MutationObserver(prepare).observe(canvas,{attributes:true,attributeFilter:['
 window.YitingActors={
  configure(items){anchors=items.filter(item=>Number.isFinite(item.x)&&item.x>=0).map(item=>({...item}));followPositions.clear();prepare();},
  draw(ctx,{id,w,h,camera,scale,t=performance.now(),reduced=false,playerX=0,playerFacing=1,dt=0,index=-1}){
-  visible=0;visibleMembers=[];follower=null;const candidate=following(index,id),companion=!(motion?.matches??reduced)&&walk?.ready&&walk.member===candidate?.member?candidate:null;
+  visible=0;visibleMembers=[];follower=null;if(window.YitingGroupCompanions?.active){window.YitingGroupCompanions.draw(ctx,{id,w,h,camera,scale,t,reduced,playerX,playerFacing,dt});visibleMembers=window.YitingGroupCompanions.visibleMembers;visible=visibleMembers.length;const active=visible===5?(id==='wish'?'celebration':'plave'):null;follower=active?{member:active,x:playerX,frame:-1}:null;if(active!==announcedCompanion){announcedCompanion=active;window.dispatchEvent(new CustomEvent('yiting-explore-companion',{detail:{member:active}}));}return;}const candidate=following(index,id),companion=!(motion?.matches??reduced)&&walk?.ready&&walk.member===candidate?.member?candidate:null;
   if(retiring){
    retiring.age+=Math.max(0,dt);if(reduced||motion?.matches||retiring.age>=.45)clearRetiring();
    else{const {record,pose}=retiring,height=h*(record.set.height??configs[pose.member].height),ground=h*.85,cx=(pose.x-camera)*scale,poseIndex=pose.frame>=0?pose.frame:4,frame=record.set.frames[poseIndex],image=record.poseImages[poseIndex],unit=height/(frame[1]-frame[2]),crop=frame[4]??[0,0,image.naturalWidth,image.naturalHeight];
@@ -86,6 +87,6 @@ window.YitingActors={
    }
   }
   const active=follower?.member??null;if(active!==announcedCompanion){announcedCompanion=active;window.dispatchEvent(new CustomEvent('yiting-explore-companion',{detail:{member:active}}));}
- },get ready(){const scene=canvas.dataset.scene;return !!records.get(members[scene])?.art;},get visible(){return visible;},get visibleMembers(){return [...visibleMembers];},get count(){return anchors.length;},get cachedActors(){return records.size;},get cachedMembers(){return [...records.keys()];},get walkReady(){return !!walk?.ready;},get walkingFrames(){return walk?walkFrames.length:0;},get retiringMember(){return retiring?.pose.member??null;},get retiringOpacity(){return retiring?1-retiring.age/.45:0;},get cachedWalkImages(){return (walk?.images.length??0)+(retiring?.record.images.length??0);},get walkMember(){return walk?.member??null;},get walkImageCount(){return walk?.images.length??0;},get follower(){return follower?{...follower}:null;}
+ },get ready(){if(window.YitingGroupCompanions?.active)return window.YitingGroupCompanions.ready;const scene=canvas.dataset.scene;return !!records.get(members[scene])?.art;},get visible(){return visible;},get visibleMembers(){return [...visibleMembers];},get count(){return anchors.length;},get cachedActors(){return records.size;},get cachedMembers(){return [...records.keys()];},get walkReady(){return !!walk?.ready;},get walkingFrames(){return walk?walkFrames.length:0;},get retiringMember(){return retiring?.pose.member??null;},get retiringOpacity(){return retiring?1-retiring.age/.45:0;},get cachedWalkImages(){return (walk?.images.length??0)+(retiring?.record.images.length??0);},get walkMember(){return walk?.member??null;},get walkImageCount(){return walk?.images.length??0;},get follower(){return follower?{...follower}:null;}
 };
 })();

@@ -394,6 +394,132 @@
       ],
       "alphaCenter65Max": 1,
       "transparentFractionAlphaLE8": 0.9895026669175111
+    },
+    {
+      "key": "A",
+      "source": "C:\\Users\\PC\\.codex\\generated_images\\01a1346f-1e5a-77b2-b65b-04bbec39910c\\exec-2fa72603-2cb4-4693-85c2-37e5aa9ce406.png",
+      "path": "assets/explore-cohort-walk-a-v1.png",
+      "prompt": "Create a SINGLE COHESIVE 2D GAME PARTY WALKING SPRITE with exactly SIX full-body people together, using reference 1 as the group arrangement and natural conversation concept. Transparent background, wide landscape 1672x941. Characters left-to-right: YEJUN (navy-blue hair, blue eyes, blue-white checked shirt, gray trousers), NOAH (blond hair, violet eyes, gray-blue checked overshirt white tee, blue jeans), BAMBY (pink hair, pink-violet eyes, pale gray tee, charcoal trousers, pink sneakers), YITING (long black hair, gray baseball cap, gray hooded jacket, burgundy top, black cargo trousers, gray sneakers), EUNHO (silver hair, red eyes, blue denim jacket white tee, charcoal trousers, white sneakers), HAMIN (short black hair, green eyes, cream short-sleeve shirt with brown shoulder panels, black trousers). References 2-4 are official identity sheets for exact face/hair/outfit details. Adult natural slim proportions, six distinct recognizable faces. All progressing RIGHT together in relaxed near-side/three-quarter view, same camera angle, same ground plane, looking at one another naturally, YiTing central, gentle smiles, warm friendship. One unified lively group, not separately cut-out stickers or a stiff lineup. Full complete heads, chins, bodies and shoes, no crop, no extras; visible hands anatomically five fingers, correct joints and overlap; use natural pockets/relaxed arms, YiTing one small relaxed conversational gesture. NO touching/overlapping faces, no extra limbs, no merged shoes. Shared group centered horizontally, all within x=70..1600 and y=80..850, shoe CONTACT BASELINE exactly y=850; generous transparent padding. Group whole width around1450, tallest character height around750. Walking KEY POSE A: left feet forward, right feet back, mild natural differences but all moving together right, balanced weight and gentle arm swing. Detailed polished Korean anime original-art style matching identity references, soft cool-neutral lighting to match starry terraces. REAL TRANSPARENT ALPHA, no white/gray background, no scenery, floor, cast ground shadows, text, logos or borders. Keep spacing consistent for subsequent animation frames.",
+      "size": [
+        1672,
+        941
+      ],
+      "bytes": 1836267,
+      "alphaBounds": [
+        85,
+        93,
+        1660,
+        906
+      ],
+      "baseline": 905,
+      "top": 93,
+      "origin": 975,
+      "mode": "built-in imagegen",
+      "reference": "C:/Users/PC/.codex/codex-remote-attachments/01a1346f-1e5a-77b2-b65b-04bbec39910c/8EE61CF6-5FFC-4CF4-BA8B-C7173BD7F0AA/1-貼上的圖片-1.jpg"
+    },
+    {
+      "key": "B",
+      "source": "C:\\Users\\PC\\.codex\\generated_images\\01a1346f-1e5a-77b2-b65b-04bbec39910c\\exec-760a9c23-9e2d-4463-af1e-bb8db160161f.png",
+      "path": "assets/explore-cohort-walk-b-v1.png",
+      "prompt": "Edit this EXACT six-person unified transparent game sprite into another frame of the SAME walking cycle. Keep EXACTLY six, exact identities, faces, hair, clothing, scale, formation, horizontal body positions, camera, colors, illumination, complete chins and shoes, and 1672x941 canvas. Do not zoom, crop, change relative spacing, add figures, shadows, scene or text. Retain real alpha transparency. No extra limbs or merged shoes, natural five-finger hands; preserve conversational arm gestures and faces. Feet ground contact baseline should match original image near y=900, hair tops and body centers should remain in the same positions. Change ONLY lower-leg walking phase and the smallest natural weight adjustment; keep upper bodies and faces almost identical. PASSING pose after A: forward left feet now under hips carrying weight, right knees flex slightly as right feet pass, relaxed natural step progressing RIGHT. Preserve all faces/torso pixel placement closely.",
+      "size": [
+        1672,
+        941
+      ],
+      "bytes": 1708778,
+      "alphaBounds": [
+        86,
+        91,
+        1630,
+        909
+      ],
+      "baseline": 908,
+      "top": 91,
+      "origin": 975,
+      "mode": "built-in imagegen",
+      "reference": "C:/Users/PC/.codex/codex-remote-attachments/01a1346f-1e5a-77b2-b65b-04bbec39910c/8EE61CF6-5FFC-4CF4-BA8B-C7173BD7F0AA/1-貼上的圖片-1.jpg"
+    },
+    {
+      "key": "C",
+      "source": "C:\\Users\\PC\\.codex\\generated_images\\01a1346f-1e5a-77b2-b65b-04bbec39910c\\exec-b9ece95d-caa1-4520-b719-caad5b833c08.png",
+      "path": "assets/explore-cohort-walk-c-v1.png",
+      "prompt": "Edit this EXACT six-person unified transparent game sprite into another frame of the SAME walking cycle. Keep EXACTLY six, exact identities, faces, hair, clothing, scale, formation, horizontal body positions, camera, colors, illumination, complete chins and shoes, and 1672x941 canvas. Do not zoom, crop, change relative spacing, add figures, shadows, scene or text. Retain real alpha transparency. No extra limbs or merged shoes, natural five-finger hands; preserve conversational arm gestures and faces. Feet ground contact baseline should match original image near y=900, hair tops and body centers should remain in the same positions. Change ONLY lower-leg walking phase and the smallest natural weight adjustment; keep upper bodies and faces almost identical. OPPOSITE CONTACT pose: right feet now forward, left feet back. Same six-person conversation formation moving RIGHT. No cross-legged tangles; each person has exactly two legs attached to their own hips.",
+      "size": [
+        1672,
+        941
+      ],
+      "bytes": 1756731,
+      "alphaBounds": [
+        57,
+        92,
+        1665,
+        892
+      ],
+      "baseline": 891,
+      "top": 92,
+      "origin": 975,
+      "mode": "built-in imagegen",
+      "reference": "C:/Users/PC/.codex/codex-remote-attachments/01a1346f-1e5a-77b2-b65b-04bbec39910c/8EE61CF6-5FFC-4CF4-BA8B-C7173BD7F0AA/1-貼上的圖片-1.jpg"
+    },
+    {
+      "key": "D",
+      "source": "C:\\Users\\PC\\.codex\\generated_images\\01a1346f-1e5a-77b2-b65b-04bbec39910c\\exec-96df0aa8-1cff-4501-b077-e58f6709137b.png",
+      "path": "assets/explore-cohort-walk-d-v1.png",
+      "prompt": "Edit this EXACT six-person unified transparent game sprite into another frame of the SAME walking cycle. Keep EXACTLY six, exact identities, faces, hair, clothing, scale, formation, horizontal body positions, camera, colors, illumination, complete chins and shoes, and 1672x941 canvas. Do not zoom, crop, change relative spacing, add figures, shadows, scene or text. Retain real alpha transparency. No extra limbs or merged shoes, natural five-finger hands; preserve conversational arm gestures and faces. Feet ground contact baseline should match original image near y=900, hair tops and body centers should remain in the same positions. Change ONLY lower-leg walking phase and the smallest natural weight adjustment; keep upper bodies and faces almost identical. SECOND PASSING pose: right feet now underneath hips carrying weight, left feet lifted slightly passing forward. Six bodies and heads exactly same placement. All progressing RIGHT.",
+      "size": [
+        1672,
+        941
+      ],
+      "bytes": 1733668,
+      "alphaBounds": [
+        85,
+        91,
+        1666,
+        887
+      ],
+      "baseline": 886,
+      "top": 91,
+      "origin": 975,
+      "mode": "built-in imagegen",
+      "reference": "C:/Users/PC/.codex/codex-remote-attachments/01a1346f-1e5a-77b2-b65b-04bbec39910c/8EE61CF6-5FFC-4CF4-BA8B-C7173BD7F0AA/1-貼上的圖片-1.jpg"
+    },
+    {
+      "key": "idle",
+      "source": "C:\\Users\\PC\\.codex\\generated_images\\01a1346f-1e5a-77b2-b65b-04bbec39910c\\exec-e4b123e2-1bf0-4107-b903-3bf80288e623.png",
+      "path": "assets/explore-cohort-idle-v1.png",
+      "prompt": "Edit this EXACT six-person unified transparent game sprite into another frame of the SAME walking cycle. Keep EXACTLY six, exact identities, faces, hair, clothing, scale, formation, horizontal body positions, camera, colors, illumination, complete chins and shoes, and 1672x941 canvas. Do not zoom, crop, change relative spacing, add figures, shadows, scene or text. Retain real alpha transparency. No extra limbs or merged shoes, natural five-finger hands; preserve conversational arm gestures and faces. Feet ground contact baseline should match original image near y=900, hair tops and body centers should remain in the same positions. Change ONLY lower-leg walking phase and the smallest natural weight adjustment; keep upper bodies and faces almost identical. IDLE STANDING pose: all six stop together naturally in the SAME positions and converse. Both feet comfortably on ground, no exaggerated leg spread, weight relaxed, identical identity and group formation. Preserve YiTing's small conversational gesture.",
+      "size": [
+        1672,
+        941
+      ],
+      "bytes": 1780876,
+      "alphaBounds": [
+        78,
+        88,
+        1621,
+        910
+      ],
+      "baseline": 909,
+      "top": 88,
+      "origin": 975,
+      "mode": "built-in imagegen",
+      "reference": "C:/Users/PC/.codex/codex-remote-attachments/01a1346f-1e5a-77b2-b65b-04bbec39910c/8EE61CF6-5FFC-4CF4-BA8B-C7173BD7F0AA/1-貼上的圖片-1.jpg"
+    },
+    {
+      "mode": "built-in imagegen",
+      "path": "assets/explore-birthday-celebration-v1.png",
+      "source": "C:/Users/PC/.codex/generated_images/01a1346f-1e5a-77b2-b65b-04bbec39910c/exec-faeeb0fe-d216-4cf4-9ec9-14418191ed98.png",
+      "bytes": 3435486,
+      "initialPrompt": "Create a refined Korean anime birthday GAME BACKGROUND, landscape 1672x941. References 1-3 are official identity sheets: YEJUN navy-blue hair blue eyes blue-white checked shirt; NOAH blond hair violet eyes gray-blue checked overshirt white tee; BAMBY pink hair pink-violet eyes pale gray tee; EUNHO silver hair red eyes denim jacket white tee; HAMIN black hair green eyes cream shirt with brown shoulder panel. Reference 4 is existing terrace environment palette and architecture only. Exactly FIVE adult male PLAVE members, one of each, all together naturally behind ONE ivory birthday cake on a low elegant round navy-gold table, soft warm smiles, celebrating the viewer YiTing who will be a separate game sprite; do not draw YiTing or another person. Single unified cohesive composition, no collaged panels. All FIVE faces and complete chins visible, distinctive reference hairstyles and eye colors. CRITICAL MOBILE CROP: entire five-member group AND cake must fit in the CENTRAL 32% OF IMAGE WIDTH (x=34%..66%), arranged two shallow staggered rows or gentle semicircle, close natural group not wide lineup. Heads located around 34%-43% image height; all faces unobscured, hair with padding. Cake around 56%-62% height, table bottom no lower than 73%. Use natural human proportions; no giant heads. Hands naturally behind table or resting without emphasis; any visible hand five anatomically correct fingers, normal joints, no extra limbs, no limb merges. Outer 32% on each side ONLY environment, no people, no secondary cake. Bottom 22% is clear spacious polished terrace floor for the game player and controls. Top 25% is decorative starry sky for UI, no faces. Magical ASTERUM night terrace with floating distant palaces, ivory flowers, delicate champagne lanterns and restrained blue-violet stars, warm candle lighting. Preserve reference original painting quality and identity. No text, logos, speech balloons, UI, border or watermark. Exactly one cake with five small colored star candles, exactly five people. Full wide background, no transparency. All character faces should remain visible when only central 36% width is shown on a phone.",
+      "revisionPrompt": "Edit this birthday illustration by ZOOMING OUT A LOT. Preserve exactly the same five PLAVE identities, faces, hairstyles, clothes, single cake, table, coordinated group pose and painting style. All five people AND table must now occupy ONLY CENTRAL 32% of entire wide image width, bounded x=34% through66%. Reduce the entire existing group+table uniformly to roughly HALF its current width, do NOT crop any person or change relative poses. Add much more matching terrace/sky environment around them. Keep landscape 1672x941. Group head tops around y=28%, table bottom around y=72%, group centered horizontally. Whole five faces and chins visible. Bottom22% clear reflective floor, no additional figures, no new cake, no new hands, limbs, words, logos or text. This is a game background that is cropped to the middle35% on a phone, so all five people and cake/table absolutely must fit in that narrow central strip. Much smaller group, much wider environmental framing, distant people in midground. Keep all five original characters together in ONE unified scene.",
+      "rejectedFirstCandidate": "exec-542de9d7-9100-4eaa-b5b7-67e706177687.png: group too wide for phone",
+      "review": "Five distinct members, one cake, full faces/chins, natural table occlusion. Group reframed centrally for phone; YiTing player moved left to keep all five faces clear.",
+      "reference": [
+        "assets/reference-yejun.jpg",
+        "assets/reference-noah-bamby.jpg",
+        "assets/reference-eunho-hamin.jpg",
+        "assets/explore-birthday-wish-v1.png"
+      ]
     }
   ],
   "updated": "2026-10-18"

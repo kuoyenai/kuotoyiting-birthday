@@ -1,7 +1,7 @@
 {
   "updated": "2026-10-18",
-  "appVersion": "20261018-34",
-  "baseline": "70215cb",
+  "appVersion": "20261018-35",
+  "baseline": "27388d1",
   "cards": 100,
   "novel": {
     "chapters": [
@@ -54,12 +54,12 @@
     "blessingsCSV": true
   },
   "trackedAssets": {
-    "files": 356,
-    "bytes": 386337158,
+    "files": 362,
+    "bytes": 398588964,
     "types": {
       ".jpg": 142,
       ".webp": 144,
-      ".png": 55,
+      ".png": 61,
       ".mp4": 5,
       ".txt": 2,
       ".m4a": 4,
@@ -73,9 +73,9 @@
     "entry": "Story tabs → explore-intro.html → explore.html",
     "chapters": 10,
     "storyEncounters": 95,
-    "generatedAssets": 41,
+    "generatedAssets": 47,
     "localProgress": true,
-    "status": "Continuous 95-panel novel journey, 11 environments, 10 foreground sets, all five members follow after their story encounter; original player/dialogue retained",
+    "status": "95 original panels; same-place tableaux; all-five birthday celebration and cohesive six-person farewell walking; original player elsewhere",
     "walkableEnvironments": [
       "雨夜城市",
       "十點二十分穿越城市",
@@ -120,7 +120,13 @@
         "renderedBeforeActors": true,
         "cache": "visible joins only; camera reuse; resize rebuild",
         "newAssets": 0
-      }
+      },
+      "fixedTableaux": [
+        "fifth-chapter terrace 54..56",
+        "chapter6 stage 57..65",
+        "chapter7 cake 66..75",
+        "final phone 86..90"
+      ]
     },
     "responsiveLayout": {
       "portrait": "vertical stage and controls",
@@ -307,7 +313,8 @@
     "actorCachePolicy": {
       "exploration": 2,
       "birthdayStage": 1,
-      "releaseOnPhysicalExit": true
+      "releaseOnPhysicalExit": true,
+      "farewell": "5 unified six-person frames; individual fallback only on load failure; all released in city"
     },
     "concertCast": {
       "members": [
@@ -343,7 +350,7 @@
       "giftEntry": false
     },
     "followingCompanions": {
-      "status": "All five members use side-profile walking; four new members accompany to the next encounter",
+      "status": "Individual encounters retained; chapter7 all five celebrate; chapter8 all five accompany YiTing from start",
       "enabled": true,
       "ranges": [
         {
@@ -397,14 +404,6 @@
           ],
           "from": 49,
           "until": 57
-        },
-        {
-          "member": "eunho",
-          "scenes": [
-            "farewell"
-          ],
-          "from": 80,
-          "until": 86
         }
       ],
       "keyPoses": 4,
@@ -450,8 +449,21 @@
         "noStoryOrSpeedChange": true
       },
       "farewell": {
-        "encounter": "novel-farewell-medium",
-        "reusesReviewedArt": true,
+        "from": 76,
+        "until": 86,
+        "members": [
+          "YEJUN",
+          "NOAH",
+          "BAMBY",
+          "EUNHO",
+          "HAMIN"
+        ],
+        "includesPlayer": true,
+        "frames": 4,
+        "idle": 1,
+        "source": "explore-cohort-poses.js",
+        "newImages": 5,
+        "fallback": "original individual walk/idle and player; retry on reentry",
         "stopsBeforeCityReturn": true,
         "noNewDialogue": true
       }
@@ -547,6 +559,13 @@
       "minimumTouchHeight": 44,
       "compactBirthday": "right-side control; greeting remains accessible without covering actors",
       "changesProgress": false
+    },
+    "celebration": {
+      "source": "assets/explore-birthday-celebration-v1.png",
+      "members": 5,
+      "fixedCamera": true,
+      "player": "original YiTing on left",
+      "keepsWishPrivate": true
     }
   },
   "exploreDialogueNavigation": {
@@ -583,20 +602,21 @@
   },
   "exploreAutoWalk": {
     "after": "new story completed",
-    "destination": "next unread star",
+    "destination": "next unread physical waypoint; same-place panels remain open in sequence",
     "opensDialogue": false,
     "manualTakeover": true,
     "cancelOnModalBlurResize": true,
     "persisted": false,
     "fullRouteVerification": {
       "date": "2026-10-18",
-      "version": "20261018-31",
+      "version": "20261018-35",
       "storyPanels": 95,
-      "automatedTransfers": 94,
+      "automatedTransfers": 71,
+      "fixedTransitions": 23,
       "viewport": "390x844",
       "browser": "Chrome headless with virtual clock",
       "physicalIPhone": false,
-      "result": "passed95, 94 transfers, 7 encounters, original art, all chapter-local panel positions and ending"
+      "result": "See tests/release-20261018-35-reader.json; original art/order, seven encounters and ending"
     }
   },
   "exploreFinale": {
