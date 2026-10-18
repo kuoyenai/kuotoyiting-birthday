@@ -147,3 +147,7 @@ explore-arrival.js/css新增實際場景五色小星與細框、名稱700ms淡�
 ## 20261018-8 接續
 
 對白新增previousLine與linePosition，首句disabled；showLine同步原reading存檔，回看不變index/unlocked。storySaveStatus移至story-navigation之前，保留失敗提示。320/390/1280回看、書籤重載、已讀不推進與46px無重疊通過；四直橫版、731路徑、版本檢查通過。無新素材，95格沿用App4完整結果；待後續深化場景敘事，保留原圖和手機入口／400地圖。
+
+## 20261018-9 接續
+
+explore-motes.js依實際playerScene繪製11種場景配色／音符月弧細星微光，取代原16方點；兩側上半區、一般10／舞台18，動態減少時不繪製。無新圖或存檔改變。motes四尺寸與arrival手機桌機12場景／回頭通過，732路徑與App9檢查通過。95格沿用App4結果；後續繼續深化角色相遇、故事銜接與場景，原穩定標籤、400地圖、四曲不改。

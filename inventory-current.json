@@ -1,7 +1,7 @@
 {
   "updated": "2026-10-18",
-  "appVersion": "20261018-8",
-  "baseline": "0e51305",
+  "appVersion": "20261018-9",
+  "baseline": "7197e6b",
   "cards": 100,
   "novel": {
     "chapters": [
@@ -366,6 +366,15 @@
     "linePosition": true,
     "bookmarkRestored": true,
     "changesUnlockedProgress": false,
+    "newAssets": 0
+  },
+  "exploreSceneMotes": {
+    "source": "explore-motes.js",
+    "scenePalettes": 11,
+    "physicalSceneBased": true,
+    "normalCount": 10,
+    "birthdayCount": 18,
+    "reducedMotion": "disabled, including live preference changes",
     "newAssets": 0
   }
 }
