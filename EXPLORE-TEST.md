@@ -358,3 +358,7 @@ showLine在story.dataset.voice與speaker.dataset.label寫入原說話者及英�
 ## 20261018-12 接續
 
 廣場新增第7份透明前景，plaza alpha.46 scale.8 crop .28/.43/.36，greenhouse next plaza、plaza next observatory、obs next eunho；移除舊plaza特殊預載分支。最多2份。新圖522392 bytes、中央40% alpha≤1、93.97%透明≤8；提示在game-art-prompts與art-reviews。plaza及obs手機桌機前景／缺圖重返測試通過；joy測試改400地圖內前後走，真腳步／存檔失敗／重載／減少動態／回頭兩尺寸通過。737路徑及App12通過，95格沿用App10完整結果。349素材380858583 bytes；原角色／95圖／100卡／四曲不改。
+
+## 20261018-13 接續
+
+starbook notes表對應hope/gentleness/joy/courage/companion五個既有活動鍵，主線星光owned才加入回憶／未完成提示；每次render讀取，不寫任何狀態。五個主線星光不是活動小記，兩者不互相解鎖。390／1280五未完成→寫原活動鍵→重開五已完成、故事存檔不變、原圖／連結／Back釋放／缺圖重試通過；737路徑及App13通過。無新素材，角色／95格／自動行走／四曲不改。

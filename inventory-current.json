@@ -1,7 +1,7 @@
 {
   "updated": "2026-10-18",
-  "appVersion": "20261018-12",
-  "baseline": "7597a56",
+  "appVersion": "20261018-13",
+  "baseline": "853f05d",
   "cards": 100,
   "novel": {
     "chapters": [
@@ -362,7 +362,14 @@
       "unearnedSpoilers": false,
       "mount": "on expansion",
       "release": "on collapse or dialog close",
-      "newAssets": 0
+      "newAssets": 0,
+      "activityNotes": {
+        "existingLocalKeys": 5,
+        "readOnExpansion": true,
+        "earnedAndWaitingText": true,
+        "writesProgress": false,
+        "requiresMainStarRead": true
+      }
     },
     "directionHint": {
       "distant": "next star is to the right",
