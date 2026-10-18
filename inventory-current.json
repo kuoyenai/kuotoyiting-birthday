@@ -1,7 +1,7 @@
 {
   "updated": "2026-10-18",
-  "appVersion": "20261018-38",
-  "baseline": "f34aab0",
+  "appVersion": "20261018-39",
+  "baseline": "059decb",
   "cards": 100,
   "novel": {
     "chapters": [
@@ -242,7 +242,9 @@
       ],
       "movingSaveIntervalMs": 1500,
       "pagehideSave": true,
-      "autoOpenDialog": false
+      "autoOpenDialog": false,
+      "physicalReplayKeepsMainLine": true,
+      "chapterReturnAction": "visible only during a chapter detour; restores original position and line"
     },
     "foregroundCacheLimit": 2,
     "titleStyle": "Existing invitation Bodoni/Song serif pairing with cream-gold foil; all10 chapter names checked",
