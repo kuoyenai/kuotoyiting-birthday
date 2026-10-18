@@ -1,7 +1,7 @@
 {
   "updated": "2026-10-18",
-  "appVersion": "20261018-22",
-  "baseline": "2bdd5a9",
+  "appVersion": "20261018-23",
+  "baseline": "2f529e5",
   "cards": 100,
   "novel": {
     "chapters": [
@@ -54,18 +54,18 @@
     "blessingsCSV": true
   },
   "trackedAssets": {
-    "files": 349,
-    "bytes": 380858583,
+    "files": 353,
+    "bytes": 385509156,
     "types": {
-      "": 1,
-      ".webp": 144,
-      ".png": 48,
       ".jpg": 142,
-      ".zip": 1,
+      ".webp": 144,
+      ".png": 52,
       ".mp4": 5,
       ".txt": 2,
+      ".m4a": 4,
       ".ttf": 2,
-      ".m4a": 4
+      ".zip": 1,
+      "": 1
     }
   },
   "notes": "Tracked asset counts include icons, alternate illustrations and download originals; they are not counts of unique story panels. sources/ remains read-only.",
@@ -73,9 +73,9 @@
     "entry": "Story tabs → explore-intro.html → explore.html",
     "chapters": 10,
     "storyEncounters": 95,
-    "generatedAssets": 34,
+    "generatedAssets": 38,
     "localProgress": true,
-    "status": "Continuous95-panel novel journey,11 environments,6 foreground sets,six solo encounters and one user-provided five-person concert image; original player/dialogue retained",
+    "status": "Continuous 95-panel novel journey, 11 environments, 7 foreground sets, all five members follow after their story encounter; original player/dialogue retained",
     "walkableEnvironments": [
       "雨夜城市",
       "十點二十分穿越城市",
@@ -315,17 +315,58 @@
       "giftEntry": false
     },
     "followingCompanions": {
-      "status": "EUNHO scene-bounded following; continuous start and speed cap verified",
+      "status": "All five members use side-profile walking; four new members accompany to the next encounter",
       "enabled": true,
-      "member": "EUNHO",
       "ranges": [
         {
-          "scene": "asterum",
+          "member": "eunho",
+          "scenes": [
+            "asterum"
+          ],
           "from": 18,
           "until": 20
         },
         {
-          "scene": "eunho",
+          "member": "yejun",
+          "scenes": [
+            "garden",
+            "greenhouse"
+          ],
+          "from": 23,
+          "until": 29
+        },
+        {
+          "member": "noah",
+          "scenes": [
+            "greenhouse",
+            "plaza"
+          ],
+          "from": 29,
+          "until": 35
+        },
+        {
+          "member": "bamby",
+          "scenes": [
+            "plaza",
+            "observatory"
+          ],
+          "from": 35,
+          "until": 42
+        },
+        {
+          "member": "hamin",
+          "scenes": [
+            "observatory",
+            "eunho"
+          ],
+          "from": 42,
+          "until": 49
+        },
+        {
+          "member": "eunho",
+          "scenes": [
+            "eunho"
+          ],
           "from": 49,
           "until": 57
         }
@@ -335,22 +376,35 @@
         "assets/explore-eunho-walk-contact-a-v2.png",
         "assets/explore-eunho-walk-pass-a-v2.png",
         "assets/explore-eunho-walk-contact-b-v2.png",
-        "assets/explore-eunho-walk-pass-b-v2.png"
+        "assets/explore-eunho-walk-pass-b-v2.png",
+        "assets/explore-eunho-side-idle-v2.png",
+        "assets/explore-yejun-walk-sheet-v1.png",
+        "assets/explore-noah-walk-sheet-v1.png",
+        "assets/explore-bamby-walk-sheet-v1.png",
+        "assets/explore-hamin-walk-sheet-v2.png"
       ],
-      "phase": "distance driven, 110 world units/cycle",
-      "idle": "original encounter NPC",
+      "phase": "distance driven; rendered body height / world scale * 0.6",
+      "idle": "dedicated side-profile idle for each member",
       "reducedMotion": "original stationary encounter; no walking images loaded",
       "missingPose": "original stationary encounter; retry on physical reentry",
-      "extraImageCacheLimit": 4,
-      "release": "on leaving follow scene/range or reduced-motion preference",
+      "extraImageCacheLimit": 5,
+      "release": "on leaving eligible scenes/range, changing companion, or reduced-motion preference",
       "modal": "position and phase frozen",
       "start": "nearby encounter anchor; distant restored position starts alongside",
       "maxSpeedWorldUnitsPerSecond": 300,
       "idleFacing": "toward YiTing using side idle pose",
       "idleSource": "assets/explore-eunho-side-idle-v2.png",
       "camera": "right-facing side profile matching YiTing",
-      "cachedImages": 5,
-      "stride": "rendered actor height / world scale * 0.6, distance driven"
+      "cachedImages": "EUNHO 5 individual images; each other member 1 shared 5-pose sheet",
+      "stride": "rendered actor height / world scale * 0.6, distance driven",
+      "members": [
+        "YEJUN",
+        "NOAH",
+        "BAMBY",
+        "HAMIN",
+        "EUNHO"
+      ],
+      "stationaryActorCacheLimit": 2
     },
     "sceneArrival": {
       "source": "explore-arrival.js",
@@ -446,13 +500,13 @@
     "persisted": false,
     "fullRouteVerification": {
       "date": "2026-10-18",
-      "version": "20261018-10",
+      "version": "20261018-23",
       "storyPanels": 95,
       "automatedTransfers": 94,
       "viewport": "390x844",
       "browser": "Chrome headless with virtual clock",
       "physicalIPhone": false,
-      "result": "passed with final side-profile v2 assets"
+      "result": "passed with all five members and inter-scene handoffs"
     }
   },
   "exploreFinale": {

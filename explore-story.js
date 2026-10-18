@@ -109,7 +109,7 @@ const actorAnchors=[
  {asset:'novel-hamin-stargazing',scene:'observatory',member:'hamin'}
 ];
 actorAnchors.push({asset:'novel-concert-wide',scene:'birthday',member:'concert',offset:0,group:'concert',ground:.69});
-window.YitingActors?.configure(actorAnchors.map(actor=>{const encounter=route.findIndex(story=>story.asset===actor.asset);return {...actor,x:starAt(encounter)+(actor.offset??140)*stageLength/oldStageLength,...(actor.member==='eunho'?{followFrom:encounter+1,followUntil:route.findIndex(story=>story.chapter===(actor.scene==='asterum'?4:6))}:{})};}));
+window.YitingActors?.configure(actorAnchors.map(actor=>{const encounter=route.findIndex(story=>story.asset===actor.asset);return {...actor,x:starAt(encounter)+(actor.offset??140)*stageLength/oldStageLength,...(actor.member==='eunho'?{followFrom:encounter+1,followUntil:route.findIndex(story=>story.chapter===(actor.scene==='asterum'?4:6))}:actor.member!=='concert'?{followFrom:encounter+1,followUntil:route.findIndex(story=>story.asset===({yejun:'novel-noah-pause',noah:'novel-bamby-rhythm',bamby:'novel-hamin-stargazing',hamin:'novel-eunho-conversation'})[actor.member])+1,followScenes:[({yejun:'greenhouse',noah:'plaza',bamby:'observatory',hamin:'eunho'})[actor.member]]}:{})};}));
 function drawContinuousWorld(scale,h){
  for(const region of worldRegions){
   if(region.end<camera||region.start>camera+vw)continue;

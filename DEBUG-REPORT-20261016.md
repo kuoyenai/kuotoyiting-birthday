@@ -412,3 +412,11 @@ core reduced由開頁const改為let並監聽motionPreference change，沿用既�
 ## 20261018-22 接續
 
 重現短視窗故事關閉重開仍停舊scrollTop，openStory showModal後設scrollTop=0；同格上一句／下一句不強制改捲動。另發現story-art-frame受aspect-ratio+max-height轉移影響，短視窗width:auto縮為278px且靠左，明訂width:100%使外框保持全寬、圖片object-fit:contain置中。新explore-story-scroll.cjs在390×360、568×320、1280×340先真的捲到底，重開與下一格都回頂、圖片外框同對話寬、進度正確；原版已重現失敗。dialogue-back與style三尺寸、739路徑／版本通過，檢視568短橫向實圖。無新素材／提示，95全程沿用App20驗收；四曲／人物／順序不改，iPhone實機仍待另驗。接續保持排程與穩定標籤。
+
+## 20261018-23 接續｜五位成員依序同行
+
+使用者明確要求其他成員如銀虎同行。本輪內建imagegen生成YEJUN／NOAH／BAMBY各v1與HAMIN v2透明5姿勢圖，4步＋idle，共4張PNG 4,650,573 bytes；原PNG未後製，以canvas逐姿勢裁片與實體頭頂／腳底／腰心定位。官方髮色眼色服裝、純側身、完整下巴鞋子、雙腿及口袋遮手逐張審視；HAMIN v1前兩姿勢水平範圍重疊，重生v2，不啟用v1。提示及審查art-reviews/member-walk-20261018.json、game-art-prompts.json。新explore-companion-poses.js提供定位，不拿站姿平移。
+
+actor following改通用member/profile；每個新成員讀完原相遇格才開始：YEJUN index23..<29 garden→greenhouse；NOAH29..<35 greenhouse→plaza；BAMBY35..<42 plaza→observatory；HAMIN42..<49 observatory→eunho。next encounter asset動態尋址，下一位相遇完成才交接；銀虎18..<20／49..<57保持。相同RAF距離相位、身高步幅、300速度上限、回頭轉向、idle看向YITING、modal dt0、減少動態固定立繪。步圖按當前同行載入；新4位各只解碼1張sheet，銀虎仍5單圖，離段／換人／減少動態釋放；站立角色cache最多2，交接區優先舊同行＋新相遇角色。新增visibleMembers唯讀診斷，95測試改核對正確成員（交接時可有2人），不再錯誤假定visible===1。
+
+驗證：member-companions390／1280四位解鎖／實際四步＋idle／正反向／modal／即時偏好／跨場景／實際下一成員接棒／cache≤2／每位缺圖固定與重進重試全通過。初版測試把前位仍同行誤判為新位提早，已改核對新member；河玟缺圖用v2路徑。銀虎follow/start兩尺寸含原速度與身高步幅通過；四直橫比例與旋轉停步、live-motion兩尺寸、電影／100卡／四曲下載與靜音保留通過。App23完整95格自動前往、6相遇、原畫解碼、結尾及無pageerror通過。760路徑與版本審核通過；四位手機桌機實際截圖已看。353素材385,509,156 bytes；95原小說圖／100卡／四曲不增減。iPhone實機待確認，排程保留。穩定標籤仍108c7c1，sources唯讀。

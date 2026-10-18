@@ -1,0 +1,46 @@
+{
+  "appVersion": "20261018-23",
+  "newFollowingMembers": [
+    "YEJUN",
+    "NOAH",
+    "BAMBY",
+    "HAMIN"
+  ],
+  "existingFollowingMember": "EUNHO",
+  "newImages": 4,
+  "newImageBytes": 4650573,
+  "posesPerNewMember": 5,
+  "tests": {
+    "memberCompanions": {
+      "widths": [
+        390,
+        1280
+      ],
+      "allFourPassed": true,
+      "missingArtRetryAllFour": true,
+      "handOffToActualNextMember": true,
+      "fourWalkingPlusIdle": true
+    },
+    "originalEunhoRegression": true,
+    "completeRoute": {
+      "panels": 95,
+      "automaticTransfers": 94,
+      "encounters": 6,
+      "originalArtDecoded": true,
+      "ending": true,
+      "pageErrors": 0
+    },
+    "responsiveViewports": [
+      "568x320",
+      "844x390",
+      "390x844",
+      "320x568"
+    ],
+    "preservedMovieCardsMusic": true,
+    "liveReducedMotion": true,
+    "invariantPaths": 760
+  },
+  "physicalIPhone": false,
+  "newSources": "art-reviews/member-walk-20261018.json",
+  "stableTagUnchanged": "108c7c170430715aae8f045b0e97a84c3f33bda0"
+}
