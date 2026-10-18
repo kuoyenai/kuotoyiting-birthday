@@ -1,6 +1,7 @@
 (()=>{'use strict';const canvas=document.getElementById('world');if(!canvas)return;
 const layerId=id=>id==='portal-city'?'city':id;
 const configs={
+ asterum:{source:'assets/explore-asterum-foreground-v1.png',next:'garden',alpha:.48,scale:.8,crop:{width:.22,top:.34,bottom:.32}},
  city:{source:'assets/explore-city-foreground-v1.png',alpha:.38,scale:.76,crop:{width:.22,top:.32,bottom:.32}},
  garden:{source:'assets/explore-garden-foreground-v1.png',next:'greenhouse',alpha:.76,scale:1},
  greenhouse:{source:'assets/explore-moon-foreground-v1.png',next:'plaza',alpha:.68,scale:.96,crop:{width:.38,top:.5,bottom:.44}},
@@ -20,10 +21,9 @@ function load(id,retry=false){
  image.decode().then(()=>{if(layers.get(id)===record)record.art=image;}).catch(()=>{}).finally(()=>record.pending=false);
 }
 function prepare(){
- const scene=layerId(canvas.dataset.scene),chapter=Number(document.body.dataset.chapter),entered=scene!==previousScene;
+ const scene=layerId(canvas.dataset.scene),entered=scene!==previousScene;
  let wanted=[];
  if(configs[scene])wanted=[scene,configs[scene].next].filter(Boolean);
- else if(scene==='asterum'&&chapter===4)wanted=['garden','greenhouse'];
  for(const id of layers.keys())if(!wanted.includes(id))discard(id);
  for(const id of wanted)load(id,entered&&id===scene);
  if(entered&&layers.has(scene))layers.get(scene).started=null;

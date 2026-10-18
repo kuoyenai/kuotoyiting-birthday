@@ -1,7 +1,7 @@
 {
   "updated": "2026-10-18",
-  "appVersion": "20261018-31",
-  "baseline": "d1465f8",
+  "appVersion": "20261018-32",
+  "baseline": "fc800ff",
   "cards": 100,
   "novel": {
     "chapters": [
@@ -54,12 +54,12 @@
     "blessingsCSV": true
   },
   "trackedAssets": {
-    "files": 355,
-    "bytes": 386192164,
+    "files": 356,
+    "bytes": 386337158,
     "types": {
       ".jpg": 142,
       ".webp": 144,
-      ".png": 54,
+      ".png": 55,
       ".mp4": 5,
       ".txt": 2,
       ".m4a": 4,
@@ -73,9 +73,9 @@
     "entry": "Story tabs → explore-intro.html → explore.html",
     "chapters": 10,
     "storyEncounters": 95,
-    "generatedAssets": 40,
+    "generatedAssets": 41,
     "localProgress": true,
-    "status": "Continuous 95-panel novel journey, 11 environments, 9 foreground sets, all five members follow after their story encounter; original player/dialogue retained",
+    "status": "Continuous 95-panel novel journey, 11 environments, 10 foreground sets, all five members follow after their story encounter; original player/dialogue retained",
     "walkableEnvironments": [
       "雨夜城市",
       "十點二十分穿越城市",
@@ -213,6 +213,14 @@
         "motion": "subtle corner rain-glass highlights; static reduced motion",
         "sharedDecodedLayer": true,
         "release": "asterum"
+      },
+      {
+        "scene": "asterum",
+        "source": "assets/explore-asterum-foreground-v1.png",
+        "alphaTransparency": true,
+        "motion": "sparse opalescent corner crystals; static reduced motion",
+        "next": "garden",
+        "cacheLimit": 2
       }
     ],
     "localResume": {

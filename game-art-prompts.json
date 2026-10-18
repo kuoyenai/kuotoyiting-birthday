@@ -380,6 +380,20 @@
       ],
       "alphaCenter65Max": 1,
       "transparentFractionAlphaLE8": 0.9527442047297744
+    },
+    {
+      "prompt": "Generate a sparse transparent 2D game foreground overlay using supplied ASTERUM background as PALETTE AND PAINTING STYLE reference only. New asset, do not redraw the scenery. Wide landscape 1672x941 real alpha PNG. Exactly four isolated tiny clusters at extreme corners: top-left two small hanging translucent pale-blue crystal prisms on short fine champagne threads, top-right a single opalescent lavender crystal and tiny silver glint, bottom-left two very small pearl-white flowers with one faceted glass fragment, bottom-right two tiny lavender-blue crystal fragments with a restrained warm gold highlight. Refined Korean anime painted material, delicate luminous edges, quiet luxury photobook style. Corner clusters within outermost 14% width and outermost 22% height only. Entire central 65% vertical strip completely transparent. At least 94% of canvas empty transparent. No frame or connecting lines, no scene, floor, city, buildings, planet, clouds, opaque glow, text, letters, logo, people, hands, limbs or characters. Keep central and lower central walking lane totally empty. Tiny detailed decorations, not a full picture; no large glowing objects. Colors soft blue, silver, lavender, champagne accents.",
+      "source": "C:/Users/PC/.codex/generated_images/01a1346f-1e5a-77b2-b65b-04bbec39910c/exec-cd6a397d-af3e-4310-aca4-4762922f223c.png",
+      "reference": "assets/explore-asterum-v1.png",
+      "path": "assets/explore-asterum-foreground-v1.png",
+      "mode": "built-in imagegen",
+      "bytes": 144994,
+      "size": [
+        1672,
+        941
+      ],
+      "alphaCenter65Max": 1,
+      "transparentFractionAlphaLE8": 0.9895026669175111
     }
   ],
   "updated": "2026-10-18"
