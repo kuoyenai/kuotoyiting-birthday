@@ -5,6 +5,7 @@ function refresh(){
  button.textContent='開啟旅程 →';notice.textContent='第一次來到這裡？從城市裡的星光開始。';progress.hidden=true;
  let saved;try{saved=JSON.parse(localStorage.getItem('yiting-explore-story-v1')||'null');}catch{return;}
  if(!saved||!Number.isInteger(saved.index)||saved.index<0||saved.index>route.length)return;
+ const revisit=saved.revisit;if(saved.mapVersion===2&&revisit&&Number.isInteger(revisit.index)&&revisit.index>=0&&revisit.index<=route.length&&Number.isInteger(saved.unlocked)&&revisit.index<=saved.unlocked&&Number.isFinite(revisit.x)){const chapter=window.YITING_NOVEL_CHAPTERS[route[Math.min(saved.index,route.length-1)]];button.textContent='接續重溫 →';notice.textContent='正在重溫'+chapter.title+' · 原旅程 '+revisit.index+' / '+route.length+' 格已保留。進入後可在章節選單回到剛才的位置。';progress.max=route.length;progress.value=revisit.index;progress.hidden=false;return;}
  const index=saved.index,started=index>0||Number.isFinite(saved.x)&&saved.x>180||saved.reading&&typeof saved.reading.asset==='string'&&Number.isInteger(saved.reading.line)&&saved.reading.line>0;
  if(!started)return;
  progress.max=route.length;progress.value=index;progress.hidden=false;

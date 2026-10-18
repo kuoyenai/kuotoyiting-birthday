@@ -362,3 +362,7 @@ showLine在story.dataset.voice與speaker.dataset.label寫入原說話者及英�
 ## 20261018-13 接續
 
 starbook notes表對應hope/gentleness/joy/courage/companion五個既有活動鍵，主線星光owned才加入回憶／未完成提示；每次render讀取，不寫任何狀態。五個主線星光不是活動小記，兩者不互相解鎖。390／1280五未完成→寫原活動鍵→重開五已完成、故事存檔不變、原圖／連結／Back釋放／缺圖重試通過；737路徑及App13通過。無新素材，角色／95格／自動行走／四曲不改。
+
+## 20261018-14 接續
+
+章節選單切換首度保存revisitOrigin={index,x,reading}至原key.revisit，原點只設一次，多章切換保持；resume選項還原並清除。mapVersion2才恢復合法原點，x限80..原waypoint/worldRight，書籤核對route；unlocked不倒退。新格推進到原index清除過期原點，重啟亦清除。介紹頁只讀顯示接續重溫與原格數，不新增按鈕或頁面。390／1280多次切章／重載／介紹往返／座標與書籤／手動靜音／95完成返回／壞資料通過；intro、migration、四直橫版、737路徑及版本通過。無新素材；95格沿用App10全程結果，角色與音樂保持。

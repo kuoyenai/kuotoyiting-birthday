@@ -1,7 +1,7 @@
 {
   "updated": "2026-10-18",
-  "appVersion": "20261018-13",
-  "baseline": "853f05d",
+  "appVersion": "20261018-14",
+  "baseline": "9be908d",
   "cards": 100,
   "novel": {
     "chapters": [
@@ -377,6 +377,21 @@
       "priority": "reading bookmark, then review, then new story",
       "changesInteractionDistance": false,
       "disabledContrast": "readable full-opacity label; action remains disabled"
+    },
+    "chapterRevisitReturn": {
+      "source": "explore-story.js",
+      "storage": "existing story key, optional revisit field",
+      "preserves": [
+        "index",
+        "world position",
+        "dialogue bookmark",
+        "unlocked progress",
+        "manual mute"
+      ],
+      "survivesReload": true,
+      "introExplainsRevisit": true,
+      "resumesAutomaticMovement": false,
+      "newAssets": 0
     }
   },
   "exploreDialogueNavigation": {
