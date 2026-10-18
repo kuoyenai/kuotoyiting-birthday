@@ -167,3 +167,7 @@ EXPLORE_AUTO_WALK=1執行tests/explore-continuous-story.cjs，第一格手動走
 ## 20261018-11 接續
 
 showLine在story.dataset.voice與speaker.dataset.label寫入原說話者及英文名，CSS五色細邊／名牌／繼續鍵，旁白中性、YITING／PLAVE金。正文／原劇情／autoDestination／actors不改。320／1280八說話者實際預覽及前句更新、dialogue-back三尺寸通過；736路徑／版本通過。無新素材；95格自動全程沿用App10，不誤報重新全程測試。
+
+## 20261018-12 接續
+
+廣場新增第7份透明前景，plaza alpha.46 scale.8 crop .28/.43/.36，greenhouse next plaza、plaza next observatory、obs next eunho；移除舊plaza特殊預載分支。最多2份。新圖522392 bytes、中央40% alpha≤1、93.97%透明≤8；提示在game-art-prompts與art-reviews。plaza及obs手機桌機前景／缺圖重返測試通過；joy測試改400地圖內前後走，真腳步／存檔失敗／重載／減少動態／回頭兩尺寸通過。737路徑及App12通過，95格沿用App10完整結果。349素材380858583 bytes；原角色／95圖／100卡／四曲不改。

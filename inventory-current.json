@@ -1,7 +1,7 @@
 {
   "updated": "2026-10-18",
-  "appVersion": "20261018-11",
-  "baseline": "34b8767",
+  "appVersion": "20261018-12",
+  "baseline": "7597a56",
   "cards": 100,
   "novel": {
     "chapters": [
@@ -54,12 +54,12 @@
     "blessingsCSV": true
   },
   "trackedAssets": {
-    "files": 348,
-    "bytes": 380336191,
+    "files": 349,
+    "bytes": 380858583,
     "types": {
       "": 1,
       ".webp": 144,
-      ".png": 47,
+      ".png": 48,
       ".jpg": 142,
       ".zip": 1,
       ".mp4": 5,
@@ -73,7 +73,7 @@
     "entry": "Story tabs → explore-intro.html → explore.html",
     "chapters": 10,
     "storyEncounters": 95,
-    "generatedAssets": 33,
+    "generatedAssets": 34,
     "localProgress": true,
     "status": "Continuous95-panel novel journey,11 environments,6 foreground sets,six solo encounters and one user-provided five-person concert image; original player/dialogue retained",
     "walkableEnvironments": [
@@ -178,6 +178,14 @@
         "motion": "subtle corner sway and camera parallax; static when reduced motion",
         "preload": "plaza",
         "next": "eunho"
+      },
+      {
+        "scene": "plaza",
+        "source": "assets/explore-plaza-foreground-v1.png",
+        "alphaTransparency": true,
+        "motion": "sparse ribbon and crystal corner parallax; static reduced motion",
+        "preload": "greenhouse",
+        "next": "observatory"
       }
     ],
     "localResume": {

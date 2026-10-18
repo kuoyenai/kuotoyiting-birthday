@@ -1,7 +1,8 @@
 (()=>{'use strict';const canvas=document.getElementById('world');if(!canvas)return;
 const configs={
  garden:{source:'assets/explore-garden-foreground-v1.png',next:'greenhouse',alpha:.76,scale:1},
- greenhouse:{source:'assets/explore-moon-foreground-v1.png',next:'eunho',alpha:.68,scale:.96,crop:{width:.38,top:.5,bottom:.44}},
+ greenhouse:{source:'assets/explore-moon-foreground-v1.png',next:'plaza',alpha:.68,scale:.96,crop:{width:.38,top:.5,bottom:.44}},
+ plaza:{source:'assets/explore-plaza-foreground-v1.png',next:'observatory',alpha:.46,scale:.8,crop:{width:.28,top:.43,bottom:.36}},
  observatory:{source:'assets/explore-observatory-foreground-v1.png',next:'eunho',alpha:.56,scale:.85,crop:{width:.3,top:.43,bottom:.4}},
  eunho:{source:'assets/explore-eunho-foreground-v1.png',next:'birthday',alpha:.73,scale:.9,crop:{width:.38,top:.5,bottom:.44}},
  birthday:{source:'assets/explore-stage-foreground-v1.png',next:'farewell',alpha:.6,scale:.85},
@@ -20,7 +21,6 @@ function prepare(){
  let wanted=[];
  if(configs[scene])wanted=[scene,configs[scene].next].filter(Boolean);
  else if(scene==='asterum'&&chapter===4)wanted=['garden','greenhouse'];
- else if(scene==='plaza')wanted=['observatory','eunho'];
  else if(scene==='wish')wanted=['farewell'];
  for(const id of layers.keys())if(!wanted.includes(id))discard(id);
  for(const id of wanted)load(id,entered&&id===scene);

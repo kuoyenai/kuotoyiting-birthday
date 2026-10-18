@@ -1,0 +1,9 @@
+{
+  "path": "assets/explore-plaza-foreground-v1.png",
+  "source": "C:\\Users\\PC\\.codex\\generated_images\\01a1346f-1e5a-77b2-b65b-04bbec39910c\\exec-5e446f92-2065-4467-abbd-2645410c8c69.png",
+  "mode": "built-in imagegen",
+  "reference": "assets/explore-plaza-v1.png",
+  "prompt": "Generate a transparent decorative foreground overlay for the supplied 2D side-scrolling PLAVE fantasy pink music plaza. Reference image is COLOR/PAINT STYLE only, do not reproduce scenery. Wide landscape 1672x941 transparent PNG. ONLY FOUR separate VERY SPARSE clusters at extreme corners: upper-left a delicate pink satin ribbon loop and 2 tiny five-point glass stars; upper-right a hanging thin champagne-silver chain with 2 rose-pink crystal stars and a short ribbon; lower-left a few translucent pale pink petals with tiny music-note shaped glass charms; lower-right 2 pink star crystal chips with thin curling ribbon. Fine polished anime painted detail, elegant K-pop album material, softly lit magenta/rose/lilac and restrained silver highlights. ALL middle area including entire central 50% vertical stripe must be completely TRANSPARENT; no particles or decorations in center, no connecting border, no frame. Most canvas empty. All corner clusters within outermost 18% width and outermost 25% height, keep each small airy and non-dense. NO people, faces, hands, limbs, text, logos, ground, background, floor, sky, opaque glow or shadows. Preserve actual alpha transparency. This is an unobtrusive depth overlay, never a full illustration.",
+  "alphaCenter40Max": 1,
+  "transparentFractionAlphaLE8": 0.9397127915431512
+}
