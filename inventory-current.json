@@ -1,7 +1,7 @@
 {
   "updated": "2026-10-18",
-  "appVersion": "20261018-32",
-  "baseline": "fc800ff",
+  "appVersion": "20261018-33",
+  "baseline": "8ff2da4",
   "cards": 100,
   "novel": {
     "chapters": [
@@ -605,7 +605,13 @@
     "crossSceneIdentityPreserved": true,
     "pointerEvents": "none",
     "announcement": "only on member changes",
-    "newAssets": 0
+    "newAssets": 0,
+    "joyPanelSpacing": {
+      "portrait": "below visible companion row",
+      "compactLandscape": "beside companion row, compact progress",
+      "actualLabelHeight": true,
+      "reducedMotionReflow": true
+    }
   },
   "repository": {
     "owner": "kuoyenai",

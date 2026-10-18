@@ -1,0 +1,24 @@
+{
+  "version": "20261018-33",
+  "date": "2026-10-18",
+  "newCharacterArt": false,
+  "identityReferences": [
+    "assets/reference-eunho-hamin.jpg",
+    "user supplied official member references"
+  ],
+  "visualReview": [
+    "YEJUN side profile, blue checked shirt, original silhouette and complete chin/shoes",
+    "NOAH blond hair, checked overshirt, matching side-view angle and ground",
+    "BAMBY pink hair, pale shirt, side-view walking and complete silhouette",
+    "HAMIN black hair, cream/brown shirt, side view, original head and shoes retained"
+  ],
+  "hands": "Companion hands intentionally occluded in pockets; no claim that five individual fingers are visible or automatically proven",
+  "runtimeTests": [
+    "four member sheets x390/1280: four walk poses and idle, reverse, modal freeze, reduced motion, cross-scene handoff, image failure/retry",
+    "EUNHO: 300-unit speed cap, stride tied to distance, reversal, nearby encounter and distant-save restoration",
+    "four handoffs x390/1280: fixed departure, monotonic 450ms fade, max6 temporary images and release"
+  ],
+  "issueFound": "Plaza joy overlay covered companion label; compact landscape panel also occupied too much character space",
+  "fix": "Actual companion-row CSS properties; portrait stacks below row; compact landscape uses side-by-side stars and progress",
+  "physicalIPhone": false
+}
