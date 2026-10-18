@@ -520,6 +520,29 @@
         "assets/reference-eunho-hamin.jpg",
         "assets/explore-birthday-wish-v1.png"
       ]
+    },
+    {
+      "mode": "built-in imagegen",
+      "path": "assets/explore-plave-welcome-group-v1.png",
+      "source": "C:/Users/PC/.codex/generated_images/01a1346f-1e5a-77b2-b65b-04bbec39910c/exec-fe3ee668-4179-428a-8f95-667ab071a196.png",
+      "prompt": "Generate one cohesive five-member PLAVE welcome-party sprite for a refined Korean anime 2D story game. Reference sheets 1-3 specify exact identities and everyday outfits. Exactly five adult men, no additional people, no YiTing: YEJUN navy-blue hair, blue eyes, blue-white checked shirt tucked into gray trousers; NOAH chin-length blond hair, violet eyes, gray-blue plaid overshirt over white tee with blue jeans; BAMBY short pink hair, pink-violet eyes, pale gray tee, black trousers, pink sneakers, slightly shorter; EUNHO silver swept wavy hair, red eyes, blue denim jacket over white tee, dark trousers and white sneakers; HAMIN short black hair, green eyes, cream short-sleeve collared shirt with brown shoulder yoke, black trousers. One natural closely grouped welcoming scene, full bodies from complete heads and chins down to shoes. Standing on SAME baseline, relaxed near-side three-quarter angle, all gently turned toward an arriving friend offscreen LEFT; EUNHO on left edge nearest the friend making one gentle low open-palm welcome gesture, remaining order YEJUN, NOAH, BAMBY, HAMIN naturally grouped beside him. Friendly distinct expressions, quiet warmth, not a stiff idol poster pose. Hands naturally resting at sides or in trouser pockets; EUNHO one visible hand exactly five anatomically correct digits with clear knuckles, correct foreshortening, no merged fingers or extra limbs. Separate legs/shoes clearly, no body duplicates. Match official recognizable facial features, painterly polished anime original-art detail, silver-blue ambient light and faint champagne edge light suitable for a starry terrace. Compact cohesive silhouette occupying middle 85% width and 80% height, all shoes on same ground, generous clear padding. Landscape 1672x941 REAL transparent alpha background. NO background, no floor, no cast ground shadow, no glow halo, no stars, no instruments, no text/logos, no framing. A single transparent five-person game asset, no cropping.",
+      "reference": [
+        "assets/reference-yejun.jpg",
+        "assets/reference-noah-bamby.jpg",
+        "assets/reference-eunho-hamin.jpg"
+      ],
+      "bytes": 1597583,
+      "size": [
+        1672,
+        941
+      ],
+      "alphaBBoxAbove32": [
+        245,
+        16,
+        1436,
+        926
+      ],
+      "review": "Five distinct official identities and outfits; complete heads, chins, feet. EUNHO's open hand visually reviewed as thumb plus four fingers; other hands use natural pocket/shoulder occlusion, hidden digits not claimed visible. Slight depth staggering retained with individual contact shadows. Source PNG copied unchanged; runtime clips transparent outer padding only. Phone390 and desktop1280 screenshots inspected; all320/390/568landscape/1280 bounds and fallback/reentry tests pass."
     }
   ],
   "updated": "2026-10-18"

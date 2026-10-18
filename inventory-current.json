@@ -1,7 +1,7 @@
 {
   "updated": "2026-10-18",
-  "appVersion": "20261018-39",
-  "baseline": "059decb",
+  "appVersion": "20261018-40",
+  "baseline": "9b78a8f",
   "cards": 100,
   "novel": {
     "chapters": [
@@ -54,12 +54,12 @@
     "blessingsCSV": true
   },
   "trackedAssets": {
-    "files": 362,
-    "bytes": 398588964,
+    "files": 363,
+    "bytes": 400186547,
     "types": {
       ".jpg": 142,
       ".webp": 144,
-      ".png": 61,
+      ".png": 62,
       ".mp4": 5,
       ".txt": 2,
       ".m4a": 4,
@@ -73,7 +73,7 @@
     "entry": "Story tabs → explore-intro.html → explore.html",
     "chapters": 10,
     "storyEncounters": 95,
-    "generatedAssets": 47,
+    "generatedAssets": 48,
     "localProgress": true,
     "status": "95 original panels; same-place tableaux; all-five birthday celebration and cohesive six-person farewell walking; original player elsewhere",
     "walkableEnvironments": [
@@ -576,6 +576,21 @@
       "keepsMainProgress": true,
       "sequence": "original panel order; close at segment end or latest read panel",
       "legacyPerPanelMarkersRemoved": true
+    },
+    "welcomeParty": {
+      "scene": "asterum",
+      "physicalRange": [
+        7200,
+        8000
+      ],
+      "members": 5,
+      "source": "assets/explore-plave-welcome-group-v1.png",
+      "player": "original YiTing retained on left",
+      "extraDecodedImages": 1,
+      "preload": "portal-city",
+      "release": "outside portal-city/asterum",
+      "failure": "original actor/story; retry on physical reentry",
+      "reducedMotion": "static group retained"
     }
   },
   "exploreDialogueNavigation": {
@@ -619,14 +634,14 @@
     "persisted": false,
     "fullRouteVerification": {
       "date": "2026-10-18",
-      "version": "20261018-38",
+      "version": "20261018-40",
       "storyPanels": 95,
       "automatedTransfers": 68,
       "fixedTransitions": 26,
       "viewport": "390x844",
       "browser": "Chrome headless with virtual clock",
       "physicalIPhone": false,
-      "result": "passed final95,26 fixed and68 movement transitions,7 encounters, original art/order and ending"
+      "result": "passed final95 with five-person welcome;26 fixed/68 movement transitions,7 original encounters, original art and ending"
     }
   },
   "exploreFinale": {
