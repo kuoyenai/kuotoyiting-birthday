@@ -1,7 +1,7 @@
 {
   "updated": "2026-10-18",
-  "appVersion": "20261018-28",
-  "baseline": "427cf80",
+  "appVersion": "20261018-29",
+  "baseline": "20892ec",
   "cards": 100,
   "novel": {
     "chapters": [
@@ -533,7 +533,17 @@
     "normalCount": 10,
     "birthdayCount": 18,
     "reducedMotion": "disabled, including live preference changes",
-    "newAssets": 0
+    "newAssets": 0,
+    "homecoming": {
+      "physicalSceneBased": true,
+      "count": 5,
+      "colors": "five member keepsake colors",
+      "opacity": [
+        0.1,
+        0.18
+      ],
+      "reducedMotion": "disabled"
+    }
   },
   "exploreAutoWalk": {
     "after": "new story completed",
