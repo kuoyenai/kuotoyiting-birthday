@@ -143,3 +143,7 @@ explore-arrival.js/css新增實際場景五色小星與細框、名稱700ms淡�
 ## 20261018-7 接續
 
 第6份透明前景為河玟觀景台星圖儀／綠晶，原圖與提示已保存。config observatory next eunho，plaza預載observatory/eunho，最多2。alpha.56 scale.85 crop width.3/top.43/bottom.4。來源中央40% alpha≤1，88.2%透明≤8。實際進出／缺圖／找綠星／原對話測試通過，詳README。無新角色，四步姿銀虎與手機400地圖保持。
+
+## 20261018-8 接續
+
+對白新增previousLine與linePosition，首句disabled；showLine同步原reading存檔，回看不變index/unlocked。storySaveStatus移至story-navigation之前，保留失敗提示。320/390/1280回看、書籤重載、已讀不推進與46px無重疊通過；四直橫版、731路徑、版本檢查通過。無新素材，95格沿用App4完整結果；待後續深化場景敘事，保留原圖和手機入口／400地圖。

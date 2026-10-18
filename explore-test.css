@@ -112,3 +112,5 @@ dialog[open] .story-copy{touch-action:pan-y}
 @media(forced-colors:active){.heading h1{background:none;-webkit-text-fill-color:CanvasText;color:CanvasText;filter:none}}
 /* A distant-story direction remains readable while the action is unavailable. */
 #interact:disabled{opacity:1;color:#d2c7d6;border-color:#a28c9d88;background:#11182ae8;box-shadow:none}
+
+.story-navigation{display:flex;align-items:center;justify-content:space-between;gap:12px}.story-copy .story-navigation button{margin:0;min-height:46px;touch-action:manipulation;user-select:none;-webkit-user-select:none;-webkit-touch-callout:none}.story-navigation #previousLine{background:transparent;border-color:#b7a48955;color:#cabcae}.story-navigation #linePosition{font-size:11px;letter-spacing:.08em;color:#b9b4c4;white-space:nowrap}.story-navigation #continue{margin-left:auto}@media(max-width:380px){.story-navigation{gap:7px}.story-navigation button{padding:8px 10px}}

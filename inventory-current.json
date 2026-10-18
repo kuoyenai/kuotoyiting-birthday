@@ -1,7 +1,7 @@
 {
   "updated": "2026-10-18",
-  "appVersion": "20261018-7",
-  "baseline": "aecadc7",
+  "appVersion": "20261018-8",
+  "baseline": "0e51305",
   "cards": 100,
   "novel": {
     "chapters": [
@@ -360,5 +360,12 @@
       "changesInteractionDistance": false,
       "disabledContrast": "readable full-opacity label; action remains disabled"
     }
+  },
+  "exploreDialogueNavigation": {
+    "previousLine": true,
+    "linePosition": true,
+    "bookmarkRestored": true,
+    "changesUnlockedProgress": false,
+    "newAssets": 0
   }
 }
