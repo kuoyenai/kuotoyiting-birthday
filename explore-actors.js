@@ -14,7 +14,7 @@ let anchors=[],lastScene='',visible=0,visibleMembers=[],enteredAt=0;const follow
 const following=(index,scene=canvas.dataset.scene)=>anchors.find(actor=>walkSets[actor.member]&&(actor.scene===scene||actor.followScenes?.includes(scene))&&Number.isInteger(actor.followFrom)&&index>=actor.followFrom&&index<actor.followUntil);
 const walkFrames=[["assets/explore-eunho-walk-contact-a-v2.png", 1464, 72, 570], ["assets/explore-eunho-walk-pass-a-v2.png", 1485, 47, 480], ["assets/explore-eunho-walk-contact-b-v2.png", 1466, 60, 570], ["assets/explore-eunho-walk-pass-b-v2.png", 1475, 43, 540]],idleFrame=["assets/explore-eunho-side-idle-v2.png", 1498, 56, 565];
 const walkSets={eunho:{frames:[...walkFrames,idleFrame],height:.43},...(window.YitingCompanionPoses||{})};
-let walk=null,follower=null;const motion=typeof matchMedia==='function'?matchMedia('(prefers-reduced-motion: reduce)'):null;
+let walk=null,follower=null,announcedCompanion=null;const motion=typeof matchMedia==='function'?matchMedia('(prefers-reduced-motion: reduce)'):null;
 function clearWalk(){if(walk)for(const image of walk.images)image.removeAttribute('src');walk=null;followPositions.clear();follower=null;}
 function loadWalk(member,retry){if(walk?.member===member&&(walk.ready||walk.pending||!retry))return;clearWalk();const set=walkSets[member];if(!set)return;const record={member,set,images:[],poseImages:[],ready:false,pending:true};walk=record;const sources=new Map();for(const [name]of set.frames){if(!sources.has(name)){const image=new Image();image.decoding='async';image.fetchPriority='low';image.src=name;sources.set(name,image);record.images.push(image);}record.poseImages.push(sources.get(name));}Promise.all(record.images.map(image=>image.decode())).then(()=>{if(walk===record)record.ready=true;}).catch(()=>{}).finally(()=>record.pending=false);}
 function discard(member){records.get(member)?.image.removeAttribute('src');records.delete(member);}
@@ -77,6 +77,7 @@ window.YitingActors={
     }
    }
   }
+  const active=follower?.member??null;if(active!==announcedCompanion){announcedCompanion=active;window.dispatchEvent(new CustomEvent('yiting-explore-companion',{detail:{member:active}}));}
  },get ready(){const scene=canvas.dataset.scene;return !!records.get(members[scene])?.art;},get visible(){return visible;},get visibleMembers(){return [...visibleMembers];},get count(){return anchors.length;},get cachedActors(){return records.size;},get cachedMembers(){return [...records.keys()];},get walkReady(){return !!walk?.ready;},get walkingFrames(){return walk?walkFrames.length:0;},get walkMember(){return walk?.member??null;},get walkImageCount(){return walk?.images.length??0;},get follower(){return follower?{...follower}:null;}
 };
 })();

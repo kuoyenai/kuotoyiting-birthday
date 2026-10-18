@@ -1,7 +1,7 @@
 {
   "updated": "2026-10-18",
-  "appVersion": "20261018-23",
-  "baseline": "2f529e5",
+  "appVersion": "20261018-24",
+  "baseline": "ac17734",
   "cards": 100,
   "novel": {
     "chapters": [
@@ -521,6 +521,14 @@
     "memberColors": 5,
     "speakerLabels": 8,
     "updatesWithPreviousLine": true,
+    "newAssets": 0
+  },
+  "exploreCompanionLabel": {
+    "members": 5,
+    "basedOn": "actual rendered follower",
+    "crossSceneIdentityPreserved": true,
+    "pointerEvents": "none",
+    "announcement": "only on member changes",
     "newAssets": 0
   }
 }

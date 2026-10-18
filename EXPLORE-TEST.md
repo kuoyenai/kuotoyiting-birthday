@@ -414,3 +414,9 @@ core reduced由開頁const改為let並監聽motionPreference change，沿用既�
 actor following改通用member/profile；每個新成員讀完原相遇格才開始：YEJUN index23..<29 garden→greenhouse；NOAH29..<35 greenhouse→plaza；BAMBY35..<42 plaza→observatory；HAMIN42..<49 observatory→eunho。next encounter asset動態尋址，下一位相遇完成才交接；銀虎18..<20／49..<57保持。相同RAF距離相位、身高步幅、300速度上限、回頭轉向、idle看向YITING、modal dt0、減少動態固定立繪。步圖按當前同行載入；新4位各只解碼1張sheet，銀虎仍5單圖，離段／換人／減少動態釋放；站立角色cache最多2，交接區優先舊同行＋新相遇角色。新增visibleMembers唯讀診斷，95測試改核對正確成員（交接時可有2人），不再錯誤假定visible===1。
 
 驗證：member-companions390／1280四位解鎖／實際四步＋idle／正反向／modal／即時偏好／跨場景／實際下一成員接棒／cache≤2／每位缺圖固定與重進重試全通過。初版測試把前位仍同行誤判為新位提早，已改核對新member；河玟缺圖用v2路徑。銀虎follow/start兩尺寸含原速度與身高步幅通過；四直橫比例與旋轉停步、live-motion兩尺寸、電影／100卡／四曲下載與靜音保留通過。App23完整95格自動前往、6相遇、原畫解碼、結尾及無pageerror通過。760路徑與版本審核通過；四位手機桌機實際截圖已看。353素材385,509,156 bytes；95原小說圖／100卡／四曲不增減。iPhone實機待確認，排程保留。穩定標籤仍108c7c1，sources唯讀。
+
+## 20261018-24 接續｜安靜的同行提示
+
+actors draw結尾僅在實際follower.member改變時派送yiting-explore-companion，無每幀DOM／狀態寫入。新companion-label模組放場景英文名下方，五色細邊與「成員 · 同行」；藝俊跨入諾亞溫室時仍顯示藝俊，交接才換名。ResizeObserver依場景標籤實際高度排開；pointer-events:none、不阻擋觸控；350ms opacity淡入、即時減少動態取消；離段／偏好使無follower即隱藏。輔助status僅成員改變時更新，不反覆朗讀。無新圖／音效／進度改動。
+
+companion-label在320／390／1280六情境（五位＋藝俊跨場景）全部通過：實際名稱、場景間距、區內邊界、觸控穿透、只在交接通知、即時偏好與離段清除。已看320跨場景實圖。member-companions兩尺寸、四直橫與旋轉、761路徑／版本通過。回歸初次因等待「任意4裁片」把idle算入，導致Missing walking or idle pose；測試改逐一等待資料內四個指定步姿，仍要求idle第五姿，不改產品步伐。95完整主線沿用App23全程驗收；本輪不誤報重跑95。353素材385509156 bytes不變，iPhone實機待確認。使用者更新持續至暫停、Bad Request保存並重試／下輪接續，原排程指示已有此規則，維持啟用。
