@@ -8,3 +8,8 @@
 .companion-label{position:absolute;z-index:1;left:14px;max-width:calc(50% - 20px);padding:4px 7px;pointer-events:none;color:#e8dfd2;background:#0b1020d9;border:1px solid #cbb28933;border-left:2px solid var(--companion-accent,#e7c789);border-radius:3px;font:10px/1.4 system-ui,sans-serif;letter-spacing:.05em;white-space:nowrap}
 .companion-label::before{content:'';display:inline-block;width:3px;height:3px;margin:0 6px 2px 1px;background:var(--companion-accent,#e7c789);transform:rotate(45deg)}
 .companion-label[hidden]{display:none}
+
+/* Activity controls follow the actual height of the scene title. */
+.garden-entry,.moon-entry,.sky-entry,.companion-entry,.wish-entry,.birthday-stage-entry{top:max(48px,var(--companion-row-top,48px))}
+.birthday-stage-status{top:calc(max(48px,var(--companion-row-top,48px)) + 52px)}
+@media(orientation:landscape) and (max-height:560px){.birthday-stage-entry{left:auto;right:14px;transform:none}.birthday-stage-status{width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}}

@@ -1,7 +1,7 @@
 {
   "updated": "2026-10-18",
-  "appVersion": "20261018-33",
-  "baseline": "8ff2da4",
+  "appVersion": "20261018-34",
+  "baseline": "70215cb",
   "cards": 100,
   "novel": {
     "chapters": [
@@ -533,6 +533,20 @@
       "readingBookmarkRetained": true,
       "releaseOnClose": true,
       "newAssets": 0
+    },
+    "activityLayout": {
+      "titleHeightBased": true,
+      "activities": 6,
+      "viewports": [
+        "320x568",
+        "390x844",
+        "568x320",
+        "844x390",
+        "1280x844"
+      ],
+      "minimumTouchHeight": 44,
+      "compactBirthday": "right-side control; greeting remains accessible without covering actors",
+      "changesProgress": false
     }
   },
   "exploreDialogueNavigation": {
