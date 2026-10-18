@@ -1,0 +1,23 @@
+{
+  "appVersion": "20261018-31",
+  "baseline": "d1465f8",
+  "fullRoute": {
+    "panels": 95,
+    "autoTransfers": 94,
+    "encounters": 7,
+    "chapterPanelPositions": 95,
+    "originalArtDecode": true,
+    "ending": true,
+    "pageErrors": 0,
+    "viewport": "390x844",
+    "virtualClock": true,
+    "physicalIPhone": false
+  },
+  "regressions": [
+    "story-scroll 390x360 / 568x320 /1280x340",
+    "dialogue-back 320/390/1280",
+    "art-viewer 320/390/844/1280",
+    "766 local resource paths and original 12 pages",
+    "App version audit"
+  ]
+}

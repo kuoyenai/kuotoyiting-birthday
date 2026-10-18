@@ -1,7 +1,7 @@
 {
   "updated": "2026-10-18",
-  "appVersion": "20261018-30",
-  "baseline": "b83dd2a",
+  "appVersion": "20261018-31",
+  "baseline": "d1465f8",
   "cards": 100,
   "novel": {
     "chapters": [
@@ -532,7 +532,13 @@
     "linePosition": true,
     "bookmarkRestored": true,
     "changesUnlockedProgress": false,
-    "newAssets": 0
+    "newAssets": 0,
+    "chapterContext": {
+      "source": "existing chapter catalog and actual route",
+      "includesAdditionalShots": true,
+      "separateFromDialoguePosition": true,
+      "changesProgress": false
+    }
   },
   "exploreSceneMotes": {
     "source": "explore-motes.js",
@@ -562,13 +568,13 @@
     "persisted": false,
     "fullRouteVerification": {
       "date": "2026-10-18",
-      "version": "20261018-27",
+      "version": "20261018-31",
       "storyPanels": 95,
       "automatedTransfers": 94,
       "viewport": "390x844",
       "browser": "Chrome headless with virtual clock",
       "physicalIPhone": false,
-      "result": "passed95, 94 transfers, 7 encounters, native dialog history and ending"
+      "result": "passed95, 94 transfers, 7 encounters, original art, all chapter-local panel positions and ending"
     }
   },
   "exploreFinale": {

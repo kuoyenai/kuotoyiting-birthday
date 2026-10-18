@@ -122,3 +122,6 @@ dialog[open] .story-copy{touch-action:pan-y}
 /* Keep complete CJK body glyphs together instead of mixing the display-font subset. */
 #story #line{font-family:'Songti TC','Noto Serif TC','PMingLiU',serif;font-synthesis:none;line-height:1.9;letter-spacing:.025em;text-wrap:pretty;overflow-wrap:anywhere}
 @media(max-width:520px){#story #line{font-size:19px;line-height:1.9;letter-spacing:.015em}}
+
+/* Keep chapter context separate from the dialogue sentence count. */
+#storyContext{margin:0;padding:10px 18px;color:#dfc9a9;background:#111629;font:11px/1.6 system-ui,sans-serif;letter-spacing:.06em;text-align:left;overflow-wrap:anywhere}
