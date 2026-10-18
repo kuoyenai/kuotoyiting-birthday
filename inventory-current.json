@@ -1,7 +1,7 @@
 {
   "updated": "2026-10-18",
-  "appVersion": "20261018-24",
-  "baseline": "ac17734",
+  "appVersion": "20261018-25",
+  "baseline": "78a4c47",
   "cards": 100,
   "novel": {
     "chapters": [
@@ -404,7 +404,15 @@
         "HAMIN",
         "EUNHO"
       ],
-      "stationaryActorCacheLimit": 2
+      "stationaryActorCacheLimit": 2,
+      "handoff": {
+        "departingFadeMs": 450,
+        "arrivingFadeMs": 350,
+        "maxRetiringMembers": 1,
+        "temporaryWalkingImageLimit": 6,
+        "reducedMotion": "immediate release",
+        "noStoryOrSpeedChange": true
+      }
     },
     "sceneArrival": {
       "source": "explore-arrival.js",

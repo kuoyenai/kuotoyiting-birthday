@@ -233,3 +233,9 @@ actor following改通用member/profile；每個新成員讀完原相遇格才開
 actors draw結尾僅在實際follower.member改變時派送yiting-explore-companion，無每幀DOM／狀態寫入。新companion-label模組放場景英文名下方，五色細邊與「成員 · 同行」；藝俊跨入諾亞溫室時仍顯示藝俊，交接才換名。ResizeObserver依場景標籤實際高度排開；pointer-events:none、不阻擋觸控；350ms opacity淡入、即時減少動態取消；離段／偏好使無follower即隱藏。輔助status僅成員改變時更新，不反覆朗讀。無新圖／音效／進度改動。
 
 companion-label在320／390／1280六情境（五位＋藝俊跨場景）全部通過：實際名稱、場景間距、區內邊界、觸控穿透、只在交接通知、即時偏好與離段清除。已看320跨場景實圖。member-companions兩尺寸、四直橫與旋轉、761路徑／版本通過。回歸初次因等待「任意4裁片」把idle算入，導致Missing walking or idle pose；測試改逐一等待資料內四個指定步姿，仍要求idle第五姿，不改產品步伐。95完整主線沿用App23全程驗收；本輪不誤報重跑95。353素材385509156 bytes不變，iPhone實機待確認。使用者更新持續至暫停、Bad Request保存並重試／下輪接續，原排程指示已有此規則，維持啟用。
+
+## 20261018-25 接續｜同行交接柔和離場
+
+loadWalk換成不同member時，若原follower已呈現，保留單一retiring={record,pose,age}；原位置與步姿不再移動，450ms線性淡出，過期立即移除來源；下一位readyAt後350ms淡入。正常同member跨場景不重載、不重置跟隨；手動離段／減少動態會直接清理過渡。任何時刻最多一組離場＋一組新同行，最重HAMIN1sheet＋EUNHO5image＝6張暫存，過渡後回到1／5張。站姿cache仍≤2。retiring實際可見時計入visibleMembers，同行提示只依新follower，不把離場者當作陪走。無進度／曲目／步幅／新圖改動。
+
+新handoff測試在390／1280四次交接查原位置、450ms單調淡出、離場釋放、≤6暫存、下一成員與原index，全部通過；即時減少動態清空過渡通過。member-companions四位兩尺寸、銀虎start速度／步幅與恢復、companion-label三尺寸六情境、四直橫布局／旋轉、761路徑及App25審核通過。已看390交接實圖。95主線沿用App23完整驗收，本輪為渲染過渡回歸；iPhone實機待確認。353素材385509156 bytes不變，保持排程、穩定標籤與sources唯讀，持續至使用者暫停。
