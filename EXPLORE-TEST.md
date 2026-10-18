@@ -402,3 +402,7 @@ core reduced由開頁const改為let並監聽motionPreference change，沿用既�
 ## 20261018-21 接續
 
 故事長對白指定完整系統明體Songti TC／Noto Serif TC／PMingLiU，避免邀請標題子集字型混排；行距1.9、字距.025em／手機.015em，手機19px，不改原插畫比例。showLine使用180ms僅opacity .45→1的WAAPI，下一句／上一句先取消原動畫，MQL change亦取消；不延後按鍵或進度，減少動態無淡入。測試需等待瀏覽器動畫時間線與非同步MQL事件，不能只假定虛擬RAF已完成；初版測試已修正。dialogue-style三尺寸字型／無溢出／單動畫／即時偏好通過，dialogue-back三尺寸／書籤通過，739路徑／App21通過，已檢視320及390視覺。無新素材，完整95格沿用App20全程驗收；iPhone實機待另驗。排程保留，小說順序／原人物／四曲與穩定標籤不改。
+
+## 20261018-22 接續
+
+重現短視窗故事關閉重開仍停舊scrollTop，openStory showModal後設scrollTop=0；同格上一句／下一句不強制改捲動。另發現story-art-frame受aspect-ratio+max-height轉移影響，短視窗width:auto縮為278px且靠左，明訂width:100%使外框保持全寬、圖片object-fit:contain置中。新explore-story-scroll.cjs在390×360、568×320、1280×340先真的捲到底，重開與下一格都回頂、圖片外框同對話寬、進度正確；原版已重現失敗。dialogue-back與style三尺寸、739路徑／版本通過，檢視568短橫向實圖。無新素材／提示，95全程沿用App20驗收；四曲／人物／順序不改，iPhone實機仍待另驗。接續保持排程與穩定標籤。

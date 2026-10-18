@@ -89,7 +89,7 @@ dialog[open] .story-copy{touch-action:pan-y}
 }
 
 /* Reserve a stable image area while the next original illustration is loading. */
-.story-art-frame{position:relative;aspect-ratio:16/9;max-height:49dvh;min-height:80px;background:#111a2c;overflow:hidden}
+.story-art-frame{position:relative;width:100%;aspect-ratio:16/9;max-height:49dvh;min-height:80px;background:#111a2c;overflow:hidden}
 .story-art-frame #storyArt{position:absolute;inset:0;width:100%;height:100%;max-height:none;object-fit:contain}
 .story-art-frame #storyArt.is-loading{opacity:0}
 #storyArtStatus{position:absolute;inset:0;display:grid;place-content:center;margin:0;padding:18px;text-align:center;color:#c9bba8;font:12px/1.8 system-ui,sans-serif;letter-spacing:.06em;background:radial-gradient(ellipse,#29304a55,transparent 75%)}
