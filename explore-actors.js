@@ -61,6 +61,16 @@ window.YitingActors={
    ctx.save();ctx.globalAlpha*=reduced?1:progress*progress*(3-2*progress);const shadow=ctx.createRadialGradient(cx,ground,0,cx,ground,width*.52);
    shadow.addColorStop(0,'#11152e66');shadow.addColorStop(1,'#11152e00');ctx.fillStyle=shadow;
    ctx.save();ctx.translate(cx,ground);ctx.scale(1,.18);ctx.translate(-cx,-ground);ctx.beginPath();ctx.arc(cx,ground,width*.52,0,Math.PI*2);ctx.fill();ctx.restore();
+   // A quiet floor seal belongs to the encounter, never to the walking follower.
+   if(actor.member!=='concert'){
+    const tone=({eunho:'#e57291',yejun:'#77baff',noah:'#c5a2ef',bamby:'#f2a3c0',hamin:'#8dd2b0'})[actor.member];
+    const near=Math.max(0,1-Math.abs(playerX-actor.x)/420),radius=Math.min(h*.105,Math.max(20,width*.5));
+    ctx.save();ctx.globalAlpha*=.12+near*.15;ctx.strokeStyle=tone;ctx.lineWidth=1;
+    ctx.beginPath();ctx.ellipse(cx,ground+2,radius,radius*.16,0,0,Math.PI*2);ctx.stroke();
+    const phase=reduced?0:t*.00018;
+    for(let mark=0;mark<3;mark++){const angle=phase+mark*Math.PI*2/3,px=cx+Math.cos(angle)*radius,py=ground+2+Math.sin(angle)*radius*.16;ctx.fillStyle='#f6e7c8';ctx.beginPath();ctx.moveTo(px,py-3);ctx.lineTo(px+1.6,py);ctx.lineTo(px,py+3);ctx.lineTo(px-1.6,py);ctx.closePath();ctx.fill();}
+    ctx.restore();
+   }
    ctx.imageSmoothingEnabled=true;ctx.drawImage(art,crop.x,crop.y,crop.w,crop.h,cx-width*(config.origin??.5),ground-height,width,height);ctx.restore();visible++;visibleMembers.push(actor.member);
   }
   // Four separately reviewed key poses advance with travelled distance.
