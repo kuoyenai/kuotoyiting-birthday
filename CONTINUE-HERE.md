@@ -135,3 +135,7 @@ explore-arrival.js/css新增實際場景五色小星與細框、名稱700ms淡�
 ## 20261018-5 接續
 
 同行從附近原anchor起步，max300世界單位／秒，停步faceplayer；遠距存檔仍直接恢復到身邊。follow資料新增phase供只讀診斷。無新圖，原4步姿與同行段保持。新增start測試逐幀查位置與速度，follow及缺圖／減少動態回歸通過；95格沿用App4完整結果。提示與素材總量保持。
+
+## 20261018-6 接續
+
+遠處提示下一道星光在右方，結尾提示可回頭；原新故事／重溫／書籤判斷優先級與距離不改。#interact disabled提高對比仍不可按。5狀態手機桌機預覽＋直橫版面／版本通過，無新素材或核心行為。預覽記錄本機material-review/guidance-preview.cjs與explore-guidance-*截圖，不納入正式測試新增。
