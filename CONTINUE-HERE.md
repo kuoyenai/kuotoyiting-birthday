@@ -191,3 +191,7 @@ explore-seams.js在drawContinuousWorld後／details與角色前，融合48世界
 ## 20261018-16 接續
 
 原新故事末句完成前檢查s.star及route.slice(0,unlocked)已收色，首次才派送yiting-explore-star；重溫分支先return不觸發。star-moment模組繪900ms八點光環，主draw在角色前，MQL即時減少動態不繪；視窗／旋轉／hidden清除。無存檔或音效變更。五色×390／1280原劇情／自動前往／消失／重溫／減少動態通過，對白回看三尺寸及739路徑版本通過。無新圖，95全程沿用App15整體驗收。
+
+## 20261018-17 接續
+
+core reduced由開頁const改為let並監聽motionPreference change，沿用既有draw參數；不停止功能行走，不修改曲目／存檔。live-motion在390／1280兩初始模式，全畫布時序像素對照＋即時切換兩方向、手動／自動／回頭操作通過；銀虎follow含偏好切換／缺圖通過，739路徑及App17版本通過。無新圖／提示，95主線沿用App15整體驗收。

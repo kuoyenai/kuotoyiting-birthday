@@ -25,7 +25,7 @@ let revisitOrigin=saved.mapVersion===2&&saved.revisit&&valid(saved.revisit.index
 
 waypoint=starAt(index);
 const savedPosition=Number.isFinite(saved.x)?(saved.mapVersion===mapVersion?saved.x:migratePosition(saved.x)):Math.max(180,index===0?180:starAt(index-1));
-x=target=Math.max(80,Math.min(movementLimit(),savedPosition));let lastSavedX=x,lastPositionSave=0;camera=Math.max(0,x-250);const sceneImages=new Map();const keys=new Set(),reduced=matchMedia('(prefers-reduced-motion: reduce)').matches;
+x=target=Math.max(80,Math.min(movementLimit(),savedPosition));let lastSavedX=x,lastPositionSave=0;camera=Math.max(0,x-250);const sceneImages=new Map();const keys=new Set(),motionPreference=matchMedia('(prefers-reduced-motion: reduce)');let reduced=motionPreference.matches;motionPreference.addEventListener('change',event=>{reduced=event.matches;});
 const colors={blue:'#77baff',purple:'#c5a2ef',pink:'#f2a3c0',green:'#8dd2b0',red:'#e57291',gold:'#e7c789'};
 const current=()=>route[index];const sceneForDisplay=()=>window.yitingExploreScene(route[Math.max(0,Math.min(route.length-1,Math.floor(x/stageLength)))]);const art=asset=>'assets/'+(replacement[asset]||asset+'.webp');
 function save(){try{localStorage.setItem(key,JSON.stringify({mapVersion,index,unlocked,x,reading:resumeReading,revisit:revisitOrigin,updated:Date.now()}));lastSavedX=x;readingSaveNotice.hidden=true;readingSaveNotice.textContent='';delete $('saveState').dataset.failed;$('saveState').textContent='位置與閱讀進度已保存在這個瀏覽器';}catch{if(!$('saveState').dataset.failed){$('saveState').textContent='瀏覽器目前無法保存進度；本次仍可繼續，下次可能從較早的位置接續。';readingSaveNotice.textContent='這段暫時無法保存，下次可能需要重新閱讀；本次仍可繼續。';}$('saveState').dataset.failed='true';readingSaveNotice.hidden=false;}}

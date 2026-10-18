@@ -1,7 +1,7 @@
 {
   "updated": "2026-10-18",
-  "appVersion": "20261018-16",
-  "baseline": "f5ae7d7",
+  "appVersion": "20261018-17",
+  "baseline": "1fd8968",
   "cards": 100,
   "novel": {
     "chapters": [
@@ -409,6 +409,14 @@
       "drawnBehindActors": true,
       "interruptsAutomaticWalking": false,
       "reducedMotion": "accessible status and existing earned badge only",
+      "newAssets": 0
+    },
+    "liveMotionPreference": {
+      "source": "explore-story.js",
+      "updatesDuringSession": true,
+      "restoresStandardMotion": true,
+      "keepsFunctionalWalking": true,
+      "test": "tests/explore-live-motion.cjs",
       "newAssets": 0
     }
   },
