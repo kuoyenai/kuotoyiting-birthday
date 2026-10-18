@@ -197,6 +197,16 @@
       "tool": "built-in imagegen",
       "generatedOn": "2026-10-18",
       "transparent_background": true
+    },
+    {
+      "path": "assets/explore-observatory-foreground-v1.png",
+      "references": [
+        "assets/explore-observatory-v1.png (style only)"
+      ],
+      "tool": "built-in imagegen",
+      "generatedOn": "2026-10-18",
+      "transparent_background": true,
+      "prompt": "Create ONE true transparent PNG foreground overlay for a luxurious hand-painted Korean anime stargazing balcony in a 2D PLAVE birthday story game. Use the provided image ONLY for its refined anime finish, champagne-gold metal, navy-violet night and distant starlight palette. Output ONLY FOUR SPARSE SEPARATE CORNER DECORATION CLUSTERS, huge completely transparent middle. TOP LEFT: a small elegant partial antique celestial astrolabe ring and very fine gold chains with two tiny pale emerald-green faceted star crystals. TOP RIGHT: fine celestial brass arcs, tiny constellation pinpoints and one small translucent emerald prism. BOTTOM LEFT: a low cluster of delicate dark-violet ivy leaves with a couple of pale mint crystal fragments. BOTTOM RIGHT: a few antique brass star-chart ring fragments and subtle violet leaves, low and sparse. No complete enclosing frame or connecting border; no telescope or building, sky, floor, skyline or characters. Every ornament stays in the OUTERMOST 22 percent horizontal corner zones and outermost 35 percent vertical corner zones; leave central 56 percent vertical stripe COMPLETELY ALPHA TRANSPARENT from top to bottom. At least 80 percent pure alpha transparency overall. Wide 16:9 layout. Precise fine painterly metal details, restrained green shimmer, warm Korean idol photobook luxury, not neon, not childish, no noisy particle clouds, no photorealistic/3D look. No letters, labels, logos, people, hands, limbs, silhouettes, watermark or painted backdrop. Keep sparse natural silhouettes only with transparent empty space, no black white or checkerboard background."
     }
   ],
   "updated": "2026-10-18"
