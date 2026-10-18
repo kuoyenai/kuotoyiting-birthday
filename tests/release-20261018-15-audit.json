@@ -1,0 +1,56 @@
+{
+  "appVersion": "20261018-15",
+  "runtimeCommit": "ca0f130",
+  "date": "2026-10-18",
+  "browser": "Chrome headless",
+  "viewports": [
+    390,
+    1280
+  ],
+  "physicalIPhone": false,
+  "completeAutoRoute": {
+    "panels": 95,
+    "automaticTransfers": 94,
+    "memberEncounters": 6,
+    "originalArtDecode": true,
+    "passed": true,
+    "test": "tests/explore-continuous-story.cjs, EXPLORE_AUTO_WALK=1"
+  },
+  "optionalInteractions": {
+    "tests": [
+      "explore-garden-interaction",
+      "explore-moon",
+      "explore-joy",
+      "explore-sky",
+      "explore-companion",
+      "explore-stage",
+      "explore-wish"
+    ],
+    "allPassed": true
+  },
+  "preservation": {
+    "test": "tests/preservation-audit.cjs",
+    "continuousMovieSeekSeconds": [
+      10,
+      25,
+      40,
+      55
+    ],
+    "flipCards": 100,
+    "selectedSongVideoLinks": 4,
+    "manualMuteAcrossGiftTabs": true,
+    "passed": true
+  },
+  "completeCollectionZIP": {
+    "images": 100,
+    "bytes": 79250017,
+    "crcCheck": "passed"
+  },
+  "stableTag": {
+    "name": "yiting-stable-20261016-v9",
+    "peeledCommit": "108c7c170430715aae8f045b0e97a84c3f33bda0",
+    "unchanged": true
+  },
+  "reviewedNovelAssetsModifiedSinceStable": [],
+  "testMaintenance": "wish storage allowlist includes existing mapVersion and revisit fields; no product code changed"
+}

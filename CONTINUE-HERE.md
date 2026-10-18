@@ -183,3 +183,7 @@ starbook notes表對應hope/gentleness/joy/courage/companion五個既有活動�
 ## 20261018-15 接續
 
 explore-seams.js在drawContinuousWorld後／details與角色前，融合48世界單位交界，取代原暗邊；來源原比例、鏡像延伸。只快取可見窄畫布，camera不重建、resize重建、缺來源略過、不可見釋放。seams兩尺寸像素中央混色／外側不變／快取／狀態／進度通過；11背景比例與四直橫版、738路徑／版本通過。無新圖，95格沿用App10，角色／音樂／存檔未改。
+
+## 20261018-15 整體驗收接續
+
+目前最終版本95格全自動前往／六處相遇重跑通過；七互動兩尺寸通過，許願測試欄位白名單補mapVersion/revisit，仍查無願望存送。preservation-audit.cjs核對電影連播四時間點、100卡翻面、四曲所選下載與禮物分頁靜音；ZIP100圖CRC通過。摘要tests/release-20261018-15-audit.json。標籤需用^{ }解參照檢查（實際Git語法^{}），仍108c7c1；小說原素材未修改。App15不升版，只有測試／紀錄。排程保留，後續依需求改善，勿為版本號新增無關內容。
