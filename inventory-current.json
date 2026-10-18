@@ -1,7 +1,7 @@
 {
   "updated": "2026-10-18",
-  "appVersion": "20261018-9",
-  "baseline": "7197e6b",
+  "appVersion": "20261018-10",
+  "baseline": "7c36ad4",
   "cards": 100,
   "novel": {
     "chapters": [
@@ -54,12 +54,12 @@
     "blessingsCSV": true
   },
   "trackedAssets": {
-    "files": 343,
-    "bytes": 372263804,
+    "files": 348,
+    "bytes": 380336191,
     "types": {
       "": 1,
       ".webp": 144,
-      ".png": 42,
+      ".png": 47,
       ".jpg": 142,
       ".zip": 1,
       ".mp4": 5,
@@ -73,7 +73,7 @@
     "entry": "Story tabs → explore-intro.html → explore.html",
     "chapters": 10,
     "storyEncounters": 95,
-    "generatedAssets": 28,
+    "generatedAssets": 33,
     "localProgress": true,
     "status": "Continuous95-panel novel journey,11 environments,6 foreground sets,six solo encounters and one user-provided five-person concert image; original player/dialogue retained",
     "walkableEnvironments": [
@@ -316,10 +316,10 @@
       ],
       "keyPoses": 4,
       "sources": [
-        "assets/explore-eunho-walk-contact-a-v1.png",
-        "assets/explore-eunho-walk-pass-a-v1.png",
-        "assets/explore-eunho-walk-contact-b-v1.png",
-        "assets/explore-eunho-walk-pass-b-v1.png"
+        "assets/explore-eunho-walk-contact-a-v2.png",
+        "assets/explore-eunho-walk-pass-a-v2.png",
+        "assets/explore-eunho-walk-contact-b-v2.png",
+        "assets/explore-eunho-walk-pass-b-v2.png"
       ],
       "phase": "distance driven, 110 world units/cycle",
       "idle": "original encounter NPC",
@@ -330,7 +330,10 @@
       "modal": "position and phase frozen",
       "start": "nearby encounter anchor; distant restored position starts alongside",
       "maxSpeedWorldUnitsPerSecond": 300,
-      "idleFacing": "toward YiTing"
+      "idleFacing": "toward YiTing using side idle pose",
+      "idleSource": "assets/explore-eunho-side-idle-v2.png",
+      "camera": "right-facing side profile matching YiTing",
+      "cachedImages": 5
     },
     "sceneArrival": {
       "source": "explore-arrival.js",
@@ -375,6 +378,22 @@
     "normalCount": 10,
     "birthdayCount": 18,
     "reducedMotion": "disabled, including live preference changes",
+    "newAssets": 0
+  },
+  "exploreAutoWalk": {
+    "after": "new story completed",
+    "destination": "next unread star",
+    "opensDialogue": false,
+    "manualTakeover": true,
+    "cancelOnModalBlurResize": true,
+    "persisted": false
+  },
+  "exploreFinale": {
+    "unlock": 95,
+    "originalArt": "novel-walk-forward.webp",
+    "entry": "earned map button",
+    "lazyLoad": true,
+    "releaseOnClose": true,
     "newAssets": 0
   }
 }

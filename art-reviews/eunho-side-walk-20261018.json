@@ -1,0 +1,109 @@
+{
+  "mode": "built-in imagegen",
+  "references": [
+    "assets/explore-yiting-walk-v1.png",
+    "assets/reference-eunho-hamin.jpg"
+  ],
+  "assets": [
+    {
+      "key": "contactA",
+      "source": "C:\\Users\\PC\\.codex\\generated_images\\01a1346f-1e5a-77b2-b65b-04bbec39910c\\exec-dc5f5226-d928-4e1a-ae5d-fee7380df976.png",
+      "path": "assets/explore-eunho-walk-contact-a-v2.png",
+      "prompt": "Create ONE full-body 2D side-scrolling game walking sprite of EUNHO from PLAVE. Reference 1 is YITING walking sheet: match her EXACT camera convention: near pure SIDE PROFILE, torso/hips/legs facing horizontally RIGHT, eye-level orthographic, no perspective walking toward viewer. Reference 2 is old EUNHO identity/outfit only; do NOT copy its frontal torso angle. Reference 3 official EUNHO in upper half is identity guide: silver wavy center-part hair with darker nape, red eye, sharp delicate anime face, blue denim jacket gold buttons over white T-shirt, dark charcoal straight trousers, gray-white sneakers. Gentle relaxed expression looking RIGHT in travel direction. Hands comfortably in trouser pockets, no visible fingers. Walking CONTACT pose A: near leg forward to right heel on baseline, far leg back to left toe grounded. Two legs only, plausible knees/ankles/occlusion. Full hair, chin and both shoes visible with 6% clear padding. Consistent slender adult proportions 7.8 heads tall. One figure only centered on portrait 1024x1536 transparent canvas; head near y100, soles baseline around y1420, no cast shadow, no glow, no scenery or text. High quality clean detailed Korean anime illustration, same rendering quality as YITING. Camera side profile is mandatory, chest narrow side view, not three-quarter/front.",
+      "origin": 570,
+      "size": [
+        1024,
+        1536
+      ],
+      "alphaBBox": [
+        121,
+        72,
+        950,
+        1465
+      ],
+      "top": 72,
+      "baseline": 1464,
+      "bytes": 1645382
+    },
+    {
+      "key": "passA",
+      "source": "C:\\Users\\PC\\.codex\\generated_images\\01a1346f-1e5a-77b2-b65b-04bbec39910c\\exec-fb33150b-7d01-4484-910b-652896eceab9.png",
+      "path": "assets/explore-eunho-walk-pass-a-v2.png",
+      "prompt": "Use supplied accepted EUNHO sprite as exact MODEL SHEET. Draw ONE matching full-body side-scrolling sprite on transparent portrait 1024x1536. Keep same character silver wavy hair/darker nape, one visible red eye, exact face shape, denim blue jacket gold seams/buttons white shirt charcoal trousers gray-white sneakers, same proportions/scale/lighting, hands in trouser pockets. STRICT SIDE PROFILE torso hips head and shoes toward RIGHT, orthographic eye-level as YITING game sprite. NO frontal chest/no looking at viewer. Change ONLY walk cycle pose: PASSING A: near leg is the supporting straight leg directly under hips, foot flat facing right. Far leg swings forward with bent knee, foot lifted just off ground near supporting ankle. NOT a large stride. Head and upper body stay around same coordinates as reference, hairtop around y70-90, ground at y1460, 5% clear margin entire silhouette, retain full chin hair shoes. Exactly two legs and two feet, correct knee and ankle occlusion. No scenery, no ground shadow or glow, no text. Clean high quality Korean anime. Reference is identity and camera/scale guide; create only single requested pose.",
+      "origin": 480,
+      "size": [
+        1024,
+        1536
+      ],
+      "alphaBBox": [
+        295,
+        47,
+        777,
+        1486
+      ],
+      "top": 47,
+      "baseline": 1485,
+      "bytes": 1619679
+    },
+    {
+      "key": "contactB",
+      "source": "C:\\Users\\PC\\.codex\\generated_images\\01a1346f-1e5a-77b2-b65b-04bbec39910c\\exec-31ff4bb5-f223-46c5-9d1b-620801de5681.png",
+      "path": "assets/explore-eunho-walk-contact-b-v2.png",
+      "prompt": "Use supplied accepted EUNHO sprite as exact MODEL SHEET. Draw ONE matching full-body side-scrolling sprite on transparent portrait 1024x1536. Keep same character silver wavy hair/darker nape, one visible red eye, exact face shape, denim blue jacket gold seams/buttons white shirt charcoal trousers gray-white sneakers, same proportions/scale/lighting, hands in trouser pockets. STRICT SIDE PROFILE torso hips head and shoes toward RIGHT, orthographic eye-level as YITING game sprite. NO frontal chest/no looking at viewer. Change ONLY walk cycle pose: CONTACT B opposite leg: FAR leg extended FORWARD to RIGHT, NEAR leg extends BACK to LEFT with heel lifted. The dark far leg is partly occluded by near leg. Swap leg positions from reference, not mirror image. Face continues RIGHT. Head and upper body stay around same coordinates as reference, hairtop around y70-90, ground at y1460, 5% clear margin entire silhouette, retain full chin hair shoes. Exactly two legs and two feet, correct knee and ankle occlusion. No scenery, no ground shadow or glow, no text. Clean high quality Korean anime. Reference is identity and camera/scale guide; create only single requested pose.",
+      "origin": 570,
+      "size": [
+        1024,
+        1536
+      ],
+      "alphaBBox": [
+        75,
+        60,
+        991,
+        1467
+      ],
+      "top": 60,
+      "baseline": 1466,
+      "bytes": 1688094
+    },
+    {
+      "key": "passB",
+      "source": "C:\\Users\\PC\\.codex\\generated_images\\01a1346f-1e5a-77b2-b65b-04bbec39910c\\exec-504ac8c3-6fd3-4cad-8574-35e1c6948cff.png",
+      "path": "assets/explore-eunho-walk-pass-b-v2.png",
+      "prompt": "Use supplied accepted EUNHO sprite as exact MODEL SHEET. Draw ONE matching full-body side-scrolling sprite on transparent portrait 1024x1536. Keep same character silver wavy hair/darker nape, one visible red eye, exact face shape, denim blue jacket gold seams/buttons white shirt charcoal trousers gray-white sneakers, same proportions/scale/lighting, hands in trouser pockets. STRICT SIDE PROFILE torso hips head and shoes toward RIGHT, orthographic eye-level as YITING game sprite. NO frontal chest/no looking at viewer. Change ONLY walk cycle pose: PASSING B opposite: FAR leg supports weight under hips with flat foot, NEAR leg swings forward to RIGHT knee slightly bent and foot lifted near ankle. Distinct passing pose, not large stride. Head and upper body stay around same coordinates as reference, hairtop around y70-90, ground at y1460, 5% clear margin entire silhouette, retain full chin hair shoes. Exactly two legs and two feet, correct knee and ankle occlusion. No scenery, no ground shadow or glow, no text. Clean high quality Korean anime. Reference is identity and camera/scale guide; create only single requested pose.",
+      "origin": 540,
+      "size": [
+        1024,
+        1536
+      ],
+      "alphaBBox": [
+        265,
+        43,
+        986,
+        1476
+      ],
+      "top": 43,
+      "baseline": 1475,
+      "bytes": 1671520
+    },
+    {
+      "key": "idle",
+      "source": "C:\\Users\\PC\\.codex\\generated_images\\01a1346f-1e5a-77b2-b65b-04bbec39910c\\exec-a05beea7-4b4f-45e5-8090-8c15882cb8df.png",
+      "path": "assets/explore-eunho-side-idle-v2.png",
+      "prompt": "Use supplied accepted EUNHO sprite as exact MODEL SHEET. Draw ONE matching full-body side-scrolling sprite on transparent portrait 1024x1536. Keep same character silver wavy hair/darker nape, one visible red eye, exact face shape, denim blue jacket gold seams/buttons white shirt charcoal trousers gray-white sneakers, same proportions/scale/lighting, hands in trouser pockets. STRICT SIDE PROFILE torso hips head and shoes toward RIGHT, orthographic eye-level as YITING game sprite. NO frontal chest/no looking at viewer. Change ONLY walk cycle pose: IDLE standing: two feet on same baseline close together with relaxed balanced weight, no stepping, no crossed legs, knees straight relaxed. Full side profile facing RIGHT. Head and upper body stay around same coordinates as reference, hairtop around y70-90, ground at y1460, 5% clear margin entire silhouette, retain full chin hair shoes. Exactly two legs and two feet, correct knee and ankle occlusion. No scenery, no ground shadow or glow, no text. Clean high quality Korean anime. Reference is identity and camera/scale guide; create only single requested pose.",
+      "origin": 565,
+      "size": [
+        1024,
+        1536
+      ],
+      "alphaBBox": [
+        377,
+        56,
+        710,
+        1499
+      ],
+      "top": 56,
+      "baseline": 1498,
+      "bytes": 1447712
+    }
+  ]
+}

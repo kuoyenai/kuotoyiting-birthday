@@ -1,0 +1,14 @@
+(()=>{'use strict';
+const canvas=document.getElementById('world'),end=document.getElementById('endLink');if(!canvas||!end)return;
+const chapters=window.NOVEL_PANELS||[],total=chapters.reduce((n,rows,c)=>n+rows.length+(window.YITING_EXTRA_SHOTS||[]).filter(s=>s.chapter===c&&rows.some(row=>row[0]===s.after)).length,0),last=chapters.at(-1)?.at(-1);if(!total||!last)return;
+const entry=document.createElement('button');entry.id='openFinale';entry.type='button';entry.className='finale-entry';entry.hidden=true;entry.textContent='✦ 今晚的旅程紀念';entry.setAttribute('aria-haspopup','dialog');document.querySelector('.stage').append(entry);
+const section=document.createElement('dialog');section.id='journeyFinale';section.className='journey-finale';section.setAttribute('aria-labelledby','journeyFinaleTitle');
+section.innerHTML='<div class="finale-art"><img id="finaleArt" width="1672" height="941" alt=""><p id="finaleArtStatus" role="status" hidden></p><button id="retryFinaleArt" type="button" hidden>重新載入插畫</button></div><div class="finale-copy"><p class="finale-edition">YITING / THE LIGHT STAYS WITH YOU</p><h2 id="journeyFinaleTitle">把今晚的星光，<br>帶回日常。</h2><p class="finale-quote"></p><p class="finale-stars"><span>✦ 希望</span><span>✦ 溫柔</span><span>✦ 快樂</span><span>✦ 勇氣</span><span>✦ 陪伴</span></p><p class="finale-complete"></p><a class="finale-revisit">重溫最後的生日祝福 →</a><button id="closeFinale" type="button">帶著星光繼續走</button></div>';document.body.append(section);
+const image=section.querySelector('img'),status=section.querySelector('#finaleArtStatus'),retry=section.querySelector('button'),source='assets/'+last[0]+'.webp';image.alt=last[1];section.querySelector('.finale-quote').textContent=last[2]?.at(-1)?.[1]||last[1];section.querySelector('.finale-complete').textContent=total+' 格故事，今晚一起走過。';section.querySelector('a').href='novel-comic.html#chapter-'+(chapters.length-1)+'-panel-0';
+function load(retryLoad=false){status.hidden=false;status.textContent='正在收好今晚的回憶…';retry.hidden=true;image.onload=()=>{status.hidden=true;retry.hidden=true;};image.onerror=()=>{status.hidden=false;status.textContent='插畫暫時無法載入，祝福仍然留在這裡。';retry.hidden=false;};image.src=source+(retryLoad?'?retry='+Date.now():'');}
+retry.onclick=()=>load(true);
+function clear(){image.onload=image.onerror=null;image.removeAttribute('src');status.hidden=true;retry.hidden=true;}
+entry.onclick=()=>{if(Number(canvas.dataset.index)!==total)return;window.yitingExploreResumeAudio?.();window.dispatchEvent(new Event('yiting-explore-modal'));load();section.showModal();};section.querySelector('#closeFinale').onclick=()=>section.close();section.addEventListener('close',()=>{clear();canvas.focus({preventScroll:true});});
+function sync(){const complete=Number(canvas.dataset.index)===total;entry.hidden=!complete;if(!complete){if(section.open)section.close();clear();}}
+new MutationObserver(sync).observe(canvas,{attributes:true,attributeFilter:['data-index']});sync();
+})();

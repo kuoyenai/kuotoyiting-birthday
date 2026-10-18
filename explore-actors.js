@@ -12,10 +12,10 @@ const members={asterum:'eunho',eunho:'eunho',garden:'yejun',greenhouse:'noah',pl
 const preloads={'portal-city':['eunho'],asterum:['eunho','yejun'],garden:['yejun','noah'],greenhouse:['noah','bamby'],plaza:['bamby','hamin'],observatory:['hamin','eunho']};
 let anchors=[],lastScene='',visible=0,enteredAt=0;const followPositions=new Map();
 const following=(index,scene=canvas.dataset.scene)=>anchors.find(actor=>actor.member==='eunho'&&actor.scene===scene&&Number.isInteger(actor.followFrom)&&index>=actor.followFrom&&index<actor.followUntil);
-const walkFrames=[['assets/explore-eunho-walk-contact-a-v1.png',1488],['assets/explore-eunho-walk-pass-a-v1.png',1515],['assets/explore-eunho-walk-contact-b-v1.png',1475],['assets/explore-eunho-walk-pass-b-v1.png',1496]];
+const walkFrames=[["assets/explore-eunho-walk-contact-a-v2.png", 1464, 72, 570], ["assets/explore-eunho-walk-pass-a-v2.png", 1485, 47, 480], ["assets/explore-eunho-walk-contact-b-v2.png", 1466, 60, 570], ["assets/explore-eunho-walk-pass-b-v2.png", 1475, 43, 540]],idleFrame=["assets/explore-eunho-side-idle-v2.png", 1498, 56, 565];
 let walk=null,follower=null;const motion=typeof matchMedia==='function'?matchMedia('(prefers-reduced-motion: reduce)'):null;
 function clearWalk(){if(walk)for(const image of walk.images)image.removeAttribute('src');walk=null;followPositions.clear();follower=null;}
-function loadWalk(retry){if(walk&&(walk.ready||walk.pending||!retry))return;clearWalk();const record={images:[],ready:false,pending:true};walk=record;const jobs=walkFrames.map(([name])=>{const image=new Image();image.decoding='async';image.fetchPriority='low';image.src=name;record.images.push(image);return image.decode();});Promise.all(jobs).then(()=>{if(walk===record)record.ready=true;}).catch(()=>{}).finally(()=>{record.pending=false;});}
+function loadWalk(retry){if(walk&&(walk.ready||walk.pending||!retry))return;clearWalk();const record={images:[],ready:false,pending:true};walk=record;const jobs=[...walkFrames,idleFrame].map(([name])=>{const image=new Image();image.decoding='async';image.fetchPriority='low';image.src=name;record.images.push(image);return image.decode();});Promise.all(jobs).then(()=>{if(walk===record)record.ready=true;}).catch(()=>{}).finally(()=>{record.pending=false;});}
 function discard(member){records.get(member)?.image.removeAttribute('src');records.delete(member);}
 function load(member,retry){
  const old=records.get(member);if(old&&(old.art||old.pending||!retry))return;if(old)discard(member);
@@ -68,13 +68,13 @@ window.YitingActors={
     const ground=h*.85,cx=(px-camera)*scale,height=h*config.height,frame=stepping?Math.floor(phase*4)%4:-1;
     if(cx+height>=0&&cx-height<=w){
      ctx.save();ctx.fillStyle='#11152e44';ctx.beginPath();ctx.ellipse(cx,ground,height*.13,height*.018,0,0,Math.PI*2);ctx.fill();
-     ctx.translate(cx,ground);ctx.scale(direction>0?-1:1,1);ctx.imageSmoothingEnabled=true;
-     if(frame>=0){const image=walk.images[frame],unit=height/1507;ctx.drawImage(image,0,0,1024,1536,-512*unit,-walkFrames[frame][1]*unit,1024*unit,1536*unit);}
-     else{const crop=config.crop,width=height*crop.w/crop.h;ctx.drawImage(standing,crop.x,crop.y,crop.w,crop.h,-width*.5,-height,width,height);}
+     ctx.translate(cx,ground);ctx.scale(direction>0?1:-1,1);ctx.imageSmoothingEnabled=true;
+     const pose=frame>=0?walkFrames[frame]:idleFrame,image=walk.images[frame>=0?frame:4],unit=height/(pose[1]-pose[2]);
+     ctx.drawImage(image,0,0,image.naturalWidth,image.naturalHeight,-pose[3]*unit,-pose[1]*unit,image.naturalWidth*unit,image.naturalHeight*unit);
      ctx.restore();visible++;follower={member:companion.member,x:px,frame,direction,phase};
     }
    }
   }
- },get ready(){const scene=canvas.dataset.scene;return !!records.get(members[scene])?.art;},get visible(){return visible;},get count(){return anchors.length;},get cachedActors(){return records.size;},get cachedMembers(){return [...records.keys()];},get walkReady(){return !!walk?.ready;},get walkingFrames(){return walk?.images.length??0;},get follower(){return follower?{...follower}:null;}
+ },get ready(){const scene=canvas.dataset.scene;return !!records.get(members[scene])?.art;},get visible(){return visible;},get count(){return anchors.length;},get cachedActors(){return records.size;},get cachedMembers(){return [...records.keys()];},get walkReady(){return !!walk?.ready;},get walkingFrames(){return walk?walkFrames.length:0;},get follower(){return follower?{...follower}:null;}
 };
 })();

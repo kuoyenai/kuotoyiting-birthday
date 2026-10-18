@@ -151,3 +151,11 @@ explore-arrival.js/css新增實際場景五色小星與細框、名稱700ms淡�
 ## 20261018-9 接續
 
 explore-motes.js依實際playerScene繪製11種場景配色／音符月弧細星微光，取代原16方點；兩側上半區、一般10／舞台18，動態減少時不繪製。無新圖或存檔改變。motes四尺寸與arrival手機桌機12場景／回頭通過，732路徑與App9檢查通過。95格沿用App4結果；後續繼續深化角色相遇、故事銜接與場景，原穩定標籤、400地圖、四曲不改。
+
+## 20261018-10 接續
+
+使用者新需求：讀完新格自動走下格；autoDestination只存記憶體，manual／modal／blur／resize停止，舊格重溫和結尾不觸發，抵達不自開對白。changeBackground保留內部載入前的待行走意圖；初次／重載無自動意圖。完成95格才出現openFinale，使用原終章圖，開啟載入／關閉釋放／Back先關視窗；不要inline壓縮固定高度stage。
+
+銀虎步姿使用v2四側身＋side-idle-v2，第五圖停步；來源朝右，direction>0不翻、<0翻。以各圖alpha實體top/baseline/腰部origin正規化。walk.images實際5張，walkingFrames getter仍4表示循環步姿，缺任一則原固定相遇、不滑動。五張生成提示／alphaBBox審查在art-reviews/eunho-side-walk-20261018.json。其他成員仍固定相遇，未開啟同行。原v1保留不刪。
+
+驗證：本輪完整95格／六相遇重新通過（側身替換前）；側身替換後follow與start手機桌機、缺圖重試／減少動態、正反向繪圖通過。auto-walk跨章節／末格／六種取消、finale三尺寸無劇透／Back／缺圖重試、四直橫比例與736路徑及App10通過。348追蹤素材380336191 bytes，新增5PNG共8072387 bytes，95故事／100卡／四曲不變。仍待iPhone實機核對；後續依故事需求深化角色／場景，保留原手機入口與穩定標籤。
