@@ -1,7 +1,7 @@
 {
   "updated": "2026-10-18",
-  "appVersion": "20261018-29",
-  "baseline": "20892ec",
+  "appVersion": "20261018-30",
+  "baseline": "b83dd2a",
   "cards": 100,
   "novel": {
     "chapters": [
@@ -54,12 +54,12 @@
     "blessingsCSV": true
   },
   "trackedAssets": {
-    "files": 354,
-    "bytes": 385883448,
+    "files": 355,
+    "bytes": 386192164,
     "types": {
       ".jpg": 142,
       ".webp": 144,
-      ".png": 53,
+      ".png": 54,
       ".mp4": 5,
       ".txt": 2,
       ".m4a": 4,
@@ -73,9 +73,9 @@
     "entry": "Story tabs → explore-intro.html → explore.html",
     "chapters": 10,
     "storyEncounters": 95,
-    "generatedAssets": 39,
+    "generatedAssets": 40,
     "localProgress": true,
-    "status": "Continuous 95-panel novel journey, 11 environments, 8 foreground sets, all five members follow after their story encounter; original player/dialogue retained",
+    "status": "Continuous 95-panel novel journey, 11 environments, 9 foreground sets, all five members follow after their story encounter; original player/dialogue retained",
     "walkableEnvironments": [
       "雨夜城市",
       "十點二十分穿越城市",
@@ -205,6 +205,14 @@
         "motion": "sparse candlelit corners; static reduced motion",
         "preload": "birthday",
         "next": "farewell"
+      },
+      {
+        "scene": "city / portal-city",
+        "source": "assets/explore-city-foreground-v1.png",
+        "alphaTransparency": true,
+        "motion": "subtle corner rain-glass highlights; static reduced motion",
+        "sharedDecodedLayer": true,
+        "release": "asterum"
       }
     ],
     "localResume": {

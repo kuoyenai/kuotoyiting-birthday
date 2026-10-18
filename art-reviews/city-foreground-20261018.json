@@ -1,0 +1,14 @@
+{
+  "prompt": "Generate one sparse transparent foreground overlay for the supplied Korean anime night-city illustration. Reference image is STYLE AND PALETTE ONLY. Do not recreate its city. Wide landscape 1672x941 real alpha PNG. Exactly four very small isolated clusters at the extreme corners only: upper left 3 tiny clear raindrops and a faint silver-blue glass glint; upper right 3 tiny clear raindrops with subtle lavender reflected edges; lower left a small soft out-of-focus champagne streetlight reflection with two drops; lower right a tiny violet-pink wet-glass glint and two clear drops. Detailed hand-painted anime material, refined Korean pop photobook finish, restrained cinematic depth, muted silver-blue, lavender, faint amber. Each cluster strictly within outermost 14% of width and outermost 20% of height. Entire middle 65% vertical strip fully transparent. At least 94% canvas empty transparent. No connecting lines, no edges, no rectangular frame, no background, scenery, objects, signs, lettering, logos, people, faces, limbs, clothes, hands, stars, flowers or opaque haze. Mostly empty clear alpha canvas. Preserve uncluttered walking lane and lower center for story controls. These are subtle glass highlights, not a rainstorm.",
+  "source": "C:/Users/PC/.codex/generated_images/01a1346f-1e5a-77b2-b65b-04bbec39910c/exec-58bc61d1-8185-4f12-af1a-dc781c3586bc.png",
+  "reference": "assets/explore-city-v1.png",
+  "path": "assets/explore-city-foreground-v1.png",
+  "mode": "built-in imagegen",
+  "bytes": 308716,
+  "size": [
+    1672,
+    941
+  ],
+  "alphaCenter65Max": 1,
+  "transparentFractionAlphaLE8": 0.9527442047297744
+}

@@ -1,5 +1,7 @@
 (()=>{'use strict';const canvas=document.getElementById('world');if(!canvas)return;
+const layerId=id=>id==='portal-city'?'city':id;
 const configs={
+ city:{source:'assets/explore-city-foreground-v1.png',alpha:.38,scale:.76,crop:{width:.22,top:.32,bottom:.32}},
  garden:{source:'assets/explore-garden-foreground-v1.png',next:'greenhouse',alpha:.76,scale:1},
  greenhouse:{source:'assets/explore-moon-foreground-v1.png',next:'plaza',alpha:.68,scale:.96,crop:{width:.38,top:.5,bottom:.44}},
  plaza:{source:'assets/explore-plaza-foreground-v1.png',next:'observatory',alpha:.46,scale:.8,crop:{width:.28,top:.43,bottom:.36}},
@@ -18,7 +20,7 @@ function load(id,retry=false){
  image.decode().then(()=>{if(layers.get(id)===record)record.art=image;}).catch(()=>{}).finally(()=>record.pending=false);
 }
 function prepare(){
- const scene=canvas.dataset.scene,chapter=Number(document.body.dataset.chapter),entered=scene!==previousScene;
+ const scene=layerId(canvas.dataset.scene),chapter=Number(document.body.dataset.chapter),entered=scene!==previousScene;
  let wanted=[];
  if(configs[scene])wanted=[scene,configs[scene].next].filter(Boolean);
  else if(scene==='asterum'&&chapter===4)wanted=['garden','greenhouse'];
@@ -29,7 +31,7 @@ function prepare(){
 }
 const observer=new MutationObserver(prepare);observer.observe(canvas,{attributes:true,attributeFilter:['data-scene']});observer.observe(document.body,{attributes:true,attributeFilter:['data-chapter']});prepare();
 window.YitingAtmosphere={draw(ctx,{id,t,w,h,camera,reduced}){
- const record=layers.get(id),artwork=record?.art,config=configs[id];if(!artwork||!config)return;
+ const record=layers.get(layerId(id)),artwork=record?.art,config=configs[layerId(id)];if(!artwork||!config)return;
  if(record.started===null)record.started=t;
  const iw=artwork.naturalWidth,ih=artwork.naturalHeight,crop=config.crop||{width:.28,top:.42,bottom:.34},sw=iw*crop.width,top=ih*crop.top,bottom=ih*crop.bottom,size=Math.min(w*.23,h*.27,150)*config.scale;
  const shift=reduced?0:Math.sin(camera*.0018)*4,sway=reduced?0:Math.sin(t*.0005)*1.5,fade=reduced?1:Math.min(1,Math.max(0,(t-record.started)/500));
@@ -39,5 +41,5 @@ window.YitingAtmosphere={draw(ctx,{id,t,w,h,camera,reduced}){
  ctx.drawImage(artwork,0,ih-bottom,sw,bottom,-4-shift,h-size*bottom/sw+3,size,size*bottom/sw);
  ctx.drawImage(artwork,iw-sw,ih-bottom,sw,bottom,w-size+4+shift,h-size*bottom/sw+3,size,size*bottom/sw);
  ctx.restore();
- },get ready(){return !!layers.get(canvas.dataset.scene)?.art;},get cachedLayers(){return layers.size;}};
+ },get ready(){return !!layers.get(layerId(canvas.dataset.scene))?.art;},get cachedLayers(){return layers.size;}};
 })();
