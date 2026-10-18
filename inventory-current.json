@@ -646,14 +646,14 @@
     "persisted": false,
     "fullRouteVerification": {
       "date": "2026-10-19",
-      "version": "20261018-43",
+      "version": "20261019-45",
       "storyPanels": 95,
       "automatedTransfers": 51,
       "fixedTransitions": 43,
       "viewport": "390x844",
       "browser": "Chrome headless with virtual clock",
       "physicalIPhone": false,
-      "result": "passed95;43 fixed/51 movement transitions,7 encounters,original art and ending; complete each member conversation before following"
+      "result": "passed95;43 fixed/51 automatic movement transitions,7 encounters,original artwork,chapter positions and ending collection entry; App44/45 regressions verified"
     }
   },
   "exploreFinale": {
