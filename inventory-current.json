@@ -1,7 +1,7 @@
 {
   "updated": "2026-10-18",
-  "appVersion": "20261018-40",
-  "baseline": "9b78a8f",
+  "appVersion": "20261018-41",
+  "baseline": "08854b9",
   "cards": 100,
   "novel": {
     "chapters": [
@@ -127,7 +127,16 @@
         "chapter6 stage 57..65",
         "chapter7 cake 66..75",
         "final phone 86..90"
-      ]
+      ],
+      "residency": {
+        "policy": "visible viewport plus margin, nearby physical/story nodes; discard distant refs and image src",
+        "staleCompletion": "image identity and wanted-source guard",
+        "rotation": "reevaluate visible range",
+        "observedJumpRouteMax": 2,
+        "observedScenes": 8,
+        "notAHardLimit": true,
+        "physicalDeviceMemoryMeasured": false
+      }
     },
     "responsiveLayout": {
       "portrait": "vertical stage and controls",
@@ -634,14 +643,14 @@
     "persisted": false,
     "fullRouteVerification": {
       "date": "2026-10-18",
-      "version": "20261018-40",
+      "version": "20261018-41",
       "storyPanels": 95,
       "automatedTransfers": 68,
       "fixedTransitions": 26,
       "viewport": "390x844",
       "browser": "Chrome headless with virtual clock",
       "physicalIPhone": false,
-      "result": "passed final95 with five-person welcome;26 fixed/68 movement transitions,7 original encounters, original art and ending"
+      "result": "passed95 with viewport-aware background residency,26 fixed/68 movement,7 encounters, original art and ending"
     }
   },
   "exploreFinale": {
