@@ -1,7 +1,7 @@
 {
   "updated": "2026-10-18",
-  "appVersion": "20261018-35",
-  "baseline": "27388d1",
+  "appVersion": "20261018-36",
+  "baseline": "2d2eed1",
   "cards": 100,
   "novel": {
     "chapters": [
@@ -566,6 +566,13 @@
       "fixedCamera": true,
       "player": "original YiTing on left",
       "keepsWishPrivate": true
+    },
+    "stationaryReplay": {
+      "segments": 4,
+      "singlePhysicalEntry": true,
+      "keepsMainProgress": true,
+      "sequence": "original panel order; close at segment end or latest read panel",
+      "legacyPerPanelMarkersRemoved": true
     }
   },
   "exploreDialogueNavigation": {
