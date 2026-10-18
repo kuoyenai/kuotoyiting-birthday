@@ -163,3 +163,7 @@ explore-motes.js依實際playerScene繪製11種場景配色／音符月弧細星
 ## 20261018-10 最終側身版全程自動銜接補驗
 
 EXPLORE_AUTO_WALK=1執行tests/explore-continuous-story.cjs，第一格手動走近，其後94段全部自動前往；95格順序、原圖解碼、五位成員六處相遇及結尾收藏入口通過，無pageerror。使用最終v2側身資源、390×844 Chrome虛擬時鐘；不是iPhone實機。App不升版，無新圖／產品程式變更。保留手動測試模式供後續回歸，繼續依實際需求深化內容。
+
+## 20261018-11 接續
+
+showLine在story.dataset.voice與speaker.dataset.label寫入原說話者及英文名，CSS五色細邊／名牌／繼續鍵，旁白中性、YITING／PLAVE金。正文／原劇情／autoDestination／actors不改。320／1280八說話者實際預覽及前句更新、dialogue-back三尺寸通過；736路徑／版本通過。無新素材；95格自動全程沿用App10，不誤報重新全程測試。

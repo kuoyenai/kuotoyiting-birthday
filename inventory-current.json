@@ -1,7 +1,7 @@
 {
   "updated": "2026-10-18",
-  "appVersion": "20261018-10",
-  "baseline": "7c36ad4",
+  "appVersion": "20261018-11",
+  "baseline": "34b8767",
   "cards": 100,
   "novel": {
     "chapters": [
@@ -404,6 +404,12 @@
     "entry": "earned map button",
     "lazyLoad": true,
     "releaseOnClose": true,
+    "newAssets": 0
+  },
+  "exploreDialogueNameplates": {
+    "memberColors": 5,
+    "speakerLabels": 8,
+    "updatesWithPreviousLine": true,
     "newAssets": 0
   }
 }
