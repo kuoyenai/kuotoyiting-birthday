@@ -1,0 +1,73 @@
+{
+  "appVersion": "20261018-20",
+  "runtimeCommit": "1dd94947885f9401486dfe217162a85c3b829afc",
+  "date": "2026-10-18",
+  "browser": "Chrome headless",
+  "viewports": [
+    390,
+    1280
+  ],
+  "physicalIPhone": false,
+  "completeAutoRoute": {
+    "panels": 95,
+    "automaticTransfers": 94,
+    "memberEncounters": 6,
+    "originalArtDecode": true,
+    "passed": true,
+    "test": "tests/explore-continuous-story.cjs, EXPLORE_AUTO_WALK=1"
+  },
+  "optionalInteractions": {
+    "tests": [
+      "explore-garden-interaction",
+      "explore-moon",
+      "explore-joy",
+      "explore-sky",
+      "explore-companion",
+      "explore-stage",
+      "explore-wish"
+    ],
+    "allPassed": true
+  },
+  "preservation": {
+    "test": "tests/preservation-audit.cjs",
+    "continuousMovieSeekSeconds": [
+      10,
+      25,
+      40,
+      55
+    ],
+    "flipCards": 100,
+    "selectedSongVideoLinks": 4,
+    "manualMuteAcrossGiftTabs": true,
+    "passed": true
+  },
+  "completeCollectionZIP": {
+    "images": 100,
+    "bytes": 79250017,
+    "crcCheck": "passed"
+  },
+  "stableTag": {
+    "name": "yiting-stable-20261016-v9",
+    "peeledCommit": "108c7c170430715aae8f045b0e97a84c3f33bda0",
+    "unchanged": true
+  },
+  "reviewedNovelAssetsModifiedSinceStable": [],
+  "testMaintenance": "No test or product edits this audit round; existing App20 tests rerun. iPhone physical Safari remains unverified.",
+  "additionalRegression": [
+    "explore-responsive: four portrait/landscape sizes, rotation cancels held input",
+    "explore-eunho-start: body-scaled stride, start, reversal, idle and restored save",
+    "explore-eunho-follow: side profile poses, both directions, modal pause, missing-image retry, live motion preference",
+    "explore-world-proportions: all 11 scene image ratios and map v2 coordinates",
+    "explore-map-migration: legacy/v2 and no double migration",
+    "explore-dialogue-back: 320/390/1280, reload bookmark, no skip",
+    "explore-starbook: original illustrations, story links, notes, release and retry",
+    "explore-revisit-return: original position and line, reload, mute, completed route and invalid origin",
+    "explore-finale: 320/390/1280 full art, no early spoiler, release, retry and reset",
+    "invariants: 739 paths, 12 pages, track order, unchanged 45 fourth-song bilingual cues",
+    "audit.py: App20, manifests, iOS icon file dimensions"
+  ],
+  "generatedArtManifest": {
+    "entriesDecoded": 30,
+    "newAssetsThisRound": 0
+  }
+}
