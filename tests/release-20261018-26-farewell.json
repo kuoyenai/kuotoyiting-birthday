@@ -1,0 +1,46 @@
+{
+  "appVersion": "20261018-26",
+  "farewellCompanion": {
+    "member": "EUNHO",
+    "encounter": "novel-farewell-medium",
+    "from": 80,
+    "until": 86,
+    "newAssets": 0,
+    "originalDialogueRetained": true
+  },
+  "tests": {
+    "farewellCompanionWidths": [
+      390,
+      1280
+    ],
+    "bothDirectionsIdleAndNoSkip": true,
+    "reducedMotionStanding": true,
+    "missingPoseRetry": true,
+    "cityReturnNoCompanion": true,
+    "completeRoute": {
+      "panels": 95,
+      "automaticTransfers": 94,
+      "memberEncounters": 7,
+      "originalArtDecoded": true,
+      "ending": true,
+      "pageErrors": 0
+    },
+    "priorEunhoFollow": true,
+    "handoffFadeAndRelease": true,
+    "wishPrivacy": true,
+    "keepsakeAndFinale": true,
+    "movieCardsTracksAndMute": true,
+    "responsiveViewports": [
+      "568x320",
+      "844x390",
+      "390x844",
+      "320x568"
+    ],
+    "invariantPaths": 761
+  },
+  "physicalIPhone": false,
+  "trackedAssets": {
+    "files": 353,
+    "bytes": 385509156
+  }
+}

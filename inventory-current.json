@@ -1,7 +1,7 @@
 {
   "updated": "2026-10-18",
-  "appVersion": "20261018-25",
-  "baseline": "78a4c47",
+  "appVersion": "20261018-26",
+  "baseline": "b7906d8",
   "cards": 100,
   "novel": {
     "chapters": [
@@ -228,7 +228,8 @@
         "source": "assets/explore-eunho-npc-v1.png",
         "anchors": [
           "novel-arrival-medium",
-          "novel-eunho-conversation"
+          "novel-eunho-conversation",
+          "novel-farewell-medium"
         ],
         "pose": "full-body standing, hands naturally occluded in jacket pockets",
         "originalDialogueRetained": true,
@@ -369,6 +370,14 @@
           ],
           "from": 49,
           "until": 57
+        },
+        {
+          "member": "eunho",
+          "scenes": [
+            "farewell"
+          ],
+          "from": 80,
+          "until": 86
         }
       ],
       "keyPoses": 4,
@@ -412,6 +421,12 @@
         "temporaryWalkingImageLimit": 6,
         "reducedMotion": "immediate release",
         "noStoryOrSpeedChange": true
+      },
+      "farewell": {
+        "encounter": "novel-farewell-medium",
+        "reusesReviewedArt": true,
+        "stopsBeforeCityReturn": true,
+        "noNewDialogue": true
       }
     },
     "sceneArrival": {
@@ -508,13 +523,13 @@
     "persisted": false,
     "fullRouteVerification": {
       "date": "2026-10-18",
-      "version": "20261018-23",
+      "version": "20261018-26",
       "storyPanels": 95,
       "automatedTransfers": 94,
       "viewport": "390x844",
       "browser": "Chrome headless with virtual clock",
       "physicalIPhone": false,
-      "result": "passed with all five members and inter-scene handoffs"
+      "result": "passed: 95 panels, 94 auto transfers, 7 encounters including farewell, city return and ending"
     }
   },
   "exploreFinale": {

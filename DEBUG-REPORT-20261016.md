@@ -432,3 +432,9 @@ companion-label在320／390／1280六情境（五位＋藝俊跨場景）全部�
 loadWalk換成不同member時，若原follower已呈現，保留單一retiring={record,pose,age}；原位置與步姿不再移動，450ms線性淡出，過期立即移除來源；下一位readyAt後350ms淡入。正常同member跨場景不重載、不重置跟隨；手動離段／減少動態會直接清理過渡。任何時刻最多一組離場＋一組新同行，最重HAMIN1sheet＋EUNHO5image＝6張暫存，過渡後回到1／5張。站姿cache仍≤2。retiring實際可見時計入visibleMembers，同行提示只依新follower，不把離場者當作陪走。無進度／曲目／步幅／新圖改動。
 
 新handoff測試在390／1280四次交接查原位置、450ms單調淡出、離場釋放、≤6暫存、下一成員與原index，全部通過；即時減少動態清空過渡通過。member-companions四位兩尺寸、銀虎start速度／步幅與恢復、companion-label三尺寸六情境、四直橫布局／旋轉、761路徑及App25審核通過。已看390交接實圖。95主線沿用App23完整驗收，本輪為渲染過渡回歸；iPhone實機待確認。353素材385509156 bytes不變，保持排程、穩定標籤與sources唯讀，持續至使用者暫停。
+
+## 20261018-26 接續｜告別回程的銀虎陪伴
+
+依原第八章novel-farewell-medium（index79）補EUNHO原全身相遇，讀完後80..<86以已審視v2側身步姿陪走，包含傾聽、贈星與走向傳送門原劇情；chapter9/index86回到Terra即結束。沿用EUNHO圖、完整頭腳與口袋遮手，未生成新圖／文字。actors members新增farewell:eunho，wish僅預載原站姿，未提早顯示；新anchor followUntil依chapter9查找，其他銀虎兩段維持。總計五位七處原畫相遇，原舞台五人圖保留。
+
+farewell-companion390／1280：相遇前不跟、相遇後正反向／idle、原index80不跳過紀念星星、正確同行提示、減少動態保留站姿、城市無銀虎／步圖釋放、缺任一pose固定與重溫重試通過。原EUNHO follow、四交接淡出／釋放、四直橫與旋轉、761路徑／App26通過。wish兩尺寸隱私、keepsake兩尺寸贈星／回城、finale三尺寸、電影／100卡／四曲所選下載與手動靜音通過。App26完整95格自動前往94段／七相遇／原畫解碼／結尾及無pageerror已重跑通過；tests/explore-continuous-story.cjs新增正確相遇期待，不更動小說原順序。已看390告別場景實圖。353素材385509156 bytes不變，sources唯讀、穩定標籤保留；iPhone實機待確認。繼續按實際小說需求深化，Bad Request保存並最多3次重試，排程不停用。

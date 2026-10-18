@@ -8,8 +8,8 @@ const configs={
  concert:{source:'assets/explore-plave-concert-group-v1.png',crop:{x:0,y:0,w:1536,h:1024},height:.33},
  hamin:{source:'assets/explore-hamin-npc-v1.png',crop:{x:144,y:7,w:830,h:1518},height:.435,origin:.4}
 };
-const members={asterum:'eunho',eunho:'eunho',garden:'yejun',greenhouse:'noah',plaza:'bamby',observatory:'hamin',birthday:'concert'},records=new Map();
-const preloads={'portal-city':['eunho'],asterum:['eunho','yejun'],garden:['yejun','noah'],greenhouse:['noah','bamby'],plaza:['bamby','hamin'],observatory:['hamin','eunho']};
+const members={asterum:'eunho',eunho:'eunho',garden:'yejun',greenhouse:'noah',plaza:'bamby',observatory:'hamin',farewell:'eunho',birthday:'concert'},records=new Map();
+const preloads={wish:['eunho'],'portal-city':['eunho'],asterum:['eunho','yejun'],garden:['yejun','noah'],greenhouse:['noah','bamby'],plaza:['bamby','hamin'],observatory:['hamin','eunho']};
 let anchors=[],lastScene='',visible=0,visibleMembers=[],enteredAt=0;const followPositions=new Map();
 const following=(index,scene=canvas.dataset.scene)=>anchors.find(actor=>walkSets[actor.member]&&(actor.scene===scene||actor.followScenes?.includes(scene))&&Number.isInteger(actor.followFrom)&&index>=actor.followFrom&&index<actor.followUntil);
 const walkFrames=[["assets/explore-eunho-walk-contact-a-v2.png", 1464, 72, 570], ["assets/explore-eunho-walk-pass-a-v2.png", 1485, 47, 480], ["assets/explore-eunho-walk-contact-b-v2.png", 1466, 60, 570], ["assets/explore-eunho-walk-pass-b-v2.png", 1475, 43, 540]],idleFrame=["assets/explore-eunho-side-idle-v2.png", 1498, 56, 565];

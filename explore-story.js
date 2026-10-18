@@ -103,13 +103,14 @@ window.YitingPassages?.configure([3,9].map(chapter=>({x:route.findIndex(story=>s
 const actorAnchors=[
  {asset:'novel-arrival-medium',scene:'asterum',member:'eunho'},
  {asset:'novel-eunho-conversation',scene:'eunho',member:'eunho'},
+ {asset:'novel-farewell-medium',scene:'farewell',member:'eunho'},
  {asset:'novel-yejun-listening',scene:'garden',member:'yejun',offset:180},
  {asset:'novel-noah-pause',scene:'greenhouse',member:'noah',offset:160},
  {asset:'novel-bamby-rhythm',scene:'plaza',member:'bamby',offset:160},
  {asset:'novel-hamin-stargazing',scene:'observatory',member:'hamin'}
 ];
 actorAnchors.push({asset:'novel-concert-wide',scene:'birthday',member:'concert',offset:0,group:'concert',ground:.69});
-window.YitingActors?.configure(actorAnchors.map(actor=>{const encounter=route.findIndex(story=>story.asset===actor.asset);return {...actor,x:starAt(encounter)+(actor.offset??140)*stageLength/oldStageLength,...(actor.member==='eunho'?{followFrom:encounter+1,followUntil:route.findIndex(story=>story.chapter===(actor.scene==='asterum'?4:6))}:actor.member!=='concert'?{followFrom:encounter+1,followUntil:route.findIndex(story=>story.asset===({yejun:'novel-noah-pause',noah:'novel-bamby-rhythm',bamby:'novel-hamin-stargazing',hamin:'novel-eunho-conversation'})[actor.member])+1,followScenes:[({yejun:'greenhouse',noah:'plaza',bamby:'observatory',hamin:'eunho'})[actor.member]]}:{})};}));
+window.YitingActors?.configure(actorAnchors.map(actor=>{const encounter=route.findIndex(story=>story.asset===actor.asset);return {...actor,x:starAt(encounter)+(actor.offset??140)*stageLength/oldStageLength,...(actor.member==='eunho'?{followFrom:encounter+1,followUntil:route.findIndex(story=>story.chapter===(actor.scene==='asterum'?4:actor.scene==='farewell'?9:6))}:actor.member!=='concert'?{followFrom:encounter+1,followUntil:route.findIndex(story=>story.asset===({yejun:'novel-noah-pause',noah:'novel-bamby-rhythm',bamby:'novel-hamin-stargazing',hamin:'novel-eunho-conversation'})[actor.member])+1,followScenes:[({yejun:'greenhouse',noah:'plaza',bamby:'observatory',hamin:'eunho'})[actor.member]]}:{})};}));
 function drawContinuousWorld(scale,h){
  for(const region of worldRegions){
   if(region.end<camera||region.start>camera+vw)continue;
