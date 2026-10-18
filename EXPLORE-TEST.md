@@ -386,3 +386,7 @@ core reduced由開頁const改為let並監聽motionPreference change，沿用既�
 ## 20261018-18 接續
 
 銀虎phase改distance/(h*config.height/scale*.6)，取代固定110；follow.stride唯讀供診斷。YITING原公式／原圖不改，仍四v2側步＋idle。start兩尺寸逐幀查stride與位移相位及原速度／方向／停步，follow／缺圖／減少動態、四直橫與739路徑／版本通過。無新圖，95格沿用App15完整驗收。
+
+## 20261018-19 接續
+
+方向鍵監聽現在允許left/right移動按鈕取得焦點時繼續使用方向鍵／A D，其他按鈕、連結、選單及可編輯欄位不攔截。原減速、人物、地圖、故事順序及音樂不改。新增tests/explore-keyboard-focus.cjs在390／1280驗證移動、放鍵停止及其他控制／文字輸入保護；auto-walk跨章節／末格與六種取消、四直橫布局、739本機路徑及App19審核通過。測試停步須等待原本自然減速，初次測試200ms門檻過早，調整測試600ms後通過，無更動原減速。無新圖／生成提示，95格全程依App15整體驗收，iPhone實機仍需另驗。後續繼續依小說需求深化畫面與相遇，保留排程及穩定標籤。
