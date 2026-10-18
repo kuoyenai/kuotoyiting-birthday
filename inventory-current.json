@@ -386,7 +386,17 @@
     "opensDialogue": false,
     "manualTakeover": true,
     "cancelOnModalBlurResize": true,
-    "persisted": false
+    "persisted": false,
+    "fullRouteVerification": {
+      "date": "2026-10-18",
+      "version": "20261018-10",
+      "storyPanels": 95,
+      "automatedTransfers": 94,
+      "viewport": "390x844",
+      "browser": "Chrome headless with virtual clock",
+      "physicalIPhone": false,
+      "result": "passed with final side-profile v2 assets"
+    }
   },
   "exploreFinale": {
     "unlock": 95,

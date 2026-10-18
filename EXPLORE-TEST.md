@@ -346,3 +346,7 @@ explore-motes.js依實際playerScene繪製11種場景配色／音符月弧細星
 銀虎步姿使用v2四側身＋side-idle-v2，第五圖停步；來源朝右，direction>0不翻、<0翻。以各圖alpha實體top/baseline/腰部origin正規化。walk.images實際5張，walkingFrames getter仍4表示循環步姿，缺任一則原固定相遇、不滑動。五張生成提示／alphaBBox審查在art-reviews/eunho-side-walk-20261018.json。其他成員仍固定相遇，未開啟同行。原v1保留不刪。
 
 驗證：本輪完整95格／六相遇重新通過（側身替換前）；側身替換後follow與start手機桌機、缺圖重試／減少動態、正反向繪圖通過。auto-walk跨章節／末格／六種取消、finale三尺寸無劇透／Back／缺圖重試、四直橫比例與736路徑及App10通過。348追蹤素材380336191 bytes，新增5PNG共8072387 bytes，95故事／100卡／四曲不變。仍待iPhone實機核對；後續依故事需求深化角色／場景，保留原手機入口與穩定標籤。
+
+## 20261018-10 最終側身版全程自動銜接補驗
+
+EXPLORE_AUTO_WALK=1執行tests/explore-continuous-story.cjs，第一格手動走近，其後94段全部自動前往；95格順序、原圖解碼、五位成員六處相遇及結尾收藏入口通過，無pageerror。使用最終v2側身資源、390×844 Chrome虛擬時鐘；不是iPhone實機。App不升版，無新圖／產品程式變更。保留手動測試模式供後續回歸，繼續依實際需求深化內容。
