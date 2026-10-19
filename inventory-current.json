@@ -1,6 +1,6 @@
 {
   "updated": "2026-10-19",
-  "appVersion": "20261019-64",
+  "appVersion": "20261019-65",
   "baseline": "efab385",
   "cards": 100,
   "novel": {
@@ -138,7 +138,8 @@
         "chapter6 stage 57..65",
         "chapter7 cake 66..75",
         "chapter8 farewell and red-star handoff 78..84",
-        "final phone 86..90"
+        "final phone 86..90",
+        "chapter5 Eunho conversation and five stars 48..53"
       ],
       "residency": {
         "policy": "visible viewport plus margin, nearby physical/story nodes; discard distant refs and image src",
