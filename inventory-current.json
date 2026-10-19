@@ -1,6 +1,6 @@
 {
   "updated": "2026-10-19",
-  "appVersion": "20261019-56",
+  "appVersion": "20261019-57",
   "baseline": "efab385",
   "cards": 100,
   "novel": {
@@ -608,6 +608,13 @@
       "reducedMotion": "static group retained",
       "worldAnchor": 7480,
       "followsPlayer": false
+    },
+    "stageLighting": {
+      "optional": true,
+      "dialogueFocus": true,
+      "manualOffRespected": true,
+      "reducedMotion": "static speaker accent",
+      "narrowDialogueActions": "full-width next action below520px"
     }
   },
   "exploreDialogueNavigation": {
