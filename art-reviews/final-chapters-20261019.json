@@ -1,0 +1,289 @@
+{
+  "date": "2026-10-19",
+  "appVersion": "20261019-76",
+  "mode": "inspection only; no generated or replaced art",
+  "reviewed": [
+    {
+      "index": 57,
+      "chapter": 6,
+      "asset": "novel-concert-prelude-wide",
+      "path": "assets/novel-concert-prelude-wide.webp",
+      "sha256": "f34aa144fc19b6756bba3f944cc07ecb7439c8957a7474f79ec82e6d6d001ce1"
+    },
+    {
+      "index": 58,
+      "chapter": 6,
+      "asset": "novel-stage-lights",
+      "path": "assets/novel-stage-lights.webp",
+      "sha256": "676deb2153301aeb35de8c444bccea1e8e5d1404ff98377d0e6acb3a72c1fd86"
+    },
+    {
+      "index": 59,
+      "chapter": 6,
+      "asset": "novel-concert-wide",
+      "path": "assets/novel-concert-wide.webp",
+      "sha256": "a3776b019d05eeadb4c18a567870e3a1e0c9f5cb448aa68177f937a729927114"
+    },
+    {
+      "index": 60,
+      "chapter": 6,
+      "asset": "novel-concert-five-sideview",
+      "path": "assets/novel-concert-five-sideview.webp",
+      "sha256": "2be65acddf30e5ca8c6d6c6d0c66caa26768de7b45ebc8dc9d74f8a7e27e4cef"
+    },
+    {
+      "index": 61,
+      "chapter": 6,
+      "asset": "novel-birthday-stage",
+      "path": "assets/novel-birthday-stage.webp",
+      "sha256": "5ffe392e200fe6484aa9a479b54df6f960e024db08642239059b63d61db60fee"
+    },
+    {
+      "index": 62,
+      "chapter": 6,
+      "asset": "novel-eunho-singing",
+      "path": "assets/novel-eunho-singing.webp",
+      "sha256": "8b2eabad55f8b468b1836907ba2cfa38a1609a294709eb2a4c4ef0bc13fe9e72"
+    },
+    {
+      "index": 63,
+      "chapter": 6,
+      "asset": "novel-eunho-song-sideportrait",
+      "path": "assets/novel-eunho-song-sideportrait.webp",
+      "sha256": "6169a961a3b992c5bf74620b38efa475415b46390f84d8077e080279e4419ba3"
+    },
+    {
+      "index": 64,
+      "chapter": 6,
+      "asset": "novel-yiting-starlit-eyes",
+      "path": "assets/novel-yiting-starlit-eyes.webp",
+      "sha256": "c8df973ebfbbc48eb9ee10eca5676364fde5b31b980c7ada2a7bc1b6fc7707d9"
+    },
+    {
+      "index": 65,
+      "chapter": 6,
+      "asset": "novel-audience-closeup",
+      "path": "assets/novel-audience-closeup.webp",
+      "sha256": "960d16b4968d6361804005109919fd333d7aa5f9bb2402c5f1203a609f7dfff1"
+    },
+    {
+      "index": 66,
+      "chapter": 7,
+      "asset": "novel-cake-arrival",
+      "path": "assets/novel-cake-arrival.webp",
+      "sha256": "faaccdcc6364a071038c4273b8004ad314117ff2722ef3c67b5f2bb03974aeb9"
+    },
+    {
+      "index": 67,
+      "chapter": 7,
+      "asset": "novel-cake",
+      "path": "assets/novel-cake.webp",
+      "sha256": "4caa49c2aad9436b8def7dba1b4cf0137783fcb0f6ed42fffee7dfe8af5f8243"
+    },
+    {
+      "index": 68,
+      "chapter": 7,
+      "asset": "novel-birthday-group-cake-side",
+      "path": "assets/novel-birthday-group-cake-side.webp",
+      "sha256": "78002a55be13e06b7f9899e41bee972ec13b2c4854ca0d395b55bcc2d8fe52f6"
+    },
+    {
+      "index": 69,
+      "chapter": 7,
+      "asset": "novel-birthday-plaza-wide",
+      "path": "assets/novel-birthday-plaza-wide.webp",
+      "sha256": "68e7d806dcc0ec361319e402fa7f672b8a407008bbd6f6193785ee5af964fd90"
+    },
+    {
+      "index": 70,
+      "chapter": 7,
+      "asset": "novel-candle-closeup",
+      "path": "assets/novel-candle-closeup.webp",
+      "sha256": "bb6fdfe7f5982d93b0a8712f2160dea204610e1ce989a7924acae83aa843e6e2"
+    },
+    {
+      "index": 71,
+      "chapter": 7,
+      "asset": "novel-birthday-candle-reflections",
+      "path": "assets/novel-birthday-candle-reflections.webp",
+      "sha256": "a19ef66b31fd70aa2278492513bd690239836c4fd9e68e88329dc15bfd7c69cc"
+    },
+    {
+      "index": 72,
+      "chapter": 7,
+      "asset": "novel-yiting-private-wish",
+      "path": "assets/novel-yiting-private-wish.webp",
+      "sha256": "acb12c7e105bc8a14cb6142cfc6d05b17ad38af93850eacf35e74a779e983b03"
+    },
+    {
+      "index": 73,
+      "chapter": 7,
+      "asset": "novel-wish",
+      "path": "assets/novel-wish.webp",
+      "sha256": "a6751de36d14e6d2ca13f0f56a65c6ba8191c83db91f2668d6be53193b4ca461"
+    },
+    {
+      "index": 74,
+      "chapter": 7,
+      "asset": "novel-candles-after-wish",
+      "path": "assets/novel-candles-after-wish.webp",
+      "sha256": "5b45fecc4f4033d6ae5cc8ea2a7a17fd92a29878a9318e2864f6394e482cc654"
+    },
+    {
+      "index": 75,
+      "chapter": 7,
+      "asset": "novel-birthday-cheer",
+      "path": "assets/novel-birthday-cheer.webp",
+      "sha256": "7b414f2e48776a505110f4156335cf79a50cddb62ce54643532b528c8014796a"
+    },
+    {
+      "index": 76,
+      "chapter": 8,
+      "asset": "novel-return-wide",
+      "path": "assets/novel-return-wide.webp",
+      "sha256": "55ae61d2a325852cff550529f10141206d4d38698d66f0acb5ec4b936c91bd5d"
+    },
+    {
+      "index": 77,
+      "chapter": 8,
+      "asset": "novel-portal-path-low-v2",
+      "path": "assets/novel-portal-path-low-v2.webp",
+      "sha256": "085eb044fac0e3c831d1825dedcd9fc47432de94dd67adb4d7fd864d129d4e6f"
+    },
+    {
+      "index": 78,
+      "chapter": 8,
+      "asset": "novel-group-farewell",
+      "path": "assets/novel-group-farewell.webp",
+      "sha256": "87e05d6b59610163e3bb2cdce11adf35a96cc836bc32601bb41b59e0a892fa90"
+    },
+    {
+      "index": 79,
+      "chapter": 8,
+      "asset": "novel-farewell-medium",
+      "path": "assets/novel-farewell-medium.webp",
+      "sha256": "79d55d2914d9bf5749eb1aa46953d5611f5503e6a42c6c27444fbad41c59b6a3"
+    },
+    {
+      "index": 80,
+      "chapter": 8,
+      "asset": "novel-eunho-goodbye-listening",
+      "path": "assets/novel-eunho-goodbye-listening.webp",
+      "sha256": "a8589b64f383655e081231e1ef9742b0ee50025e58394247ed4663a12229a71a"
+    },
+    {
+      "index": 81,
+      "chapter": 8,
+      "asset": "IMG_2091",
+      "path": "assets/IMG_2091.webp",
+      "sha256": "718682fe09b1bce12ee1739376e70324fcf3a7de97f492f7c719d7c1dade1d50"
+    },
+    {
+      "index": 82,
+      "chapter": 8,
+      "asset": "novel-farewell",
+      "path": "assets/novel-farewell.webp",
+      "sha256": "d1e7eafe65ebdfaf755fc6f8556e30e00eb86d9c8085d66929fa880bc7c7235c"
+    },
+    {
+      "index": 83,
+      "chapter": 8,
+      "asset": "novel-star-closeup",
+      "path": "assets/novel-star-closeup.webp",
+      "sha256": "1333530ccc54e9fdd26047ed293b09eb39b2b4992e20a086577cd69c31c920c3"
+    },
+    {
+      "index": 84,
+      "chapter": 8,
+      "asset": "novel-yiting-memento-smile",
+      "path": "assets/novel-yiting-memento-smile.webp",
+      "sha256": "1d7186a90a820689294c8e89c1d8465078d51a06b009144cd2e4d69f8c522b6f"
+    },
+    {
+      "index": 85,
+      "chapter": 8,
+      "asset": "novel-portal-goodbye",
+      "path": "assets/novel-portal-goodbye.webp",
+      "sha256": "7ba5ea0f674df62c4a7fcb5e6145a8f42cf48cdd93e88a409871e99f5f9ce5bb"
+    },
+    {
+      "index": 86,
+      "chapter": 9,
+      "asset": "novel-city-return-wide",
+      "path": "assets/novel-city-return-wide.webp",
+      "sha256": "7435fba7de9d82aa9b20e6d33e5ce4d835075c7763f5146f15cae9139dfb26cb"
+    },
+    {
+      "index": 87,
+      "chapter": 9,
+      "asset": "novel-yiting-city-message",
+      "path": "assets/novel-yiting-city-message.webp",
+      "sha256": "5a93841e55c5db184e5f58f787c13de9214655a85ab87be1c85ed389a65956c3"
+    },
+    {
+      "index": 88,
+      "chapter": 9,
+      "asset": "novel-home",
+      "path": "assets/novel-home.webp",
+      "sha256": "8475e5417a8f4e7f6a3a482a27de3375e0c45bf95d020d0869c6146f4b0a25d9"
+    },
+    {
+      "index": 89,
+      "chapter": 9,
+      "asset": "novel-keepsake-closeup",
+      "path": "assets/novel-keepsake-closeup.webp",
+      "sha256": "c0f27ee50d592570733e20040484936a02d208cc24e0a389eb9cd50722dc55ae"
+    },
+    {
+      "index": 90,
+      "chapter": 9,
+      "asset": "novel-final-message",
+      "path": "assets/novel-final-message.webp",
+      "sha256": "e573f5783ca640412b172ef1e30ef1305e8a55473c5c9fc5b010b6b61caa64fa"
+    },
+    {
+      "index": 91,
+      "chapter": 9,
+      "asset": "novel-yiting-headphones-closeup",
+      "path": "assets/novel-yiting-headphones-closeup.webp",
+      "sha256": "781c31c58d4f35c39a22609c3a5e32a500996c011fb1de22a7eb3f30df9a1b7a"
+    },
+    {
+      "index": 92,
+      "chapter": 9,
+      "asset": "novel-yiting-home-earphones",
+      "path": "assets/novel-yiting-home-earphones.webp",
+      "sha256": "041433bd39f711c8e9d36ae7de23e4c84a751979aa544fe87c3e0eaabda8c7ec"
+    },
+    {
+      "index": 93,
+      "chapter": 9,
+      "asset": "novel-walk-forward",
+      "path": "assets/novel-walk-forward.webp",
+      "sha256": "9539896f36752b548fa08d9540c1e8cd5e746f3e1693504a86f6415abcf56d15"
+    },
+    {
+      "index": 94,
+      "chapter": 9,
+      "asset": "novel-city-afterglow-rooftops",
+      "path": "assets/novel-city-afterglow-rooftops.webp",
+      "sha256": "c624772a3a774da6440b37bdaa157ca9e5291afaef4cb3ffb7a3a295d40aadd8"
+    }
+  ],
+  "officialReferences": [
+    "user S__302653443_0.jpg: upper EUNHO/lower HAMIN",
+    "user S__302653444_0.jpg: upper NOAH/lower BAMBY",
+    "user S__302653445_0.jpg: lower YEJUN"
+  ],
+  "scope": "Contact-sheet inspection of38 panels index57..94, plus full-resolution star transfer83 and final group message90. This is not a claim that every partly hidden fingertip in every panorama is visible.",
+  "identityReview": "Final-message group90 retains blue-haired/blue-eyed Yejun, blond Noah, pink-haired/violet-eyed Bamby, silver-haired/red-eyed Eunho, black-haired/green-eyed Hamin; faces and chins present. Stage costume illustration61 is preserved as performance art, not normalized to everyday clothes.",
+  "anatomyReview": "Final message90: the four open waving palms each show a thumb plus four fingers, connected wrists and no duplicate arm observed. Star transfer83: pinching hand and two cupped hands have overlapping digits; some are naturally hidden, do not claim five fully exposed digits on each. No confirmed additional limb found in these full-size checks.",
+  "framingReview": "Portrait faces/chins in the reviewed closeups remain visible; user-approved slight top-hair cropping retained. Hand detail81 is not treated as a head portrait needing reconstruction. Far panoramas and back views are not used to certify small finger anatomy.",
+  "finding": {
+    "index": 92,
+    "asset": "novel-yiting-home-earphones",
+    "problem": "Past-tense room narration preceded a street-walking image, creating an unexplained room-to-street jump.",
+    "fix": "Mark the room illustration as YiTing imagining her familiar music and warmth at home later. Preserve original image, logical key115, sequence and blessing."
+  },
+  "newImages": 0
+}

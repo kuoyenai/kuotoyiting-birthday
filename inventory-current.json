@@ -1,6 +1,6 @@
 {
   "updated": "2026-10-19",
-  "appVersion": "20261019-75",
+  "appVersion": "20261019-76",
   "baseline": "efab385",
   "cards": 100,
   "novel": {
@@ -694,6 +694,21 @@
       ],
       "result": "user said all normal",
       "app75NewMusicPickerIncluded": false
+    },
+    "endingNarrationContinuity": {
+      "logicalAsset": "novel-yiting-home-earphones",
+      "index": 92,
+      "stablePanel": 115,
+      "state": "prospective home cutaway, not already returned home",
+      "nextPanel": "novel-walk-forward",
+      "assetOrderChanged": false,
+      "blessingChanged": false,
+      "verified": [
+        "Chrome390/1280",
+        "desktopWebKit390/1280"
+      ],
+      "musicHandoff": "selected source/manual mute/MP4 across game, intro, novel and gift; reopening game retains progress; unmuted source resumes in novel",
+      "gaplessOrExactPlaybackTimeClaimed": false
     }
   },
   "exploreDialogueNavigation": {
