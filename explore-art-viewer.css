@@ -7,3 +7,12 @@
 #fullStoryArtStatus{font:12px/1.7 system-ui,sans-serif;color:#c9bba8;margin:10px 0 0}#fullStoryArtStatus:empty{display:none}
 
 .art-viewer-download{display:flex;align-items:center;min-height:44px;padding:10px 2px 0;color:#dec59d;font:12px/1.6 system-ui,sans-serif;text-decoration:none}.art-viewer-download[hidden]{display:none}
+
+/* Keep hands and story details unobstructed; image actions belong to the chapter rail. */
+.story-toolbar .story-art-zoom{position:static;display:inline-flex;align-items:center;justify-content:center;gap:4px;flex:0 0 auto;min-width:44px;min-height:44px;margin:0;padding:6px;border:0;border-radius:0;background:transparent;color:#cdbb9f;box-shadow:none;font:10.5px/1.5 system-ui,sans-serif;white-space:nowrap}
+.story-toolbar .story-art-zoom:disabled{display:none}
+.story-toolbar .story-art-zoom svg{opacity:.8;flex:0 0 auto}
+.story-toolbar .story-art-zoom:hover{color:#f0ddbc}
+.story-toolbar .story-art-zoom:hover span{text-decoration:underline;text-underline-offset:5px}
+.art-viewer-toolbar #closeStoryArt{padding:6px;border:0;border-radius:0;background:transparent;color:#cdbb9f;font-size:11px}
+.art-viewer-toolbar #closeStoryArt:hover{color:#f0ddbc;text-decoration:underline;text-underline-offset:5px}
