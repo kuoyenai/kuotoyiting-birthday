@@ -1,11 +1,11 @@
 (()=>{'use strict';
 // A quiet layer behind actors: rain stops with the city at 10:20.
 const canvas=document.getElementById('world');if(!canvas)return;
-let previous='',phase=0,last=null,state='off',count=0;
+let previous='',phase=0,last=null,state='off',count=0,traffic=0;
 window.YitingCityWeather={
  draw(ctx,{id,t,w,h,reduced}){
   const enabled=!reduced&&(id==='city'||id==='portal-city');
-  if(!enabled){previous=id;last=null;state='off';count=0;return;}
+  if(!enabled){previous=id;last=null;state='off';count=0;traffic=0;return;}
   const frozen=id==='portal-city',elapsed=last===null||previous!==id?0:Math.max(0,Math.min(50,t-last));
   if(!frozen)phase+=elapsed;
   previous=id;last=t;state=frozen?'frozen':'rain';count=24;
@@ -18,8 +18,15 @@ window.YitingCityWeather={
    // Tiny cool reflections remain below the walking lane, never over faces.
    if(i%4===0){ctx.globalAlpha=frozen?.09:.06;ctx.beginPath();ctx.moveTo(x-2,h*.94);ctx.lineTo(x+3+depth,h*.94);ctx.stroke();}
   }
+  // Distant traffic shares the same suspended time as the rain, behind all actors.
+  traffic=3;
+  for(let i=0;i<traffic;i++){
+   const direction=i%2?1:-1,travel=((phase*.000035*(1+i*.15)+i*.37)%1),px=(direction>0?travel:1-travel)*w,py=h*(.565+i*.026);
+   ctx.globalAlpha=.13;ctx.strokeStyle=i%2?'#ef9ba9':'#f4d9b1';ctx.lineWidth=1.1;ctx.beginPath();ctx.moveTo(px,py);ctx.lineTo(px-direction*7,py);ctx.stroke();
+   ctx.globalAlpha=.2;ctx.fillStyle=i%2?'#ef9ba9':'#f4d9b1';for(const offset of [0,3]){ctx.beginPath();ctx.arc(px+offset,py,.8,0,Math.PI*2);ctx.fill();}
+  }
   ctx.restore();
  },
- get state(){return state;},get count(){return count;},get phase(){return phase;}
+ get trafficCount(){return traffic;},get state(){return state;},get count(){return count;},get phase(){return phase;}
 };
 })();
