@@ -4,7 +4,7 @@
 
 目前接續基準：App `20261019-76`；保留App74指定穩定標籤 `yiting-stable-20261019-v74`。本輪發布紀錄見文末；後續只做明日發布前檢查與必要修復，保留舊標籤及sources唯讀。
 
-目前使用者指定穩定版：`yiting-stable-20261018-v34`，App `20261018-34`，程式提交 `52bbadf`。還原請使用此標籤；後續更新另行提交，保留所有既有穩定標籤。
+目前使用者指定穩定備份：`yiting-stable-20261019-v74`，App `20261019-74`，提交 `2ea2824`。接續製作使用main最新App76；需要指定穩定備份時使用App74標籤。較早的 `yiting-stable-20261018-v34`（`52bbadf`）仍保留為歷史還原點。
 
 GitHub 帳號現為 `kuoyenai`；後續以 `kuoyenai/kuotoyiting-birthday` 為準。本機 origin 與每小時排程已同步新帳號。
 
@@ -28,6 +28,8 @@ GitHub 帳號現為 `kuoyenai`；後續以 `kuoyenai/kuotoyiting-birthday` 為�
 - game.html / game.js：電影互動漫畫。
 - novel-comic.html / novel-comic-data.js / novel-comic-source.js：小說漫畫、分鏡與完整文字。
 - gift.html / gift.js：曲目、小卡、回憶、小說與本機願望。
+- explore-intro.html / explore.html / explore-story.js：2D旅程入口、連續地圖、95格閱讀與本機存檔。
+- explore-music.js / explore-music.css：2D右上選曲與目前曲目顯示，音樂來源與偏好沿用soundtrack.js。
 - invitation.css / invitation.js / foil-type.css：共用視覺、導覽、篩選、標題。
 - app.webmanifest / pwa.js / pwa.css / sw.js：主畫面安裝與有限離線處理。
 - assets/：插畫、下載素材、影音、字型與 App 圖示。
@@ -708,3 +710,13 @@ ASTERUM 同時預載下一個音樂花園，最多兩組前景；移除先前依
 
 - 每小時yiting-2d已PAUSED；設定保留。持續目標由使用者改為本對話接續，保持收尾檢查／必要修復，不新增無關功能。
 - 目前程式發布基準App76／5170584；舊穩定標籤yiting-stable-20261019-v74保留。這次只記錄停用排程，不改網站程式。
+
+
+### 2026-10-19｜App76獨立收尾檢查與穩定備份指引
+
+- 修正CONTINUE-HERE.md開頭互相矛盾的還原指引：目前指定穩定備份是App74／`yiting-stable-20261019-v74`／2ea2824；接續製作使用main最新App76。v34／52bbadf明確標為歷史還原點，兩個標籤均實際解參照核對，沒有移動標籤。README歷次紀錄也標明「目前」屬於當時版本，避免把歷史v9或v34當成今天基準。
+- 追加巡覽0..19與46..56共31張原畫；加上已完成的第四章26張與後段38張巡覽，整本95格已有分段畫面核對。補做大圖12觸光手勢、49紅星掌心：依拇指／四指、彎曲及遮擋檢查，沒有確認多餘肢體；遠景與遮擋手指仍不宣稱每根完整可見。保留臉／下巴與使用者允許的輕微頭頂裁切，不為補更新重繪。原圖雜湊、實際替換路徑與範圍見art-reviews/opening-eunho-20261019.json。
+- 獨立檢查95格（78基礎＋17補充）、100張唯一小卡、10章名稱及100張小卡目的地，沒有確認章節／連結／圖片替換錯誤。Chrome實際逐一開啟17個補充格連結100..116，核對章節、原圖、旁白與顯示連續編號；終章115仍是顯示07格，街頭為08、窗景116為09。小說／禮物放大與下載，以及2D實際第35格都使用斑比v2 PNG。
+- 獨立Chrome邊界檢查：40次快速換來源後靜音保留最後曲目與paused=true；另40次快速換歌最終來源實際播放；4次真實音訊接近片尾時切換，不被舊ended跳過；20次選曲關閉／microtask重開／Escape循環，歷史長度有界，沒有pageerror。移植為可重跑tests/explore-music-race.cjs與tests/story-integrity.cjs，移植後兩者再次通過。
+- 最後複查修正測試本身的可攜性：移除story-integrity.cjs寫死的本機Chrome路徑，統一遵循CHROME_PATH。把原本只列印的小卡數量、唯一性、故事目的地與斑比兩個保存連結改為明確斷言；修改後兩支測試重跑通過，沒有pageerror。31張新增核對的素材SHA256與兩個既有穩定標籤另經獨立複查相符。
+- 本輪只改接續文件與保存核對／測試，網站程式、所有已追蹤素材及完整小卡ZIP不變，App維持20261019-76。每小時排程保持PAUSED。已完成本輪可執行的收尾；App75後新增選曲仍缺Safari實機回覆，桌面WebKit結果不能當成這項實機驗收。

@@ -23,3 +23,6 @@ node tests/image-retry-sequence.cjs
 可用相同斷言補做桌面WebKit：先 `npx playwright install webkit`，再執行 `node tests/run-engine.cjs webkit explore-music.cjs`。runner只替換瀏覽器啟動引擎，不修改產品或斷言；非Chromium忽略CHROME_PATH。支援標準PLAYWRIGHT_BROWSERS_PATH。其他例：`node tests/run-engine.cjs webkit tablet-navigation.cjs` 或 `node tests/run-engine.cjs webkit explore-complete-journey.cjs`。
 
 這是桌面WebKit引擎檢查，不能代替iPhone／iPad Safari與加入主畫面實機測試。App74的實機回覆及App75待確認範圍見release-20261019-75-music.json。
+
+
+App76獨立收尾檢查：`node tests/story-integrity.cjs` 斷言95格章節數、17個補充分鏡入口、終章連續編號、100張唯一小卡與有效故事連結，以及斑比原圖／兩個保存連結；`node tests/explore-music-race.cjs` 驗證快速選曲／靜音、接近片尾換歌與反覆開關視窗的歷史穩定性。兩者沿用PLAYWRIGHT_MODULE及CHROME_PATH設定；未指定CHROME_PATH時使用Playwright Chromium。後者為Chrome邊界測試，不宣稱為iOS實機。

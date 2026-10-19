@@ -1,0 +1,243 @@
+{
+  "date": "2026-10-19",
+  "appVersion": "20261019-76",
+  "mode": "inspection only; no image generation or replacement",
+  "reviewed": [
+    {
+      "index": 0,
+      "chapter": 0,
+      "asset": "002",
+      "path": "assets/002.webp",
+      "sha256": "f00495f47d8cb6a4e3dea5ea39bd72d6660da884d7ec0b576038338d0d1edb62"
+    },
+    {
+      "index": 1,
+      "chapter": 0,
+      "asset": "novel-city-birthday-overhead",
+      "path": "assets/novel-city-birthday-overhead.webp",
+      "sha256": "460c9a8ac9f48e51451bc64d7116d7eddb7a5ddfb2a8eab09f418f52c9789b56"
+    },
+    {
+      "index": 2,
+      "chapter": 0,
+      "asset": "022",
+      "path": "assets/022.webp",
+      "sha256": "48cd1f33326b50b8d27433d483ea52706db6ac3422f2207a3a64707698252777"
+    },
+    {
+      "index": 3,
+      "chapter": 0,
+      "asset": "novel-yiting-birthday-thought",
+      "path": "assets/novel-yiting-birthday-thought.webp",
+      "sha256": "000deb2d4cf5a22f3066558f0f2f7bb9ae8f3907a6e43a9f919ce3e28f500f79"
+    },
+    {
+      "index": 4,
+      "chapter": 1,
+      "asset": "novel-signal-closeup",
+      "path": "assets/novel-signal-closeup.webp",
+      "sha256": "c6e43a1cb5e2cf05d31faab4e3217cb6b839247c276fca7a75d53e801b36eafb"
+    },
+    {
+      "index": 5,
+      "chapter": 1,
+      "asset": "novel-message-v2",
+      "path": "assets/novel-message-v2.webp",
+      "sha256": "1f4c083a9cc31aa43d37db29dbb4a9566bcefdef38bfec27a6aa3efb34ae7838"
+    },
+    {
+      "index": 6,
+      "chapter": 1,
+      "asset": "novel-control-room-wide-v2",
+      "path": "assets/novel-control-room-wide-v2.webp",
+      "sha256": "63c7677355585e4627b299f1a3ddde201e112bc37e19cd9a75b0e7911762975c"
+    },
+    {
+      "index": 7,
+      "chapter": 1,
+      "asset": "novel-yejun-hamin-signal",
+      "path": "assets/novel-yejun-hamin-signal.webp",
+      "sha256": "8e05d26e8c7ee70ea0cba37d8b1d6e24c5a2b650d37b0d383eaaabf1500ed225"
+    },
+    {
+      "index": 8,
+      "chapter": 2,
+      "asset": "novel-frozen-city",
+      "path": "assets/novel-frozen-city.webp",
+      "sha256": "59512b3a2cdf8e076f917f60a57d9597862fe4e0d98f419873c345508ad18b5d"
+    },
+    {
+      "index": 9,
+      "chapter": 2,
+      "asset": "novel-portal",
+      "path": "assets/novel-portal.webp",
+      "sha256": "f8122307500849aaa6a879848fdc405427e8f71c516a8a6d38576ce87b5942c5"
+    },
+    {
+      "index": 10,
+      "chapter": 2,
+      "asset": "novel-invitation-closeup-v2",
+      "path": "assets/novel-invitation-closeup-v2.webp",
+      "sha256": "c772a4c72f4538d5c7ff2d28693b5db020679190cecff376ab7ad151a6db4c0f"
+    },
+    {
+      "index": 11,
+      "chapter": 2,
+      "asset": "novel-eunho-portal-reassuring-eyes",
+      "path": "assets/novel-eunho-portal-reassuring-eyes.webp",
+      "sha256": "8d0ebe347e025f400653b8c13cb1bb67792086fc016148e975a30fd8d5aec377"
+    },
+    {
+      "index": 12,
+      "chapter": 2,
+      "asset": "novel-light-touch",
+      "path": "assets/novel-light-touch.webp",
+      "sha256": "ee32085789a162ecf68e76f94b21c6227893f38cf5adbd26d7363aed4c27831f"
+    },
+    {
+      "index": 13,
+      "chapter": 2,
+      "asset": "novel-crossing",
+      "path": "assets/novel-crossing.webp",
+      "sha256": "4ed4685acadcbb9368ad77948f9445914bf4fe10a96dc3807ae9a5befc5eb8f3"
+    },
+    {
+      "index": 14,
+      "chapter": 3,
+      "asset": "novel-asterum-panorama",
+      "path": "assets/novel-asterum-panorama.webp",
+      "sha256": "7c0a7533623e13017f040865161c8a608018675617faee929cd837a4a530beec"
+    },
+    {
+      "index": 15,
+      "chapter": 3,
+      "asset": "novel-asterum-view",
+      "path": "assets/novel-asterum-view.webp",
+      "sha256": "5cda5d8fa8e28adc74c7ba8326146e5d4454baa01be4fc6153d41a7cb93f182e"
+    },
+    {
+      "index": 16,
+      "chapter": 3,
+      "asset": "novel-eunho-closeup",
+      "path": "assets/novel-eunho-closeup.webp",
+      "sha256": "a043fa1f824629ab4598117eb3d6e8761134ef5fb840cd0381afde985eec0875"
+    },
+    {
+      "index": 17,
+      "chapter": 3,
+      "asset": "novel-arrival-medium",
+      "path": "assets/novel-arrival-medium.webp",
+      "sha256": "f0ea0b864929dbbc5b0da2c54d5c8686dc06c7a6f91d28778fb03c9f881295b5"
+    },
+    {
+      "index": 18,
+      "chapter": 3,
+      "asset": "novel-asterum-arrival-overlook",
+      "path": "assets/novel-asterum-arrival-overlook.webp",
+      "sha256": "f75c1155e8f7b2b08c8af413ace8910671635ad5146f541475a31c56249f41ea"
+    },
+    {
+      "index": 19,
+      "chapter": 3,
+      "asset": "novel-welcome-teasing",
+      "path": "assets/D8AF4512-1868-4624-95B9-9FEC559B6A0C.png",
+      "sha256": "ce65c91ff8c8fffbbfec66bd267b36c8efdb5a1cc62b18009919efe4221be8d3"
+    },
+    {
+      "index": 46,
+      "chapter": 5,
+      "asset": "novel-starlit-walk-wide",
+      "path": "assets/novel-starlit-walk-wide.webp",
+      "sha256": "3aa64cc11d19df3883c6cab3b00abdaf1e9bfd9381440dc46722738fd5e2ea1f"
+    },
+    {
+      "index": 47,
+      "chapter": 5,
+      "asset": "novel-quiet-bridge",
+      "path": "assets/novel-quiet-bridge.webp",
+      "sha256": "66dd26207e4db1f0afa591c44c23630fb3d88cd4f5da68d73d98e9f3f9cab7c7"
+    },
+    {
+      "index": 48,
+      "chapter": 5,
+      "asset": "novel-eunho-conversation",
+      "path": "assets/novel-eunho-conversation.webp",
+      "sha256": "2655a2c415f800a253a20e340ce652938a3f9d5f611b59438802db3019ac2549"
+    },
+    {
+      "index": 49,
+      "chapter": 5,
+      "asset": "novel-red-light-detail",
+      "path": "assets/novel-red-light-detail.webp",
+      "sha256": "2af8a1e50177f9841891bc4f203765328186c11b40287c7e4801f7f5fc2f4e28"
+    },
+    {
+      "index": 50,
+      "chapter": 5,
+      "asset": "novel-eunho-reassurance",
+      "path": "assets/novel-eunho-reassurance.webp",
+      "sha256": "a8b7c6c86e491f5c40bf3919ab421ca996ea4d4e2c38259177f8d127ac355615"
+    },
+    {
+      "index": 51,
+      "chapter": 5,
+      "asset": "novel-red-star",
+      "path": "assets/novel-red-star.webp",
+      "sha256": "82fc0fbb9446459a9504d19485dc5b5b70845f61296f1553c5d4b47037c99346"
+    },
+    {
+      "index": 52,
+      "chapter": 5,
+      "asset": "novel-eunho-redstar-open-palm",
+      "path": "assets/novel-eunho-redstar-open-palm.webp",
+      "sha256": "6a2344d99ba893b4a931e1d3a68406a0e89a19ef0a396303a225e5884f2d508a"
+    },
+    {
+      "index": 53,
+      "chapter": 5,
+      "asset": "novel-five-stars",
+      "path": "assets/novel-five-stars.webp",
+      "sha256": "b030ed4ef3781dbbb82de88980fb1aae4ec8b2158b8e0fcc6c8bbfd69bea7b03"
+    },
+    {
+      "index": 54,
+      "chapter": 5,
+      "asset": "novel-terrace-before-stage-wide",
+      "path": "assets/novel-terrace-before-stage-wide.webp",
+      "sha256": "3523686ecaaf466b8a9850ed4d8ff1144a8725d5bceef878141b81b492159b90"
+    },
+    {
+      "index": 55,
+      "chapter": 5,
+      "asset": "novel-eunho-terrace-medium",
+      "path": "assets/novel-eunho-terrace-medium.webp",
+      "sha256": "5549db375a1ea4c89ab0d26c33ed011da934fc76ff1f961de0cbf6717b7036cf"
+    },
+    {
+      "index": 56,
+      "chapter": 5,
+      "asset": "novel-yiting-terrace-reaction",
+      "path": "assets/novel-yiting-terrace-reaction.webp",
+      "sha256": "92154b79d93bd1a678ce36871ed12e5af50b3305e11712d7c931012cebf87153"
+    }
+  ],
+  "fullSizeDetails": [
+    {
+      "index": 12,
+      "asset": "novel-light-touch",
+      "review": "One extended index, one thumb and three naturally folded fingers; attached wrist/cuff, no duplicate digit observed."
+    },
+    {
+      "index": 49,
+      "asset": "novel-red-light-detail",
+      "review": "Open palm shows one thumb and four curved fingers; natural joints and wrist, no extra digit observed."
+    }
+  ],
+  "visualReview": "Sequence alternates environmental views, interactions, portraits and hand details. Eunho silver hair/red eyes, original blue denim and Yiting grey cap/black hair/burgundy/grey outfit remain recognizable. Portrait faces/chins retained; approved slight top-hair crops preserved. Group19 inspected through its active replacement PNG, not the unused original.",
+  "limits": "Contact sheets screen composition and broad identity; not a guarantee that all small or occluded fingers in distant views are separately visible.",
+  "otherCoverage": [
+    "20..45 reviewed in fourth-chapter round; Bamby35 revision separately reviewed full size and at runtime in App74",
+    "57..94 reviewed in art-reviews/final-chapters-20261019.json"
+  ],
+  "newArt": 0
+}
