@@ -125,8 +125,8 @@ route.forEach((story,n)=>{const source=window.yitingExploreScene(story).source,l
 window.YitingPassages?.configure([3,9].map(chapter=>({x:route.findIndex(story=>story.chapter===chapter)*stageLength,returning:chapter===9})));
 window.YitingWelcomeParty?.configure({anchor:starAt(route.findIndex(s=>s.asset==='novel-asterum-arrival-overlook')),start:route.findIndex(s=>s.asset==='novel-asterum-arrival-overlook')*stageLength,end:route.findIndex(s=>s.chapter===4)*stageLength});
 const actorAnchors=[
- {asset:'novel-arrival-medium',scene:'asterum',member:'eunho'},
- {asset:'novel-eunho-conversation',scene:'eunho',member:'eunho'},
+ {asset:'novel-arrival-medium',scene:'asterum',member:'eunho',offset:340},
+ {asset:'novel-eunho-conversation',scene:'eunho',member:'eunho',offset:340},
  {asset:'novel-farewell-medium',scene:'farewell',member:'eunho'},
  {asset:'novel-yejun-listening',scene:'garden',member:'yejun',offset:340},
  {asset:'novel-noah-pause',scene:'greenhouse',member:'noah',offset:340},
