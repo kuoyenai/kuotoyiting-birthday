@@ -5,7 +5,7 @@ const motion=matchMedia('(prefers-reduced-motion: reduce)'),status=document.crea
 let key='',animation;
 function sync(){
  const id=canvas.dataset.scene,text=label.textContent||'',next=id+'|'+text;if(!locations[id]||!text||key===next)return;key=next;
- const [name,color]=locations[id],title=id==='city'&&text.includes('LIGHT STAYS')?'帶著星光回到日常':name;
+ const [name,color]=locations[id],title=id==='city'&&text.includes('LIGHT STAYS')?'帶著星光回到日常':id==='eunho'&&text.includes('BEFORE THE LIGHTS')?'與銀虎停留的星光露臺':name;
  stage.style.setProperty('--scene-accent',color);stage.style.setProperty('--scene-edge',color+'66');stage.dataset.arrivalScene=id;
  label.setAttribute('aria-label',title+' · '+text);status.textContent='來到'+title+'。';
  animation?.cancel();animation=null;
