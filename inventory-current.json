@@ -1,6 +1,6 @@
 {
-  "updated": "2026-10-18",
-  "appVersion": "20261019-49",
+  "updated": "2026-10-19",
+  "appVersion": "20261019-50",
   "baseline": "efab385",
   "cards": 100,
   "novel": {
@@ -54,12 +54,12 @@
     "blessingsCSV": true
   },
   "trackedAssets": {
-    "files": 363,
-    "bytes": 400186547,
+    "files": 364,
+    "bytes": 403679215,
     "types": {
       ".jpg": 142,
       ".webp": 144,
-      ".png": 62,
+      ".png": 63,
       ".mp4": 5,
       ".txt": 2,
       ".m4a": 4,
@@ -73,7 +73,7 @@
     "entry": "Story tabs → explore-intro.html → explore.html",
     "chapters": 10,
     "storyEncounters": 95,
-    "generatedAssets": 48,
+    "generatedAssets": 49,
     "localProgress": true,
     "status": "95 original panels; same-place tableaux; all-five birthday celebration and cohesive six-person farewell walking; original player elsewhere",
     "walkableEnvironments": [
@@ -87,7 +87,8 @@
       "銀虎星光步道",
       "生日演唱舞台",
       "生日許願露台",
-      "告別回程通道"
+      "告別回程通道",
+      "銀虎露臺與遠處生日舞台"
     ],
     "walkAnimation": {
       "method": "classic sprite animation restored on mobile",

@@ -1,0 +1,12 @@
+{
+  "date": "2026-10-19",
+  "mode": "built-in imagegen",
+  "path": "assets/explore-terrace-overlook-v1.png",
+  "prompt": "Use case: illustration-story. Asset type: full-bleed 16:9 painted background plate for an existing 2D side-scrolling PLAVE fan birthday story game. Generate ONE new empty environment using the two referenced images as style and location references, not edit targets. Reference 1 establishes the game's straight-on side-view floor and ornate blue-violet/gold rendering; Reference 2 establishes the story's quiet terrace overlooking a distant unlit birthday stage. Make a DISTINCT quiet overlook terrace: eye-level side-scroller viewpoint, horizontal polished indigo floor occupying bottom 24%, continuous low ornate gold-and-dark-blue railing at about y=70%, open readable central silhouette area for separately drawn full-body characters. Across the cloud-filled gulf, place a SMALL distant circular stage in the upper left-middle, empty and not yet illuminated, subtle closed midnight-blue curtains and warm gold edge details. Floating slender castles, star bridges and lavender clouds at several depths; huge pale planetary arc near horizon; sparse stars, small warm lamps, a restrained tiny red star emblem on railing. Calm anticipatory mood before a birthday performance, hand-painted high-end Korean idol fantasy webtoon art matching reference detail. DIFFER from the previous bridge image in skyline and terrace design while belonging to same world. No people, no faces, no limbs, no silhouettes, no furniture on walking lane, no text, no UI, no lettering, no watermark. Keep lower floor flat and horizontal, no stairs or strong receding perspective on the character walking plane. Full frame, no border, opaque background.",
+  "references": [
+    "assets/explore-eunho-bridge-v1.png",
+    "assets/novel-terrace-before-stage-wide.webp"
+  ],
+  "review": "Empty background; no people or limbs. Flat unobstructed lower walking plane, horizontal railing, distant empty curtained stage, purple/gold original style retained. Distinct skyline from bridge. Runtime scale and mobile crop still to verify.",
+  "runtimeReview": "390 portrait,844 landscape,1280 desktop: new terrace visible at physical stop, clear walking plane, original YiTing and Eunho retained; three fixed panels and backtrack labels verified. All12 environment images preserve native aspect ratio."
+}
