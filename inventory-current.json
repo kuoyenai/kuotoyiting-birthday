@@ -1,6 +1,6 @@
 {
   "updated": "2026-10-19",
-  "appVersion": "20261019-63",
+  "appVersion": "20261019-64",
   "baseline": "efab385",
   "cards": 100,
   "novel": {
@@ -128,11 +128,16 @@
         "newAssets": 0
       },
       "fixedTableaux": [
-        "chapter3 welcome 18..19",
         "chapter1 signal 4..7",
+        "chapter3 welcome 18..19",
+        "Yejun encounter 21..24",
+        "Noah encounter 28..32",
+        "Bamby encounter 34..39",
+        "Hamin encounter 41..45",
         "fifth-chapter terrace 54..56",
         "chapter6 stage 57..65",
         "chapter7 cake 66..75",
+        "chapter8 farewell and red-star handoff 78..84",
         "final phone 86..90"
       ],
       "residency": {
@@ -659,14 +664,14 @@
     "persisted": false,
     "fullRouteVerification": {
       "date": "2026-10-19",
-      "version": "20261019-55",
+      "version": "20261019-64",
       "storyPanels": 95,
-      "automatedTransfers": 51,
-      "fixedTransitions": 43,
+      "automatedTransfers": 45,
+      "fixedTransitions": 49,
       "viewport": "390x844",
       "browser": "Chrome headless with virtual clock",
       "physicalIPhone": false,
-      "result": "passed95;43 fixed/51 automatic movement transitions,7 encounters,original art,chapter positions and ending;continuous stride and clamped stop verified"
+      "result": "passed95;49 fixed/45 automatic movement transitions, original artwork and ordered dialogue, no auto-opening and final stop; chapter8 farewell78..84 fixed"
     }
   },
   "exploreFinale": {
