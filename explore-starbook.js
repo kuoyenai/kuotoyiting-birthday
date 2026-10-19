@@ -20,5 +20,11 @@ function render(){
   pages.append(article);
  }
 }
-details.addEventListener('toggle',()=>{if(details.open)render();else clear();});dialog.addEventListener('close',()=>{details.open=false;clear();});
+const book=document.createElement('dialog');book.id='journeyStarbook';book.setAttribute('aria-labelledby','journeyStarbookTitle');book.innerHTML='<div class="starbook-toolbar"><h2 id="journeyStarbookTitle">收進旅程的星光</h2><button type="button" id="closeJourneyStarbook">返回旅程</button></div>';document.body.append(book);
+const badges=document.getElementById('fiveStars');
+function openBook(color){if(badges.getAttribute('role')!=='button')return;window.yitingExploreResumeAudio?.();window.dispatchEvent(new Event('yiting-explore-modal'));book.append(details);details.open=true;render();book.showModal();const target=pages.querySelector('[data-star="'+color+'"]');target?.scrollIntoView({block:'start'});}
+badges.addEventListener('click',event=>openBook(event.target.closest('[data-star-color]')?.dataset.starColor||'blue'));
+badges.addEventListener('keydown',event=>{if(event.key==='Enter'||event.key===' '){event.preventDefault();openBook('blue');}});
+book.querySelector('button').onclick=()=>book.close();book.addEventListener('close',()=>{details.open=false;clear();caption.after(details);badges.focus({preventScroll:true});});
+details.addEventListener('toggle',()=>{if(details.open){if(!pages.children.length)render();}else clear();});dialog.addEventListener('close',()=>{details.open=false;clear();});
 })();

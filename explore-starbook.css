@@ -1,3 +1,15 @@
 .starbook{border-top:1px solid #b67f9244;border-bottom:1px solid #b67f9244;margin:22px 0;color:#e9d7c5}.starbook summary{min-height:48px;padding:13px 0;cursor:pointer;font:14px/1.6 'Songti TC',serif;letter-spacing:.05em}.starbook summary:focus-visible{outline:2px solid #e7c789;outline-offset:3px}.starbook-pages{display:grid;gap:20px;padding:0 0 20px}.starbook article{border-left:2px solid var(--starbook-ink);padding:0 0 0 14px}.starbook h3{font:400 16px/1.6 'Songti TC',serif;color:var(--starbook-ink);margin:0 0 10px}.starbook article img{display:block;width:100%;height:auto;aspect-ratio:1672/941;object-fit:contain;max-height:none;border-radius:3px;background:#0b1020}.starbook article p{font:13px/1.9 'Songti TC',serif;color:#dfd3d7;margin:12px 0}.starbook article a{display:inline-flex;align-items:center;min-height:44px;color:var(--starbook-ink);text-decoration:none;font-size:12px}.starbook article a:focus-visible{outline:2px solid #e7c789;outline-offset:3px}.starbook article button{min-height:44px;font-size:12px}.starbook [hidden]{display:none!important}
 
 .starbook .starbook-note{font:11px/1.9 system-ui,sans-serif;letter-spacing:.02em;color:#a7a6b8;padding:8px 10px;border-left:1px solid #a4a1b34d;background:#ffffff03}.starbook .starbook-note[data-collected=true]{color:#d5c8bd;border-left-color:var(--starbook-ink)}
+
+#fiveStars[role=button]{min-height:44px;cursor:pointer;border-bottom:1px solid #cbb28955;border-radius:3px}
+#fiveStars[role=button]:focus-visible{outline:2px solid #e7c789;outline-offset:3px}
+#journeyStarbook{width:min(680px,94vw);max-height:calc(100dvh - 24px);padding:0;border:1px solid #b69d7666;background:#111a2d;color:#eadac2}
+.starbook-toolbar{position:sticky;top:0;z-index:2;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:10px 16px;background:#111a2df5;border-bottom:1px solid #cbb28944}
+.starbook-toolbar h2{font:400 17px/1.6 'Songti TC',serif;margin:0}.starbook-toolbar button{min-height:44px;font-size:12px;white-space:nowrap}
+#journeyStarbook .starbook{margin:0 18px;border-top:0}#journeyStarbook summary{display:none}#journeyStarbook .starbook-pages{padding-top:18px}#journeyStarbook article{scroll-margin-top:80px}
+@media(orientation:landscape) and (max-height:560px) and (min-width:520px){main{grid-template-rows:auto 50px 44px 3px 58px minmax(44px,1fr)}}
+
+#fiveStars[role=button]{gap:8px 12px}
+#fiveStars[role=button]::after{content:'重溫 ↗';font:10px/1.4 system-ui,sans-serif;letter-spacing:.04em;color:#d7c8b3;white-space:nowrap}
+@media(orientation:landscape) and (max-height:560px) and (min-width:520px){#fiveStars[role=button]{gap:4px 5px}}

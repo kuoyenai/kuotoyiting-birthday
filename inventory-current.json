@@ -1,6 +1,6 @@
 {
   "updated": "2026-10-19",
-  "appVersion": "20261019-55",
+  "appVersion": "20261019-56",
   "baseline": "efab385",
   "cards": 100,
   "novel": {
@@ -109,7 +109,8 @@
       "銀虎三句陪伴／本機紅色星光小記",
       "生日舞台五色微光／自由開關／減少動態",
       "心裡許願／輕觸吹熄蠟燭／不收集願望",
-      "讀到收下星星後解鎖掌心紀念／回城保留"
+      "讀到收下星星後解鎖掌心紀念／回城保留",
+      "已收集星光列／旅途中重溫原畫與故事／未解鎖內容遮蔽"
     ],
     "backgroundRendering": {
       "method": "native image ratio, clipped consecutive scene regions and mirrored repeats",
