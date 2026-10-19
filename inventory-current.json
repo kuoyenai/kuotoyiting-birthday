@@ -1,6 +1,6 @@
 {
   "updated": "2026-10-19",
-  "appVersion": "20261019-74",
+  "appVersion": "20261019-75",
   "baseline": "efab385",
   "cards": 100,
   "novel": {
@@ -657,6 +657,43 @@
       "browser": "Chrome virtual clock",
       "errors": [],
       "physicalSafariVerified": false
+    },
+    "musicChoice": {
+      "entry": "header 選曲",
+      "songs": 4,
+      "order": "1→2→3→4→1; from selected song",
+      "preservesManualMute": true,
+      "sameTrackKeepsPosition": true,
+      "persistsSelection": true,
+      "nativeDialogHistory": true,
+      "touchTarget": 44,
+      "testedEngines": [
+        "Chrome",
+        "desktop WebKit26.5 build2336"
+      ],
+      "physicalSafariNewPickerVerified": false
+    },
+    "webkitFullRouteVerification": {
+      "appVersion": "20261019-74",
+      "passed": 95,
+      "fixed": 56,
+      "moved": 38,
+      "viewport": "390x844",
+      "browser": "desktop WebKit26.5 build2336, virtual clock",
+      "errors": [],
+      "notPhysicalIOS": true
+    },
+    "userConfirmedSafari": {
+      "appVersion": "20261019-74",
+      "date": "2026-10-19",
+      "scope": [
+        "four destinations",
+        "2D movement",
+        "return from story",
+        "music playback"
+      ],
+      "result": "user said all normal",
+      "app75NewMusicPickerIncluded": false
     }
   },
   "exploreDialogueNavigation": {

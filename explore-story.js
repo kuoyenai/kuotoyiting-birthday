@@ -47,14 +47,14 @@ muted=stored.paused===true;
 music.loop=false;
 if(playlist.length)music.src=playlist[musicIndex].src;
 function audio(){if(!muted)music.play().catch(()=>{});}
-function nextSong(){
- if(!playlist.length||muted)return;
- musicIndex=(musicIndex+1)%playlist.length;
- window.yitingMusicSave?.({index:musicIndex,paused:false});
- music.src=playlist[musicIndex].src;
- music.load();
- audio();
+function notifyMusic(){window.dispatchEvent(new CustomEvent('yiting-explore-music-change',{detail:{index:musicIndex,paused:muted}}));}
+function chooseSong(next){
+ if(!Number.isInteger(next)||next<0||next>=playlist.length)return false;
+ if(next!==musicIndex){musicIndex=next;music.src=playlist[musicIndex].src;music.load();}
+ window.yitingMusicSave?.({index:musicIndex,paused:muted});audio();notifyMusic();return true;
 }
+function nextSong(){if(playlist.length&&!muted)chooseSong((musicIndex+1)%playlist.length);}
+window.yitingExploreMusic={getState:()=>({index:musicIndex,paused:muted}),select:chooseSong};
 music.addEventListener('ended',nextSong);window.yitingExploreResumeAudio=audio;
 window.addEventListener('message',event=>{if(event.origin!==location.origin||event.data?.type!=='yiting-explore-audio')return;if(event.data.action==='pause')music.pause();});
 $('sound').textContent=muted?'音樂關閉':'音樂開啟';
@@ -125,7 +125,7 @@ $('interact').onclick=()=>{if(!$('interact').disabled)openStory();};dialog.addEv
 canvas.addEventListener('pointerdown',e=>{if(!ready||modalOpen())return;autoDestination=null;const r=canvas.getBoundingClientRect();target=Math.max(80,Math.min(movementLimit(),camera+(e.clientX-r.left)/r.width*vw));audio();canvas.focus({preventScroll:true});});
 window.addEventListener('keydown',e=>{if(modalOpen()||e.ctrlKey||e.metaKey||e.altKey||e.target.closest('input,textarea,select,[contenteditable="true"],a')||e.target.closest('button:not(#left):not(#right)'))return;const k=e.key.toLowerCase();if(['arrowleft','arrowright','a','d'].includes(k)){e.preventDefault();autoDestination=null;keys.add(k);audio();}if(k==='e')$('interact').click();});window.addEventListener('keyup',e=>{keys.delete(e.key.toLowerCase());if(!keys.size)target=x;});window.addEventListener('blur',stop);window.addEventListener('pagehide',stop);window.addEventListener('resize',stop);document.addEventListener('visibilitychange',()=>{if(document.hidden)stop();});
 for(const [id,key]of[['left','arrowleft'],['right','arrowright']]){const b=$(id);b.addEventListener('pointerdown',e=>{if(modalOpen()||!ready)return;e.preventDefault();autoDestination=null;b.setPointerCapture(e.pointerId);keys.add(key);audio();});for(const event of ['pointerup','pointercancel','lostpointercapture'])b.addEventListener(event,()=>{keys.delete(key);target=x;});}
-$('sound').onclick=()=>{muted=!muted;window.yitingMusicSave?.({index:musicIndex,paused:muted});if(muted)music.pause();else audio();$('sound').textContent=muted?'音樂關閉':'音樂開啟';$('sound').setAttribute('aria-pressed',String(!muted));};
+$('sound').onclick=()=>{muted=!muted;window.yitingMusicSave?.({index:musicIndex,paused:muted});if(muted)music.pause();else audio();$('sound').textContent=muted?'音樂關閉':'音樂開啟';$('sound').setAttribute('aria-pressed',String(!muted));notifyMusic();};
 const returnJourney=document.createElement('button');returnJourney.id='returnJourney';returnJourney.type='button';returnJourney.hidden=true;document.querySelector('.chapter-picker').after(returnJourney);returnJourney.onclick=()=>{$('chapterMenu').value='resume';$('chapterMenu').onchange();};
 $('chapterMenu').onchange=()=>{if($('chapterMenu').value==='resume'){if(!revisitOrigin)return;stop();const origin=revisitOrigin;revisitOrigin=null;index=origin.index;resumeReading=origin.reading;x=target=origin.x;}else{const next=Number($('chapterMenu').value);if(!valid(next)||next>unlocked)return;stop();if(!revisitOrigin)revisitOrigin={index,x,reading:resumeReading?{...resumeReading}:null};index=next;resumeReading=null;x=target=Math.max(180,starAt(index-1));}camera=Math.max(0,x-250);waypoint=storyWaypoint(index);$('endLink').hidden=true;save();refresh();changeBackground();};
 $('restart').onclick=()=>{$('restartDialog').showModal();};$('cancelRestart').onclick=()=>$('restartDialog').close();$('confirmRestart').onclick=()=>{$('restartDialog').close();stop();revisitOrigin=null;resumeReading=null;index=0;unlocked=0;x=target=180;camera=0;waypoint=starAt(0);$('endLink').hidden=true;save();refresh();changeBackground();};

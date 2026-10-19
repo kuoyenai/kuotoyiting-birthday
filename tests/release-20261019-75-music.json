@@ -1,0 +1,77 @@
+{
+  "date": "2026-10-19",
+  "appVersion": "20261019-75",
+  "stableTagPreserved": "yiting-stable-20261019-v74",
+  "productChanges": [
+    "2D four-song picker",
+    "selected row updates on native song ending",
+    "same song does not restart",
+    "manual mute preserved",
+    "shared music preference persistence"
+  ],
+  "musicTest": {
+    "file": "tests/explore-music.cjs",
+    "engines": [
+      "Chrome",
+      "desktop WebKit26.5 build2336"
+    ],
+    "viewports": [
+      "320x568",
+      "390x844",
+      "568x320",
+      "844x390",
+      "820x1180",
+      "1280x844"
+    ],
+    "result": "passed both engines all6",
+    "actualAudioEndingCycle": {
+      "viewports": [
+        "390x844",
+        "1280x844"
+      ],
+      "order": [
+        1,
+        2,
+        3,
+        4,
+        1
+      ],
+      "syntheticEventUsedForNormalCycle": false
+    },
+    "mutedEndedGuard": "separate synthetic ended event, stays muted and does not advance",
+    "otherChecks": [
+      "44px controls",
+      "all4 native sources",
+      "same song continues",
+      "selected row follows ended",
+      "Back and Escape close only picker",
+      "reload retains choice/mute",
+      "story index and actor position unchanged"
+    ]
+  },
+  "app74AdditionalQA": {
+    "desktopWebKitFullRoute": {
+      "passed": 95,
+      "fixed": 56,
+      "moved": 38,
+      "pageErrors": 0
+    },
+    "tabletNavigationBothEngines": "eight portrait/landscape sizes, all5 pages",
+    "desktopWebKitPassed": [
+      "explore-responsive",
+      "explore-story-pause",
+      "explore-art-viewer",
+      "reader-resume",
+      "image-retry-sequence",
+      "preservation-audit"
+    ],
+    "testHarnessFix": "Wait for persistent shell child target URL and DOM before inspecting, no assertions removed"
+  },
+  "userPhysicalSafariConfirmation": {
+    "version": "20261019-74",
+    "result": "four tabs, 2D movement/story return and music all normal"
+  },
+  "remaining": "App75 new picker still requires user physical Safari confirmation",
+  "newArt": 0,
+  "newTracks": 0
+}
