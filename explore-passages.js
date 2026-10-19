@@ -32,6 +32,14 @@ window.YitingPassages={
      ctx.beginPath();ctx.arc(Math.cos(a)*rx*.84,Math.sin(a)*ry*.94,1.2,0,Math.PI*2);ctx.fill();
     }
    }
+   // Grounded threshold light: stays at the gate, behind feet and all actors.
+   const contact=reduced?0:proximity,groundY=h*.85-cy;
+   for(let ripple=0;ripple<3;ripple++){
+    const travel=reduced?ripple/3:((t*.00022+ripple/3)%1);
+    ctx.globalAlpha=(.035+contact*.14)*(1-travel);
+    ctx.strokeStyle=ripple===0?'#f8e7bd':tint;ctx.lineWidth=.8;
+    ctx.beginPath();ctx.ellipse(0,groundY,rx*(.45+travel*.95),h*(.006+travel*.018),0,0,Math.PI*2);ctx.stroke();
+   }
    ctx.globalAlpha=.2;ctx.strokeStyle=tint;ctx.lineWidth=1;ctx.beginPath();ctx.ellipse(0,ry,rx*.9,h*.018,0,0,Math.PI*2);ctx.stroke();ctx.restore();
   }
  },get count(){return passages.length;}
