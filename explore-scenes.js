@@ -5,6 +5,7 @@ const garden={id:'garden',label:'YEJUN / THE MUSIC GARDEN',source:'assets/explor
 const greenhouse={id:'greenhouse',label:'NOAH / A MOMENT TO REST',source:'assets/explore-greenhouse-v1.png',color:'purple',hint:'放慢腳步，走進諾亞的月光溫室。'};
 window.yitingExploreScene=story=>{
  if(!story||story.chapter<2)return city;
+ if(story.chapter===2&&(story.sourcePanel??story.panel)>=1)return {...city,id:'portal-city',source:'assets/explore-portal-eunho-billboard-v1.png',label:'10:20 PM / EUNHO ON THE SCREEN',hint:'看板中的銀虎傳來邀請。沿著星光，慢慢走向他。'};
  if(story.chapter===2)return {...city,id:'portal-city',source:'assets/explore-portal-city-v1.png',label:'10:20 PM / BETWEEN TWO WORLDS',hint:'時間停在十點二十分，跟著星光走向銀虎的邀請。'};
  if(story.chapter===9)return {...city,label:'TERRA / THE LIGHT STAYS WITH YOU',hint:'帶著掌心的紅色星星，走回熟悉的日常。'};
  if(story.chapter===8)return {...arrival,id:'farewell',source:'assets/explore-farewell-v1.png',label:'ASTERUM / UNTIL WE MEET AGAIN',color:'red',hint:'走向回程的星光，把最後的叮嚀留在心裡。'};

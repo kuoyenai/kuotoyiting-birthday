@@ -1,6 +1,6 @@
 {
   "updated": "2026-10-19",
-  "appVersion": "20261019-57",
+  "appVersion": "20261019-58",
   "baseline": "efab385",
   "cards": 100,
   "novel": {
@@ -54,12 +54,12 @@
     "blessingsCSV": true
   },
   "trackedAssets": {
-    "files": 365,
-    "bytes": 406957981,
+    "files": 366,
+    "bytes": 410031112,
     "types": {
       ".jpg": 142,
       ".webp": 144,
-      ".png": 64,
+      ".png": 65,
       ".mp4": 5,
       ".txt": 2,
       ".m4a": 4,
@@ -73,7 +73,7 @@
     "entry": "Story tabs → explore-intro.html → explore.html",
     "chapters": 10,
     "storyEncounters": 95,
-    "generatedAssets": 50,
+    "generatedAssets": 51,
     "localProgress": true,
     "status": "95 original panels; same-place tableaux; all-five birthday celebration and cohesive six-person farewell walking; original player elsewhere",
     "walkableEnvironments": [
@@ -88,7 +88,8 @@
       "生日演唱舞台",
       "生日許願露台",
       "告別回程通道",
-      "銀虎露臺與遠處生日舞台"
+      "銀虎露臺與遠處生日舞台",
+      "十點二十分銀虎看板城市"
     ],
     "walkAnimation": {
       "method": "original four key poses with continuous subtle whole-body lift/lean; no stretching",

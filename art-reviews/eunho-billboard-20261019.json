@@ -1,0 +1,12 @@
+{
+  "date": "2026-10-19",
+  "mode": "built-in imagegen edit",
+  "path": "assets/explore-portal-eunho-billboard-v1.png",
+  "references": [
+    "assets/explore-portal-city-v1.png",
+    "user official S__302653443_0.jpg, upper EUNHO only"
+  ],
+  "prompt": "Use case: precise-object-edit / identity-preserve. Edit image1, a 1672x941 side-scrolling game background of the time-frozen neon city. Preserve its buildings, glass bridge, lamps, railings, frozen autumn leaves, level wet floor, perspective, and entire composition. Change ONLY the contents of the LARGE landscape electronic billboard on the upper LEFT building (roughly x210..825, y25..380). Its blue-purple star portal now contains a faithful anime illustration of PLAVE EUNHO speaking gently toward the viewer. Image2 is the OFFICIAL CHARACTER reference: use ONLY EUNHO in the UPPER HALF (silver-white center-part wavy hair, crimson/red narrow eyes, angular handsome face, blue denim jacket with gold buttons over a white shirt); IGNORE the lower black-haired HAMIN. Match Eunho identity closely. Keep his full hair/head, eyes, nose, mouth and chin completely inside the billboard. Upper-body broadcast portrait only, hands and forearms outside the billboard crop so NO hands or fingers are shown. His shoulders remain fully inside the electronic display, never physically outside or floating in the street. Surround his portrait with a restrained violet-blue galaxy rim, subtle red star accent, harmonized with original luminous Korean idol webtoon painting. No new people elsewhere, no extra limbs, no hand gesture, no text, no letters, no logo, no border around whole image, no watermark. Original image1 floor and skyline must stay recognizable so the transition between the two versions feels like the same city at 10:20 PM. Full-bleed opaque16:9.",
+  "review": "Official upper EUNHO comparison: silver center-part wavy hair, red eyes, face and chin complete, blue denim/gold buttons/white shirt retained. Only a broadcast portrait inside billboard; hands/forearms not shown; no extra body in street. City geometry, frozen leaves and flat floor recognizable. Chapter2 use only; chapter1 phone signal unchanged.",
+  "runtimeReview": "390 actual first billboard stop: full head, face and chin visible; 844 landscape and1280 functional checks passed. Native-ratio backgrounds13 and scene transitions14 passed."
+}
