@@ -156,3 +156,10 @@ dialog[open] .story-copy{touch-action:pan-y}
  #story #linePosition{grid-column:2;grid-row:1}
  #story #continue{grid-column:1/-1;grid-row:2;width:100%;min-height:44px;margin:0;padding:6px 8px;font-size:12px;white-space:nowrap}
 }
+
+/* Quiet return action: visual weight stays with the illustration, hit area stays 44px. */
+:is(.story-toolbar,.starbook-toolbar,.keepsake-toolbar) :is(#closeStory,#closeJourneyStarbook,#closeKeepsake){display:inline-flex;align-items:center;justify-content:center;gap:5px;flex:0 0 auto;min-width:44px;min-height:44px;padding:6px;border:0;border-radius:0;background:transparent;box-shadow:none;color:#cdbb9f;font:11px/1.5 system-ui,sans-serif;letter-spacing:.035em;white-space:nowrap;touch-action:manipulation;-webkit-user-select:none;user-select:none;-webkit-touch-callout:none}
+:is(.story-toolbar,.starbook-toolbar,.keepsake-toolbar) :is(#closeStory,#closeJourneyStarbook,#closeKeepsake) svg{opacity:.75;flex:0 0 auto}
+:is(.story-toolbar,.starbook-toolbar,.keepsake-toolbar) :is(#closeStory,#closeJourneyStarbook,#closeKeepsake):hover{color:#f0ddbc;text-decoration:none}
+:is(.story-toolbar,.starbook-toolbar,.keepsake-toolbar) :is(#closeStory,#closeJourneyStarbook,#closeKeepsake):hover span{text-decoration:underline;text-underline-offset:5px}
+@media(max-width:360px){.starbook-toolbar{gap:6px;padding-left:12px}.starbook-toolbar h2{font-size:14px;letter-spacing:.02em}}

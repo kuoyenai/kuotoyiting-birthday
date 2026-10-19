@@ -4,9 +4,9 @@
 
 #fiveStars[role=button]{min-height:44px;cursor:pointer;border-bottom:1px solid #cbb28955;border-radius:3px}
 #fiveStars[role=button]:focus-visible{outline:2px solid #e7c789;outline-offset:3px}
-#journeyStarbook{width:min(680px,94vw);max-height:calc(100dvh - 24px);padding:0;border:1px solid #b69d7666;background:#111a2d;color:#eadac2}
-.starbook-toolbar{position:sticky;top:0;z-index:2;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:10px 16px;background:#111a2df5;border-bottom:1px solid #cbb28944}
-.starbook-toolbar h2{font:400 17px/1.6 'Songti TC',serif;margin:0}.starbook-toolbar button{min-height:44px;font-size:12px;white-space:nowrap}
+#journeyStarbook{width:min(640px,92vw);max-height:calc(100dvh - 32px);padding:0;border:1px solid #b69d7666;background:#111a2d;color:#eadac2}
+.starbook-toolbar{position:sticky;top:0;z-index:2;display:flex;align-items:center;justify-content:space-between;gap:10px;min-height:48px;padding:0 12px 0 16px;background:#111629f5;border-bottom:1px solid #cbb2892e}
+.starbook-toolbar h2{min-width:0;font:400 15px/1.6 'Songti TC',serif;letter-spacing:.04em;margin:0;color:#e0d0bb}
 #journeyStarbook .starbook{margin:0 18px;border-top:0}#journeyStarbook summary{display:none}#journeyStarbook .starbook-pages{padding-top:18px}#journeyStarbook article{scroll-margin-top:80px}
 @media(orientation:landscape) and (max-height:560px) and (min-width:520px){main{grid-template-rows:auto 50px 44px 3px 58px minmax(44px,1fr)}}
 

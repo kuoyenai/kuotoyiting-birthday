@@ -1,6 +1,6 @@
 {
   "updated": "2026-10-19",
-  "appVersion": "20261019-73",
+  "appVersion": "20261019-74",
   "baseline": "efab385",
   "cards": 100,
   "novel": {
@@ -49,17 +49,17 @@
   ],
   "bundle": {
     "path": "assets/downloads/YITING-100-photocards.zip",
-    "bytes": 79250017,
+    "bytes": 81206373,
     "images": 100,
     "blessingsCSV": true
   },
   "trackedAssets": {
-    "files": 366,
-    "bytes": 410031112,
+    "files": 367,
+    "bytes": 414763826,
     "types": {
       ".jpg": 142,
       ".webp": 144,
-      ".png": 65,
+      ".png": 66,
       ".mp4": 5,
       ".txt": 2,
       ".m4a": 4,
@@ -73,7 +73,7 @@
     "entry": "Story tabs → explore-intro.html → explore.html",
     "chapters": 10,
     "storyEncounters": 95,
-    "generatedAssets": 51,
+    "generatedAssets": 52,
     "localProgress": true,
     "status": "95 original panels; same-place tableaux; all-five birthday celebration and cohesive six-person farewell walking; original player elsewhere",
     "walkableEnvironments": [
@@ -635,6 +635,28 @@
       ],
       "minimumControlHeight": 44,
       "sentenceScrollResets": true
+    },
+    "sharedWardrobeRevision": {
+      "path": "assets/novel-bamby-dance-pause-v2.png",
+      "logicalPanel": "novel-bamby-dance-pause",
+      "card": 91,
+      "originalPreserved": true,
+      "consumers": [
+        "2D story",
+        "novel comic",
+        "photocard viewer/download",
+        "100-card ZIP"
+      ]
+    },
+    "fullRouteVerification": {
+      "appVersion": "20261019-74",
+      "passed": 95,
+      "fixed": 56,
+      "moved": 38,
+      "viewport": "390x844",
+      "browser": "Chrome virtual clock",
+      "errors": [],
+      "physicalSafariVerified": false
     }
   },
   "exploreDialogueNavigation": {
@@ -678,7 +700,7 @@
     "persisted": false,
     "fullRouteVerification": {
       "date": "2026-10-19",
-      "version": "20261019-71",
+      "version": "20261019-74",
       "storyPanels": 95,
       "automatedTransfers": 38,
       "fixedTransitions": 56,
@@ -724,12 +746,10 @@
     "production": "https://kuotoyiting-birthday.vercel.app/"
   },
   "stableRelease": {
-    "tag": "yiting-stable-20261018-v34",
-    "commit": "52bbadf396f40ac6814091a0f931fce74c24f179",
-    "appVersion": "20261018-34",
-    "confirmedByUser": "2026-10-18",
-    "previousTag": "yiting-stable-20261016-v9",
-    "immutable": true
+    "tag": "yiting-stable-20261019-v74",
+    "appVersion": "20261019-74",
+    "previousTag": "yiting-stable-20261018-v34",
+    "requestedByUser": true
   },
   "cityWeather": {
     "source": "explore-city-weather.js",

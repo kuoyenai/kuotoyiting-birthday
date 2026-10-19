@@ -1,0 +1,17 @@
+{
+  "date": "2026-10-19",
+  "mode": "built-in imagegen edit",
+  "path": "assets/novel-bamby-dance-pause-v2.png",
+  "references": [
+    "assets/novel-bamby-dance-pause.webp",
+    "assets/novel-bamby-rhythm.webp",
+    "user official S__302653444_0.jpg, LOWER BAMBY only"
+  ],
+  "prompt": "Use case: precise-object-edit / identity-preserve. Edit image 1 ONLY. It is a 1672x941 Korean anime / PLAVE story illustration of pink-haired BAMBY pausing in a dance and looking back, right hand raised. Remove the BLACK SLEEVELESS KNITTED VEST from his torso. Under it he must wear ONLY the same plain, loose light-grey short-sleeve T-SHIRT shown on BAMBY in image2 (the adjacent panel); extend its soft grey fabric, natural folds and pink-violet reflected light over the back/torso where the vest was. Keep his black cargo trousers. Image2 is a wardrobe continuity reference, NOT a composition template. Image3 is the official identity reference: use ONLY pink-haired BAMBY in the LOWER HALF; ignore blond NOAH and all reference text. Preserve image1 face, pink layered hairstyle, violet eyes, smile, full head and complete chin, body proportions, over-the-shoulder pose, arm pose, right hand exactly FIVE anatomically correct digits (one thumb plus four fingers) with clear joints and natural attachment, and the hidden left arm remaining naturally occluded behind his body. Do not add a second exposed hand. Preserve the pink galaxy city, hanging lanterns, arches, reflected floor, flowers, camera angle and luminous original painting style. Do not change the pose to image2, do not add YiTing or another person. No vest, jacket, extra limbs, duplicated fingers, jewelry additions, text, logo, watermark, or new border. Precise minimal wardrobe change: retain original 16:9 full-bleed opaque composition.",
+  "review": "Pink layered hair, violet eyes, full head and chin retained. Right hand visibly one thumb and four fingers with separate joints and natural wrist. Left hand remains occluded behind body; no added limb. Grey short-sleeve tee now matches adjacent dance panels; black cargo trousers and original over-shoulder composition remain. Official lower BAMBY reference used, not upper NOAH. Original webp retained.",
+  "dimensions": [
+    1671,
+    941
+  ],
+  "runtimeReview": "390/1280 game, novel panel107, card091 viewer decode at native1671x941; matching PNG download/response bytes and100 card count passed. Mobile screenshot reviewed. ZIP100/CRC and99 other unchanged images checked."
+}

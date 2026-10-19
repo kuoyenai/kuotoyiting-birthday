@@ -20,7 +20,7 @@ function render(){
   pages.append(article);
  }
 }
-const book=document.createElement('dialog');book.id='journeyStarbook';book.setAttribute('aria-labelledby','journeyStarbookTitle');book.innerHTML='<div class="starbook-toolbar"><h2 id="journeyStarbookTitle">收進旅程的星光</h2><button type="button" id="closeJourneyStarbook">返回旅程</button></div>';document.body.append(book);
+const book=document.createElement('dialog');book.id='journeyStarbook';book.setAttribute('aria-labelledby','journeyStarbookTitle');book.innerHTML='<div class="starbook-toolbar"><h2 id="journeyStarbookTitle">收進旅程的星光</h2><button type="button" id="closeJourneyStarbook" aria-label="返回旅程，保留目前位置"><svg viewBox="0 0 16 16" width="13" height="13" aria-hidden="true" focusable="false"><path d="M6 3 2 7l4 4M2 7h7a4 4 0 0 1 4 4v2" fill="none" stroke="currentColor" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round"/></svg><span>返回旅程</span></button></div>';document.body.append(book);
 const badges=document.getElementById('fiveStars');
 function openBook(color){if(badges.getAttribute('role')!=='button')return;window.yitingExploreResumeAudio?.();window.dispatchEvent(new Event('yiting-explore-modal'));book.append(details);details.open=true;render();book.showModal();const target=pages.querySelector('[data-star="'+color+'"]');target?.scrollIntoView({block:'start'});}
 badges.addEventListener('click',event=>openBook(event.target.closest('[data-star-color]')?.dataset.starColor||'blue'));

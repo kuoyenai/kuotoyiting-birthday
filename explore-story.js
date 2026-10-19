@@ -5,7 +5,7 @@ const storyToolbar=document.createElement('div');storyToolbar.className='story-t
 $('storyContext').before(storyToolbar);storyToolbar.append($('storyContext'));
 $('line').tabIndex=0;
 const closeStory=document.createElement('button');closeStory.id='closeStory';closeStory.type='button';closeStory.innerHTML='<svg viewBox="0 0 16 16" width="13" height="13" aria-hidden="true" focusable="false"><path d="M6 3 2 7l4 4M2 7h7a4 4 0 0 1 4 4v2" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>返回旅程</span>';closeStory.setAttribute('aria-label','暫停閱讀並返回旅程，保留目前對白');closeStory.onclick=()=>dialog.close();storyToolbar.append(closeStory);
-const replacement={'novel-bamby-closeup':'E00F34EB-9BDE-4825-883E-9EA4E8C618A4.png','novel-welcome-teasing':'D8AF4512-1868-4624-95B9-9FEC559B6A0C.png'};
+const replacement={'novel-bamby-dance-pause':'novel-bamby-dance-pause-v2.png','novel-bamby-closeup':'E00F34EB-9BDE-4825-883E-9EA4E8C618A4.png','novel-welcome-teasing':'D8AF4512-1868-4624-95B9-9FEC559B6A0C.png'};
 const chapters=window.YITING_NOVEL_CHAPTERS,route=[];
 window.NOVEL_PANELS.forEach((panels,chapter)=>panels.forEach(([asset,narration,lines,star],panel)=>{route.push({asset,narration,lines,star,chapter,panel});(window.YITING_EXTRA_SHOTS||[]).filter(s=>s.chapter===chapter&&s.after===asset).forEach(s=>route.push({asset:s.asset,narration:s.narration,lines:[],chapter,sourcePanel:panel,panel:s.id}));}));
 const readingSaveNotice=document.createElement('p');readingSaveNotice.id='storySaveStatus';readingSaveNotice.hidden=true;readingSaveNotice.setAttribute('role','status');document.querySelector('.story-navigation').before(readingSaveNotice);
