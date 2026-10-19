@@ -10,5 +10,16 @@ image.onload=()=>{status.textContent='';retry.hidden=true;};image.onerror=()=>{s
 entry.onclick=()=>{window.yitingExploreResumeAudio?.();window.dispatchEvent(new Event('yiting-explore-modal'));blown=false;dialog.dataset.blown='false';blow.disabled=false;blow.textContent='願望藏好了，吹熄蠟燭';words.textContent='閉上眼睛，想一個只屬於妳的願望。準備好了，再輕觸下方按鈕。';image.src=source();dialog.showModal();};
 blow.onclick=()=>{if(blown)return;blown=true;dialog.dataset.blown='true';blow.disabled=true;blow.textContent='願望已藏在心裡';words.textContent='銀虎：「那希望妳的願望，全部都能實現。」';image.src=source();};
 dialog.querySelector('#closeBirthdayWish').onclick=()=>dialog.close();dialog.addEventListener('close',()=>canvas.focus({preventScroll:true}));blow.addEventListener('contextmenu',e=>e.preventDefault());
+// Match the five painted candle tips in the original 1672×941 celebration plate.
+let lightCount=0;
+window.YitingWishLights={draw(ctx,{x,y,width,height,t,reduced}){
+ lightCount=0;if(reduced||blown)return;
+ const tips=[[794,539],[816,537],[838,535],[860,537],[883,541]];
+ ctx.save();for(let i=0;i<tips.length;i++){
+  const [px,py]=tips[i],cx=x+px/1672*width,cy=y+py/941*height,r=height/941*(15+Math.sin(t*.0018+i*1.7)*2);
+  const light=ctx.createRadialGradient(cx,cy,0,cx,cy,r);light.addColorStop(0,'#ffe9b63b');light.addColorStop(.35,'#f8bd7020');light.addColorStop(1,'#edaf5900');
+  ctx.fillStyle=light;ctx.beginPath();ctx.arc(cx,cy,r,0,Math.PI*2);ctx.fill();lightCount++;
+ }ctx.restore();
+},get count(){return lightCount;}};
 new MutationObserver(sync).observe(canvas,{attributes:true,attributeFilter:['data-scene']});sync();
 })();
