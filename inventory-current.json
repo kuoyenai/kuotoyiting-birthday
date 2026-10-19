@@ -1,6 +1,6 @@
 {
   "updated": "2026-10-19",
-  "appVersion": "20261019-53",
+  "appVersion": "20261019-54",
   "baseline": "efab385",
   "cards": 100,
   "novel": {
@@ -54,12 +54,12 @@
     "blessingsCSV": true
   },
   "trackedAssets": {
-    "files": 364,
-    "bytes": 403679215,
+    "files": 365,
+    "bytes": 406957981,
     "types": {
       ".jpg": 142,
       ".webp": 144,
-      ".png": 63,
+      ".png": 64,
       ".mp4": 5,
       ".txt": 2,
       ".m4a": 4,
@@ -73,7 +73,7 @@
     "entry": "Story tabs → explore-intro.html → explore.html",
     "chapters": 10,
     "storyEncounters": 95,
-    "generatedAssets": 49,
+    "generatedAssets": 50,
     "localProgress": true,
     "status": "95 original panels; same-place tableaux; all-five birthday celebration and cohesive six-person farewell walking; original player elsewhere",
     "walkableEnvironments": [

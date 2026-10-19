@@ -1,0 +1,8 @@
+{
+  "date": "2026-10-19",
+  "mode": "built-in imagegen edit",
+  "path": "assets/explore-birthday-celebration-after-wish-v1.png",
+  "reference": "assets/explore-birthday-celebration-v1.png",
+  "prompt": "Use case: precise-object-edit. EDIT the supplied original 1672x941 all-five-member birthday celebration background for a 2D illustrated fan story. Make only this tiny narrative-state change: extinguish the FIVE TINY CANDLE FLAMES directly above the five colored star candles on top of the central birthday cake (around x794,816,838,860,883 and y535..541 in the original). Keep the blue/pink/purple/yellow/red star-shaped candles themselves intact, but their tiny flame tips should be dark, with extremely faint wisps of smoke from the five wick tips if visible. Do NOT extinguish the decorative lanterns, table candles, background architecture lights or stars. Preserve the ENTIRE rest of the original image as closely as possible: exactly five men with the identical faces, hair colors, facial expressions, poses, clothing, hands, shoulders and anatomy; same cake shape, flowers, table, railings, floor reflections, skyline, planet, lighting, framing and viewpoint. Do not introduce any person, hand, finger, arm, leg, text, logo, new decoration or layout change. This is the same scene one second after a wish, NOT a new scene or reinterpretation. Opaque full-bleed image, same 16:9 composition. No cropping.",
+  "review": "Five colored star candles have no bright flame tips. Same five-member arrangement, hair colors, clothing and complete faces/chins; no added limbs. Hands remain mostly occluded as in original; do not claim five visible fingers. Decorative candles and lanterns retained. Original lit version preserved."
+}
