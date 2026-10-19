@@ -4,3 +4,9 @@
 .plaza-joy{top:max(48px,var(--companion-row-bottom,48px))}
 
 @media(orientation:landscape) and (max-height:560px){.plaza-joy{left:auto;right:14px;top:var(--companion-row-top,48px);width:calc(100% - 130px);padding:4px 6px;display:flex;align-items:center;justify-content:center;gap:7px}.plaza-joy .joy-dots{gap:4px;font-size:10px;flex-shrink:0}.plaza-joy p{display:none}.plaza-joy small{font-size:8px;line-height:1.5;letter-spacing:0}}
+
+/* Completed joy stays as a light editorial caption, leaving the plaza visible. */
+.plaza-joy[data-complete=true]{left:auto;width:max-content;max-width:calc(100% - 28px);padding:8px 12px;border-color:#d79abb55;border-radius:3px;background:#201c32d9;box-shadow:none}
+.plaza-joy[data-complete=true] .joy-dots{display:none;animation:none}
+.plaza-joy[data-complete=true] p{display:block;margin:0;font-size:11px;line-height:1.7}
+.plaza-joy[data-complete=true][data-save-failed=false] small{position:absolute;width:1px;height:1px;padding:0;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
