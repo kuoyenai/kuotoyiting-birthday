@@ -1,6 +1,6 @@
 {
   "updated": "2026-10-19",
-  "appVersion": "20261019-70",
+  "appVersion": "20261019-71",
   "baseline": "efab385",
   "cards": 100,
   "novel": {
@@ -139,7 +139,8 @@
         "chapter7 cake 66..75",
         "chapter8 farewell and red-star handoff 78..84",
         "final phone 86..90",
-        "chapter5 Eunho conversation and five stars 48..53"
+        "chapter5 Eunho conversation and five stars 48..53",
+        "chapter2 billboard invitation 9..11"
       ],
       "residency": {
         "policy": "visible viewport plus margin, nearby physical/story nodes; discard distant refs and image src",
@@ -677,14 +678,14 @@
     "persisted": false,
     "fullRouteVerification": {
       "date": "2026-10-19",
-      "version": "20261019-64",
+      "version": "20261019-71",
       "storyPanels": 95,
-      "automatedTransfers": 45,
-      "fixedTransitions": 49,
+      "automatedTransfers": 38,
+      "fixedTransitions": 56,
       "viewport": "390x844",
       "browser": "Chrome headless with virtual clock",
       "physicalIPhone": false,
-      "result": "passed95;49 fixed/45 automatic movement transitions, original artwork and ordered dialogue, no auto-opening and final stop; chapter8 farewell78..84 fixed"
+      "result": "passed95;56 fixed/38 automatic movement transitions; original illustration order, no automatic dialogue opening, final stop and no page errors; includes invitation9..11, red-star conversation48..53, farewell78..84 and current reader"
     }
   },
   "exploreFinale": {
