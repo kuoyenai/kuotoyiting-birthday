@@ -1,6 +1,6 @@
 {
   "updated": "2026-10-19",
-  "appVersion": "20261019-68",
+  "appVersion": "20261019-69",
   "baseline": "efab385",
   "cards": 100,
   "novel": {
@@ -622,6 +622,18 @@
       "manualOffRespected": true,
       "reducedMotion": "static speaker accent",
       "narrowDialogueActions": "full-width next action below520px"
+    },
+    "storyReader": {
+      "portrait": "original vertical art and dialogue",
+      "compactLandscape": "complete artwork left; scrollable dialogue and fixed navigation right",
+      "condition": "landscape, min-width560px, max-height560px",
+      "testedViewports": [
+        "568x320",
+        "844x390",
+        "1024x540"
+      ],
+      "minimumControlHeight": 44,
+      "sentenceScrollResets": true
     }
   },
   "exploreDialogueNavigation": {
