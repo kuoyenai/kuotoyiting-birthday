@@ -10,6 +10,9 @@ const configs={
 };
 const members={asterum:'eunho',eunho:'eunho',garden:'yejun',greenhouse:'noah',plaza:'bamby',observatory:'hamin',farewell:'eunho',birthday:'concert'},records=new Map();
 const preloads={eunho:['eunho','concert'],wish:['eunho'],'portal-city':['eunho'],asterum:['eunho','yejun'],garden:['yejun','noah'],greenhouse:['noah','bamby'],plaza:['bamby','hamin'],observatory:['hamin','eunho']};
+const memoryKeys={yejun:'hope',noah:'gentleness',bamby:'joy',hamin:'courage',eunho:'companion'},memories=new Set();let visibleMemories=[];
+function readMemories(){memories.clear();for(const [member,note]of Object.entries(memoryKeys))try{if(localStorage.getItem('yiting-explore-'+note+'-note')==='1')memories.add(member);}catch{}}
+document.addEventListener('close',readMemories,true);window.addEventListener('storage',readMemories);window.addEventListener('yiting-explore-footstep',()=>queueMicrotask(readMemories));
 let anchors=[],lastScene='',visible=0,visibleMembers=[],enteredAt=0;const followPositions=new Map();
 const following=(index,scene=canvas.dataset.scene)=>anchors.find(actor=>walkSets[actor.member]&&(actor.scene===scene||actor.followScenes?.includes(scene))&&Number.isInteger(actor.followFrom)&&index>=actor.followFrom&&index<actor.followUntil);
 const walkFrames=[["assets/explore-eunho-walk-contact-a-v2.png", 1464, 72, 570], ["assets/explore-eunho-walk-pass-a-v2.png", 1485, 47, 480], ["assets/explore-eunho-walk-contact-b-v2.png", 1466, 60, 570], ["assets/explore-eunho-walk-pass-b-v2.png", 1475, 43, 540]],idleFrame=["assets/explore-eunho-side-idle-v2.png", 1498, 56, 565];
@@ -27,6 +30,7 @@ function load(member,retry){
  image.decode().then(()=>{if(records.get(member)===next){next.art=image;next.readyAt=performance.now();}}).catch(()=>{}).finally(()=>next.pending=false);
 }
 function prepare(){
+ readMemories();
  const scene=canvas.dataset.scene,entered=scene!==lastScene;lastScene=scene;if(entered)enteredAt=performance.now();
  if(window.YitingGroupCompanions?.active){clearWalk();for(const member of [...records.keys()])discard(member);return;}
  const current=members[scene];let wanted=[...(preloads[scene]??(current?[current]:[]))];
@@ -39,7 +43,7 @@ new MutationObserver(prepare).observe(canvas,{attributes:true,attributeFilter:['
 window.YitingActors={
  configure(items){anchors=items.filter(item=>Number.isFinite(item.x)&&item.x>=0).map(item=>({...item}));followPositions.clear();prepare();},
  draw(ctx,{id,w,h,camera,scale,t=performance.now(),reduced=false,playerX=0,playerFacing=1,dt=0,index=-1}){
-  visible=0;visibleMembers=[];follower=null;if(window.YitingWelcomeParty?.draw(ctx,{id,w,h,camera,scale,t,reduced,playerX})){visibleMembers=window.YitingWelcomeParty.visibleMembers;visible=visibleMembers.length;follower={member:'welcome',x:playerX,frame:-1};if(announcedCompanion!=='welcome'){announcedCompanion='welcome';window.dispatchEvent(new CustomEvent('yiting-explore-companion',{detail:{member:'welcome'}}));}return;}if(window.YitingGroupCompanions?.active){window.YitingGroupCompanions.draw(ctx,{id,w,h,camera,scale,t,reduced,playerX,playerFacing,dt});visibleMembers=window.YitingGroupCompanions.visibleMembers;visible=visibleMembers.length;const active=visible===5?(id==='wish'?'celebration':'plave'):null;follower=active?{member:active,x:playerX,frame:-1}:null;if(active!==announcedCompanion){announcedCompanion=active;window.dispatchEvent(new CustomEvent('yiting-explore-companion',{detail:{member:active}}));}return;}const candidate=following(index,id),companion=!(motion?.matches??reduced)&&walk?.ready&&walk.member===candidate?.member?candidate:null;
+  visible=0;visibleMembers=[];visibleMemories=[];follower=null;if(window.YitingWelcomeParty?.draw(ctx,{id,w,h,camera,scale,t,reduced,playerX})){visibleMembers=window.YitingWelcomeParty.visibleMembers;visible=visibleMembers.length;follower={member:'welcome',x:playerX,frame:-1};if(announcedCompanion!=='welcome'){announcedCompanion='welcome';window.dispatchEvent(new CustomEvent('yiting-explore-companion',{detail:{member:'welcome'}}));}return;}if(window.YitingGroupCompanions?.active){window.YitingGroupCompanions.draw(ctx,{id,w,h,camera,scale,t,reduced,playerX,playerFacing,dt});visibleMembers=window.YitingGroupCompanions.visibleMembers;visible=visibleMembers.length;const active=visible===5?(id==='wish'?'celebration':'plave'):null;follower=active?{member:active,x:playerX,frame:-1}:null;if(active!==announcedCompanion){announcedCompanion=active;window.dispatchEvent(new CustomEvent('yiting-explore-companion',{detail:{member:active}}));}return;}const candidate=following(index,id),companion=!(motion?.matches??reduced)&&walk?.ready&&walk.member===candidate?.member?candidate:null;
   if(retiring){
    retiring.age+=Math.max(0,dt);if(reduced||motion?.matches||retiring.age>=.45)clearRetiring();
    else{const {record,pose}=retiring,height=h*(record.set.height??configs[pose.member].height),ground=h*.85,cx=(pose.x-camera)*scale,poseIndex=pose.frame>=0?pose.frame:4,frame=record.set.frames[poseIndex],image=record.poseImages[poseIndex],unit=height/(frame[1]-frame[2]),crop=frame[4]??[0,0,image.naturalWidth,image.naturalHeight];
@@ -65,10 +69,12 @@ window.YitingActors={
    if(actor.member!=='concert'){
     const tone=({eunho:'#e57291',yejun:'#77baff',noah:'#c5a2ef',bamby:'#f2a3c0',hamin:'#8dd2b0'})[actor.member];
     const near=Math.max(0,1-Math.abs(playerX-actor.x)/420),radius=Math.min(h*.105,Math.max(20,width*.5));
-    ctx.save();ctx.globalAlpha*=.12+near*.15;ctx.strokeStyle=tone;ctx.lineWidth=1;
+    const remembered=memories.has(actor.member);if(remembered)visibleMemories.push(actor.member);
+    ctx.save();ctx.globalAlpha*=remembered?.3+near*.16:.12+near*.15;ctx.strokeStyle=tone;ctx.lineWidth=remembered?1.4:1;
     ctx.beginPath();ctx.ellipse(cx,ground+2,radius,radius*.16,0,0,Math.PI*2);ctx.stroke();
     const phase=reduced?0:t*.00018;
-    for(let mark=0;mark<3;mark++){const angle=phase+mark*Math.PI*2/3,px=cx+Math.cos(angle)*radius,py=ground+2+Math.sin(angle)*radius*.16;ctx.fillStyle='#f6e7c8';ctx.beginPath();ctx.moveTo(px,py-3);ctx.lineTo(px+1.6,py);ctx.lineTo(px,py+3);ctx.lineTo(px-1.6,py);ctx.closePath();ctx.fill();}
+    for(let mark=0;mark<3;mark++){const angle=phase+mark*Math.PI*2/3,px=cx+Math.cos(angle)*radius,py=ground+2+Math.sin(angle)*radius*.16;ctx.fillStyle=remembered?tone:'#f6e7c8';ctx.beginPath();ctx.moveTo(px,py-3);ctx.lineTo(px+1.6,py);ctx.lineTo(px,py+3);ctx.lineTo(px-1.6,py);ctx.closePath();ctx.fill();}
+    if(remembered){ctx.globalAlpha*=.7;ctx.beginPath();ctx.ellipse(cx,ground+2,radius*.77,radius*.11,0,0,Math.PI*2);ctx.stroke();}
     ctx.restore();
    }
    ctx.imageSmoothingEnabled=true;ctx.drawImage(art,crop.x,crop.y,crop.w,crop.h,cx-width*(config.origin??.5),ground-height,width,height);ctx.restore();visible++;visibleMembers.push(actor.member);
@@ -97,6 +103,6 @@ window.YitingActors={
    }
   }
   const active=follower?.member??null;if(active!==announcedCompanion){announcedCompanion=active;window.dispatchEvent(new CustomEvent('yiting-explore-companion',{detail:{member:active}}));}
- },get ready(){if(window.YitingGroupCompanions?.active)return window.YitingGroupCompanions.ready;const scene=canvas.dataset.scene;return !!records.get(members[scene])?.art;},get visible(){return visible;},get visibleMembers(){return [...visibleMembers];},get count(){return anchors.length;},get cachedActors(){return records.size;},get cachedMembers(){return [...records.keys()];},get walkReady(){return !!walk?.ready;},get walkingFrames(){return walk?walkFrames.length:0;},get retiringMember(){return retiring?.pose.member??null;},get retiringOpacity(){return retiring?1-retiring.age/.45:0;},get cachedWalkImages(){return (walk?.images.length??0)+(retiring?.record.images.length??0);},get walkMember(){return walk?.member??null;},get walkImageCount(){return walk?.images.length??0;},get follower(){return follower?{...follower}:null;}
+ },get visibleMemories(){return [...visibleMemories];},get ready(){if(window.YitingGroupCompanions?.active)return window.YitingGroupCompanions.ready;const scene=canvas.dataset.scene;return !!records.get(members[scene])?.art;},get visible(){return visible;},get visibleMembers(){return [...visibleMembers];},get count(){return anchors.length;},get cachedActors(){return records.size;},get cachedMembers(){return [...records.keys()];},get walkReady(){return !!walk?.ready;},get walkingFrames(){return walk?walkFrames.length:0;},get retiringMember(){return retiring?.pose.member??null;},get retiringOpacity(){return retiring?1-retiring.age/.45:0;},get cachedWalkImages(){return (walk?.images.length??0)+(retiring?.record.images.length??0);},get walkMember(){return walk?.member??null;},get walkImageCount(){return walk?.images.length??0;},get follower(){return follower?{...follower}:null;}
 };
 })();
