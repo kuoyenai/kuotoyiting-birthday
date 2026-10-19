@@ -95,7 +95,7 @@ window.YitingActors={
     const ground=h*.85,cx=(px-camera)*scale,height=h*walkingHeight,frame=stepping?Math.floor(phase*4)%4:-1;
     if(cx+height>=0&&cx-height<=w){
      ctx.save();ctx.globalAlpha*=Math.min(1,Math.max(0,t-(walk.readyAt??t))/350);ctx.fillStyle='#11152e44';ctx.beginPath();ctx.ellipse(cx,ground,height*.13,height*.018,0,0,Math.PI*2);ctx.fill();
-     ctx.translate(cx,ground);ctx.scale(direction>0?1:-1,1);ctx.imageSmoothingEnabled=true;
+     ctx.translate(cx,ground);ctx.scale(direction>0?1:-1,1);window.YitingStride?.apply(ctx,{phase,amount:stepping?1:0,height,reduced});ctx.imageSmoothingEnabled=true;
      const poseIndex=frame>=0?frame:4,pose=walk.set.frames[poseIndex],image=walk.poseImages[poseIndex],unit=height/(pose[1]-pose[2]),crop=pose[4]??[0,0,image.naturalWidth,image.naturalHeight];
      ctx.drawImage(image,...crop,-pose[3]*unit,-pose[1]*unit,crop[2]*unit,crop[3]*unit);
      ctx.restore();visible++;visibleMembers.push(companion.member);follower={member:companion.member,x:px,frame,direction,phase,stride};

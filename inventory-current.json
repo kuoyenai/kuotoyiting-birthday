@@ -1,6 +1,6 @@
 {
   "updated": "2026-10-19",
-  "appVersion": "20261019-54",
+  "appVersion": "20261019-55",
   "baseline": "efab385",
   "cards": 100,
   "novel": {
@@ -91,10 +91,13 @@
       "銀虎露臺與遠處生日舞台"
     ],
     "walkAnimation": {
-      "method": "classic sprite animation restored on mobile",
+      "method": "original four key poses with continuous subtle whole-body lift/lean; no stretching",
       "posesPerCycle": 4,
       "source": "assets/explore-yiting-walk-v1.png",
-      "actualDisplayRate": "device dependent"
+      "actualDisplayRate": "device dependent",
+      "intermediatePhaseSamples": 60,
+      "additionalCharacterImages": 0,
+      "stopOvershootClamped": true
     },
     "continuousWorld": true,
     "backtracking": true,
@@ -647,14 +650,14 @@
     "persisted": false,
     "fullRouteVerification": {
       "date": "2026-10-19",
-      "version": "20261019-45",
+      "version": "20261019-55",
       "storyPanels": 95,
       "automatedTransfers": 51,
       "fixedTransitions": 43,
       "viewport": "390x844",
       "browser": "Chrome headless with virtual clock",
       "physicalIPhone": false,
-      "result": "passed95;43 fixed/51 automatic movement transitions,7 encounters,original artwork,chapter positions and ending collection entry; App44/45 regressions verified"
+      "result": "passed95;43 fixed/51 automatic movement transitions,7 encounters,original art,chapter positions and ending;continuous stride and clamped stop verified"
     }
   },
   "exploreFinale": {
