@@ -1,0 +1,120 @@
+{
+  "appVersion": "20261021-77",
+  "state": "validated-awaiting-deployment-check",
+  "productionApp": "20261019-76",
+  "productionCommit": "e113d2c",
+  "branch": "codex/wish-sharing-20261021",
+  "recipient": "kuoyen.ai@gmail.com",
+  "provider": "FormSubmit",
+  "automated": {
+    "engines": [
+      "Chrome",
+      "desktop WebKit 26.5 build2336"
+    ],
+    "viewports": [
+      [
+        320,
+        568
+      ],
+      [
+        390,
+        844
+      ],
+      [
+        844,
+        390
+      ],
+      [
+        820,
+        1180
+      ],
+      [
+        1280,
+        844
+      ]
+    ],
+    "entryPoints": [
+      "gift",
+      "movie",
+      "game",
+      "explore"
+    ],
+    "passedCases": 40,
+    "serviceResponsesMocked": true,
+    "realEmailsFromTheseTests": 0,
+    "assertions": [
+      "typed draft retained",
+      "private saves and edit/resave do not transmit",
+      "preview and explicit second confirmation",
+      "fixed recipient and informed service disclosure",
+      "plain text HTML injection protection",
+      "Enter does not send",
+      "one in-flight request and no accepted duplicate",
+      "activation / HTTP rejection / network error retain text",
+      "offline emits no request",
+      "Escape / Back close only overlay and retain draft",
+      "44px minimum send action / no dialog horizontal overflow",
+      "no page errors"
+    ]
+  },
+  "regression": {
+    "exploreWish": [
+      390,
+      1280
+    ],
+    "preservationAudit": [
+      390,
+      1280
+    ],
+    "passed": true,
+    "scope": "original candle, progress, backtracking, reduced motion, image retry, no empty private-wish storage/transmission; original movie, 100 cards, ZIP, four tracks and manual mute"
+  },
+  "actualServiceSetup": {
+    "status": 200,
+    "success": "false",
+    "message": "This form needs Activation. We've sent you an email containing an 'Activate Form' link. Just click it and your form will be actived!",
+    "testContainedVisitorWish": false,
+    "actualMessageDeliveryVerified": false,
+    "setupRequests": 2,
+    "firstRequestActivationPending": true,
+    "latestStatus": 200,
+    "latestSuccess": "true",
+    "latestMessage": "The form was submitted successfully.",
+    "providerAcceptingSubmissions": true
+  },
+  "limitations": [
+    "Desktop engine tests are not physical iPhone/iPad Safari tests.",
+    "Provider accepted the real setup submission; inbox receipt and read status are not verified. Do not equate mocked responses with real delivery.",
+    "FormSubmit retains submission records for 30 days according to its documentation; disclosed in confirmation."
+  ],
+  "sources": [
+    "https://formsubmit.co/",
+    "https://formsubmit.co/documentation",
+    "https://formsubmit.co/privacy.pdf"
+  ],
+  "stableTagPreserved": "yiting-stable-20261019-v74",
+  "sourcesEdited": false,
+  "assetChanges": 0,
+  "hourlyAutomation": "PAUSED",
+  "codeSha256": {
+    "app.js": "0afb9156fb59f47b7b105d406aad4fc0a4b36351153122f7686c09f2b84cfcad",
+    "explore-intro.html": "ebd61d7136ac6dcf63f13e14e4d0e36abdcdd8f4d4de580f379feadb8355963e",
+    "explore-test.html": "8525902b2e442e383aa0483f49da710ebd82d138a99ae4524ec481b23c966533",
+    "explore-wish.js": "5c546dff70da3294b3dc6626f4ae855656707b2a4f460682fbd07a032a1b1e18",
+    "explore.html": "b9f97994600d482178bdf900c69774b93a474080288c9705e268189c0f096470",
+    "game.html": "ae316fffa30872f042eb68e28fab8a7b15ba50baaaf8336a54cc891eb7e04f97",
+    "game.js": "eac13bf3d710bcd85a3f60ff4120406626b7e734d077704b23aa2c2ea5b3f0dd",
+    "gift.html": "7bd42fed2123f906e38d0f280e637991c70837d8233768570db58bf235122a3d",
+    "gift.js": "e099315cf5589a2c28fcddaa69e1a9a008b23ded820bb031624887ab498cbbf0",
+    "index.html": "ad191ba19838156321812d73ff00fec6fc815c8fdf339a07f76e350b129e3f4c",
+    "install.html": "5b9d6fffd28369d1976b85528b593db99d09881424c1d64133206c8215d3eeac",
+    "movie.html": "930d83e4e83036afbf1419cf0e0be0bc3bc9e1d7b8b7d73d795a5abd1b5ba607",
+    "music-shell.html": "2c22a64df4256b308886280c05a6dedac1e1417c3313967b2d1e0e2468bd37fa",
+    "novel-comic.html": "78e403b9bfaaad8fdb6e7fc3993c45d46307021d451845c606924834d4882dbe",
+    "pwa.js": "df380fe03ab4d3cc43a5e4ba15b783141007f5e00c9ce81978023479c89c2b1b",
+    "starlight.html": "8b633310657e16a0e1663f0ca1c1a13e4b2947b556890e3ea100f8ae4121d50e",
+    "sw.js": "71c5997adaf904ad759beb9c053759fdf98b91b2db903f8d602e660df644c5c7",
+    "wish-sharing.js": "71c965c47f2c826ac6c17e8216cf2f95e197a27d2dbe5cb818595ff855936322",
+    "wish-sharing.css": "05885fbec740f7cbe21492ded4ebd53f922dd71dcfd766a65130e3e96c86cda6"
+  }
+}

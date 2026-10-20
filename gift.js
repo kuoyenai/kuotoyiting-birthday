@@ -6,8 +6,8 @@ function setStatus(message){$('wishStatus').textContent=message;}
 try{$('wish').value=localStorage.getItem('yiting-birthday-wish')||'';}catch{}
 $('saveWish').onclick=()=>{
  if(!$('wish').value.trim()){setStatus('先寫下一個小小的願望吧。');$('wish').focus();return;}
- try{localStorage.setItem('yiting-birthday-wish',$('wish').value);$('birthday').classList.add('wish-sealed');setStatus('願望已留在妳的瀏覽器裡，作者不會知道內容。願妳被愛，也勇敢做自己。');}
- catch{setStatus('作者不會收到妳的願望。此瀏覽器無法儲存，請先複製留念。');}
+ try{localStorage.setItem('yiting-birthday-wish',$('wish').value);$('birthday').classList.add('wish-sealed');setStatus('這次願望已保存在妳的瀏覽器，沒有上傳或寄送。願妳被愛，也勇敢做自己。');}
+ catch{setStatus('這次沒有寄送。此瀏覽器無法儲存，請先複製留念。');}
 };
 $('bookSize').onclick=()=>{const enlarged=document.querySelector('.novel').classList.toggle('large-print');$('bookSize').textContent=enlarged?'標準字體':'放大字體';};
 const tracks=window.YITING_TRACKS;

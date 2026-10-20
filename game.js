@@ -28,7 +28,7 @@ const SPREADS=[
 {title:'五道星光，只為妳亮起',chapter:'04 / PLAVE',panels:[12,13],clip:12,kind:'cast',hint:'點五位成員的星光，收下各自的祝福。'},
 {title:'被溫柔接住的那一刻',chapter:'05 / WITH YOU',panels:[14,15],clip:14,kind:'reply',hint:'選一句想對銀虎說的話。'},
 {title:'今晚的主角，是妳',chapter:'06 / BIRTHDAY',panels:[16,17,18],clip:18,kind:'concert',hint:'把舞台上的生日祝福，留在這段故事裡。'},
-{title:'把願望交給星光',chapter:'07 / YOUR WISH',panels:[19],clip:null,kind:'wish',hint:'願望只留在妳的裝置，作者不會知道。'}
+{title:'把願望交給星光',chapter:'07 / YOUR WISH',panels:[19],clip:null,kind:'wish',hint:'願望由妳決定：保留在心裡，或主動分享給送禮的人。'}
 ];
 const $=id=>document.getElementById(id),key='yiting-motion-comic-v2';let page=0,clipEnd=0,resumeMusic=false,musicOn=!yitingMusicRead().paused,musicPending=false,backgroundResume=false,motionOn=!matchMedia('(prefers-reduced-motion: reduce)').matches;
 const completed=new Set(),picked=new Map();
@@ -66,7 +66,7 @@ $('clip').onclick=()=>playClip(SPREADS[page].clip);
 function closeMovie(){$('video').pause();$('movie').close();if(resumeMusic){resumeMusic=false;startMusic();}}
 $('movie').addEventListener('close',()=>{$('video').pause();if(resumeMusic){resumeMusic=false;startMusic();}});
 $('closeMovie').onclick=closeMovie;$('movie').addEventListener('cancel',e=>{e.preventDefault();closeMovie();});$('video').addEventListener('timeupdate',()=>{const t=$('video').currentTime,sub=window.STORY.subtitles.find(s=>t>=s.start&&t<s.end);$('caption').textContent=sub?sub.speaker+'｜'+sub.text:'';if(t>=clipEnd){$('video').pause();$('caption').textContent='這段電影已播完，回到漫畫繼續故事。';}});
-$('saveWish').onclick=()=>{if(!$('wish').value.trim()){$('wishStatus').textContent='先留下一個只屬於妳的願望吧。';return;}try{localStorage.setItem('yiting-comic-wish-v1',$('wish').value);$('extra').classList.add('sealed');$('wishStatus').textContent='星光已收下願望。作者不會知道內容，願望只留在這台裝置。';finish('最後一枚星光，留給妳的願望。',$('saveWish'));}catch{$('wishStatus').textContent='星光已聽見妳的願望。此瀏覽器無法保存，但內容沒有上傳或寄送。';}};
+$('saveWish').onclick=()=>{if(!$('wish').value.trim()){$('wishStatus').textContent='先留下一個只屬於妳的願望吧。';return;}try{localStorage.setItem('yiting-comic-wish-v1',$('wish').value);$('extra').classList.add('sealed');$('wishStatus').textContent='這次願望只留在這台裝置，沒有上傳或寄送。星光會替妳保管。';finish('最後一枚星光，留給妳的願望。',$('saveWish'));}catch{$('wishStatus').textContent='星光已聽見妳的願望。此瀏覽器無法保存，但內容沒有上傳或寄送。';}};
 
 document.addEventListener('keydown',e=>{if(e.target.matches('textarea,input,button')||$('movie').open)return;if(e.key==='ArrowRight'){e.preventDefault();startMusic();turn(1);}if(e.key==='ArrowLeft'){e.preventDefault();startMusic();turn(-1);}});document.addEventListener('visibilitychange',()=>{document.body.classList.toggle('background-paused',document.hidden);if(document.hidden){backgroundResume=musicOn&&!$('bgm').paused;$('video').pause();if(!$('bgm').dataset.persistent)$('bgm').pause();}else if(backgroundResume){backgroundResume=false;startMusic();}});const requestedPage=/^#page-(\d+)$/.exec(location.hash);if(requestedPage)page=Math.max(0,Math.min(SPREADS.length-1,Number(requestedPage[1])));render();startMusic();
 

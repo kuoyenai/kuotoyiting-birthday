@@ -26,3 +26,10 @@ node tests/image-retry-sequence.cjs
 
 
 App76獨立收尾檢查：`node tests/story-integrity.cjs` 斷言95格章節數、17個補充分鏡入口、終章連續編號、100張唯一小卡與有效故事連結，以及斑比原圖／兩個保存連結；`node tests/explore-music-race.cjs` 驗證快速選曲／靜音、接近片尾換歌與反覆開關視窗的歷史穩定性。兩者沿用PLAYWRIGHT_MODULE及CHROME_PATH設定；未指定CHROME_PATH時使用Playwright Chromium。後者為Chrome邊界測試，不宣稱為iOS實機。
+
+
+## 自願分享願望（App77）
+
+`node tests/wish-sharing.cjs` 檢查四入口、五種尺寸的保留／明確同意／固定收件信箱、純文字預覽、重複點按、錯誤保留、Escape及返回。用 `node tests/run-engine.cjs webkit wish-sharing.cjs` 沿用相同斷言；填寫採實際點擊文字框再輸入，音樂外殼內頁先等載入完成。這兩項測試攔截FormSubmit回應，不寄信。Chrome／桌面WebKit不等同iPhone Safari實機。
+
+真實寄信需要收件人先點FormSubmit的Activate Form啟用信。啟用狀態與實際投遞必須另行確認；不得以模擬success或HTTP200當作寄達證據，也不得以訪客已存的願望測試。本次真實服務設定測試已獲success=true接受；正式部署仍須另讀回核對。
