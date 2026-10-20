@@ -1,6 +1,6 @@
 {
   "appVersion": "20261021-78",
-  "state": "validated-awaiting-deployment",
+  "state": "deployed-verified",
   "recipient": "kuoyen.ai@gmail.com",
   "provider": "FormSubmit",
   "automated": {
@@ -175,5 +175,275 @@
     "tests/letter-sharing.cjs": "25ebb59c537b7f68f5fa50f3cde4b7791729687064bdc16bb03c2bff6d2f420d",
     "tests/wish-sharing.cjs": "4c5334fdd565adfc483050d9ca66058bd180506ff79b917d733eb9ca3565e5ed",
     "tests/explore-free-chapters.cjs": "cfeb0d7ac94aa6a0d855c5443805b520d3d443bf264f05b6470707ce44bfdcdd"
+  },
+  "productionApp": "20261021-78",
+  "productionCommit": "90d5a07137fdc060b110d5b1c43574e1e1187e02",
+  "publishedRef": "main",
+  "deployment": {
+    "appVersion": "20261021-78",
+    "codeCommit": "90d5a07137fdc060b110d5b1c43574e1e1187e02",
+    "at": "2026-10-20T21:36:04.710Z",
+    "passed": true,
+    "checks": [
+      {
+        "url": "https://kuotoyiting-birthday.vercel.app/index.html",
+        "status": 200,
+        "matches": true
+      },
+      {
+        "url": "https://kuotoyiting-birthday.vercel.app/gift.html",
+        "status": 200,
+        "matches": true
+      },
+      {
+        "url": "https://kuotoyiting-birthday.vercel.app/starlight.html",
+        "status": 200,
+        "matches": true
+      },
+      {
+        "url": "https://kuotoyiting-birthday.vercel.app/movie.html",
+        "status": 200,
+        "matches": true
+      },
+      {
+        "url": "https://kuotoyiting-birthday.vercel.app/game.html",
+        "status": 200,
+        "matches": true
+      },
+      {
+        "url": "https://kuotoyiting-birthday.vercel.app/explore.html",
+        "status": 200,
+        "matches": true
+      },
+      {
+        "url": "https://kuotoyiting-birthday.vercel.app/explore-intro.html",
+        "status": 200,
+        "matches": true
+      },
+      {
+        "url": "https://kuotoyiting-birthday.vercel.app/explore-test.html",
+        "status": 200,
+        "matches": true
+      },
+      {
+        "url": "https://kuotoyiting-birthday.vercel.app/music-shell.html",
+        "status": 200,
+        "matches": true
+      },
+      {
+        "url": "https://kuotoyiting-birthday.vercel.app/novel-comic.html",
+        "status": 200,
+        "matches": true
+      },
+      {
+        "url": "https://kuotoyiting-birthday.vercel.app/install.html",
+        "status": 200,
+        "matches": true
+      },
+      {
+        "url": "https://kuotoyiting-birthday.vercel.app/birthday-letter.js",
+        "status": 200,
+        "matches": true
+      },
+      {
+        "url": "https://kuotoyiting-birthday.vercel.app/wish-sharing.js",
+        "status": 200,
+        "matches": true
+      },
+      {
+        "url": "https://kuotoyiting-birthday.vercel.app/wish-sharing.css",
+        "status": 200,
+        "matches": true
+      },
+      {
+        "url": "https://kuotoyiting-birthday.vercel.app/pwa.js",
+        "status": 200,
+        "matches": true
+      },
+      {
+        "url": "https://kuotoyiting-birthday.vercel.app/sw.js",
+        "status": 200,
+        "matches": true
+      },
+      {
+        "url": "https://kuotoyiting-birthday.vercel.app/inventory-current.json",
+        "status": 200,
+        "matches": true
+      },
+      {
+        "url": "https://kuotoyiting-birthday.vercel.app/explore-story.js",
+        "status": 200,
+        "matches": true
+      },
+      {
+        "url": "https://kuotoyiting-birthday.vercel.app/explore-intro.js",
+        "status": 200,
+        "matches": true
+      },
+      {
+        "url": "https://kuotoyiting-birthday.vercel.app/explore-starbook.js",
+        "status": 200,
+        "matches": true
+      },
+      {
+        "url": "https://kuotoyiting-birthday.vercel.app/explore-finale.js",
+        "status": 200,
+        "matches": true
+      },
+      {
+        "url": "https://kuotoyiting-birthday.vercel.app/explore-wish.js",
+        "status": 200,
+        "matches": true
+      },
+      {
+        "url": "https://kuoyenai.github.io/kuotoyiting-birthday/index.html",
+        "status": 200,
+        "matches": true
+      },
+      {
+        "url": "https://kuoyenai.github.io/kuotoyiting-birthday/gift.html",
+        "status": 200,
+        "matches": true
+      },
+      {
+        "url": "https://kuoyenai.github.io/kuotoyiting-birthday/starlight.html",
+        "status": 200,
+        "matches": true
+      },
+      {
+        "url": "https://kuoyenai.github.io/kuotoyiting-birthday/movie.html",
+        "status": 200,
+        "matches": true
+      },
+      {
+        "url": "https://kuoyenai.github.io/kuotoyiting-birthday/game.html",
+        "status": 200,
+        "matches": true
+      },
+      {
+        "url": "https://kuoyenai.github.io/kuotoyiting-birthday/explore.html",
+        "status": 200,
+        "matches": true
+      },
+      {
+        "url": "https://kuoyenai.github.io/kuotoyiting-birthday/explore-intro.html",
+        "status": 200,
+        "matches": true
+      },
+      {
+        "url": "https://kuoyenai.github.io/kuotoyiting-birthday/explore-test.html",
+        "status": 200,
+        "matches": true
+      },
+      {
+        "url": "https://kuoyenai.github.io/kuotoyiting-birthday/music-shell.html",
+        "status": 200,
+        "matches": true
+      },
+      {
+        "url": "https://kuoyenai.github.io/kuotoyiting-birthday/novel-comic.html",
+        "status": 200,
+        "matches": true
+      },
+      {
+        "url": "https://kuoyenai.github.io/kuotoyiting-birthday/install.html",
+        "status": 200,
+        "matches": true
+      },
+      {
+        "url": "https://kuoyenai.github.io/kuotoyiting-birthday/birthday-letter.js",
+        "status": 200,
+        "matches": true
+      },
+      {
+        "url": "https://kuoyenai.github.io/kuotoyiting-birthday/wish-sharing.js",
+        "status": 200,
+        "matches": true
+      },
+      {
+        "url": "https://kuoyenai.github.io/kuotoyiting-birthday/wish-sharing.css",
+        "status": 200,
+        "matches": true
+      },
+      {
+        "url": "https://kuoyenai.github.io/kuotoyiting-birthday/pwa.js",
+        "status": 200,
+        "matches": true
+      },
+      {
+        "url": "https://kuoyenai.github.io/kuotoyiting-birthday/sw.js",
+        "status": 200,
+        "matches": true
+      },
+      {
+        "url": "https://kuoyenai.github.io/kuotoyiting-birthday/inventory-current.json",
+        "status": 200,
+        "matches": true
+      },
+      {
+        "url": "https://kuoyenai.github.io/kuotoyiting-birthday/explore-story.js",
+        "status": 200,
+        "matches": true
+      },
+      {
+        "url": "https://kuoyenai.github.io/kuotoyiting-birthday/explore-intro.js",
+        "status": 200,
+        "matches": true
+      },
+      {
+        "url": "https://kuoyenai.github.io/kuotoyiting-birthday/explore-starbook.js",
+        "status": 200,
+        "matches": true
+      },
+      {
+        "url": "https://kuoyenai.github.io/kuotoyiting-birthday/explore-finale.js",
+        "status": 200,
+        "matches": true
+      },
+      {
+        "url": "https://kuoyenai.github.io/kuotoyiting-birthday/explore-wish.js",
+        "status": 200,
+        "matches": true
+      }
+    ]
+  },
+  "productionUiSmoke": {
+    "at": "2026-10-20T21:55:53.815Z",
+    "appVersion": "20261021-78",
+    "privateReplyPosts": 0,
+    "realUiShareRequests": 1,
+    "serviceAccepted": true,
+    "inboxReceiptVerified": false,
+    "visitorContentAccessed": false,
+    "content": "Clearly labelled owner-authorized synthetic acceptance test only",
+    "actualService": {
+      "status": 200,
+      "success": "true",
+      "message": "The form was submitted successfully."
+    },
+    "passed": true
+  },
+  "realTimeVisualValidation": {
+    "virtualClock": false,
+    "results": [
+      {
+        "width": 390,
+        "height": 844,
+        "firstColors": 368,
+        "lateColors": 336,
+        "all10Selectable": true,
+        "skippedReadCount": 0,
+        "errors": []
+      },
+      {
+        "width": 820,
+        "height": 1180,
+        "firstColors": 1054,
+        "lateColors": 984,
+        "all10Selectable": true,
+        "skippedReadCount": 0,
+        "errors": []
+      }
+    ]
   }
 }
