@@ -2,7 +2,7 @@
 
 [開啟網站](https://kuotoyiting-birthday.vercel.app/) · [GitHub Pages](https://kuoyenai.github.io/kuotoyiting-birthday/)
 
-更新日期：2026-10-21；本次 App 版本：`20261021-77`（願望自願分享）。發布前已獲寄信服務真實接受；部署狀態另以網站讀回結果確認。指定穩定備份：[`yiting-stable-20261019-v74`](https://github.com/kuoyenai/kuotoyiting-birthday/tree/yiting-stable-20261019-v74)，對應 App `20261019-74`、提交 `2ea2824`。App75增加2D選曲，App76修正終章時序並完成跨頁選曲品管；App74及更早穩定標籤全部保留，不移動任何既有標籤。
+更新日期：2026-10-21；目前已上線 App 版本：`20261021-77`（願望自願分享），Vercel與GitHub Pages已實際讀回確認，正式UI寄信測試獲服務接受。指定穩定備份：[`yiting-stable-20261019-v74`](https://github.com/kuoyenai/kuotoyiting-birthday/tree/yiting-stable-20261019-v74)，對應 App `20261019-74`、提交 `2ea2824`。App75增加2D選曲，App76修正終章時序並完成跨頁選曲品管，App77加入本人明確同意的願望分享；App74及更早穩定標籤全部保留，不移動任何既有標籤。
 
 ## 穩定版紀錄
 
@@ -1258,3 +1258,11 @@ ASTERUM 同時預載下一個音樂花園，最多兩組前景；移除先前依
 - 寄信設定實測：第一次從正式Vercel網站送出明確標示設定測試、不含訪客願望的請求，服務回覆success="false"並送啟用確認信。功能完成後再作一次同類測試，最新回覆HTTP200、success="true"、The form was submitted successfully，已不再要求啟用。共2次設定請求，後1次獲服務接受；此為真實外部服務結果，與40組模擬回應測試分開記錄。不冒稱已讀或收件匣實際投遞已驗證。可以發布main，實際部署另讀回核對。每小時自動化繼續PAUSED。
 - 接續：推main並逐站核對App77及wish-sharing.js／css；回報以實際讀回為準。收件人可檢查測試信是否入收件匣／垃圾郵件。服務接受不等於已讀，不應讀取對方的舊願望來驗收。
 - 官方設定／AJAX／暫存說明：https://formsubmit.co/ 、https://formsubmit.co/documentation 、https://formsubmit.co/privacy.pdf 。不需要Gmail密碼；不可把任何郵件密碼或API憑證放入前端／GitHub。
+
+
+### App77實際上線確認（2026-10-21）
+
+- 程式提交86e1288已推main。Vercel及GitHub Pages各10個正式檔案已HTTP讀回並與本機內容雜湊比對相符，包含四個許願入口、共用分享JS／CSS、2D許願、PWA／Service Worker與版本盤點。兩站均為App20261021-77；不是只憑Git推送或CI成功推定上線。
+- 使用者已明確回覆「啟用了」。正式Vercel許願頁以390×844實際點選保留，再填寫清楚標示的驗收測試並經確認視窗寄出：保留0次寄送；確認分享僅1次POST，服務HTTP200／success=true，畫面顯示已送交寄信服務。正式2D於820×1180開啟選擇，空白在心裡許願及吹蠟燭0次寄送。沒有讀取或傳送訪客已存願望。
+- 本輪總共3次有授權的外部設定／驗收請求：首次待啟用、啟用後設定測試接受、正式UI驗收接受；其餘40組自動化服務回應皆攔截模擬，未寄信。收件匣實際投遞及已讀狀態未讀取，不把服務接受當成已讀。使用者可自行確認驗收信。
+- 後續從main App77接續。原App74及更早穩定標籤不移動，原畫／小卡ZIP不改；每小時排程仍PAUSED。部署及真實UI證據已收錄tests/release-20261021-77-wish.json。

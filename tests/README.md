@@ -33,3 +33,5 @@ App76獨立收尾檢查：`node tests/story-integrity.cjs` 斷言95格章節數�
 `node tests/wish-sharing.cjs` 檢查四入口、五種尺寸的保留／明確同意／固定收件信箱、純文字預覽、重複點按、錯誤保留、Escape及返回。用 `node tests/run-engine.cjs webkit wish-sharing.cjs` 沿用相同斷言；填寫採實際點擊文字框再輸入，音樂外殼內頁先等載入完成。這兩項測試攔截FormSubmit回應，不寄信。Chrome／桌面WebKit不等同iPhone Safari實機。
 
 真實寄信需要收件人先點FormSubmit的Activate Form啟用信。啟用狀態與實際投遞必須另行確認；不得以模擬success或HTTP200當作寄達證據，也不得以訪客已存的願望測試。本次真實服務設定測試已獲success=true接受；正式部署仍須另讀回核對。
+
+正式App77的實際UI寄送與兩站讀回結果見release-20261021-77-wish.json；服務已接受驗收測試，未讀取收件匣或訪客願望。不要為重跑瀏覽器回歸而寄真實郵件，wish-sharing.cjs應維持服務攔截。

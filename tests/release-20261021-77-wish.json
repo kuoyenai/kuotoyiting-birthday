@@ -1,8 +1,8 @@
 {
   "appVersion": "20261021-77",
-  "state": "validated-awaiting-deployment-check",
-  "productionApp": "20261019-76",
-  "productionCommit": "e113d2c",
+  "state": "deployed-verified",
+  "productionApp": "20261021-77",
+  "productionCommit": "86e1288",
   "branch": "codex/wish-sharing-20261021",
   "recipient": "kuoyen.ai@gmail.com",
   "provider": "FormSubmit",
@@ -70,9 +70,6 @@
     "scope": "original candle, progress, backtracking, reduced motion, image retry, no empty private-wish storage/transmission; original movie, 100 cards, ZIP, four tracks and manual mute"
   },
   "actualServiceSetup": {
-    "status": 200,
-    "success": "false",
-    "message": "This form needs Activation. We've sent you an email containing an 'Activate Form' link. Just click it and your form will be actived!",
     "testContainedVisitorWish": false,
     "actualMessageDeliveryVerified": false,
     "setupRequests": 2,
@@ -80,7 +77,13 @@
     "latestStatus": 200,
     "latestSuccess": "true",
     "latestMessage": "The form was submitted successfully.",
-    "providerAcceptingSubmissions": true
+    "providerAcceptingSubmissions": true,
+    "firstStatus": 200,
+    "firstSuccess": "false",
+    "firstMessage": "This form needs Activation. We've sent you an email containing an 'Activate Form' link. Just click it and your form will be actived!",
+    "recipientActivationConfirmedByUser": true,
+    "totalSetupAndLiveRequests": 3,
+    "realUiShareRequests": 1
   },
   "limitations": [
     "Desktop engine tests are not physical iPhone/iPad Safari tests.",
@@ -116,5 +119,138 @@
     "sw.js": "71c5997adaf904ad759beb9c053759fdf98b91b2db903f8d602e660df644c5c7",
     "wish-sharing.js": "71c965c47f2c826ac6c17e8216cf2f95e197a27d2dbe5cb818595ff855936322",
     "wish-sharing.css": "05885fbec740f7cbe21492ded4ebd53f922dd71dcfd766a65130e3e96c86cda6"
+  },
+  "publishedRef": "main",
+  "deployment": {
+    "appVersion": "20261021-77",
+    "codeCommit": "86e1288",
+    "at": "2026-10-20T16:56:48.175Z",
+    "passed": true,
+    "checks": [
+      {
+        "url": "https://kuotoyiting-birthday.vercel.app/gift.html",
+        "status": 200,
+        "matches": true
+      },
+      {
+        "url": "https://kuotoyiting-birthday.vercel.app/movie.html",
+        "status": 200,
+        "matches": true
+      },
+      {
+        "url": "https://kuotoyiting-birthday.vercel.app/game.html",
+        "status": 200,
+        "matches": true
+      },
+      {
+        "url": "https://kuotoyiting-birthday.vercel.app/explore.html",
+        "status": 200,
+        "matches": true
+      },
+      {
+        "url": "https://kuotoyiting-birthday.vercel.app/wish-sharing.js",
+        "status": 200,
+        "matches": true
+      },
+      {
+        "url": "https://kuotoyiting-birthday.vercel.app/wish-sharing.css",
+        "status": 200,
+        "matches": true
+      },
+      {
+        "url": "https://kuotoyiting-birthday.vercel.app/explore-wish.js",
+        "status": 200,
+        "matches": true
+      },
+      {
+        "url": "https://kuotoyiting-birthday.vercel.app/pwa.js",
+        "status": 200,
+        "matches": true
+      },
+      {
+        "url": "https://kuotoyiting-birthday.vercel.app/sw.js",
+        "status": 200,
+        "matches": true
+      },
+      {
+        "url": "https://kuotoyiting-birthday.vercel.app/inventory-current.json",
+        "status": 200,
+        "matches": true
+      },
+      {
+        "url": "https://kuoyenai.github.io/kuotoyiting-birthday/gift.html",
+        "status": 200,
+        "matches": true
+      },
+      {
+        "url": "https://kuoyenai.github.io/kuotoyiting-birthday/movie.html",
+        "status": 200,
+        "matches": true
+      },
+      {
+        "url": "https://kuoyenai.github.io/kuotoyiting-birthday/game.html",
+        "status": 200,
+        "matches": true
+      },
+      {
+        "url": "https://kuoyenai.github.io/kuotoyiting-birthday/explore.html",
+        "status": 200,
+        "matches": true
+      },
+      {
+        "url": "https://kuoyenai.github.io/kuotoyiting-birthday/wish-sharing.js",
+        "status": 200,
+        "matches": true
+      },
+      {
+        "url": "https://kuoyenai.github.io/kuotoyiting-birthday/wish-sharing.css",
+        "status": 200,
+        "matches": true
+      },
+      {
+        "url": "https://kuoyenai.github.io/kuotoyiting-birthday/explore-wish.js",
+        "status": 200,
+        "matches": true
+      },
+      {
+        "url": "https://kuoyenai.github.io/kuotoyiting-birthday/pwa.js",
+        "status": 200,
+        "matches": true
+      },
+      {
+        "url": "https://kuoyenai.github.io/kuotoyiting-birthday/sw.js",
+        "status": 200,
+        "matches": true
+      },
+      {
+        "url": "https://kuoyenai.github.io/kuotoyiting-birthday/inventory-current.json",
+        "status": 200,
+        "matches": true
+      }
+    ]
+  },
+  "productionUiSmoke": {
+    "at": "2026-10-20T16:55:01.742Z",
+    "site": "https://kuotoyiting-birthday.vercel.app/",
+    "appVersion": "20261021-77",
+    "giftViewport": [
+      390,
+      844
+    ],
+    "privateWishRequests": 0,
+    "realUiShareRequests": 1,
+    "actualService": {
+      "status": 200,
+      "success": "true",
+      "message": "The form was submitted successfully."
+    },
+    "inboxReceiptVerified": false,
+    "visitorWishAccessed": false,
+    "content": "clearly labelled owner-authorized setup test only",
+    "exploreViewport": [
+      820,
+      1180
+    ],
+    "emptyMentalWishRequests": 0
   }
 }
