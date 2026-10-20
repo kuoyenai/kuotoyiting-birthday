@@ -35,3 +35,15 @@ App76獨立收尾檢查：`node tests/story-integrity.cjs` 斷言95格章節數�
 真實寄信需要收件人先點FormSubmit的Activate Form啟用信。啟用狀態與實際投遞必須另行確認；不得以模擬success或HTTP200當作寄達證據，也不得以訪客已存的願望測試。本次真實服務設定測試已獲success=true接受；正式部署仍須另讀回核對。
 
 正式App77的實際UI寄送與兩站讀回結果見release-20261021-77-wish.json；服務已接受驗收測試，未讀取收件匣或訪客願望。不要為重跑瀏覽器回歸而寄真實郵件，wish-sharing.cjs應維持服務攔截。
+
+## 直接分享與自由選章（App78）
+
+`node tests/letter-sharing.cjs` 或 `node tests/run-engine.cjs webkit letter-sharing.cjs`：兩個生日信入口×五尺寸，保留收藏／草稿／文字與SVG下載，檢查單擊直接寄送、明確可見收件人及服務說明、等待／防重複、錯誤／離線及願望／回信互不覆蓋。使用者已要求取消第二次確認，測試明確斷言沒有分享確認視窗。20組全過；另wish-sharing.cjs原四入口40組以同一直接寄送流程全過。所有服務回應攔截，不寄真實信。
+
+`node tests/explore-free-chapters.cjs` 驗證全章可選、跳章／重新載入／返回位置、稀疏已讀、舊存檔與正確星光判定；`node tests/explore-complete-journey.cjs` 逐格核對95格、自動行走及固定場景。皆可用run-engine.cjs指定桌面WebKit。正式結果與部署見release-20261021-78-letter.json，不冒稱實機或真實收件匣驗收。
+
+## 直接分享與自由選章（App78）
+
+`node tests/letter-sharing.cjs` 或 `node tests/run-engine.cjs webkit letter-sharing.cjs`：兩個生日信入口×五尺寸，保留收藏／草稿／文字與SVG下載，檢查單擊直接寄送、明確可見收件人及服務說明、等待／防重複、錯誤／離線及願望／回信互不覆蓋。使用者已要求取消第二次確認，測試明確斷言沒有分享確認視窗。20組全過；另wish-sharing.cjs原四入口40組以同一直接寄送流程全過。所有服務回應攔截，不寄真實信。
+
+`node tests/explore-free-chapters.cjs` 驗證全章可選、跳章／重新載入／返回位置、稀疏已讀、舊存檔與正確星光判定；`node tests/explore-complete-journey.cjs` 逐格核對95格、自動行走及固定場景。皆可用run-engine.cjs指定桌面WebKit。正式結果與部署見release-20261021-78-letter.json，不冒稱實機或真實收件匣驗收。

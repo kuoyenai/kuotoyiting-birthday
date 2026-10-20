@@ -9,6 +9,6 @@ function load(retryLoad=false){status.hidden=false;status.textContent='正在收
 retry.onclick=()=>load(true);
 function clear(){image.onload=image.onerror=null;image.removeAttribute('src');status.hidden=true;retry.hidden=true;}
 entry.onclick=()=>{if(Number(canvas.dataset.index)!==total)return;window.yitingExploreResumeAudio?.();window.dispatchEvent(new Event('yiting-explore-modal'));load();section.showModal();};section.querySelector('#closeFinale').onclick=()=>section.close();section.addEventListener('close',()=>{clear();canvas.focus({preventScroll:true});});
-function sync(){const complete=Number(canvas.dataset.index)===total;entry.hidden=!complete;if(!complete){if(section.open)section.close();clear();}}
-new MutationObserver(sync).observe(canvas,{attributes:true,attributeFilter:['data-index']});sync();
+function sync(){const complete=Number(canvas.dataset.index)===total,count=Number(canvas.dataset.completedCount)||0;section.querySelector('.finale-complete').textContent=count+' / '+total+' 格故事已讀。'+(count===total?'今晚一起走過。':'隨時選章，繼續收下其他故事。');const badges=document.querySelectorAll('#fiveStars [data-star-color]');section.querySelectorAll('.finale-stars span').forEach((star,i)=>{if(badges[i])star.textContent=badges[i].textContent;});entry.hidden=!complete;if(!complete){if(section.open)section.close();clear();}}
+new MutationObserver(sync).observe(canvas,{attributes:true,attributeFilter:['data-index','data-completed-count']});sync();
 })();

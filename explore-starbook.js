@@ -9,8 +9,9 @@ function render(){
  clear();let saved={};try{saved=JSON.parse(localStorage.getItem('yiting-explore-story-v1')||'{}')||{};}catch{}
  const valid=n=>Number.isInteger(n)&&n>=0&&n<=route.length;
  const unlocked=Math.max(valid(saved.unlocked)?saved.unlocked:0,valid(saved.index)?saved.index:0,Number(canvas.dataset.index)||0);
+ const completed=new Set(Array.isArray(saved.completed)?saved.completed:route.slice(0,unlocked).map(row=>row.asset));
  for(const [color,name,theme,ink]of members){
-  const i=route.findIndex(row=>row.star===color),row=route[i],owned=i>=0&&i<unlocked,article=document.createElement('article');article.dataset.star=color;article.style.setProperty('--starbook-ink',ink);
+  const i=route.findIndex(row=>row.star===color),row=route[i],owned=i>=0&&(window.yitingExploreProgress?.hasRead(row.asset)??completed.has(row.asset)),article=document.createElement('article');article.dataset.star=color;article.style.setProperty('--starbook-ink',ink);
   const title=document.createElement('h3');title.textContent=name+' · '+theme;article.append(title);
   if(owned){const image=document.createElement('img');image.alt=row.narration;image.width=1672;image.height=941;image.loading='lazy';image.decoding='async';image.src='assets/'+row.asset+'.webp';const quote=document.createElement('p'),line=(row.lines||[]).filter(([speaker])=>speaker===name).at(-1);quote.textContent=line?name+'：「'+line[1]+'」':row.narration;
    const status=document.createElement('p');status.className='starbook-art-status';status.hidden=true;const retry=document.createElement('button');retry.type='button';retry.hidden=true;retry.textContent='重新載入插畫';image.onerror=()=>{status.textContent='插畫暫時無法載入，文字仍可重溫。';status.hidden=false;retry.hidden=false;};image.onload=()=>{status.hidden=true;retry.hidden=true;};retry.onclick=()=>{image.src='assets/'+row.asset+'.webp?retry='+Date.now();};

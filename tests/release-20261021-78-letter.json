@@ -1,0 +1,179 @@
+{
+  "appVersion": "20261021-78",
+  "state": "validated-awaiting-deployment",
+  "recipient": "kuoyen.ai@gmail.com",
+  "provider": "FormSubmit",
+  "automated": {
+    "engines": [
+      "Chrome",
+      "desktop WebKit 26.5 build2336"
+    ],
+    "viewports": [
+      [
+        320,
+        568
+      ],
+      [
+        390,
+        844
+      ],
+      [
+        844,
+        390
+      ],
+      [
+        820,
+        1180
+      ],
+      [
+        1280,
+        844
+      ]
+    ],
+    "entryPoints": [
+      "gift",
+      "starlight"
+    ],
+    "passedCases": 20,
+    "mockedPosts": 90,
+    "realEmailsSent": 0,
+    "pageErrors": 0,
+    "assertions": [
+      "Stored replies and wishes never auto-send",
+      "Private collection labels/aria preserved",
+      "Text/SVG Blob contents correct; downloads do not send",
+      "Inline fixed recipient and service disclosure precede controls",
+      "Share button directly submits exact trimmed current text",
+      "No sharing confirmation dialog",
+      "Pending and accepted duplicates blocked",
+      "Activation / HTTP / network / offline retain input and restore controls",
+      "Gift wish and letter states independent; starlight mounts alone",
+      "44px controls, no horizontal overflow"
+    ]
+  },
+  "wishRegression": {
+    "entryPoints": [
+      "gift",
+      "movie",
+      "game",
+      "explore"
+    ],
+    "engines": 2,
+    "viewports": [
+      [
+        320,
+        568
+      ],
+      [
+        390,
+        844
+      ],
+      [
+        844,
+        390
+      ],
+      [
+        820,
+        1180
+      ],
+      [
+        1280,
+        844
+      ]
+    ],
+    "passedCases": 40,
+    "serviceResponsesMocked": true,
+    "realEmailsSent": 0
+  },
+  "staticChecks": [
+    "node --check edited JavaScript",
+    "python audit.py",
+    "git diff --check with CRLF-aware whitespace config"
+  ],
+  "limitations": [
+    "Desktop WebKit is not physical iPhone/iPad Safari.",
+    "Service acceptance does not verify inbox receipt or read status."
+  ],
+  "stableTagPreserved": "yiting-stable-20261019-v74",
+  "stableCommit": "2ea28244ecc0348409caed5533c34acdf4b3f926",
+  "sourcesEdited": false,
+  "assetChanges": 0,
+  "hourlyAutomation": "DELETED",
+  "secondConfirmation": false,
+  "freeChapters": {
+    "all10Selectable": true,
+    "viewports": [
+      [
+        390,
+        844
+      ],
+      [
+        820,
+        1180
+      ],
+      [
+        1280,
+        844
+      ]
+    ],
+    "engines": [
+      "Chrome",
+      "desktop WebKit"
+    ],
+    "passedViewportCases": 6,
+    "legacySeeds": [
+      48,
+      95
+    ],
+    "legacyMigrationPassed": true,
+    "exactOriginAndReadingBookmark": true,
+    "sparseBacktrackingAndReset": true,
+    "skippedScenesDoNotGrantStarsOrCompletion": true,
+    "pageErrors": 0
+  },
+  "fullJourney": {
+    "engines": [
+      "Chrome",
+      "desktop WebKit"
+    ],
+    "viewports": [
+      [
+        390,
+        844
+      ]
+    ],
+    "actualPanelsPerEngine": 95,
+    "fixedSceneTransitionsPerEngine": 56,
+    "movingTransitionsPerEngine": 38,
+    "pageErrors": 0,
+    "virtualClock": true
+  },
+  "hashNormalization": "CRLF to LF",
+  "codeSha256": {
+    "birthday-letter.js": "fb0c6b90aa4b82291a21242eb48e4f82eeea132560a6db2ef4910bf0f5d5496a",
+    "explore-finale.js": "3eadf3232cbe31d8b407ced7f021ac7521e54b2682cb9cd03d0ec6b4e69616bc",
+    "explore-intro.html": "0eb8bdb56252e81982e873ba7aaf91ae386bd2e41e454b814d6ac0c37a74fc99",
+    "explore-intro.js": "fb829134594c76825068706fa56d267ceabcdfb5d6d10ef6db6dbbfc86387b6f",
+    "explore-starbook.js": "d4bc385fb1a723f4bcd39f5f353936db0af74c89e09c61eb722e756a7f79e67b",
+    "explore-story.js": "e6f91b898ff658c64b8bb823c8cb4cd075701996e2a29fbeb9aec58e06ce57c8",
+    "explore-test.html": "5fcbeefa001cc453b1a09a61bf6a87b9e9852a45675e80622eefa6bceecdf621",
+    "explore-wish.js": "505a019992a8133a0fede5c7e064f360bd75238d35528268fef303866b0af0f8",
+    "explore.html": "04353741f83d6f4a0cffe40f38a18634c4142151a637d1fb6f71bcb9b22a4098",
+    "game.html": "6549b531da4ac91a753df237c0643ae249242d84d2fd04451f81fbad8f3fb843",
+    "gift.html": "e7baf622a55aae94e2b812ceec2aa3cd924f432cf46c31f48912024402e8683b",
+    "index.html": "bfdef1a5e26c15c02d983b1f2ab7b8e40b3c0016397b1b0b706d4f91d7316f19",
+    "install.html": "f0ce862af6ee57af09a13d203f4f65a2e6497b381458a379b01937c8f1f453e2",
+    "inventory-current.json": "69a104063b025da147b7d83ecfa25ab1d17e778242e7caae9ca602ba095e0554",
+    "movie.html": "8fc9ce9d4598fa428468b2a4204f5726956b23915b947bb866a755e55200913f",
+    "music-shell.html": "d212cebd3b15d98f91db6e522d17ca4ad1d21174a81bde1fd1fadfcfbd1fffb2",
+    "novel-comic.html": "2c44bec8483ce6c0ae31bc4784af37386980cda40cad729c7bf155048321316a",
+    "pwa.js": "fc45d21fb4b3a48568210151651ea2710c6f1b4a43da471593620a946235afd8",
+    "starlight.html": "0de50e6e3cc2f905cd97c4c49631f418ae88327e367c24474bf0ddede4463f36",
+    "sw.js": "11c477e8a36e16e44950373b36830197b968c82fb56551212b54dc8719c81d5c",
+    "wish-sharing.css": "aa30166feccc8b9146a90127a8f220d2c5d06eb742991bff03d3e1c224ea6692",
+    "wish-sharing.js": "7eee3dbff351962b348ebb85c08f94cdc2792f92c156de584b620f671b004146",
+    "tests/letter-sharing.cjs": "25ebb59c537b7f68f5fa50f3cde4b7791729687064bdc16bb03c2bff6d2f420d",
+    "tests/wish-sharing.cjs": "4c5334fdd565adfc483050d9ca66058bd180506ff79b917d733eb9ca3565e5ed",
+    "tests/explore-free-chapters.cjs": "cfeb0d7ac94aa6a0d855c5443805b520d3d443bf264f05b6470707ce44bfdcdd"
+  }
+}
