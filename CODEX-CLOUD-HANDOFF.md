@@ -1,6 +1,21 @@
 # YiTing Birthday｜Codex雲端製作與接續指令
 
+> **目前只統整雲端，暫停功能優化（2026-10-21）。** 先讀 [CLOUD-READINESS.md](CLOUD-READINESS.md)。GitHub已有現行網站所需資料；完整checkout與雲端瀏覽器驗收仍待完成。下方開發指令是未來範本，不能視為已恢復開發。
+
+
 本文件、`AGENTS.md`、`CLOUD-STATUS.md`都保存在GitHub。以後換電腦或在手機開啟雲端任務，先選這個儲存庫，再貼下方指令；接續依據是Git與這些文件。
+
+### 雲端統整指令（目前使用）
+
+```text
+接續GitHub kuoyenai/kuotoyiting-birthday，以最新main為準。
+目前先統整雲端開發資料與環境，不做網站功能優化。
+先讀AGENTS.md、CLOUD-STATUS.md、CLOUD-READINESS.md、CODEX-CLOUD-HANDOFF.md、README.md、CONTINUE-HERE.md及tests/README.md。
+核對最新main、未合併PR、未提交差異、完整checkout與必要素材；不依賴公司電腦或聊天記憶。
+依交接文件準備Node>=20、Python3與Playwright／Chromium／WebKit，執行App靜態審核及一項適合初始化的瀏覽器驗收；如受權限限制，保存實際錯誤與下一步，不能冒稱已準備完成。
+不要改網站程式、原畫、App版本、95格、100卡、四曲、自由選章／真實已讀、直接分享給Kuo、既有網域與穩定標籤；不寄真實測試信、不讀取訪客內容、不重開排程。
+更新雲端現況與實際證據，提交到GitHub。等使用者明確恢復開發後，再從2D候選待辦選一項實作。
+```
 
 ## 一次性設定雲端環境
 
@@ -24,7 +39,7 @@
 只設定開發環境，不修改網站故事、圖片、App版本、部署網域或每小時排程。完成後提供可以發布此環境的狀態與仍未通過的項目。
 ```
 
-### 日常製作指令（以後直接貼到雲端任務）
+### 開發指令範本（目前暫停；使用者明確恢復開發後才使用）
 
 ```text
 接續YiTing Birthday專案：GitHub kuoyenai/kuotoyiting-birthday。

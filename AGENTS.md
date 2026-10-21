@@ -1,5 +1,12 @@
 # YiTing Birthday — repository instructions
 
+## Current user direction — cloud consolidation only (2026-10-21)
+
+- The latest user instruction pauses product optimization. Organize and preserve the cloud handoff for future development; do not start the historical 2D improvement queue unless the user explicitly resumes it.
+- Keep website code, artwork, App78, content, sharing behavior, deployment settings, stable tags, and the cancelled hourly schedule unchanged during this consolidation.
+- Read `CLOUD-READINESS.md` for the verified GitHub inventory and the remaining environment setup. GitHub preservation and a fully tested cloud runtime are separate statuses.
+
+
 ## Start here
 
 - Work in this Git repository's root; it is already the website root. Do not assume a desktop checkout path or an extra `publish-repo/` subdirectory.

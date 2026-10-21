@@ -1,5 +1,8 @@
 # YITING · 10.20 · ONLY FOR YOU｜生日限定專輯
 
+> **目前工作範圍（2026-10-21）：先統整雲端，暫停功能優化。** 最新入口是 [CLOUD-READINESS.md](CLOUD-READINESS.md)，列出GitHub資料盤點、實際環境驗證與剩餘準備。網站維持App78；本輪不新增網站版本或重開排程。
+
+
 [開啟網站](https://kuotoyiting-birthday.vercel.app/) · [GitHub Pages](https://kuoyenai.github.io/kuotoyiting-birthday/)
 
 更新日期：2026-10-21；目前已上線 App 版本：`20261021-78`（直接分享給Kuo、2D自由選章）。兩站各22個正式檔案已讀回相符，單次合成UI寄信驗收獲服務接受。指定穩定備份：[`yiting-stable-20261019-v74`](https://github.com/kuoyenai/kuotoyiting-birthday/tree/yiting-stable-20261019-v74)，對應App `20261019-74`、提交 `2ea2824`；App74及更早標籤全部保留，不移動任何既有標籤。每小時排程已依最新要求刪除，僅手動接續。
@@ -8,7 +11,7 @@
 
 以後在Codex雲端選取`kuoyenai/kuotoyiting-birthday`，使用[可直接貼上的雲端製作指令](CODEX-CLOUD-HANDOFF.md)。目前狀態見[CLOUD-STATUS.md](CLOUD-STATUS.md)，共同規則見[AGENTS.md](AGENTS.md)。網站根目錄、官方參考、95格／100卡／四曲與測試都已在Git；不要依賴公司的桌面路徑。
 
-2026-10-21完成雲端交接文件及原六人同行概念圖的Git保存；未重建雲端帳號或代做登入授權。App維持20261021-78，不改動正式功能、素材引用或穩定標籤；每小時排程仍已刪除。後續新環境需要自行選取此GitHub儲存庫，完成環境準備與發布。
+2026-10-21完成雲端交接文件及原六人同行概念圖的Git保存；本輪依最新要求再整合雲端入口、699份遠端檔案及環境準備狀態。95格／100張小卡／四曲與必要資產路徑核對通過，App78靜態審核通過；完整clone及雲端瀏覽器驗收尚未完成。詳見CLOUD-READINESS.md與tests/cloud-handoff-20261021.json。App維持20261021-78，不改動正式功能、素材引用或穩定標籤；每小時排程仍已刪除。
 
 ## 穩定版紀錄
 

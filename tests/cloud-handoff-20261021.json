@@ -1,0 +1,139 @@
+{
+  "date": "2026-10-21",
+  "timezone": "Asia/Taipei",
+  "scope": "Cloud consolidation only; product optimization paused by latest user direction",
+  "baseline": {
+    "branch": "main",
+    "commit": "bd05c52ec77fba4b99b49470f645deb1c9167786",
+    "tree": "d4cc9243edb1b7db4aab1d69dd7d3b821a853167",
+    "app": "20261021-78",
+    "openPullRequestsAtRead": 0,
+    "stableTag": "yiting-stable-20261019-v74",
+    "stableCommit": "2ea28244ecc0348409caed5533c34acdf4b3f926"
+  },
+  "inventory": {
+    "trackedBlobs": 699,
+    "assetFiles": 367,
+    "assetGitBlobBytes": 414763825,
+    "historicalInventoryAssetBytes": 414763826,
+    "byteDifferenceCause": "not established; no product inventory or asset edited",
+    "testDirectoryFiles": 126,
+    "chapters": 10,
+    "basePanels": 78,
+    "extraPanels": 17,
+    "totalPanels": 95,
+    "uniquePanelAssetIds": 95,
+    "cards": 100,
+    "uniqueCardAssetIds": 100,
+    "tracks": 4,
+    "allResolvedStoryAndCardArtPathsPresent": true,
+    "allTrackAudioAndVideoPathsPresent": true,
+    "fullNovelPresent": true,
+    "zip": {
+      "path": "assets/downloads/YITING-100-photocards.zip",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "fb851a6741f326ede052ba0ed2f620a14148f2b7",
+      "size": 81206373,
+      "url": "https://api.github.com/repos/kuoyenai/kuotoyiting-birthday/git/blobs/fb851a6741f326ede052ba0ed2f620a14148f2b7"
+    },
+    "references": [
+      {
+        "path": "art-reviews/references/cohort-walking-concept.jpg",
+        "mode": "100644",
+        "type": "blob",
+        "sha": "44f0014332cb296af247f7645ee193e212e8c479",
+        "size": 87837,
+        "url": "https://api.github.com/repos/kuoyenai/kuotoyiting-birthday/git/blobs/44f0014332cb296af247f7645ee193e212e8c479"
+      },
+      {
+        "path": "assets/reference-eunho-hamin.jpg",
+        "mode": "100644",
+        "type": "blob",
+        "sha": "1427f360cfa8afe650a33ae0d4a220ab62fb9d9a",
+        "size": 257322,
+        "url": "https://api.github.com/repos/kuoyenai/kuotoyiting-birthday/git/blobs/1427f360cfa8afe650a33ae0d4a220ab62fb9d9a"
+      },
+      {
+        "path": "assets/reference-noah-bamby.jpg",
+        "mode": "100644",
+        "type": "blob",
+        "sha": "97050a7fd6c2ac69230a58784fbff11a23d19328",
+        "size": 250367,
+        "url": "https://api.github.com/repos/kuoyenai/kuotoyiting-birthday/git/blobs/97050a7fd6c2ac69230a58784fbff11a23d19328"
+      },
+      {
+        "path": "assets/reference-yejun.jpg",
+        "mode": "100644",
+        "type": "blob",
+        "sha": "b7d81ce2f57b3382a5906b16bcb2be6c2b3b3fab",
+        "size": 271596,
+        "url": "https://api.github.com/repos/kuoyenai/kuotoyiting-birthday/git/blobs/b7d81ce2f57b3382a5906b16bcb2be6c2b3b3fab"
+      }
+    ],
+    "scope": "Immutable Git tree metadata plus evaluated source data; no full binary/media/ZIP decode or browser regression"
+  },
+  "runtime": {
+    "node": "24.19.0",
+    "python": "3.12.14",
+    "playwright": "1.62.1",
+    "systemChromium": "154.0.8037.57",
+    "fullGitCheckout": false,
+    "localBranchStatus": "not available; necessary UTF-8 files and audit icons fetched through GitHub connector",
+    "cliClone": "failed connecting to proxy; additional network request cancelled",
+    "defaultPlaywrightBrowser": "chromium_headless_shell-1234 missing",
+    "systemChromiumLaunch": "failed: setsockopt Operation not permitted; SIGTRAP",
+    "browserSmokePassed": false,
+    "webkitVerified": false
+  },
+  "checks": [
+    {
+      "command": "python3 audit.py",
+      "result": "pass",
+      "app": "20261021-78"
+    },
+    {
+      "command": "Node vm source data audit against immutable GitHub tree",
+      "result": "pass",
+      "assertions": [
+        "10 chapters / 95 unique panel assets",
+        "100 unique cards",
+        "all resolved story and card illustration paths tracked",
+        "four audio and MP4 paths tracked",
+        "complete ZIP Git size 81206373",
+        "complete novel, required handoff and regression test paths tracked",
+        "four official/cohort references tracked"
+      ]
+    },
+    {
+      "command": "Annotated stable tag dereference",
+      "result": "pass"
+    },
+    {
+      "command": "Chromium launch",
+      "result": "blocked",
+      "error": "setsockopt: Operation not permitted; SIGTRAP"
+    }
+  ],
+  "preservation": {
+    "productCodeChanged": false,
+    "assetsChanged": false,
+    "appVersionChanged": false,
+    "deploymentSettingsChanged": false,
+    "tagsMoved": false,
+    "scheduleReenabled": false,
+    "realEmailSent": false,
+    "visitorContentRead": false
+  },
+  "next": [
+    "Obtain a full checkout of latest main in a permitted cloud environment",
+    "Prepare Playwright Chromium and WebKit with system dependencies and permitted local sockets",
+    "Run static audit and one initialization browser test; record actual coverage",
+    "Wait for explicit instruction to resume feature development"
+  ],
+  "deployment": {
+    "newProductRelease": false,
+    "productionReadBackThisRound": false,
+    "priorEvidence": "tests/release-20261021-78-letter.json"
+  }
+}

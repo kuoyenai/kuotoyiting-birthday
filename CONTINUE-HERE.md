@@ -1,5 +1,12 @@
 # YiTing 生日網站｜換電腦接續製作
 
+## 目前先做雲端統整（2026-10-21最新指示）
+
+使用者已暫停功能優化。先讀 [CLOUD-READINESS.md](CLOUD-READINESS.md)，完成完整checkout與環境驗收，再等使用者明確恢復開發；不要直接執行下方歷史2D優化待辦。本輪只更新交接文件與盤點證據，網站仍為App78。
+
+GitHub盤點基準為`bd05c52`：699份追蹤檔案、367份assets，95格／100張唯一小卡／四曲、完整小說、下載ZIP及角色參考路徑均存在；App78的`python3 audit.py`通過。此對話沙盒只取回文字與必要圖示，尚未完整clone；Chromium啟動受沙盒socket限制，沒有新瀏覽器／Safari／正式站驗收。完整紀錄見`tests/cloud-handoff-20261021.json`。
+
+
 雲端快速入口：[可貼上的Codex製作指令](CODEX-CLOUD-HANDOFF.md) · [目前狀態](CLOUD-STATUS.md) · [共同規則](AGENTS.md)。Git儲存庫根目錄就是網站根目錄，不需要公司電腦的外層資料夾。
 
 排程狀態（2026-10-21）：依使用者最新「繼續並取消每小時的排程」指示，yiting-2d已刪除，工具回覆deleteStatus=deleted。本對話手動接續；不因先前排隊心跳或錯誤恢復自行重啟。
