@@ -1,12 +1,14 @@
 # YiTing 生日網站｜換電腦接續製作
 
+雲端快速入口：[可貼上的Codex製作指令](CODEX-CLOUD-HANDOFF.md) · [目前狀態](CLOUD-STATUS.md) · [共同規則](AGENTS.md)。Git儲存庫根目錄就是網站根目錄，不需要公司電腦的外層資料夾。
+
 排程狀態（2026-10-21）：依使用者最新「繼續並取消每小時的排程」指示，yiting-2d已刪除，工具回覆deleteStatus=deleted。本對話手動接續；不因先前排隊心跳或錯誤恢復自行重啟。
 
 目前接續基準：已上線App `20261021-78`（直接分享給Kuo與2D自由選章，程式提交90d5a07）；雙站44項檔案讀回及單次合成UI寄送驗收通過。保留App74指定穩定標籤 `yiting-stable-20261019-v74`。依最新要求每小時排程已刪除，手動接續。
 
 目前使用者指定穩定備份：`yiting-stable-20261019-v74`，App `20261019-74`，提交 `2ea2824`。接續製作使用main最新App78；需要指定穩定備份時使用App74標籤。較早的 `yiting-stable-20261018-v34`（`52bbadf`）仍保留為歷史還原點。
 
-GitHub 帳號現為 `kuoyenai`；後續以 `kuoyenai/kuotoyiting-birthday` 為準。本機 origin 與每小時排程已同步新帳號。
+GitHub 帳號現為 `kuoyenai`；後續以 `kuoyenai/kuotoyiting-birthday` 為準。origin已同步新帳號；每小時排程已取消並刪除。
 
 最新版以本儲存庫 `main` 分支為準。網站：https://kuotoyiting-birthday.vercel.app/ （另保留GitHub Pages）
 
@@ -761,3 +763,10 @@ ASTERUM 同時預載下一個音樂花園，最多兩組前景；移除先前依
 - 待辦：後續依原小說逐輪精修場景與敘事。此前整站建議中的電影完播入口、首頁進度標籤與2D手機提示僅保留建議，未混入本輪。
 
 - App78正式UI驗收：390×844的生日信先收藏，0次寄送；填入清楚標示的網站擁有者合成驗收文字，按「分享給Kuo」直接1次POST，服務HTTP200／success=true，頁面顯示已送交寄信服務。未讀取或寄出訪客回信／願望，沒有驗證收件匣或已讀；其餘回歸請求全為攔截模擬。本輪另用正常實際時間在390／820核對城市及蛋糕場景畫面，非測試時鐘空白截圖；自由選章仍為0已讀、0誤發星光。
+
+## 2026-10-21｜轉向Codex雲端接續
+
+- 已加入AGENTS.md、CLOUD-STATUS.md及CODEX-CLOUD-HANDOFF.md，整合App78、原95格／100卡／四曲、直接分享、自由選章／真實已讀、測試與發布流程；新任務先讀Git現況，不依賴本機對話全文。
+- 694份既有追蹤檔案、367份assets完整；官方外觀參考、完整小說及產圖提示均在Git。原六人同行概念圖另以相同SHA256補存art-reviews/references/cohort-walking-concept.jpg。4個未使用本機暫存素材仍保留，不混入正式版本；原始私人資料不自動上傳。
+- 尚未登入／建立使用者的Codex雲端環境，也未在Linux雲端冒稱跑測；文件提供準備及接續指令，實際開環境時須驗證Node>=20／Python3／Playwright。每輪重要成果仍須提交到GitHub。
+- 本輪僅交接文件與參考圖，不修改網站程式或App版本、不重開排程、不移動穩定標籤。

@@ -28,7 +28,7 @@ node tests/image-retry-sequence.cjs
 App76獨立收尾檢查：`node tests/story-integrity.cjs` 斷言95格章節數、17個補充分鏡入口、終章連續編號、100張唯一小卡與有效故事連結，以及斑比原圖／兩個保存連結；`node tests/explore-music-race.cjs` 驗證快速選曲／靜音、接近片尾換歌與反覆開關視窗的歷史穩定性。兩者沿用PLAYWRIGHT_MODULE及CHROME_PATH設定；未指定CHROME_PATH時使用Playwright Chromium。後者為Chrome邊界測試，不宣稱為iOS實機。
 
 
-## 自願分享願望（App77）
+## 自願分享願望（App77歷史範圍；目前測試行為以App78為準）
 
 `node tests/wish-sharing.cjs` 檢查四入口、五種尺寸的保留／明確同意／固定收件信箱、純文字預覽、重複點按、錯誤保留、Escape及返回。用 `node tests/run-engine.cjs webkit wish-sharing.cjs` 沿用相同斷言；填寫採實際點擊文字框再輸入，音樂外殼內頁先等載入完成。這兩項測試攔截FormSubmit回應，不寄信。Chrome／桌面WebKit不等同iPhone Safari實機。
 
@@ -42,8 +42,7 @@ App76獨立收尾檢查：`node tests/story-integrity.cjs` 斷言95格章節數�
 
 `node tests/explore-free-chapters.cjs` 驗證全章可選、跳章／重新載入／返回位置、稀疏已讀、舊存檔與正確星光判定；`node tests/explore-complete-journey.cjs` 逐格核對95格、自動行走及固定場景。皆可用run-engine.cjs指定桌面WebKit。正式結果與部署見release-20261021-78-letter.json，不冒稱實機或真實收件匣驗收。
 
-## 直接分享與自由選章（App78）
 
-`node tests/letter-sharing.cjs` 或 `node tests/run-engine.cjs webkit letter-sharing.cjs`：兩個生日信入口×五尺寸，保留收藏／草稿／文字與SVG下載，檢查單擊直接寄送、明確可見收件人及服務說明、等待／防重複、錯誤／離線及願望／回信互不覆蓋。使用者已要求取消第二次確認，測試明確斷言沒有分享確認視窗。20組全過；另wish-sharing.cjs原四入口40組以同一直接寄送流程全過。所有服務回應攔截，不寄真實信。
+## Codex雲端
 
-`node tests/explore-free-chapters.cjs` 驗證全章可選、跳章／重新載入／返回位置、稀疏已讀、舊存檔與正確星光判定；`node tests/explore-complete-journey.cjs` 逐格核對95格、自動行走及固定場景。皆可用run-engine.cjs指定桌面WebKit。正式結果與部署見release-20261021-78-letter.json，不冒稱實機或真實收件匣驗收。
+使用儲存庫根目錄的CODEX-CLOUD-HANDOFF.md準備Node>=20、Python3及Playwright／瀏覽器，建立可寫的截圖輸出目錄。不要沿用Windows的CHROME_PATH。舊tests/invariants.cjs需0770fb2e5cea862df1f1a39a9553c25eb84a2930歷史Git物件，淺層checkout須先取得；其他列出的瀏覽器測試不需本機舊material-review內容。文件交接不等於雲端已經跑過測試。

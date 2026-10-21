@@ -1,5 +1,7 @@
 # 生日網站：Vercel 部署對照
 
+> 歷史部署／排錯記錄：目前Vercel與GitHub Pages都已上線App78；願望及未來回信可由本人按「分享給Kuo」直接寄送。下文早期尚未部署／不寄信等敘述不代表現況。接續請先讀[CLOUD-STATUS.md](CLOUD-STATUS.md)及[雲端製作指令](CODEX-CLOUD-HANDOFF.md)，不需重新建立網站或更換網址。
+
 目前 iOS 27.2 Safari 在 J-Pera 網址能使用圖示，生日網站的兩個最小對照頁都回退為首字。已核對兩站的 J-Pera PNG 位元完全一致，SHA-256 為 21D1CF1A41560F6E883A2B98F7A16221085D6E18CD760F512619EBE5AF9B3D58。不能再把圖片能 HTTP 200 或分享預覽有圖片當作修好。
 
 下一個對照是將同一份生日網站部署到獨立 Vercel 網域根目錄。這會同時改變 origin、網址層級與 HTTP 回應，屬於部署環境比較，尚不能單獨證明 GitHub Pages 或 iOS 的哪個部分有問題。
