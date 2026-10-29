@@ -1,5 +1,8 @@
 # YiTing Birthday｜Codex雲端製作與接續指令
 
+> **App80本輪接續：** App79真實入口通知回503，不能以先前模擬測試當作真實寄達。依使用者要求改回既有瀏覽器直接FormSubmit AJAX流程，移除轉送層；本機檢查通過，正式發布及有授權的兩次實寄驗收仍以CLOUD-STATUS.md／tests/release-20261029-80-entry.json為準。
+
+
 > **2026-10-29接續：** 本輪新增英文隱私／創作說明與兩個入口按鈕的背景通知。說明連結已依最後要求移至最下方小字，其他2D優化仍暫停。App79已推main，兩站40份正式檔案及5項不寄信API檢查已讀回通過；完整證據與驗收限制見CLOUD-STATUS.md及tests/release-20261029-79-entry.json。
 
 

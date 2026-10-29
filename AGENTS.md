@@ -1,14 +1,13 @@
 # YiTing Birthday — repository instructions
 
-## Current scope — English privacy page and entry notifications (2026-10-29)
+## Current scope — owner-authorized real entry-email verification (2026-10-29)
 
-- The user authorized an English privacy/fan-creation page and background notifications for the two invitation entry buttons. Other 2D optimization remains paused; keep the cancelled hourly schedule cancelled.
-- App79 code `2c2c0bf` is deployed: 40 production-file SHA256 readbacks and five non-sending API probes passed. The Node checks, 19 local Chromium entry/privacy cases, 30 original wish/letter regressions and static audit pass. Live Chromium was blocked by this environment's proxy CA trust; TLS verification was not disabled. Do not claim a live browser, physical Safari, provider acceptance, or inbox-delivery result.
-- Keep the policy link accessible at the bottom of the opening, with small visible text and a comfortable touch target. Preserve clear English disclosure of entry-click emails, not a misleading visit-counter description. The opening has no delivery-status banner or recipient-address text.
-- Notifications contain only a fixed button label and server time. Never forward visitor headers, IP addresses, identifiers, URLs, private wishes, replies or reading data. The client makes one attempt per tab session and no automatic retries; loading and reading the policy do not send.
-- The small Vercel relay is scoped to this feature. Preserve the static multi-page site, existing hosting, artwork, content, songs, voluntary sharing and stable tags. Do not send real test mail or claim inbox delivery without fresh explicit authorization.
-- All privacy/fan-creation page content is English at the user's request; the rest of the interface remains Traditional Chinese. Keep in-context fictional-dialogue notices and the existing voluntary-sharing recipient/service disclosures.
-- See `tests/release-20261029-79-entry.json` for actual coverage and deployment readback. Chromium viewport tests do not establish physical Safari/PWA verification.
+- The user explicitly requested real delivery verification to `kuoyen.ai@gmail.com` and asked to reuse the existing FormSubmit design. This authorizes the bounded synthetic verification round, not reading visitor content or silently resending tests forever. Normal regression tests remain mocked.
+- App79's real gate click reached the deployed relay but returned HTTP503 at 13:23:42 Taipei. Do not equate the earlier mocked tests / file readback with real delivery. The skip event was not sent in that round.
+- Candidate App80 restores direct browser FormSubmit AJAX, matching `wish-sharing.js`, and removes the failed Vercel relay. Consume provider JSON in the background without delaying entry or writing delivery-status UI. One attempt per tab, no automatic retries.
+- Keep the small bottom policy link and accurate fully English notice. Direct requests expose ordinary connection metadata to FormSubmit; do not falsely retain the relay's privacy claims. Application fields contain only the button, browser timestamp, and fixed explanatory text, never wishes/replies/reading state or visitor identifiers.
+- The 16 unit checks, 19 local Chromium entry/privacy cases, 30 wish/letter regressions and App80 audit pass. Production readback and real FormSubmit success remain pending at this prepared commit. Use the current release evidence, and never claim inbox delivery from a service acceptance response alone.
+- Keep stories, original artwork, cards, songs, progress, voluntary-sharing disclosures, stable tags and the cancelled schedule unchanged. Other 2D optimization remains paused.
 
 ## Start here
 

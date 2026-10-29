@@ -1,6 +1,6 @@
 {
   "updated": "2026-10-29",
-  "appVersion": "20261029-79",
+  "appVersion": "20261029-80",
   "baseline": "efab385",
   "cards": 100,
   "novel": {
@@ -829,13 +829,15 @@
       "introStart",
       "introSkip"
     ],
-    "transport": "background fetch to Vercel server relay",
+    "transport": "direct browser FormSubmit AJAX fetch, matching voluntary wish/letter sharing",
     "privacyNotice": "privacy.html",
     "noticeLanguage": "en",
     "payload": [
       "entry button",
-      "server receive time"
+      "browser timestamp",
+      "fixed explanatory text"
     ],
+    "referrer": "public website origin only",
     "perTabSessionAttemptLimit": 1,
     "automaticRetries": false,
     "identifiesVisitor": false

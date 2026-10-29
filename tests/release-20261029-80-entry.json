@@ -1,0 +1,113 @@
+{
+  "date": "2026-10-29",
+  "timezone": "Asia/Taipei",
+  "status": "App80 locally verified; production readback and bounded real verification pending",
+  "baselineCommit": "e88e93d95ba0cc806185216b383ed88924a8e13d",
+  "app": "20261029-80",
+  "reason": "User requested real entry-email verification and reuse of the existing FormSubmit browser AJAX design. App79 relay returned503.",
+  "app79RealAttempt": {
+    "startedAtUtc": "2026-10-29T05:23:39.439Z",
+    "recipient": "kuoyen.ai@gmail.com",
+    "notificationSubject": "YiTing｜網站入口通知",
+    "productionMessageFormatUnchanged": true,
+    "testIdentification": "Owner-authorized synthetic browser clicks; identify the two emails by button and recorded time.",
+    "maxRealPostRequests": 2,
+    "realPostRequests": 1,
+    "attempts": [
+      {
+        "site": "https://kuotoyiting-birthday.vercel.app/",
+        "button": "開啟星光之門",
+        "entry": "gate",
+        "realPostSent": true,
+        "providerAccepted": false,
+        "requestPayload": {
+          "entry": "gate"
+        },
+        "clickedAtUtc": "2026-10-29T05:23:42.092Z",
+        "clickedAtTaipei": "2026年10月29日 下午1:23:42",
+        "httpStatus": 503,
+        "responseAtUtc": "2026-10-29T05:23:42.920Z",
+        "serverDate": "Thu, 29 Oct 2026 05:23:42 GMT",
+        "response": {
+          "nonJson": true
+        },
+        "error": "Error: locator.waitFor: Target page, context or browser has been closed"
+      },
+      {
+        "site": "https://kuoyenai.github.io/kuotoyiting-birthday/",
+        "button": "略過開場",
+        "entry": "skip",
+        "realPostSent": false,
+        "providerAccepted": false
+      }
+    ],
+    "inboxDeliveryConfirmed": false,
+    "completedAtUtc": "2026-10-29T05:30:05.735Z",
+    "bothProviderAccepted": false,
+    "round": "App79 server-relay test, stopped after the first HTTP503; no automatic retry"
+  },
+  "implementation": {
+    "transport": "direct browser fetch to existing FormSubmit AJAX recipient",
+    "recipient": "kuoyen.ai@gmail.com",
+    "serverRelayRemoved": true,
+    "replyJsonConsumedInBackground": true,
+    "awaitBeforeEntry": false,
+    "statusUi": false,
+    "perTabAttemptLimit": 1,
+    "automaticRetry": false,
+    "referrerPolicy": "origin",
+    "fields": [
+      "name",
+      "_subject",
+      "_template",
+      "message",
+      "entry",
+      "time",
+      "source"
+    ],
+    "privateContentReadOrSent": false,
+    "privacyPageEnglishUpdatedForDirectConnectionMetadata": true,
+    "bottomLinkFontPx": 10.5,
+    "minimumTouchTargetPx": 44
+  },
+  "verification": {
+    "unitChecks": {
+      "passed": true,
+      "count": 16
+    },
+    "entryBrowser": {
+      "passed": true,
+      "count": 19
+    },
+    "wishBrowser": {
+      "passed": true,
+      "count": 20
+    },
+    "letterBrowser": {
+      "passed": true,
+      "count": 10
+    },
+    "syntax": true,
+    "appAudit": true,
+    "allRegressionsMockEmail": true
+  },
+  "production": {
+    "readbackPassed": false,
+    "realProviderAcceptance": false,
+    "inboxDeliveryConfirmed": false
+  },
+  "preservation": {
+    "assetChanges": 0,
+    "storyPanels": 95,
+    "cards": 100,
+    "songs": 4,
+    "sharingCodeChanged": false,
+    "stableTagsMoved": false,
+    "scheduleReenabled": false
+  },
+  "coverageLimits": [
+    "Local Chromium sizes do not establish physical Safari/PWA or WebKit",
+    "No full95-panel or media-playback rerun",
+    "No Gmail tool available in this conversation; inbox cannot be independently read here"
+  ]
+}

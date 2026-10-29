@@ -46,44 +46,29 @@ def check_file(item):
         return {"site": site, "path": name, "matches": False, "error": str(error)}
 
 
-def check_api():
+def check_retired_relay():
     endpoint = SITES[0] + "api/entry-notify?release-check=" + STAMP
-    results = []
-    for origin in ["https://kuotoyiting-birthday.vercel.app", "https://kuoyenai.github.io"]:
-        # GET and OPTIONS return before the email-sending branch.
-        for method, expected in [("GET", 405), ("OPTIONS", 204)]:
-            try:
-                status, headers, body = request(endpoint, method=method, origin=origin)
-                matches = status == expected and headers.get("Access-Control-Allow-Origin") == origin
-                if method == "GET":
-                    matches = matches and json.loads(body).get("accepted") is False
-                results.append({"origin": origin, "method": method, "status": status, "matches": matches})
-            except Exception as error:
-                results.append({"origin": origin, "method": method, "matches": False, "error": str(error)})
-    # An invalid event must also be rejected before the email provider is called.
     try:
-        status, _, body = request(endpoint, method="POST", origin=SITES[0].rstrip("/"), data=b'{"entry":"invalid-verification-event"}')
-        results.append({"method": "POST invalid event only", "status": status,
-                        "matches": status == 400 and json.loads(body).get("accepted") is False})
+        # The broken App79 relay is removed. Never probe FormSubmit with a POST here.
+        status, _, _ = request(endpoint)
+        return {"method": "GET retired relay", "status": status, "matches": status in [404, 410]}
     except Exception as error:
-        results.append({"method": "POST invalid event only", "matches": False, "error": str(error)})
-    return results
+        return {"method": "GET retired relay", "matches": False, "error": str(error)}
 
 
 def main():
     with ThreadPoolExecutor(max_workers=6) as pool:
         files = list(pool.map(check_file, [(site, name) for site in SITES for name in FILES]))
-    # Do not issue even invalid POST probes until the deployed handler is present.
-    api = check_api() if all(row["matches"] for row in files) else []
-    passed = all(row["matches"] for row in files) and len(api) == 5 and all(row["matches"] for row in api)
+    retired_relay = check_retired_relay() if all(row["matches"] for row in files) else {"matches": False, "pending": True}
+    passed = all(row["matches"] for row in files) and retired_relay["matches"]
     result = {"checkedAtUtc": STAMP, "passed": passed, "realEmailSent": False,
-              "serviceAcceptanceVerified": False, "inboxDeliveryVerified": False, "files": files, "api": api}
+              "serviceAcceptanceVerified": False, "inboxDeliveryVerified": False, "files": files, "retiredRelay": retired_relay}
     output = ROOT.parent / "material-review" / "entry-notify-deployment-results.json"
     output.parent.mkdir(parents=True, exist_ok=True)
     output.write_text(json.dumps(result, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     print(("PASS" if passed else "PENDING") + f" production readback: {sum(row['matches'] for row in files)}/{len(files)} files, "
-          + f"{sum(row['matches'] for row in api)}/{len(api)} non-sending API checks")
-    for row in files + api:
+          + f"retired relay removed: {retired_relay['matches']}")
+    for row in files + [retired_relay]:
         if not row["matches"]:
             print(json.dumps(row, ensure_ascii=False))
     print("No valid notification POST or real email was sent.")

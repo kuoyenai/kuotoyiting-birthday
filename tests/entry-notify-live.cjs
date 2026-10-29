@@ -2,7 +2,7 @@
 // Reads the actual public sites. Every notification request is intercepted.
 const fs=require('node:fs'),path=require('node:path'),assert=require('node:assert/strict');
 const {chromium}=require(process.env.PLAYWRIGHT_MODULE||'playwright');
-const endpoint='https://kuotoyiting-birthday.vercel.app/api/entry-notify';
+const endpoint='https://formsubmit.co/ajax/kuoyen.ai@gmail.com';
 const output=path.resolve(__dirname,'../../material-review');
 (async()=>{
  const proxy=process.env.HTTPS_PROXY||process.env.HTTP_PROXY;
@@ -25,7 +25,7 @@ const output=path.resolve(__dirname,'../../material-review');
      if(request.method()==='OPTIONS'){await route.fulfill({status:204,headers});return;}
      sent.push({payload:request.postDataJSON(),headers:request.headers()});
      await new Promise(resolve=>{release=resolve;});
-     await route.fulfill({status:202,headers,contentType:'application/json',body:'{"accepted":true}'});return;
+     await route.fulfill({status:200,headers,contentType:'application/json',body:'{"success":"true"}'});return;
     }
     if(url.hostname==='formsubmit.co'||!['GET','HEAD'].includes(request.method())||request.resourceType()==='media'){
      await route.abort('blockedbyclient');return;
@@ -44,7 +44,8 @@ const output=path.resolve(__dirname,'../../material-review');
    assert.ok(buttonBox.y>=panel.y-1&&buttonBox.y+buttonBox.height<=panel.y+panel.height+1);
    await page.screenshot({path:path.join(output,'live-entry-'+item.name+'.png')});
    await button.click();await frame.locator('#cinemaIntro').waitFor({state:'detached',timeout:12000});
-   assert.equal(sent.length,1);assert.deepEqual(sent[0].payload,{entry:item.entry});assert.equal(sent[0].headers.referer,undefined);
+   assert.equal(sent.length,1);assert.equal(sent[0].payload.entry,item.entry==='gate'?'開啟星光之門':'略過開場');
+   assert.equal(sent[0].payload._subject,'YiTing｜網站入口通知');assert.equal(sent[0].headers.referer,new URL(item.url).origin+'/');
    assert.doesNotMatch(await frame.locator('body').innerText(),/正在寄信|已通知|寄送成功|kuoyen\.ai@gmail\.com/);
    assert.ok(release,'the intercepted response was held until the opening finished');release();await page.waitForTimeout(100);
    await page.goto(item.url+'privacy.html');assert.equal(await page.locator('html').getAttribute('lang'),'en');

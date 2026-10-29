@@ -60,3 +60,14 @@ App76獨立收尾檢查：`node tests/story-integrity.cjs` 斷言95格章節數�
 
 
 正式站額外UI檢查：`CHROME_PATH=/usr/bin/chromium node tests/entry-notify-live.cjs`會讀兩站實際HTML／CSS／字型並攔截有效入口通知POST；其他FormSubmit與非GET外部請求亦會阻擋，避免寄真實信。本環境目前因代理CA的`ERR_CERT_AUTHORITY_INVALID`未能載入正式頁面；不使用忽略憑證錯誤的參數。此限制不影響已用正常TLS完成的40檔案HTTP讀回與5項不寄信API探測。請在具正確信任設定的環境重跑，不能把這次失敗冒稱通過。
+
+
+## App80：參照原分享設計的直接FormSubmit入口通知
+
+`node tests/entry-notify.cjs`為16項直接AJAX檢查；`tests/entry-notify-browser.cjs`仍為19組，但現在攔截FormSubmit本身，檢查固定欄位、origin-only referrer與背景JSON消耗。20組wish-sharing／10組letter-sharing亦在此候選版重跑通過，全部模擬。
+
+`python3 tests/entry-notify-deployment.py`現在只讀兩站40份正式檔案，並GET確認舊relay回404／410；它不會向FormSubmit POST，也不代表真實寄達。
+
+只有網站擁有者明確授權時，才執行`CHROME_PATH=/usr/bin/chromium node tests/entry-notify-real.cjs --send-two-real-notifications --recipient=kuoyen.ai@gmail.com`。沒有兩個opt-in參數時會SKIP。腳本使用兩個全新合成瀏覽器情境，在正式App80點擊gate及skip，最多放行2次真正FormSubmit POST，不修改寄送欄位／主旨，不讀訪客資料；以主旨及精確時間辨識驗收信。服務必須HTTP200且JSON success為true才記為接受；回應與動作皆有限時，無自動重試。輸出在`../material-review/entry-notify-real-results.json`，不等於已確認收件匣投遞。
+
+App79第一輪真實請求回503，原始回應另保存；不要將它冒稱成成功寄信。瀏覽器代理CA只能信任環境已配置的公開憑證，不關閉TLS驗證，不提交本機憑證資料庫或診斷程序完整日誌。
