@@ -5,8 +5,8 @@ if(!process.argv.includes('--send-two-real-notifications')||!process.argv.includ
  process.exit(0);
 }
 const fs=require('node:fs'),path=require('node:path'),assert=require('node:assert/strict');
-const {chromium}=require(process.env.PLAYWRIGHT_MODULE||'playwright');
-const endpoint='https://formsubmit.co/ajax/kuoyen.ai@gmail.com';
+const {chromium,request:apiRequest}=require(process.env.PLAYWRIGHT_MODULE||'playwright');
+const {endpoint,probePreflight,assessSubmission}=require('./entry-notify-readiness.cjs');
 const output=path.resolve(__dirname,'../../material-review/entry-notify-real-results.json');
 const report={appVersion:'20261029-80',transport:'direct FormSubmit browser AJAX',startedAtUtc:new Date().toISOString(),recipient:'kuoyen.ai@gmail.com',
  notificationSubject:'YiTing｜網站入口通知',productionMessageFormatUnchanged:true,
@@ -19,6 +19,15 @@ function taipei(iso){return new Intl.DateTimeFormat('zh-TW',{dateStyle:'medium',
 save();
 (async()=>{
  const proxy=process.env.HTTPS_PROXY||process.env.HTTP_PROXY;
+ const preflight=await apiRequest.newContext(proxy?{proxy:{server:proxy}}:{});
+ try{report.readiness=await probePreflight(preflight,'https://kuotoyiting-birthday.vercel.app');}
+ finally{await preflight.dispose();}
+ save();
+ if(!report.readiness.ready){
+  report.blockedBeforeAnyClick=true;report.completedAtUtc=new Date().toISOString();report.bothProviderAccepted=false;save();
+  console.error('BLOCKED before any notification: '+report.readiness.reason+'; browser POST attempts:0');
+  process.exitCode=1;return;
+ }
  const browser=await chromium.launch({headless:true,...(process.env.CHROME_PATH?{executablePath:process.env.CHROME_PATH}:{}),...(proxy?{proxy:{server:proxy}}:{})});
  try{
   for(const item of [
@@ -74,12 +83,12 @@ save();
     assert.ok(await frame.locator('#cinemaIntro .intro-privacy').isVisible());
     assert.equal(attempt.browserPostAttempted,false,'page load alone does not send');
     armed=true;await frame.locator('#'+item.button).click({noWaitAfter:true,timeout:15000});
-    await frame.waitForFunction(()=>window.__ownerEntryVerification!==undefined,undefined,{timeout:25000});
     try{
-     await frame.waitForFunction(()=>window.__ownerEntryVerification!==undefined,undefined,{timeout:6000});
+     await frame.waitForFunction(()=>window.__ownerEntryVerification!==undefined,undefined,{timeout:25000});
      attempt.response=await frame.evaluate(()=>window.__ownerEntryVerification);
     }catch{attempt.response={bodyReadTimedOut:true};}
-    attempt.providerAccepted=attempt.httpStatus===200&&(attempt.response.success===true||attempt.response.success==='true');save();
+    attempt.acceptance=attempt.response.classification==='activation_required'?'activation_required':assessSubmission(attempt.httpStatus,attempt.response);
+    attempt.providerAccepted=attempt.acceptance==='provider_accepted'&&attempt.response.classification!=='activation_required';save();
     await frame.locator('#cinemaIntro').waitFor({state:'detached',timeout:12000});
     attempt.openingContinued=true;
     assert.doesNotMatch(await frame.locator('body').innerText(),/正在寄信|已通知|寄送成功|kuoyen\.ai@gmail\.com/);

@@ -1,5 +1,13 @@
 # 瀏覽器回歸測試
 
+## 修正實寄前置檢查與手動驗收工具（2026-10-29）
+
+`node tests/entry-notify-readiness.test.cjs`：20項全模擬檢查。`CHROME_PATH=/usr/bin/chromium node tests/entry-notify-owner.cjs`：三流程×接受／false／啟用／網路失敗共12組，另核對選單載入0寄信，所有外部請求攔截。`entry-notify-real.cjs`現先做只讀OPTIONS預檢，不通即exit1、0次提交；`entry-notify-transport.cjs`在服務不就緒時也exit1，不再以完成診斷冒充檢查通過。
+
+`tests/entry-notify-owner.html`為公開手動工具，正式發布後以正常瀏覽器開啟；三個連結用noopener新分頁，每頁手動點一次。原生日信用實際`wish-sharing.js`與固定合成回信；兩入口用實際`entry-notify.js`與正式欄位，不讀舊願望或回信。結果包含HTTP／success／精確時間；需要回報服務結果並另外確認Gmail收件。這不是有認證的私人管理頁，不加入一般導覽，不填秘密。正式入口介面不加入任何診斷提示。
+
+本輪原分享程式與成功App78一致（LF正規化SHA256為7eee3dbff351962b348ebb85c08f94cdc2792f92c156de584b620f671b004146）。雲端觀測403／error code1010與521，實寄腳本已在預檢擋下，沒有再寄信；尚待有效的真實接受及擁有者收件確認。證據`release-20261029-80-entry-followup.json`。
+
 在儲存庫根目錄安裝 Playwright（`npm install --no-save --package-lock=false playwright`），並執行 `npx playwright install chromium`。接著執行：
 
 ```

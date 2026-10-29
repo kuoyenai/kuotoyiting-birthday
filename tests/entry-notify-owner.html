@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+ <meta charset="utf-8">
+ <meta name="viewport" content="width=device-width,initial-scale=1">
+ <meta name="robots" content="noindex,nofollow">
+ <base href="../">
+ <title>寄信手動驗收</title>
+ <style>
+  :root{color-scheme:dark;font-family:system-ui,sans-serif;background:#0b1425;color:#edf1f7}
+  body{max-width:720px;margin:auto;padding:24px;line-height:1.7}a{color:#d9c18b}
+  button,.case-link{display:inline-block;min-height:44px;box-sizing:border-box;padding:10px 16px;margin:6px 0;border:1px solid #8f9bb4;border-radius:8px;background:#15233c;color:inherit;font:inherit}
+  button:disabled{opacity:.55}textarea,pre{box-sizing:border-box;width:100%;padding:12px;background:#101e34;color:inherit;border:1px solid #60718c;border-radius:8px}pre{white-space:pre-wrap;overflow-wrap:anywhere}
+  .wish-choices{display:flex;gap:12px;flex-wrap:wrap}#status{font-weight:600}small{display:block}
+ </style>
+ <script defer src="tests/entry-notify-owner.js?v=20261029-80-check1"></script>
+</head>
+<body>
+ <h1>寄信手動驗收</h1>
+ <p>這是網站擁有者的測試工具，不是一般入口。載入本頁不寄信，也不讀取已儲存的願望或回信。</p>
+ <p>選一項測試，在新分頁手動按下按鈕後，只會向 <strong>kuoyen.ai@gmail.com</strong> 提交一次固定的合成測試內容。下方會顯示服務的實際回應；「服務接受」仍需另外核對收件匣。</p>
+ <nav aria-label="選擇測試">
+  <a class="case-link" href="tests/entry-notify-owner.html?case=letter" target="_blank" rel="noopener noreferrer">原生日信分享</a>
+  <a class="case-link" href="tests/entry-notify-owner.html?case=gate" target="_blank" rel="noopener noreferrer">開啟星光之門</a>
+  <a class="case-link" href="tests/entry-notify-owner.html?case=skip" target="_blank" rel="noopener noreferrer">略過開場</a>
+ </nav>
+ <section id="fixture" aria-label="手動測試"></section>
+ <p id="status" role="status">尚未選擇測試；沒有寄信。</p>
+ <pre id="result" aria-label="驗收結果">{}</pre>
+ <button id="copy" type="button" disabled>複製驗收結果</button>
+ <p><a href="privacy.html">隱私與非官方聲明</a></p>
+</body>
+</html>

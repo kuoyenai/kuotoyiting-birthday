@@ -1,13 +1,14 @@
 # YiTing Birthday — repository instructions
 
-## Current scope — entry-email delivery blocked (2026-10-29)
+## Current scope — real delivery verification still blocked (2026-10-29)
 
-- The owner requested real delivery verification to `kuoyen.ai@gmail.com` and reuse of the existing FormSubmit design. Only bounded synthetic checks are authorized; do not read visitor content or resend indefinitely. Normal regressions stay mocked.
-- Deployed App80 (`a1c7920`) uses direct browser FormSubmit AJAX, matching `wish-sharing.js`, and removes App79's failed relay. App79's gate test returned503. Consume replies in the background, no entry delay or status UI; one attempt per tab, no automatic retries.
-- Both sites' 40-file readback and two mocked production Chromium UI checks pass. Real gate/skip clicks at 13:47:16/13:47:42 Taipei got no provider reply; the owner reported neither email received. Read-only FormSubmit preflight/documentation GET returned521 with missing CORS headers. Delivery remains unverified; see `tests/release-20261029-80-entry.json`.
-- Do not treat route-intercepted browser attempts as remote receipt. Do not bypass TLS/access restrictions or change to no-cors. Run `tests/entry-notify-transport.cjs` for read-only diagnostics; do not blindly send more mail. Resume bounded real checks after connectivity is restored, distinguishing service acceptance from owner-confirmed inbox delivery.
-- Keep the small bottom policy link and fully English accurate privacy notice. Direct requests expose ordinary connection metadata to FormSubmit; fields contain only button/time/fixed text, never wishes/replies/progress or visitor IDs.
-- The 16 unit checks, 19 local entry/privacy cases, 30 wish/letter regressions and App80 audit pass (mock email). Preserve stories, original artwork, cards, songs, progress, voluntary-sharing disclosures, stable tags and the cancelled schedule. Other2D optimization remains paused.
+- Continue the owner's request to fix and verify actual entry email, including their report that the original birthday-letter flow may also have stopped. No additional real submissions were made this round.
+- App80 product source remains `a1c7920`; baseline main for this round is `fcffbc6`. The original `wish-sharing.js` is unchanged from successful App78 code `90d5a07`; the historical real UI result was HTTP200 / success=true, not independently confirmed inbox receipt.
+- Current cloud requests returned403 / error code1010 or521 before submission. Do not bypass access controls/TLS, spoof clients, change to no-cors or retry blindly. Do not conclude Gmail rejection, inactive mailbox or a global service outage from these results.
+- Test fixes: `entry-notify-readiness.cjs` classifies readiness and strict acceptance; real verification checks OPTIONS before any click. A failed preflight exits nonzero with zero new POST attempts. Read-only diagnostics also exit nonzero on failure.
+- `tests/entry-notify-owner.html` is a public manual diagnostic tool with three cases, loading the actual sharing/entry modules. Only a manual button sends fixed synthetic content once per test tab; no private saved content. Normal site UI is unchanged. Publish/read it back before sharing its link. It has no administrator authentication, so do not store secrets or claim private access.
+- This round:20 mocked readiness/acceptance checks,12 mocked Chromium diagnostic cases plus menu,16 entry-unit checks,JS syntax and App80 audit pass. Evidence: `tests/release-20261029-80-entry-followup.json`. Actual service acceptance and owner-confirmed receipt are still required; never report the task complete from mocked checks.
+- Keep the English privacy notice and small bottom link; preserve artwork,95 panels,100 cards,4 songs,real progress,free chapters,stable tags and the deleted schedule. Other2D optimization remains paused.
 
 ## Start here
 

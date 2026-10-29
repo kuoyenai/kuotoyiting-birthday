@@ -4,7 +4,7 @@ const fs=require('node:fs'),path=require('node:path');
 const output=path.resolve(__dirname,'../../material-review/formsubmit-connection-diagnostics.json');
 fs.mkdirSync(path.dirname(output),{recursive:true});
 const {chromium}=require(process.env.PLAYWRIGHT_MODULE||'playwright');
-const endpoint='https://formsubmit.co/ajax/kuoyen.ai@gmail.com';
+const {endpoint,probePreflight}=require('./entry-notify-readiness.cjs');
 const report={startedAtUtc:new Date().toISOString(),realEmailPostsPermitted:0,responses:[],failures:[],consoleErrors:[]};
 (async()=>{
  const proxy=process.env.HTTPS_PROXY||process.env.HTTP_PROXY;
@@ -28,14 +28,13 @@ const report={startedAtUtc:new Date().toISOString(),realEmailPostsPermitted:0,re
    try{const r=await fetch(endpoint,{method:'GET',headers:{Accept:'application/json'},credentials:'omit',referrerPolicy:'origin',signal:controller.signal});return {status:r.status,type:r.type};}
    catch(error){return {error:String(error)};}finally{clearTimeout(timer);}
   },endpoint);
-  try{
-   const r=await page.context().request.fetch(endpoint,{method:'OPTIONS',headers:{Origin:'https://kuotoyiting-birthday.vercel.app','Access-Control-Request-Method':'POST','Access-Control-Request-Headers':'content-type,accept'},timeout:15000});
-   const text=await r.text();report.preflight={status:r.status(),server:r.headers().server,allowOrigin:r.headers()['access-control-allow-origin'],knownError:text.includes('1010')?'error code: 1010':undefined};
-  }catch(error){report.preflight={error:String(error).split('\n')[0]};}
+  report.preflight=await probePreflight(page.context().request,'https://kuotoyiting-birthday.vercel.app');
   try{
    const r=await page.goto('https://formsubmit.co/documentation',{waitUntil:'domcontentloaded',timeout:15000});
    report.documentationGet={status:r.status(),server:r.headers().server};
   }catch(error){report.documentationGet={error:String(error).split('\n')[0]};}
  }finally{await browser.close();}
+ report.ready=report.preflight?.ready===true;
  report.completedAtUtc=new Date().toISOString();fs.writeFileSync(output,JSON.stringify(report,null,2)+'\n');console.log(JSON.stringify(report));
+ if(!report.ready)process.exitCode=1;
 })().catch(error=>{report.error=String(error).split('\n')[0];fs.writeFileSync(output,JSON.stringify(report,null,2)+'\n');console.error(report.error);process.exitCode=1;});

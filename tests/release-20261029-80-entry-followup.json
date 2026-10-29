@@ -1,0 +1,116 @@
+{
+  "date": "2026-10-29",
+  "app": "20261029-80",
+  "baselineCommit": "fcffbc61119fa1a9c6c01b2fef5b3e6d5ff6ec7b",
+  "status": "Test failure handling fixed; real delivery still blocked; manual verification page prepared",
+  "ownerRequest": "Fix and test until real email succeeds; owner said birthday-letter sharing previously worked and may now also fail.",
+  "previousLetterAcceptance": {
+    "evidence": "tests/release-20261021-78-letter.json",
+    "codeCommit": "90d5a07137fdc060b110d5b1c43574e1e1187e02",
+    "atUtc": "2026-10-20T21:55:53.815Z",
+    "status": 200,
+    "success": "true",
+    "message": "The form was submitted successfully.",
+    "inboxReceiptVerified": false
+  },
+  "sharingSourceComparison": {
+    "repositoryFileLastChangedAt": "90d5a07137fdc060b110d5b1c43574e1e1187e02",
+    "sha256LfNormalized": "7eee3dbff351962b348ebb85c08f94cdc2792f92c156de584b620f671b004146",
+    "matchesSuccessfulApp78": true,
+    "codeOrRecipientChangedThisRound": false
+  },
+  "connectivity": {
+    "readOnlyPythonChecks": [
+      {
+        "request": "GET https://formsubmit.co/documentation",
+        "status": 403,
+        "body": "error code: 1010",
+        "cfRay": "a51ffbcbd964e82d-ORD"
+      },
+      {
+        "request": "OPTIONS FormSubmit AJAX endpoint",
+        "status": 403,
+        "body": "error code: 1010",
+        "cfRay": "a51ffbcca9af112d-ORD"
+      }
+    ],
+    "browserApiPreflight": {
+      "appVersion": "20261029-80",
+      "transport": "direct FormSubmit browser AJAX",
+      "startedAtUtc": "2026-10-29T06:08:50.105Z",
+      "recipient": "kuoyen.ai@gmail.com",
+      "notificationSubject": "YiTing｜網站入口通知",
+      "productionMessageFormatUnchanged": true,
+      "testIdentification": "Owner-authorized synthetic browser clicks; identify the two emails by button and recorded time.",
+      "maxBrowserPostAttempts": 2,
+      "browserPostAttempts": 0,
+      "attempts": [],
+      "inboxDeliveryConfirmed": false,
+      "attemptCountMeaning": "Browser route interception only; not evidence that FormSubmit received a POST or sent an email",
+      "readiness": {
+        "status": 521,
+        "ready": false,
+        "server": "envoy",
+        "reason": "service_unavailable"
+      },
+      "blockedBeforeAnyClick": true,
+      "completedAtUtc": "2026-10-29T06:08:50.320Z",
+      "bothProviderAccepted": false
+    },
+    "interpretation": "Observed cloud access denied or upstream failure before submission; does not prove a global outage or Gmail rejection. No bypass or automatic retry attempted."
+  },
+  "testChanges": {
+    "diagnosticExitsNonzeroWhenNotReady": true,
+    "realTestProbesBeforeAnyClick": true,
+    "accessDenied1010Classified": true,
+    "onlyHttp200AndTrueSuccessAccepted": true,
+    "activationDoesNotCountAsAccepted": true,
+    "browserAttemptNotClaimedAsDelivery": true
+  },
+  "manualVerification": {
+    "path": "tests/entry-notify-owner.html",
+    "cases": [
+      "letter",
+      "gate",
+      "skip"
+    ],
+    "usesActualModules": [
+      "wish-sharing.js",
+      "entry-notify.js"
+    ],
+    "autoSendsOnLoad": false,
+    "maxAttemptsPerTestTab": 1,
+    "readsPrivateSavedContent": false,
+    "changesNormalEntryUi": false,
+    "checksInboxIndependently": false,
+    "newTabsUseNoopener": true,
+    "publicManualDiagnosticPage": true,
+    "productionReadbackPending": true
+  },
+  "validation": {
+    "readinessMockedChecks": 20,
+    "manualDiagnosticMockedBrowserCases": 12,
+    "manualMenuCheckPassed": true,
+    "entryUnitChecks": 16,
+    "appAuditPassed": true,
+    "editedJsSyntaxPassed": true,
+    "realSubmissionAttemptsThisRound": 0,
+    "realTestExitCode": 1,
+    "realTestBlockedBeforeAnyClick": true
+  },
+  "preservation": {
+    "productCodeChanged": false,
+    "appVersionChanged": false,
+    "assetChanges": 0,
+    "storyPanels": 95,
+    "cards": 100,
+    "songs": 4,
+    "freeChaptersAndRealReadingPreserved": true,
+    "hourlyScheduleReenabled": false
+  },
+  "remainingWork": [
+    "Read back the deployed diagnostic files.",
+    "Obtain current results from a permitted normal browser session or restore FormSubmit access through the service. Do not evade its access controls.",
+    "Require actual provider acceptance for letter/gate/skip, followed by separate owner inbox confirmation. If service access remains blocked, working service configuration is necessary."
+  ]
+}
