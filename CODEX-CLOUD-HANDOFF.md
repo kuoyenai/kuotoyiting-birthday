@@ -1,5 +1,7 @@
 # YiTing Birthday｜Codex雲端製作與接續指令
 
+> **最新帳戶設定進度：** 已顯示EmailJS Gmail connected，但內建測試回412／Not found the sessional location，Create Service仍在畫面；不是已完成寄信設定。依EMAILJS-SETUP.md先重新連接並確認發信權限，再測一次並確認收件；仍412需EmailJS支援查明。網站尚未切換，勿直接填入未驗證服務冒稱修好。
+
 > **最新接續（擁有者已回覆）：** 原生日信／兩入口在擁有者瀏覽器均為network_or_cors_failure，結果已存`tests/owner-mail-results-20261029.json`。EmailJS尚未建立，只有設定方案，未切換正式服務；依`EMAILJS-SETUP.md`由擁有者連接Gmail並回傳Service ID／Template ID／Public Key後，再接程式及驗證實際寄達。不要再要求重做已回報的三次測試，也不要宣稱已完成EmailJS。
 
 > **最新實寄排查：** 已核對原生日信與成功App78程式一致；本輪雲端FormSubmit回403／1010或521。實寄腳本新增前置預檢，失敗以exit1停止且0次新提交；公開手動診斷頁 `tests/entry-notify-owner.html` 可測原生日信／兩入口，載入不寄信。工具提交`9042daa`已在兩站讀回16份檔案，已提供使用者手動驗收連結，待三項服務回應與實際收件證據；目前不可稱成功。詳見 `tests/release-20261029-80-entry-followup.json`。

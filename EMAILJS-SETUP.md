@@ -4,6 +4,17 @@
 
 EmailJS可由目前的靜態網站直接呼叫，不需另加Vercel寄信後端。它透過已連接的郵件服務寄送；此專案可連接Gmail，只寄給固定收件人。這是設定上的簡化，不是可靠送達的保證。
 
+## 最新畫面：Gmail connected，但內建測試412
+
+使用者提供的控制台畫面顯示Gmail已連接，但測試回`412 Gmail_API: Not found the sessional location`，Create Service仍在畫面。這不代表寄信設定完成，也不是網站JS的錯誤回應。官方文件未提供這段完整訊息的明確原因對照，以下是有限的授權／連線排查，並非已證實根因：
+
+1. 在同一設定畫面按Disconnect，再重新Connect指定Gmail帳號。
+2. Google授權畫面明確允許EmailJS的Send email on your behalf發信權限。
+3. 保留Send test email to verify configuration勾選，按Create Service測試一次，另核對Gmail實際收件。
+4. 若仍出現完全相同412，保留錯誤向[EmailJS支援](https://www.emailjs.com/contact-us/)確認服務端連線狀態；不要不停重試或把已連接畫面當成寄達證據。
+
+此步需要擁有者在EmailJS／Google的帳戶畫面操作；網站開發端沒有該帳戶的授權操作工具。本輪未代送測試信或建立服務。
+
 ## 帳號與服務
 
 1. 開啟[EmailJS控制台](https://dashboard.emailjs.com/)，在Email Services新增Gmail服務並完成其授權。

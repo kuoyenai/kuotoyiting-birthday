@@ -68,8 +68,21 @@
       "bodyPrefix": "error code: 1010\n"
     },
     "setupGuide": "EMAILJS-SETUP.md",
-    "ownerAccountOrServiceCreated": false,
-    "ownerSetupAnswer": "尚未建立"
+    "ownerAccountOrServiceCreated": "Account setup underway; service not verified",
+    "ownerSetupAnswer": "尚未建立",
+    "ownerAccountCreated": true,
+    "latestDashboardObservation": {
+      "source": "Owner-provided screenshot",
+      "gmailUiShowsConnected": true,
+      "testEmailChecked": true,
+      "createServiceButtonVisible": true,
+      "testStatus": 412,
+      "testMessage": "Gmail_API: Not found the sessional location",
+      "serviceCreationConfirmed": false,
+      "inboxReceiptConfirmed": false,
+      "exactCauseConfirmed": false,
+      "nextDiagnostic": "Reconnect Gmail with send-email permission and perform one dashboard test; if the same error persists consult EmailJS support."
+    }
   },
   "preservation": {
     "productCodeChanged": false,

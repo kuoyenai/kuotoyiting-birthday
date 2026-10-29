@@ -1,5 +1,7 @@
 # YiTing Birthday — repository instructions
 
+> Latest owner screenshot:EmailJS Gmail shows connected,but dashboard test returned412 Gmail_API: Not found the sessional location. Service creation and delivery remain unconfirmed. Do not treat the displayed Service ID as a validated service or blame website code. No authoritative exact-cause mapping found; reconnect with send-email permission as a bounded diagnostic,then require test receipt. See EMAILJS-SETUP.md. Product remains App80.
+
 ## Current scope — owner confirmed three failing flows; EmailJS not configured (2026-10-29)
 
 - Continue actual mail-delivery repair. The owner supplied three manual results:letter at06:20:33Z,gate at06:20:47Z,skip at06:20:59Z. All modules loaded and attempted one browser submission, then network_or_cors_failure / Failed to fetch; no readable service acceptance or inbox confirmation. Evidence: `tests/owner-mail-results-20261029.json`. Do not request the same tests again or blame only the cloud environment.

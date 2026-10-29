@@ -1,5 +1,11 @@
 # YITING · 10.20 · ONLY FOR YOU｜生日限定專輯
 
+## 2026-10-29｜EmailJS已嘗試連接Gmail，內建測試回412
+
+使用者提供EmailJS Config Service畫面：Gmail顯示Connected as既定收件帳號，內建Send test email已勾選，但回覆 `412 Gmail_API: Not found the sessional location`，畫面仍有Create Service按鈕。只能確認已顯示連接，服務建立完成與寄達仍未確認；尚無可用Template ID／Public Key，網站仍未切換EmailJS。這個失敗發生在EmailJS控制台測試，不是正式網站的入口程式測試。
+
+目前未找到官方針對該完整錯誤字串的原因對照，不能斷定Gmail遭封鎖或授權必然不足。下一個有限排查步驟是於同一畫面Disconnect後重新連接指定Gmail，明確允許Send email on your behalf，再保留測試勾選並提交一次；須收件確認。若仍同樣412，保留錯誤向EmailJS支援查服務端問題，不停重送、不取消驗證冒稱成功。步驟已加入 `EMAILJS-SETUP.md`；本輪僅文件／驗收JSON更新，無產品或版本改動、無工具代寄信、排程保持取消。
+
 ## 2026-10-29｜擁有者三流程皆連線失敗；EmailJS待建立
 
 - 從main `01fe5759fdf7a45bc9116d44cf449e28b6824245` 接續。使用者已貼回正式手動頁三份結果：台北14:20:33生日信、14:20:47星光之門、14:20:59略過開場；每項moduleLoaded=true、browserPostAttempts=1、network_or_cors_failure／TypeError: Failed to fetch，providerAccepted=false，實際投遞未確認。
