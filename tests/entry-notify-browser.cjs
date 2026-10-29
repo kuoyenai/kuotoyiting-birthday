@@ -1,7 +1,7 @@
 'use strict';
 const fs=require('node:fs'),path=require('node:path'),http=require('node:http'),assert=require('node:assert/strict');
 const playwright=require(process.env.PLAYWRIGHT_MODULE||'playwright');
-const root=path.resolve(__dirname,'..'),endpoint='https://formsubmit.co/ajax/kuoyen.ai@gmail.com';
+const root=path.resolve(__dirname,'..'),endpoint='https://api.emailjs.com/api/v1.0/email/send';
 const engineName=process.env.YITING_TEST_ENGINE==='webkit'?'webkit':'chromium';
 const mime={'.html':'text/html','.js':'text/javascript','.css':'text/css','.json':'application/json','.png':'image/png','.webp':'image/webp','.jpg':'image/jpeg','.ttf':'font/ttf','.m4a':'audio/mp4','.mp4':'video/mp4'};
 const server=http.createServer((req,res)=>{
@@ -35,10 +35,10 @@ async function newPage(browser,base,{viewport,mode='hold',reducedMotion='no-pref
   if(url.href===endpoint){
    const headers={'access-control-allow-origin':new URL(base).origin,'access-control-allow-methods':'POST, OPTIONS','access-control-allow-headers':'content-type'};
    if(request.method()==='OPTIONS'){await route.fulfill({status:204,headers});return;}
-   sent.push({payload:request.postDataJSON(),headers:request.headers()});
+   sent.push({payload:request.postDataJSON().template_params,headers:request.headers()});
    if(mode==='network'){await route.abort('failed');return;}
    if(mode==='hold')await new Promise(resolve=>{release=resolve;});
-   await route.fulfill({status:mode==='http'?429:200,headers,contentType:'application/json',body:JSON.stringify({success:mode==='http'?'false':'true'})});return;
+   await route.fulfill({status:mode==='http'?429:200,headers,contentType:'text/plain',body:mode==='http'?'Rejected':'OK'});return;
   }
   // External requests, including all real mail services, are never allowed.
   await route.abort('blockedbyclient');
@@ -67,8 +67,8 @@ async function waitSent(page,sent){for(let n=0;n<100&&!sent.length;n++)await pag
      await page.screenshot({path:path.resolve(root,'../material-review/entry-notify-opening-'+viewport.width+'.png')});
     }
     await frame.locator('#'+button).click();await waitSent(page,sent);
-    assert.equal(sent[0].payload.entry,entry==='gate'?'開啟星光之門':'略過開場');assert.equal(sent[0].payload._subject,'YiTing｜網站入口通知');
-    assert.ok(Number.isFinite(Date.parse(sent[0].payload.time)));assert.deepEqual(Object.keys(sent[0].payload).sort(),['_subject','_template','entry','message','name','source','time'].sort());
+    assert.equal(sent[0].payload.entry,entry==='gate'?'開啟星光之門':'略過開場');assert.equal(sent[0].payload.subject,'YiTing｜網站入口通知');
+    assert.ok(Number.isFinite(Date.parse(sent[0].payload.time)));assert.deepEqual(Object.keys(sent[0].payload).sort(),['consent','entry','message','source','subject','time'].sort());
     assert.equal(sent[0].headers.referer,new URL(base).origin+'/');assert.doesNotMatch(JSON.stringify(sent[0].payload),/PRIVATE_WISH|PRIVATE_LETTER/);
     await frame.locator('#'+button).dispatchEvent('click');assert.equal(sent.length,1,'double clicks do not duplicate mail');
     await page.clock.runFor(6500);await frame.locator('#cinemaIntro').waitFor({state:'detached'});

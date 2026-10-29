@@ -1,6 +1,6 @@
 (()=>{
  'use strict';
- const recipient='kuoyen.ai@gmail.com',endpoint='https://formsubmit.co/ajax/'+recipient;
+ const recipient='kuoyen.ai@gmail.com';
  function mountSharing(input,save,status,letter=false){
   if(!input||!save||!status)return;
   const candle=!letter&&input.id==='birthdayWishInput',originalSave=save.onclick;
@@ -8,7 +8,7 @@
   let pending=false,lastSent='';
   const choices=document.createElement('div');choices.className='wish-choices';choices.dataset.shareKind=kind;
   const note=document.createElement(letter?'small':'p');note.className='wish-share-note';note.dataset.shareKind=kind;
-  note.innerHTML='按下「分享給Kuo」就會立即寄到 <strong>'+recipient+'</strong>。只有這次填寫的'+item+'會透過FormSubmit寄出；服務保留送件紀錄30天。<a href="https://formsubmit.co/privacy.pdf" target="_blank" rel="noopener noreferrer">寄信服務隱私說明</a>';
+  note.innerHTML='按下「分享給Kuo」就會立即寄到 <strong>'+recipient+'</strong>。只有這次填寫的'+item+'會透過EmailJS與已連接的Gmail服務寄出。<a href="https://www.emailjs.com/legal/privacy-policy/" target="_blank" rel="noopener noreferrer">寄信服務隱私說明</a>';
   const sendStatus=document.createElement('small');sendStatus.id=letter?'letterSendStatus':'wishSendStatus';sendStatus.className='share-send-status';sendStatus.setAttribute('role','status');sendStatus.setAttribute('aria-live','polite');
   const letterActions=letter?save.closest('.letter-actions'):null;
   if(letterActions)letterActions.before(note,choices,sendStatus);else save.before(note,choices,sendStatus);choices.append(save);
@@ -31,10 +31,8 @@
    pending=true;update();input.readOnly=true;save.disabled=true;status.textContent='';sendStatus.textContent='正在寄出'+item+'，請稍候…';choices.setAttribute('aria-busy','true');
    const controller=new AbortController(),timeout=setTimeout(()=>controller.abort(),20000);
    try{
-    const response=await fetch(endpoint,{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},credentials:'omit',signal:controller.signal,body:JSON.stringify({name:letter?'YiTing 留給未來自己的話':'YiTing 生日願望',message:snapshot,_subject:letter?'YiTing｜她願意分享的未來回信':'YiTing｜她願意分享的生日願望',_template:'table',source:letter?'生日信 · 留給未來自己的話':candle?'2D星光旅程':location.pathname.endsWith('game.html')?'電影互動漫畫':location.pathname.endsWith('movie.html')?'生日電影':'生日收藏',consent:'本人已閱讀收件人及寄信服務說明，主動按下「分享給Kuo」立即寄出這次填寫的內容。'})});
-    const result=await response.json();
-    if(/activat|confirm.*email|verify.*email/i.test(String(result.message||''))){sendStatus.textContent='分享功能還在等待收件人啟用，'+item+'尚未確認寄出。妳的文字仍在這裡，也可以先'+(letter?'收藏在這台裝置。':'選擇保留在心裡。');return;}
-    if(!response.ok||(result.success!==true&&result.success!=='true'))throw new Error('Not accepted');
+    if(!window.YiTingMail)throw new Error('Mail transport unavailable');
+    await window.YiTingMail.send({message:snapshot,subject:letter?'YiTing｜她願意分享的未來回信':'YiTing｜她願意分享的生日願望',source:letter?'生日信 · 留給未來自己的話':candle?'2D星光旅程':location.pathname.endsWith('game.html')?'電影互動漫畫':location.pathname.endsWith('movie.html')?'生日電影':'生日收藏',time:new Date().toISOString(),consent:'本人已閱讀收件人及寄信服務說明，主動按下「分享給Kuo」立即寄出這次填寫的內容。'},{signal:controller.signal});
     lastSent=snapshot;
     if(candle&&!wasDisabled)originalSave?.call(save,new Event('click'));
     sendStatus.textContent=letter?'這段話已送交寄信服務，謝謝妳願意分享。願妳未來回頭看時，也記得此刻的自己。':'願望已送交寄信服務，謝謝妳願意分享。願這份期待，慢慢走向實現。';

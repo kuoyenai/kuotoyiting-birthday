@@ -1,3 +1,7 @@
+# App81 EmailJS驗證
+
+目前使用 `node --test tests/emailjs-mail.cjs`（13）、`node tests/entry-notify-browser.cjs`（19）、`node tests/wish-sharing.cjs`（20）、`node tests/letter-sharing.cjs`（10）與`python audit.py`；瀏覽器測試均攔截EmailJS且不寄真信。HTTP200文字OK才接受。下面App80 FormSubmit的單元與實寄工具只供歷史參考，不應在App81執行真信測試。
+
 # 瀏覽器回歸測試
 
 ## 2026-10-29擁有者回報與EmailJS評估

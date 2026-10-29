@@ -1,3 +1,7 @@
+# EmailJS目前狀態（2026-10-29）
+
+Service ID `service_jd01axj`；Template ID `template_k29m9mg`；Public Key `4Sj5SlBCGV8p10cMs`。控制台共用範本已儲存、200 OK，擁有者已確認合成測試收件。App81候選已接入三流程並通過攔截回歸；正式網站實寄結果以CLOUD-STATUS.md最新紀錄為準。以下舊設定草案與412描述保留為歷史。
+
 # YiTing EmailJS 設定草案
 
 狀態：2026-10-29。正式App仍為`20261029-80`／FormSubmit；此文件不是已完成切換或寄達的證明。使用者正在評估EmailJS，尚未提供Service ID、Template ID、Public Key，也未建立EmailJS正式整合。不要把空設定或範例ID發布成可用寄信。

@@ -1,5 +1,7 @@
 # YiTing Birthday — repository instructions
 
+> Current task (2026-10-29): App81 candidate implements EmailJS. Read the first current section of CLOUD-STATUS.md before the older FormSubmit notes. Public service/template/key are configured; dashboard 200 OK and owner receipt confirmed. 62 mocked checks pass. Final production readback and site-flow real delivery remain pending. Keep original protected deployments; J-Pera cleanup is explicitly deferred by owner. No hourly automation.
+
 > Latest task:Owner requested direct EmailJS template setup and supplied Vercel Usage screenshot. Ready-to-paste HTML/fields are in email-templates/,but no EmailJS account editing tool is connected. Gmail412 still blocks validation. The screenshot shows Deployment Storage9.03/10GB,not transfer exhaustion(12.9/100GB). Read VERCEL-STORAGE-NOTES.md; do not assume monthly file deletion,delete deployments or upgrade without a concrete authorized plan. Keep documentation changes in one commit to reduce deployment churn.
 
 > Latest owner screenshot:EmailJS Gmail shows connected,but dashboard test returned412 Gmail_API: Not found the sessional location. Service creation and delivery remain unconfirmed. Do not treat the displayed Service ID as a validated service or blame website code. No authoritative exact-cause mapping found; reconnect with send-email permission as a bounded diagnostic,then require test receipt. See EMAILJS-SETUP.md. Product remains App80.

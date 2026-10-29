@@ -1,5 +1,19 @@
 # 雲端接續現況
 
+## 2026-10-29｜App81：EmailJS 三流程接入與部署清理
+
+已在擁有者登入的 EmailJS 控制台建立共用範本「YiTing網站通知與分享」，固定 To `kuoyen.ai@gmail.com`、From Name `YiTing Birthday`、服務預設寄件信箱、Reply-To/Cc/Bcc 留空；使用儲存庫既有 `email-templates/yiting-mail.html`，不加入外部圖片／追蹤資源。公開設定：`service_jd01axj`、`template_k29m9mg`、Public Key `4Sj5SlBCGV8p10cMs`。未讀取或要求 Gmail 密碼、Private Key 或 OAuth token。控制台一封合成測試回 200 OK，擁有者已確認收到；這是控制台驗證，網站正式流程仍待本次發布後實寄核對。
+
+新增 `emailjs-mail.js` 共用傳送器，白名單只允許 subject/message/source/entry/time/consent，使用實際 EmailJS REST envelope；只有 HTTP200／文字OK 視為服務接受。單頁送件起始間隔至少1.1秒，失敗不自動重試。`entry-notify.js` 保留每分頁最多一次、背景通知、不擋開場、無寄信狀態介面。`wish-sharing.js` 保留本人主動按「分享給Kuo」立即送出、本機收藏不寄、保留草稿及防重複；未讀取／寄出訪客已存內容作測試。英文隱私頁及願望／回信說明改為 EmailJS，App／SW／頁面快取統一 `20261029-81`。95格、100小卡、四首歌及自由選章未改。
+
+驗證：App audit通過；13項EmailJS傳送／入口單元測試、19組入口與英文隱私頁瀏覽器情境、20組願望與10組回信桌機／手機尺寸回歸通過，全部攔截服務，沒有寄真實郵件。瀏覽器尺寸320、390、橫向手機、820平板及1280桌機；非實體iOS驗證。測試最初受本機沙箱loopback限制，改用授權的本機隔離測試執行；未關閉TLS或繞過外部服務限制。最新測試入口：`tests/emailjs-mail.cjs`、`tests/entry-notify-browser.cjs`、`tests/wish-sharing.cjs`、`tests/letter-sharing.cjs`；舊App80 FormSubmit單元／實寄腳本為歷史資料，不可沿用其接受判定驗證App81。
+
+Vercel生日清單核對：原24筆目前只保留正式c27eb5e、回復b6e99b0、指定App74備份2ea2824三筆；21筆候選不在保留列表。過程有16筆明確UI刪除紀錄，其餘候選核對時已在最近刪除，未對404項目重送刪除。指定App74也曾出現在最近刪除，已用完整部署ID `dpl_E3ZkBrfTERCVA6maLusDg8xhdTPN` 核對並復原，三個正式別名仍指向c27eb5e。一次模糊復原動作被自動審核擋下並取消；重新核對View Source完整ID後才執行正確復原。
+
+Usage顯示Last30Days Deployment Storage9.9GB/10GB，Projects分項為生日9.9GB、J-Pera0B。Recently Deleted選單僅View Source／Restore，沒有徹底清除；官方說明首次刪除即停止後續計量、復原保留期間不計量，歷史每日峰值不倒扣。J-Pera盤點143筆／76候選／67保留，但擁有者明確選擇先保留，本輪不刪J-Pera、不改方案或Retention。容量是否允許新發布以實際部署結果為準，不宣稱9.9GB已歸零。
+
+待辦：本次合併一次GitHub main發布，讀回Vercel／Pages App81與公開傳送器，再用兩入口及合成願望／回信有限次實寄，分別記錄服務接受與擁有者收件；未通過不宣稱已上線或寄達。每小時排程仍取消。
+
 ## 2026-10-29｜EmailJS可貼範本完成；Vercel接近上限的是部署儲存
 
 已完成 `email-templates/yiting-mail.html` 與 `email-templates/EMAILJS-FIELDS.md`，可貼EmailJS Code Editor及設定欄位：固定To Email、subject/message/source/entry/time/consent雙大括號，沒有外部圖／字型／腳本。HTML解析、六個變數白名單、條件區塊及無外部資源核對通過。此對話沒有EmailJS帳戶編輯工具，範本尚未代存入帳戶；Gmail內建測試412仍待排查，不能稱已接通或寄達。

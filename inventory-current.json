@@ -1,6 +1,6 @@
 {
   "updated": "2026-10-29",
-  "appVersion": "20261029-80",
+  "appVersion": "20261029-81",
   "baseline": "efab385",
   "cards": 100,
   "novel": {
@@ -829,7 +829,7 @@
       "introStart",
       "introSkip"
     ],
-    "transport": "direct browser FormSubmit AJAX fetch, matching voluntary wish/letter sharing",
+    "transport": "direct browser EmailJS send API; HTTP200 and text OK required",
     "privacyNotice": "privacy.html",
     "noticeLanguage": "en",
     "payload": [
@@ -841,5 +841,14 @@
     "perTabSessionAttemptLimit": 1,
     "automaticRetries": false,
     "identifiesVisitor": false
+  },
+  "emailjs": {
+    "serviceId": "service_jd01axj",
+    "templateId": "template_k29m9mg",
+    "publicKey": "4Sj5SlBCGV8p10cMs",
+    "fixedRecipient": "kuoyen.ai@gmail.com",
+    "dashboardAccepted": true,
+    "ownerConfirmedReceipt": true,
+    "websiteFlowsVerified": false
   }
 }

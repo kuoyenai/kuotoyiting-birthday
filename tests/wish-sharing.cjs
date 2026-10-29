@@ -8,7 +8,7 @@ const server=http.createServer((req,res)=>{
  if(start>=size){res.writeHead(416);res.end();return;}
  res.writeHead(range?206:200,{'Content-Type':mime[path.extname(file)]||'application/octet-stream','Accept-Ranges':'bytes','Content-Length':end-start+1,...(range?{'Content-Range':`bytes ${start}-${end}/${size}`}:{})});fs.createReadStream(file,{start,end}).pipe(res);
 });
-const endpoint='https://formsubmit.co/ajax/kuoyen.ai@gmail.com';
+const endpoint='https://api.emailjs.com/api/v1.0/email/send';
 const vm=require('vm'),story={window:{}};vm.createContext(story);for(const file of ['novel-comic-data.js','novel-extra-shots.js'])vm.runInContext(fs.readFileSync(path.join(root,file),'utf8'),story);
 const chapterCounts=story.window.NOVEL_PANELS.map((rows,i)=>rows.length+story.window.YITING_EXTRA_SHOTS.filter(s=>s.chapter===i).length),wishIndex=chapterCounts.slice(0,7).reduce((a,b)=>a+b,0);
 async function view(page,name){
@@ -35,17 +35,17 @@ let base;
    let mode='success',release;
    await page.route(endpoint,async route=>{
     if(route.request().method()==='OPTIONS'){await route.fulfill({status:204,headers:{'access-control-allow-origin':'*','access-control-allow-methods':'POST','access-control-allow-headers':'content-type,accept'}});return;}
-    sent.push(route.request().postDataJSON());
+    const envelope=route.request().postDataJSON();assert.strictEqual(envelope.service_id,'service_jd01axj');assert.strictEqual(envelope.template_id,'template_k29m9mg');assert.strictEqual(envelope.user_id,'4Sj5SlBCGV8p10cMs');assert(!JSON.stringify(envelope).includes('private_key'));sent.push(envelope.template_params);
     if(mode==='network'){await route.abort('failed');return;}
     if(mode==='hold')await new Promise(r=>release=r);
     const json=mode==='activation'?{success:'false',message:'This form needs Activation.'}:mode==='rejected'?{success:'false',message:'Rejected'}:{success:'true',message:'Form submitted successfully'};
-    await route.fulfill({status:mode==='rejected'?429:200,contentType:'application/json',headers:{'access-control-allow-origin':'*'},body:JSON.stringify(json)});
+    await route.fulfill({status:mode==='rejected'?429:200,contentType:'text/plain',headers:{'access-control-allow-origin':'*'},body:(mode==='success'||mode==='hold')?'OK':'Unexpected reply'});
    });
    const frame=await view(page,name),input=frame.locator(name==='explore'?'#birthdayWishInput':'#wish'),save=frame.locator(name==='explore'?'#blowBirthdayCandle':'#saveWish'),status=frame.locator(name==='explore'?'#wishShareStatus':'#wishStatus'),share=frame.locator('#shareWish'),sendStatus=frame.locator('#wishSendStatus'),note=frame.locator('.wish-share-note[data-share-kind=wish]');
    async function fillWish(text){await input.click();await input.fill(text);assert.strictEqual(await input.inputValue(),text,'Typed draft remains visible');}
    assert(await share.isDisabled(),'Empty wish cannot share');
    assert(await note.isVisible(),'Inline sharing disclosure is visible before sending');
-   const disclosure=await note.textContent();assert(disclosure.includes('kuoyen.ai@gmail.com'));assert(disclosure.includes('FormSubmit'));assert(disclosure.includes('30天'));assert(disclosure.includes('分享給Kuo'));
+   const disclosure=await note.textContent();assert(disclosure.includes('kuoyen.ai@gmail.com'));assert(disclosure.includes('EmailJS'));assert(disclosure.includes('分享給Kuo'));
    assert(await note.evaluate(el=>!!(el.compareDocumentPosition(document.getElementById('shareWish'))&Node.DOCUMENT_POSITION_FOLLOWING)),'Recipient and service disclosure precede the share action');
    const secret='僅限本機的測試願望';await fillWish(secret);await page.waitForTimeout(100);assert.strictEqual(sent.length,0,'Typing never transmits');
    await save.click();
@@ -66,7 +66,7 @@ let base;
    if(name==='movie')assert(await frame.locator('#birthday').evaluate(el=>el.open),'Sharing retains the movie gift');
    for(const fail of ['activation','rejected','network']){
     mode=fail;const draft='錯誤保留測試 '+fail,beforeFailure=sent.length;await fillWish(draft);await share.click();
-    await sendStatus.filter({hasText:fail==='activation'?'等待收件人啟用':'無法確認寄送結果'}).waitFor();assert.strictEqual(sent.length,beforeFailure+1);assert.strictEqual(sent.at(-1).message,draft);assert.strictEqual(await input.inputValue(),draft);assert(!await share.isDisabled());assert(!await input.evaluate(el=>el.readOnly));assert.strictEqual(await save.isDisabled(),saveWasDisabled,'Failure restores the original private-save state');
+    await sendStatus.filter({hasText:'無法確認寄送結果'}).waitFor();assert.strictEqual(sent.length,beforeFailure+1);assert.strictEqual(sent.at(-1).message,draft);assert.strictEqual(await input.inputValue(),draft);assert(!await share.isDisabled());assert(!await input.evaluate(el=>el.readOnly));assert.strictEqual(await save.isDisabled(),saveWasDisabled,'Failure restores the original private-save state');
    }
    const beforeOffline=sent.length;await fillWish('離線保留測試');await page.context().setOffline(true);await share.click();await sendStatus.filter({hasText:'沒有網路'}).waitFor();assert.strictEqual(sent.length,beforeOffline);assert.strictEqual(await input.inputValue(),'離線保留測試');assert(!await share.isDisabled());assert(!await input.evaluate(el=>el.readOnly));assert.strictEqual(await save.isDisabled(),saveWasDisabled);await page.context().setOffline(false);
    const rect=await share.boundingBox();assert(rect.height>=44);const dimensions=await share.evaluate(el=>({w:el.getBoundingClientRect().width,viewport:innerWidth}));assert(dimensions.w<=dimensions.viewport,'Share action fits viewport');
