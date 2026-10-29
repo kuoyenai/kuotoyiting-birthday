@@ -1,0 +1,147 @@
+{
+  "date": "2026-10-29",
+  "timezone": "Asia/Taipei",
+  "status": "local verification passed; pending main deployment and production readback",
+  "baseline": {
+    "branch": "main",
+    "commit": "45b3eeadfba13751fb741af7552b49e7ff8b2b8c",
+    "tree": "87ad0f7a62a741ebf28da7b67d337f28d5f6b26c",
+    "establishedApp": "20261021-78"
+  },
+  "candidate": {
+    "branch": "main (prepared update from baseline)",
+    "app": "20261029-79",
+    "privacyPage": "privacy.html",
+    "privacyLanguage": "en",
+    "client": "entry-notify.js",
+    "relay": "api/entry-notify.js"
+  },
+  "implemented": {
+    "notice": "English privacy and fan-creation page; small policy link at the bottom of the opening and existing footer locations",
+    "events": [
+      "introStart click -> gate",
+      "introSkip click -> skip"
+    ],
+    "transport": "background fetch; keepalive:true; no await; omit credentials and referrer",
+    "sessionDedupe": "one attempt flag per tab; no visitor identifier; no automatic retries",
+    "loadingSends": false,
+    "escapeSends": false,
+    "readingPolicySends": false,
+    "deliveryStatusUI": false,
+    "recipientAddressAddedToOpeningUI": false,
+    "relayPayload": "Fixed button label, server timestamp and fixed explanatory text only",
+    "forwardsVisitorHeaders": false,
+    "readsWishesOrReplies": false,
+    "visitorDatabase": false,
+    "emailService": "Existing FormSubmit recipient; no new credential",
+    "fanCreation": "Original rights and noncommercial terms preserved in English; in-context fictional-dialogue notices preserved",
+    "linkStyle": {
+      "position": "bottom of opening",
+      "fontSizePx": 10.5,
+      "minimumTouchTargetHeightPx": 44
+    }
+  },
+  "verification": [
+    {
+      "command": "node tests/entry-notify.cjs",
+      "status": "pass",
+      "tests": 26,
+      "externalEmail": "mocked"
+    },
+    {
+      "command": "node --check entry-notify.js; api/entry-notify.js; pwa.js; sw.js; tests/entry-notify-browser.cjs",
+      "status": "pass"
+    },
+    {
+      "command": "python3 audit.py",
+      "status": "pass",
+      "app": "20261029-79"
+    },
+    {
+      "command": "HTMLParser policy-link and original-script preservation audit",
+      "status": "pass",
+      "linkedPages": 10,
+      "unchangedScripts": [
+        "wish-sharing.js",
+        "birthday-letter.js",
+        "explore-story.js",
+        "novel-comic-data.js",
+        "novel-extra-shots.js",
+        "gift.js",
+        "soundtrack.js"
+      ]
+    },
+    {
+      "command": "Node source-data preservation audit",
+      "status": "pass",
+      "chapters": 10,
+      "uniquePanels": 95,
+      "uniqueCards": 100,
+      "tracks": 4
+    },
+    {
+      "command": "CHROME_PATH=/usr/bin/chromium node tests/entry-notify-browser.cjs",
+      "status": "pass",
+      "cases": 19,
+      "viewports": [
+        "320x568",
+        "390x844",
+        "568x320",
+        "844x390",
+        "820x1180",
+        "1280x844"
+      ],
+      "externalEmail": "intercepted; no real email"
+    },
+    {
+      "command": "CHROME_PATH=/usr/bin/chromium node tests/wish-sharing.cjs",
+      "status": "pass",
+      "cases": 20,
+      "externalEmail": "mocked"
+    },
+    {
+      "command": "CHROME_PATH=/usr/bin/chromium node tests/letter-sharing.cjs",
+      "status": "pass",
+      "cases": 10,
+      "externalEmail": "mocked"
+    }
+  ],
+  "coverageLimits": [
+    "Partial local checkout; original walking sprite restored and Git blob hash verified; all committed assets preserved",
+    "No complete 95-panel, movie or music playback rerun",
+    "No desktop WebKit or physical iPhone/iPad Safari/PWA verification",
+    "No live FormSubmit acceptance or inbox delivery verification",
+    "Production deployment/readback pending"
+  ],
+  "preservation": {
+    "assetFilesChanged": 0,
+    "storyDataChanged": false,
+    "songDataChanged": false,
+    "voluntarySharingCodeChanged": false,
+    "stableTagsMoved": false,
+    "scheduleReenabled": false,
+    "realEmailSent": false,
+    "visitorContentRead": false
+  },
+  "remaining": [
+    "Publish tested source through existing main workflow",
+    "Read back both sites and make non-sending API probes",
+    "Do not claim provider acceptance or inbox delivery; no real test email without fresh explicit authorization"
+  ],
+  "production": {
+    "mainUpdated": false,
+    "newRelease": false,
+    "readBack": false,
+    "claimedLive": false
+  },
+  "priorBlocker": {
+    "error": "listen EPERM 127.0.0.1",
+    "resolved": true,
+    "resolution": "Existing authorized network/socket permission applied; browser and sharing tests completed"
+  },
+  "visualReview": [
+    "390px portrait opening with bottom link",
+    "844px landscape opening with complete buttons and bottom link",
+    "320px fully English policy page"
+  ]
+}

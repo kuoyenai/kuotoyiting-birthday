@@ -1,3 +1,5 @@
 .fan-work-notice{position:static!important;display:block!important;box-sizing:border-box;max-width:1120px;margin:28px auto 0!important;padding:16px 24px calc(20px + env(safe-area-inset-bottom))!important;text-align:right!important;font-family:Arial,"Microsoft JhengHei",sans-serif;font-size:11px!important;font-weight:400;line-height:1.9!important;letter-spacing:.02em;color:#8c8891;opacity:1!important;background:none;border:0!important;overflow-wrap:anywhere}
 .fan-work-notice p{margin:0!important;font-size:inherit!important;line-height:inherit!important;color:inherit!important}
 @media(max-width:600px){.fan-work-notice{padding-left:20px!important;padding-right:20px!important;text-align:left!important;font-size:10px!important}}
+
+.privacy-link{display:inline-flex;align-items:center;min-height:44px;color:inherit;font-size:10.5px;text-underline-offset:4px}.privacy-link:focus-visible{outline:2px solid currentColor;outline-offset:4px}

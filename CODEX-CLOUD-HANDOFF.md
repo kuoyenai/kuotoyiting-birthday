@@ -1,6 +1,9 @@
 # YiTing Birthday｜Codex雲端製作與接續指令
 
-> **目前只統整雲端，暫停功能優化（2026-10-21）。** 先讀 [CLOUD-READINESS.md](CLOUD-READINESS.md)。GitHub已有現行網站所需資料；完整checkout與雲端瀏覽器驗收仍待完成。下方開發指令是未來範本，不能視為已恢復開發。
+> **2026-10-29接續：** 本輪新增英文隱私／創作說明與兩個入口按鈕的背景通知。說明連結已依最後要求移至最下方小字，其他2D優化仍暫停。App79本機驗證通過，正式發布以CLOUD-STATUS.md及tests/release-20261029-79-entry.json的部署讀回為準。
+
+
+> **2026-10-21歷史雲端整理指示。** 先讀 [CLOUD-READINESS.md](CLOUD-READINESS.md)。GitHub已有現行網站所需資料；完整checkout與雲端瀏覽器驗收仍待完成。下方開發指令是未來範本，不能視為已恢復開發。
 
 
 本文件、`AGENTS.md`、`CLOUD-STATUS.md`都保存在GitHub。以後換電腦或在手機開啟雲端任務，先選這個儲存庫，再貼下方指令；接續依據是Git與這些文件。

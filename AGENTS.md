@@ -1,11 +1,14 @@
 # YiTing Birthday — repository instructions
 
-## Current user direction — cloud consolidation only (2026-10-21)
+## Current scope — English privacy page and entry notifications (2026-10-29)
 
-- The latest user instruction pauses product optimization. Organize and preserve the cloud handoff for future development; do not start the historical 2D improvement queue unless the user explicitly resumes it.
-- Keep website code, artwork, App78, content, sharing behavior, deployment settings, stable tags, and the cancelled hourly schedule unchanged during this consolidation.
-- Read `CLOUD-READINESS.md` for the verified GitHub inventory and the remaining environment setup. GitHub preservation and a fully tested cloud runtime are separate statuses.
-
+- The user authorized an English privacy/fan-creation page and background notifications for the two invitation entry buttons. Other 2D optimization remains paused; keep the cancelled hourly schedule cancelled.
+- Candidate App79 is based on main `45b3eea`. Node checks, Chromium entry/privacy checks, original wish/letter regressions and static audit pass. Read the latest release record before claiming production deployment.
+- Keep the policy link accessible at the bottom of the opening, with small visible text and a comfortable touch target. Preserve clear English disclosure of entry-click emails, not a misleading visit-counter description. The opening has no delivery-status banner or recipient-address text.
+- Notifications contain only a fixed button label and server time. Never forward visitor headers, IP addresses, identifiers, URLs, private wishes, replies or reading data. The client makes one attempt per tab session and no automatic retries; loading and reading the policy do not send.
+- The small Vercel relay is scoped to this feature. Preserve the static multi-page site, existing hosting, artwork, content, songs, voluntary sharing and stable tags. Do not send real test mail or claim inbox delivery without fresh explicit authorization.
+- All privacy/fan-creation page content is English at the user's request; the rest of the interface remains Traditional Chinese. Keep in-context fictional-dialogue notices and the existing voluntary-sharing recipient/service disclosures.
+- See `tests/release-20261029-79-entry.json` for actual coverage and deployment readback. Chromium viewport tests do not establish physical Safari/PWA verification.
 
 ## Start here
 

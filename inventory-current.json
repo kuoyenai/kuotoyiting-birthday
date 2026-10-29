@@ -1,6 +1,6 @@
 {
-  "updated": "2026-10-21",
-  "appVersion": "20261021-78",
+  "updated": "2026-10-29",
+  "appVersion": "20261029-79",
   "baseline": "efab385",
   "cards": 100,
   "novel": {
@@ -823,5 +823,21 @@
     "viewports": 8,
     "originalDesktopPreserved": true,
     "physicalIPad": false
+  },
+  "entryNotification": {
+    "buttons": [
+      "introStart",
+      "introSkip"
+    ],
+    "transport": "background fetch to Vercel server relay",
+    "privacyNotice": "privacy.html",
+    "noticeLanguage": "en",
+    "payload": [
+      "entry button",
+      "server receive time"
+    ],
+    "perTabSessionAttemptLimit": 1,
+    "automaticRetries": false,
+    "identifiesVisitor": false
   }
 }

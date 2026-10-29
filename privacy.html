@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+ <meta charset="utf-8">
+ <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+ <meta name="theme-color" content="#101a30">
+ <meta name="app-version" content="20261029-79">
+ <meta name="description" content="Privacy, entry notification details, and unofficial fan-creation terms for the YiTing birthday website.">
+ <title>Privacy &amp; Fan-Creation Notice · YiTing</title>
+ <link rel="manifest" href="manifest.json">
+ <link rel="apple-touch-icon" href="apple-touch-icon.png">
+ <link rel="stylesheet" href="privacy.css?v=20261029-79">
+</head>
+<body>
+ <header><a class="return" href="./">← Back to the invitation</a><span>YITING · OCTOBER 20</span></header>
+ <main>
+  <p class="eyebrow">PRIVACY &amp; PERSONAL USE</p>
+  <h1>Privacy &amp;<br>Fan-Creation Notice</h1>
+  <p class="updated">Last updated: October 29, 2026</p>
+  <p class="lead">This is a personal, non-commercial fan-made birthday gift. Please review how the entry buttons work and how your content is handled.</p>
+
+  <section aria-labelledby="entry-notifications">
+   <h2 id="entry-notifications">Entry-click email notifications</h2>
+   <p>Clicking <strong>“Open the starlight gate”</strong> or <strong>“Skip the opening”</strong> sends a background request. The server attempts to email the website creator a notification containing the selected button and the time the server received the request. This is an email notification, not merely an on-page visit counter.</p>
+   <p>The site makes at most one notification attempt per browser-tab session. Simply loading the page, opening this notice, or dismissing the opening with Escape does not trigger that request. There are no automatic retries, and the animation continues without waiting for the email service.</p>
+   <p>The notification does not identify the visitor. Its application payload does not contain a visitor’s name or email address, IP address, device identifier, user-agent string, referral URL, query parameters, reading progress, wish, or letter. A button click does not establish who visited or whether they read the gift.</p>
+   <p>The notification is relayed by a server function hosted on Vercel and delivered through FormSubmit. The application does not forward visitor connection headers to FormSubmit. Hosting and email providers still process connection information and service logs under their own policies. No additional visitor database is used by this feature.</p>
+   <p>Notification emails remain in the creator’s mailbox until deleted. A successful service response does not prove inbox delivery or reading. Delivery may fail or be delayed. If you have a question about a notification or want to request its deletion, contact the person who sent you this birthday link.</p>
+  </section>
+
+  <section aria-labelledby="local-content">
+   <h2 id="local-content">Your reading, music, and personal content</h2>
+   <p>Reading position, bookmarks, actually-read story panels, favorite cards, selected music, mute preferences, wishes, and future-self replies are stored in the browser where you use the site. Local storage is not a cross-device backup and is not included in entry notifications.</p>
+   <p>Wishes and future-self replies are sent only when you actively choose the sharing button next to that text. The separate sharing controls explain the recipient and service before you send. Loading stored text, typing, collecting, or downloading it does not send that content.</p>
+   <p>You can remove locally saved data through your browser’s site-data controls. The entry-notification session flag contains only whether an attempt has already been made in the current tab; it is not a visitor identifier. Browser restrictions or clearing data may prevent preferences and this flag from being retained.</p>
+  </section>
+
+  <section aria-labelledby="providers">
+   <h2 id="providers">Hosting and external services</h2>
+   <p>The website is hosted on Vercel and GitHub Pages. Entry notifications from either site use the Vercel server function. Their infrastructure and FormSubmit may process operational logs needed to deliver and protect the service. This notice does not promise that providers keep no logs.</p>
+   <ul>
+    <li><a href="https://vercel.com/legal/privacy-policy" rel="noopener noreferrer" target="_blank">Vercel Privacy Policy</a></li>
+    <li><a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement" rel="noopener noreferrer" target="_blank">GitHub General Privacy Statement</a></li>
+    <li><a href="https://formsubmit.co/privacy.pdf" rel="noopener noreferrer" target="_blank">FormSubmit Privacy Policy</a></li>
+   </ul>
+   <p>See each provider’s policy for its service-side retention and privacy practices. The site does not add advertising trackers, fingerprinting, or a visitor account system for this notification feature.</p>
+  </section>
+
+  <section aria-labelledby="fan-creation">
+   <h2 id="fan-creation">Unofficial fan creation</h2>
+   <p>This website is an unofficial, non-commercial fan-made birthday gift for a friend. It is not affiliated with, authorized by, endorsed by, or sponsored by PLAVE or its company. It does not represent an official statement or authorization.</p>
+   <p>Character dialogue, the birthday letter, and fictional scenes are fan fiction. They are not statements made by the actual members.</p>
+   <p>The site and its downloads are intended only for personal appreciation and keepsakes. Do not sell them, use them commercially, or present them as official material. Rights in the PLAVE-related characters, names, trademarks, and original materials remain with their respective rights holders.</p>
+   <p>This notice grants no license to underlying materials. If a rights concern is raised, the creator will review the relevant material and cooperate with appropriate changes or removal.</p>
+  </section>
+
+  <footer><a class="return" href="./">← Back to the invitation</a><p>Some nights stay with us. This one is yours.</p></footer>
+ </main>
+</body>
+</html>

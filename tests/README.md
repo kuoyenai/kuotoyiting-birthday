@@ -46,3 +46,14 @@ App76獨立收尾檢查：`node tests/story-integrity.cjs` 斷言95格章節數�
 ## Codex雲端
 
 使用儲存庫根目錄的CODEX-CLOUD-HANDOFF.md準備Node>=20、Python3及Playwright／瀏覽器，建立可寫的截圖輸出目錄。不要沿用Windows的CHROME_PATH。舊tests/invariants.cjs需0770fb2e5cea862df1f1a39a9553c25eb84a2930歷史Git物件，淺層checkout須先取得；其他列出的瀏覽器測試不需本機舊material-review內容。文件交接不等於雲端已經跑過測試。
+
+
+## 英文隱私頁與入口背景通知（App79）
+
+`node tests/entry-notify.cjs`通過26項通知與relay檢查，包含載入零通知、延遲fetch不阻擋click、兩個入口與同分頁去重、儲存／網路失敗、固定欄位、CORS與錯誤輸入拒絕，以及全英文聲明。服務全部模擬，不寄真實信。
+
+`CHROME_PATH=/usr/bin/chromium node tests/entry-notify-browser.cjs`為此環境已發現的系統瀏覽器用法；其他環境依實際位置設定，或省略CHROME_PATH使用Playwright瀏覽器。19組檢查涵蓋六種尺寸的兩個入口、底部小字／44px、短橫向完整按鈕、延遲與失敗、減少動態、儲存失敗、Escape及英文頁往返。所有外部請求攔截，截圖與結果放在`../material-review`。使用者核准後已可啟動本機測試socket，先前EPERM不再是當前阻擋。
+
+本輪另通過`tests/wish-sharing.cjs` 20組及`tests/letter-sharing.cjs` 10組Chromium回歸，保留原主動分享、收藏／下載與資料隔離；沒有真實寄信。未全量下載本機媒體，沒有重跑整本95格、電影／音樂播放或WebKit／iOS實機；不要擴大聲稱驗收範圍。
+
+發布後跑`python3 tests/entry-notify-deployment.py`：讀回兩站各20份正式檔案並與當前檔案SHA256比對，只以GET／OPTIONS／無效事件POST驗證Vercel函式，這些探測不會呼叫寄信服務。結果放在`../material-review/entry-notify-deployment-results.json`。它不驗證FormSubmit實際接受或收件匣投遞；不新增真實驗收信。
