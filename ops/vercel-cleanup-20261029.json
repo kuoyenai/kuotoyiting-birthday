@@ -1,0 +1,221 @@
+{
+  "date": "2026-10-29",
+  "status": "Ready for guarded review; no deletions executed",
+  "teamId": "team_iYxYD3C4msZ7JMgJVVNwgggx",
+  "projectId": "prj_oXWIO27qp2CVi61ZXmdyxm2b4fKZ",
+  "projectName": "kuotoyiting-birthday",
+  "productionAlias": "kuotoyiting-birthday.vercel.app",
+  "productionId": "dpl_CaDU925FHYTe6piurvbvdVjZ5zLk",
+  "inventoryCount": 24,
+  "kept": [
+    {
+      "id": "dpl_CaDU925FHYTe6piurvbvdVjZ5zLk",
+      "url": "kuotoyiting-birthday-jbyz6ztya-kuoyens-projects.vercel.app",
+      "createdAt": 1793256836713,
+      "state": "READY",
+      "target": "production",
+      "sha": "c27eb5eba5a9355e2f0b4dbf0919afb106c92912",
+      "reason": "Current production; all three active project aliases"
+    },
+    {
+      "id": "dpl_HEvPDWWME9snXVkL76ejXuPb21Fq",
+      "url": "kuotoyiting-birthday-m1jwb7n2u-kuoyens-projects.vercel.app",
+      "createdAt": 1793256112009,
+      "state": "READY",
+      "target": "production",
+      "sha": "b6e99b0b1893856d384191c4a1fcfc27901b3dba",
+      "reason": "Most recent prior deployment; listed rollback candidate"
+    },
+    {
+      "id": "dpl_E3ZkBrfTERCVA6maLusDg8xhdTPN",
+      "url": "kuotoyiting-birthday-gk8fsntm7-kuoyens-projects.vercel.app",
+      "createdAt": 1792406610662,
+      "state": "READY",
+      "target": "production",
+      "sha": "2ea28244ecc0348409caed5533c34acdf4b3f926",
+      "reason": "Owner-designated App74 stable commit 2ea28244ecc0348409caed5533c34acdf4b3f926"
+    }
+  ],
+  "candidates": [
+    {
+      "id": "dpl_FMQVkDUNYQjL9nwHoXTHjZfBUUGG",
+      "url": "kuotoyiting-birthday-qgg7j5fx4-kuoyens-projects.vercel.app",
+      "createdAt": 1793255632370,
+      "state": "READY",
+      "target": "production",
+      "sha": "82ed5d0b294268a0ff53458370c502395df3dcc8"
+    },
+    {
+      "id": "dpl_CeoRSGUQLXxjAPDtE36jZR4uVzSz",
+      "url": "kuotoyiting-birthday-alvk3tyip-kuoyens-projects.vercel.app",
+      "createdAt": 1793254826853,
+      "state": "READY",
+      "target": "production",
+      "sha": "01fe5759fdf7a45bc9116d44cf449e28b6824245"
+    },
+    {
+      "id": "dpl_9FGbAJkHHESq6FJm76yqrowARHPB",
+      "url": "kuotoyiting-birthday-jovyn9vzf-kuoyens-projects.vercel.app",
+      "createdAt": 1793254614937,
+      "state": "READY",
+      "target": "production",
+      "sha": "9042daa5a98d9bf5186817a14b6cb92c1c4f0b9e"
+    },
+    {
+      "id": "dpl_4oKHmzMRWPx4DZsxFEVX32R93KA3",
+      "url": "kuotoyiting-birthday-9p54shuw7-kuoyens-projects.vercel.app",
+      "createdAt": 1793253587684,
+      "state": "READY",
+      "target": "production",
+      "sha": "fcffbc61119fa1a9c6c01b2fef5b3e6d5ff6ec7b"
+    },
+    {
+      "id": "dpl_E7b53khDc72psztYwMKRk7Nr84oL",
+      "url": "kuotoyiting-birthday-6v6exl88b-kuoyens-projects.vercel.app",
+      "createdAt": 1793252698282,
+      "state": "READY",
+      "target": "production",
+      "sha": "a1c79208a59fe6b5f6b2a3932288c8d068238e3c"
+    },
+    {
+      "id": "dpl_G4u8ByAscXApoYVgwk7Fba25R6Rb",
+      "url": "kuotoyiting-birthday-63sajtm3p-kuoyens-projects.vercel.app",
+      "createdAt": 1793250852868,
+      "state": "READY",
+      "target": "production",
+      "sha": "e88e93d95ba0cc806185216b383ed88924a8e13d"
+    },
+    {
+      "id": "dpl_8Cagkt7JrMEq1FthCdueKhedSn3N",
+      "url": "kuotoyiting-birthday-ama1n6588-kuoyens-projects.vercel.app",
+      "createdAt": 1793250473614,
+      "state": "READY",
+      "target": "production",
+      "sha": "2c2c0bfb40659e870ea4b072709d849879db1337"
+    },
+    {
+      "id": "dpl_95X83DvJ6rKHiEG3nhM7j2Yjg51b",
+      "url": "kuotoyiting-birthday-bnwfwdu8x-kuoyens-projects.vercel.app",
+      "createdAt": 1792558484791,
+      "state": "READY",
+      "target": "production",
+      "sha": "45b3eeadfba13751fb741af7552b49e7ff8b2b8c"
+    },
+    {
+      "id": "dpl_BMqkeymu6MRBBwqYZjAnVb5JMLsR",
+      "url": "kuotoyiting-birthday-rkde9e8gs-kuoyens-projects.vercel.app",
+      "createdAt": 1792556104680,
+      "state": "READY",
+      "target": "production",
+      "sha": "bd05c52ec77fba4b99b49470f645deb1c9167786"
+    },
+    {
+      "id": "dpl_Ay4Cp5MUCbruzZdVPESzgKC1JXZE",
+      "url": "kuotoyiting-birthday-bcaj6v002-kuoyens-projects.vercel.app",
+      "createdAt": 1792533430848,
+      "state": "READY",
+      "target": "production",
+      "sha": "a4e842b3e1d67dc3eb2cf95cc20e32ede637f46f"
+    },
+    {
+      "id": "dpl_AHSfxnZKbuuau3VWEXtMwuyk51qG",
+      "url": "kuotoyiting-birthday-4ehorbjhu-kuoyens-projects.vercel.app",
+      "createdAt": 1792532064457,
+      "state": "READY",
+      "target": "production",
+      "sha": "90d5a07137fdc060b110d5b1c43574e1e1187e02"
+    },
+    {
+      "id": "dpl_AEwP2svssfD6dnwWLfD6Ue9KCBFa",
+      "url": "kuotoyiting-birthday-5901tlhs3-kuoyens-projects.vercel.app",
+      "createdAt": 1792515782821,
+      "state": "READY",
+      "target": "production",
+      "sha": "c5b930a0af960fc3f5c023848c417e54122a86fb"
+    },
+    {
+      "id": "dpl_65CsoQ2y4NKsYaGd1oxWPf5sNbLL",
+      "url": "kuotoyiting-birthday-hfff2637o-kuoyens-projects.vercel.app",
+      "createdAt": 1792515528743,
+      "state": "READY",
+      "target": "production",
+      "sha": "a7a9dc528ac2747dd8f5cf24e006001cd71ef067"
+    },
+    {
+      "id": "dpl_3LxYN3U72h2t7GLgiAzGmQsQpQPR",
+      "url": "kuotoyiting-birthday-ldczrdffp-kuoyens-projects.vercel.app",
+      "createdAt": 1792515203577,
+      "state": "READY",
+      "target": "production",
+      "sha": "86e1288c36c5fe6462df7931151fc40ca96ae90e"
+    },
+    {
+      "id": "dpl_CAPGnXDYRmmat52KLfQ6v5es5Ut8",
+      "url": "kuotoyiting-birthday-669i0il0c-kuoyens-projects.vercel.app",
+      "createdAt": 1792416405887,
+      "state": "READY",
+      "target": "production",
+      "sha": "e113d2c3ba316467dd96b1da90d6c9e8185eb4e6"
+    },
+    {
+      "id": "dpl_995NXR7bRPyzAtNaPZPTnwC7RVAQ",
+      "url": "kuotoyiting-birthday-b68zr2ybq-kuoyens-projects.vercel.app",
+      "createdAt": 1792415457395,
+      "state": "READY",
+      "target": "production",
+      "sha": "c0f6b8fdfaafbdee261c9068ad675960877acbed"
+    },
+    {
+      "id": "dpl_FKZDNUHuW87rWEUdFpja8gp63FuY",
+      "url": "kuotoyiting-birthday-j0cf7ji7y-kuoyens-projects.vercel.app",
+      "createdAt": 1792415149021,
+      "state": "READY",
+      "target": "production",
+      "sha": "5170584bcca40c7c1753184becf2115fe28ed7c8"
+    },
+    {
+      "id": "dpl_HTJhpXCmi8krG7DWeLEG9WGw79yk",
+      "url": "kuotoyiting-birthday-kdbtacp6h-kuoyens-projects.vercel.app",
+      "createdAt": 1792407959039,
+      "state": "READY",
+      "target": "production",
+      "sha": "90af58f088080c80e5efc6c257d430da026b6bdb"
+    },
+    {
+      "id": "dpl_7Ba5jvxum3xK1nNxWYcRAo1mZoMf",
+      "url": "kuotoyiting-birthday-88wxuih8q-kuoyens-projects.vercel.app",
+      "createdAt": 1792393946035,
+      "state": "READY",
+      "target": "production",
+      "sha": "b50183927479f7de14b47437f99f18db372aa319"
+    },
+    {
+      "id": "dpl_AFPW1mpYNawVBrxEJtATzBf8UxE5",
+      "url": "kuotoyiting-birthday-rd5woaxr0-kuoyens-projects.vercel.app",
+      "createdAt": 1792393342217,
+      "state": "READY",
+      "target": "production",
+      "sha": "1082c14d1b796001d67799a8ef79e18ab10d6541"
+    },
+    {
+      "id": "dpl_BLh8edqC2P8cTZcXKDt1KXVXEwpS",
+      "url": "kuotoyiting-birthday-1errhvisj-kuoyens-projects.vercel.app",
+      "createdAt": 1792392842153,
+      "state": "READY",
+      "target": "production",
+      "sha": "d05903321e950362c556097474f406994e2aa362"
+    }
+  ],
+  "deletedCount": 0,
+  "otherProjectsExcluded": [
+    "jpera",
+    "kuo-ai-studio"
+  ],
+  "blockers": [
+    "Connected Vercel tools have no deployment DELETE operation",
+    "No VERCEL_TOKEN configured in cloud runtime",
+    "Dedicated rollback-candidate query denied403; ordinary deployment list returned candidacy flags",
+    "Owner uses ordinary ChatGPT; no confirmed user-accessible secure runtime Secret setup path. Prior request to configure a token was corrected; do not request token in chat."
+  ],
+  "scope": "Candidate cleanup is authorized by owner; do not ask to reapprove the same deletion scope. An API credential is still missing."
+}
