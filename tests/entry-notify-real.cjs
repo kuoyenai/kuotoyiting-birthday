@@ -11,7 +11,8 @@ const output=path.resolve(__dirname,'../../material-review/entry-notify-real-res
 const report={appVersion:'20261029-80',transport:'direct FormSubmit browser AJAX',startedAtUtc:new Date().toISOString(),recipient:'kuoyen.ai@gmail.com',
  notificationSubject:'YiTing｜網站入口通知',productionMessageFormatUnchanged:true,
  testIdentification:'Owner-authorized synthetic browser clicks; identify the two emails by button and recorded time.',
- maxRealPostRequests:2,realPostRequests:0,attempts:[],inboxDeliveryConfirmed:false};
+ maxBrowserPostAttempts:2,browserPostAttempts:0,attempts:[],inboxDeliveryConfirmed:false,
+ attemptCountMeaning:'Browser route interception only; not evidence that FormSubmit received a POST or sent an email'};
 fs.mkdirSync(path.dirname(output),{recursive:true});
 function save(){fs.writeFileSync(output,JSON.stringify(report,null,2)+'\n');}
 function taipei(iso){return new Intl.DateTimeFormat('zh-TW',{dateStyle:'medium',timeStyle:'medium',timeZone:'Asia/Taipei'}).format(new Date(iso));}
@@ -22,11 +23,15 @@ save();
  try{
   for(const item of [
    {site:'https://kuotoyiting-birthday.vercel.app/',button:'introStart',entry:'gate',label:'開啟星光之門'},
-   {site:'https://kuoyenai.github.io/kuotoyiting-birthday/',button:'introSkip',entry:'skip',label:'略過開場'}
+   {site:'https://kuotoyiting-birthday.vercel.app/',button:'introSkip',entry:'skip',label:'略過開場'}
   ]){
-   const attempt={site:item.site,button:item.label,entry:item.entry,realPostSent:false,providerAccepted:false};report.attempts.push(attempt);save();
+   const attempt={site:item.site,button:item.label,entry:item.entry,browserPostAttempted:false,providerAccepted:false};report.attempts.push(attempt);save();
    const page=await browser.newPage({viewport:{width:390,height:844},serviceWorkers:'block'}),errors=[];page.setDefaultTimeout(20000);
    page.on('pageerror',error=>errors.push(error.message));let armed=false;
+   page.on('requestfailed',request=>{if(request.url()===endpoint){attempt.transportFailure=request.failure()?.errorText;save();}});
+   page.on('response',response=>{if(response.url()===endpoint&&response.request().method()==='POST'){
+    attempt.httpStatus=response.status();attempt.responseAtUtc=new Date().toISOString();attempt.serverDate=response.headers().date;save();
+   }});
    await page.addInitScript(({endpoint})=>{
     localStorage.setItem('yiting-music-preferences',JSON.stringify({index:0,paused:true}));
     const original=window.fetch.bind(window);
@@ -46,10 +51,10 @@ save();
     if(url.href===endpoint){
      if(request.method()==='OPTIONS'){await route.continue();return;}
      const body=request.postDataJSON();
-     if(!armed||request.method()!=='POST'||report.realPostRequests>=2||body.entry!==item.label||body._subject!=='YiTing｜網站入口通知'||Object.keys(body).sort().join(',')!==['_subject','_template','entry','message','name','source','time'].sort().join(',')){
+     if(!armed||request.method()!=='POST'||report.browserPostAttempts>=2||body.entry!==item.label||body._subject!=='YiTing｜網站入口通知'||Object.keys(body).sort().join(',')!==['_subject','_template','entry','message','name','source','time'].sort().join(',')){
       await route.abort('blockedbyclient');return;
      }
-     armed=false;report.realPostRequests++;attempt.realPostSent=true;attempt.requestPayload=body;
+     armed=false;report.browserPostAttempts++;attempt.browserPostAttempted=true;attempt.requestPayload=body;
      attempt.clickedAtUtc=new Date().toISOString();attempt.clickedAtTaipei=taipei(attempt.clickedAtUtc);
      assert.equal(request.headers().referer,new URL(item.site).origin+'/','production notification includes only the public origin as referrer');save();
      // Continue this one authorized real request to the original FormSubmit service.
@@ -67,11 +72,9 @@ save();
     await frame.waitForFunction(()=>document.readyState==='complete'&&document.fonts.status==='loaded');
     assert.equal(await frame.locator('meta[name="app-version"]').getAttribute('content'),'20261029-80','real verification must use the deployed repaired version');
     assert.ok(await frame.locator('#cinemaIntro .intro-privacy').isVisible());
-    assert.equal(attempt.realPostSent,false,'page load alone does not send');
-    const responseReady=page.waitForResponse(response=>response.url()===endpoint&&response.request().method()==='POST',{timeout:25000});
+    assert.equal(attempt.browserPostAttempted,false,'page load alone does not send');
     armed=true;await frame.locator('#'+item.button).click({noWaitAfter:true,timeout:15000});
-    const response=await responseReady;
-    attempt.httpStatus=response.status();attempt.responseAtUtc=new Date().toISOString();attempt.serverDate=response.headers().date;save();
+    await frame.waitForFunction(()=>window.__ownerEntryVerification!==undefined,undefined,{timeout:25000});
     try{
      await frame.waitForFunction(()=>window.__ownerEntryVerification!==undefined,undefined,{timeout:6000});
      attempt.response=await frame.evaluate(()=>window.__ownerEntryVerification);
@@ -82,13 +85,13 @@ save();
     assert.doesNotMatch(await frame.locator('body').innerText(),/正在寄信|已通知|寄送成功|kuoyen\.ai@gmail\.com/);
     attempt.pageErrors=errors;
     console.log(JSON.stringify({button:item.label,clickedAtTaipei:attempt.clickedAtTaipei,httpStatus:attempt.httpStatus,providerAccepted:attempt.providerAccepted}));
-   }catch(error){attempt.error=String(error).split('\n')[0];console.log(JSON.stringify({button:item.label,error:attempt.error,realPostSent:attempt.realPostSent,providerAccepted:attempt.providerAccepted}));}
+   }catch(error){attempt.error=String(error).split('\n')[0];console.log(JSON.stringify({button:item.label,error:attempt.error,browserPostAttempted:attempt.browserPostAttempted,providerAccepted:attempt.providerAccepted}));}
    finally{save();await page.close();}
   }
  }finally{
   await browser.close();report.completedAtUtc=new Date().toISOString();
   report.bothProviderAccepted=report.attempts.length===2&&report.attempts.every(a=>a.providerAccepted);save();
  }
- console.log('Real notification POSTs: '+report.realPostRequests+'; provider acceptance: '+report.bothProviderAccepted+'; inbox delivery not independently verified.');
+ console.log('Browser POST attempts: '+report.browserPostAttempts+'; provider acceptance: '+report.bothProviderAccepted+'; inbox delivery not independently verified.');
  if(!report.bothProviderAccepted)process.exitCode=1;
 })().catch(error=>{report.error=String(error).split('\n')[0];save();console.error(report.error);process.exitCode=1;});

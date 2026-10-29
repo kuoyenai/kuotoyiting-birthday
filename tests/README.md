@@ -59,7 +59,7 @@ App76獨立收尾檢查：`node tests/story-integrity.cjs` 斷言95格章節數�
 發布後跑`python3 tests/entry-notify-deployment.py`：讀回兩站各20份正式檔案並與當前檔案SHA256比對，只以GET／OPTIONS／無效事件POST驗證Vercel函式，這些探測不會呼叫寄信服務。結果放在`../material-review/entry-notify-deployment-results.json`。它不驗證FormSubmit實際接受或收件匣投遞；不新增真實驗收信。
 
 
-正式站額外UI檢查：`CHROME_PATH=/usr/bin/chromium node tests/entry-notify-live.cjs`會讀兩站實際HTML／CSS／字型並攔截有效入口通知POST；其他FormSubmit與非GET外部請求亦會阻擋，避免寄真實信。本環境目前因代理CA的`ERR_CERT_AUTHORITY_INVALID`未能載入正式頁面；不使用忽略憑證錯誤的參數。此限制不影響已用正常TLS完成的40檔案HTTP讀回與5項不寄信API探測。請在具正確信任設定的環境重跑，不能把這次失敗冒稱通過。
+正式站額外UI檢查：`CHROME_PATH=/usr/bin/chromium node tests/entry-notify-live.cjs`會讀兩站實際HTML／CSS／字型並攔截有效入口通知POST；其他FormSubmit與非GET外部請求亦會阻擋，避免寄真實信。App79曾因代理CA的`ERR_CERT_AUTHORITY_INVALID`未載入；App80已暫時信任環境提供的公開CA後完成兩站UI驗證，未忽略TLS錯誤，結束已移除暫存項目並保留原有信任設定。App80的40份正式檔案及舊API移除讀回亦通過；正式UI模擬寄信不代表真實投遞。
 
 
 ## App80：參照原分享設計的直接FormSubmit入口通知
@@ -71,3 +71,11 @@ App76獨立收尾檢查：`node tests/story-integrity.cjs` 斷言95格章節數�
 只有網站擁有者明確授權時，才執行`CHROME_PATH=/usr/bin/chromium node tests/entry-notify-real.cjs --send-two-real-notifications --recipient=kuoyen.ai@gmail.com`。沒有兩個opt-in參數時會SKIP。腳本使用兩個全新合成瀏覽器情境，在正式App80點擊gate及skip，最多放行2次真正FormSubmit POST，不修改寄送欄位／主旨，不讀訪客資料；以主旨及精確時間辨識驗收信。服務必須HTTP200且JSON success為true才記為接受；回應與動作皆有限時，無自動重試。輸出在`../material-review/entry-notify-real-results.json`，不等於已確認收件匣投遞。
 
 App79第一輪真實請求回503，原始回應另保存；不要將它冒稱成成功寄信。瀏覽器代理CA只能信任環境已配置的公開憑證，不關閉TLS驗證，不提交本機憑證資料庫或診斷程序完整日誌。
+
+## App80真實投遞未通過（2026-10-29）
+
+兩站40檔案與攔截通知的正式UI通過。台北13:47:16／13:47:42的gate／skip合成點擊僅觀測到瀏覽器提交嘗試，未收到FormSubmit HTTP／success回應；擁有者回覆「尚未收到」。後續只讀OPTIONS預檢與說明頁GET回521，瀏覽器報缺少CORS標頭。完整證據見 `release-20261029-80-entry.json`。不要將route攔截計數當成遠端已收到POST。
+
+只讀診斷：`CHROME_PATH=/usr/bin/chromium node tests/entry-notify-transport.cjs`。它不點入口，只允許GET／HEAD／OPTIONS、封鎖其他method及影音，輸出 `../material-review/formsubmit-connection-diagnostics.json`；此診斷不寄信。需正常網路及TLS信任設定，不使用忽略憑證或no-cors繞過錯誤。故障恢復後再進行有限次實寄驗收，必須另取得擁有者收件確認。
+
+真實腳本的 `browserPostAttempts`／`browserPostAttempted` 僅表示瀏覽器提交嘗試；`providerAccepted` 要求HTTP200加success JSON，與 `inboxDeliveryConfirmed` 分開。此輪沒有服務回應，不能推斷收件人啟用或Gmail設定有誤。正常測試均攔截寄信。

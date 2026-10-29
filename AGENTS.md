@@ -1,20 +1,20 @@
 # YiTing Birthday — repository instructions
 
-## Current scope — owner-authorized real entry-email verification (2026-10-29)
+## Current scope — entry-email delivery blocked (2026-10-29)
 
-- The user explicitly requested real delivery verification to `kuoyen.ai@gmail.com` and asked to reuse the existing FormSubmit design. This authorizes the bounded synthetic verification round, not reading visitor content or silently resending tests forever. Normal regression tests remain mocked.
-- App79's real gate click reached the deployed relay but returned HTTP503 at 13:23:42 Taipei. Do not equate the earlier mocked tests / file readback with real delivery. The skip event was not sent in that round.
-- Candidate App80 restores direct browser FormSubmit AJAX, matching `wish-sharing.js`, and removes the failed Vercel relay. Consume provider JSON in the background without delaying entry or writing delivery-status UI. One attempt per tab, no automatic retries.
-- Keep the small bottom policy link and accurate fully English notice. Direct requests expose ordinary connection metadata to FormSubmit; do not falsely retain the relay's privacy claims. Application fields contain only the button, browser timestamp, and fixed explanatory text, never wishes/replies/reading state or visitor identifiers.
-- The 16 unit checks, 19 local Chromium entry/privacy cases, 30 wish/letter regressions and App80 audit pass. Production readback and real FormSubmit success remain pending at this prepared commit. Use the current release evidence, and never claim inbox delivery from a service acceptance response alone.
-- Keep stories, original artwork, cards, songs, progress, voluntary-sharing disclosures, stable tags and the cancelled schedule unchanged. Other 2D optimization remains paused.
+- The owner requested real delivery verification to `kuoyen.ai@gmail.com` and reuse of the existing FormSubmit design. Only bounded synthetic checks are authorized; do not read visitor content or resend indefinitely. Normal regressions stay mocked.
+- Deployed App80 (`a1c7920`) uses direct browser FormSubmit AJAX, matching `wish-sharing.js`, and removes App79's failed relay. App79's gate test returned503. Consume replies in the background, no entry delay or status UI; one attempt per tab, no automatic retries.
+- Both sites' 40-file readback and two mocked production Chromium UI checks pass. Real gate/skip clicks at 13:47:16/13:47:42 Taipei got no provider reply; the owner reported neither email received. Read-only FormSubmit preflight/documentation GET returned521 with missing CORS headers. Delivery remains unverified; see `tests/release-20261029-80-entry.json`.
+- Do not treat route-intercepted browser attempts as remote receipt. Do not bypass TLS/access restrictions or change to no-cors. Run `tests/entry-notify-transport.cjs` for read-only diagnostics; do not blindly send more mail. Resume bounded real checks after connectivity is restored, distinguishing service acceptance from owner-confirmed inbox delivery.
+- Keep the small bottom policy link and fully English accurate privacy notice. Direct requests expose ordinary connection metadata to FormSubmit; fields contain only button/time/fixed text, never wishes/replies/progress or visitor IDs.
+- The 16 unit checks, 19 local entry/privacy cases, 30 wish/letter regressions and App80 audit pass (mock email). Preserve stories, original artwork, cards, songs, progress, voluntary-sharing disclosures, stable tags and the cancelled schedule. Other2D optimization remains paused.
 
 ## Start here
 
 - Work in this Git repository's root; it is already the website root. Do not assume a desktop checkout path or an extra `publish-repo/` subdirectory.
 - Read `CLOUD-STATUS.md`, `CODEX-CLOUD-HANDOFF.md`, `README.md`, `CONTINUE-HERE.md`, and relevant `tests/README.md` sections. The latest explicit user request and current Git state take priority over historical notes.
 - Inspect `git status`, the selected branch, recent commits, and differences from `origin/main` when accessible. Preserve uncommitted work; never reset/clean/force-push to resolve a sync problem.
-- Current product baseline is App `20261029-79`, code `2c2c0bf`; deployment proof is in `tests/release-20261029-79-entry.json`. App78 code `90d5a07` / records `a4e842b` remain historical. Do not revert to App74 just because it is the named stable backup.
+- Current product baseline is App `20261029-80`, code `a1c7920`; production and failed real-delivery evidence are in `tests/release-20261029-80-entry.json`. App79/App78 records remain historical. Do not revert to App74 just because it is the named stable backup.
 
 ## Project and content
 

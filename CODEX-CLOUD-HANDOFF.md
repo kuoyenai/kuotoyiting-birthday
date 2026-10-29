@@ -1,6 +1,6 @@
 # YiTing Birthday｜Codex雲端製作與接續指令
 
-> **App80本輪接續：** App79真實入口通知回503，不能以先前模擬測試當作真實寄達。依使用者要求改回既有瀏覽器直接FormSubmit AJAX流程，移除轉送層；本機檢查通過，正式發布及有授權的兩次實寄驗收仍以CLOUD-STATUS.md／tests/release-20261029-80-entry.json為準。
+> **App80最新接續：** `a1c7920`已在兩站讀回40/40正式檔案，兩站攔截寄信的正式Chromium UI也通過。台北13:47:16與13:47:42的入口合成點擊未取得FormSubmit接受回應，使用者回覆「尚未收到」。不寄信診斷的FormSubmit預檢／說明頁回521並缺少CORS允許標頭；真實寄達尚未驗收成功，勿盲目重寄或假稱上線即投遞。先用`tests/entry-notify-transport.cjs`做只讀診斷，再依CLOUD-STATUS.md／tests/release-20261029-80-entry.json接續。
 
 
 > **2026-10-29接續：** 本輪新增英文隱私／創作說明與兩個入口按鈕的背景通知。說明連結已依最後要求移至最下方小字，其他2D優化仍暫停。App79已推main，兩站40份正式檔案及5項不寄信API檢查已讀回通過；完整證據與驗收限制見CLOUD-STATUS.md及tests/release-20261029-79-entry.json。
@@ -81,7 +81,7 @@
 | 同行、人物與場景 | `explore-actors.js`、`explore-companion*.js`、`explore-group-companions.js`、相關`explore-*.js/css` |
 | 真正已讀、續讀與收藏 | `explore-story.js`、`explore-intro.js`、`explore-starbook.js`、`explore-finale.js` |
 | 2D選曲 | `explore-music.js/css` |
-| 英文隱私／創作聲明與入口通知 | `privacy.html`、`privacy.css`、`entry-notify.js`、`api/entry-notify.js` |
+| 英文隱私／創作聲明與入口通知 | `privacy.html`、`privacy.css`、`entry-notify.js`（App80已移除API轉送） |
 | 願望與未來回信 | `wish-sharing.js/css`、`birthday-letter.js`、`explore-wish.js` |
 | PWA | `manifest.json`與相容副本、`pwa.js`、`sw.js`、`audit.py` |
 | 外觀參考與產圖提示 | `assets/reference-*.jpg`、`game-art-prompts.json`、`art-reviews/*.json` |
