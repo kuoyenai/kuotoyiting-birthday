@@ -1,7 +1,7 @@
 {
   "date": "2026-10-29",
   "timezone": "Asia/Taipei",
-  "status": "local verification passed; pending main deployment and production readback",
+  "status": "deployed; both production sites read back and matched",
   "baseline": {
     "branch": "main",
     "commit": "45b3eeadfba13751fb741af7552b49e7ff8b2b8c",
@@ -9,12 +9,13 @@
     "establishedApp": "20261021-78"
   },
   "candidate": {
-    "branch": "main (prepared update from baseline)",
+    "branch": "main",
     "app": "20261029-79",
     "privacyPage": "privacy.html",
     "privacyLanguage": "en",
     "client": "entry-notify.js",
-    "relay": "api/entry-notify.js"
+    "relay": "api/entry-notify.js",
+    "codeCommit": "2c2c0bfb40659e870ea4b072709d849879db1337"
   },
   "implemented": {
     "notice": "English privacy and fan-creation page; small policy link at the bottom of the opening and existing footer locations",
@@ -104,6 +105,20 @@
       "status": "pass",
       "cases": 10,
       "externalEmail": "mocked"
+    },
+    {
+      "command": "python3 tests/entry-notify-deployment.py",
+      "status": "pass",
+      "productionFileMatches": 40,
+      "nonSendingApiProbes": 5,
+      "realEmailSent": false
+    },
+    {
+      "command": "CHROME_PATH=/usr/bin/chromium node tests/entry-notify-live.cjs",
+      "status": "environment-blocked",
+      "error": "net::ERR_CERT_AUTHORITY_INVALID from proxy CA trust before public page loaded",
+      "tlsVerificationDisabled": false,
+      "actualNotificationPostSent": false
     }
   ],
   "coverageLimits": [
@@ -111,7 +126,7 @@
     "No complete 95-panel, movie or music playback rerun",
     "No desktop WebKit or physical iPhone/iPad Safari/PWA verification",
     "No live FormSubmit acceptance or inbox delivery verification",
-    "Production deployment/readback pending"
+    "Additional live-browser UI attempt blocked by environment proxy CA trust; actual production HTTP readback with TLS validation passed"
   ],
   "preservation": {
     "assetFilesChanged": 0,
@@ -124,15 +139,380 @@
     "visitorContentRead": false
   },
   "remaining": [
-    "Publish tested source through existing main workflow",
-    "Read back both sites and make non-sending API probes",
-    "Do not claim provider acceptance or inbox delivery; no real test email without fresh explicit authorization"
+    "Optional live-browser UI check in an environment with correct proxy CA trust",
+    "Physical iPhone/iPad Safari or installed-PWA verification remains separate",
+    "Actual provider acceptance/inbox delivery is not claimed; do not send real test mail without fresh explicit authorization"
   ],
   "production": {
-    "mainUpdated": false,
-    "newRelease": false,
-    "readBack": false,
-    "claimedLive": false
+    "mainUpdated": true,
+    "newRelease": true,
+    "readBack": true,
+    "claimedLive": true,
+    "app": "20261029-79",
+    "codeCommit": "2c2c0bfb40659e870ea4b072709d849879db1337",
+    "vercelStatus": "success",
+    "pagesRun": 40821598836,
+    "pagesStatus": "success",
+    "readBackEvidence": {
+      "checkedAtUtc": "20261029T050946Z",
+      "passed": true,
+      "realEmailSent": false,
+      "serviceAcceptanceVerified": false,
+      "inboxDeliveryVerified": false,
+      "files": [
+        {
+          "site": "https://kuotoyiting-birthday.vercel.app/",
+          "path": "index.html",
+          "status": 200,
+          "expectedSha256": "f5794c919e1d8e36df246e3b4a560b61882e846dc85b1b6a5d01b5e09b5260a9",
+          "actualSha256": "f5794c919e1d8e36df246e3b4a560b61882e846dc85b1b6a5d01b5e09b5260a9",
+          "matches": true
+        },
+        {
+          "site": "https://kuotoyiting-birthday.vercel.app/",
+          "path": "privacy.html",
+          "status": 200,
+          "expectedSha256": "40ee07599f242648c27f939964a06114841855521ca51893739a8e91438bbec7",
+          "actualSha256": "40ee07599f242648c27f939964a06114841855521ca51893739a8e91438bbec7",
+          "matches": true
+        },
+        {
+          "site": "https://kuotoyiting-birthday.vercel.app/",
+          "path": "privacy.css",
+          "status": 200,
+          "expectedSha256": "4f339f3ef7de3bca04e531ae6dd2123cb2b15c97a163c1a820a23bf9c3174ddf",
+          "actualSha256": "4f339f3ef7de3bca04e531ae6dd2123cb2b15c97a163c1a820a23bf9c3174ddf",
+          "matches": true
+        },
+        {
+          "site": "https://kuotoyiting-birthday.vercel.app/",
+          "path": "entry-notify.js",
+          "status": 200,
+          "expectedSha256": "cb9e8fc5cb359e8a47d0533db983c398a2a1876dbe25d8df47d2842c4c528eb5",
+          "actualSha256": "cb9e8fc5cb359e8a47d0533db983c398a2a1876dbe25d8df47d2842c4c528eb5",
+          "matches": true
+        },
+        {
+          "site": "https://kuotoyiting-birthday.vercel.app/",
+          "path": "cinema-intro.css",
+          "status": 200,
+          "expectedSha256": "788453aba3a6e4892344aadf367daf3ca712ba5e592453a73acb500a2a9bf7af",
+          "actualSha256": "788453aba3a6e4892344aadf367daf3ca712ba5e592453a73acb500a2a9bf7af",
+          "matches": true
+        },
+        {
+          "site": "https://kuotoyiting-birthday.vercel.app/",
+          "path": "fan-notice.css",
+          "status": 200,
+          "expectedSha256": "03adc2819af0f52c98f09ab385b72a78f32cc3068bbc3468d752af05291f44a6",
+          "actualSha256": "03adc2819af0f52c98f09ab385b72a78f32cc3068bbc3468d752af05291f44a6",
+          "matches": true
+        },
+        {
+          "site": "https://kuotoyiting-birthday.vercel.app/",
+          "path": "pwa.js",
+          "status": 200,
+          "expectedSha256": "33ac9dc29285ba4f9c728a1ec9a653cd6e382644bbc27b4f1fc977c4dd4ce7b2",
+          "actualSha256": "33ac9dc29285ba4f9c728a1ec9a653cd6e382644bbc27b4f1fc977c4dd4ce7b2",
+          "matches": true
+        },
+        {
+          "site": "https://kuotoyiting-birthday.vercel.app/",
+          "path": "sw.js",
+          "status": 200,
+          "expectedSha256": "961fde5f8f3592b0f42eeccb800d26ebbe489a83ccf53ea2326204bc4ffbb3a0",
+          "actualSha256": "961fde5f8f3592b0f42eeccb800d26ebbe489a83ccf53ea2326204bc4ffbb3a0",
+          "matches": true
+        },
+        {
+          "site": "https://kuotoyiting-birthday.vercel.app/",
+          "path": "inventory-current.json",
+          "status": 200,
+          "expectedSha256": "c208fe0e160f1edea23eb8d0f9adb2c4c7b30259d604e941b62cb6ca09b11609",
+          "actualSha256": "c208fe0e160f1edea23eb8d0f9adb2c4c7b30259d604e941b62cb6ca09b11609",
+          "matches": true
+        },
+        {
+          "site": "https://kuotoyiting-birthday.vercel.app/",
+          "path": "music-shell.html",
+          "status": 200,
+          "expectedSha256": "135338737eabeb8374318ae2a46d9a88c5b87306a5d0189e79d1d544d9c2788b",
+          "actualSha256": "135338737eabeb8374318ae2a46d9a88c5b87306a5d0189e79d1d544d9c2788b",
+          "matches": true
+        },
+        {
+          "site": "https://kuotoyiting-birthday.vercel.app/",
+          "path": "game.html",
+          "status": 200,
+          "expectedSha256": "b7e015352bf35d8d71b78d74f446b3a90b7f323471524a6ad35ae32f80578be8",
+          "actualSha256": "b7e015352bf35d8d71b78d74f446b3a90b7f323471524a6ad35ae32f80578be8",
+          "matches": true
+        },
+        {
+          "site": "https://kuotoyiting-birthday.vercel.app/",
+          "path": "gift.html",
+          "status": 200,
+          "expectedSha256": "c78a7cbdc5006dbf81ed1a489a7bec059e7075aa5f0e309758412a24c521147b",
+          "actualSha256": "c78a7cbdc5006dbf81ed1a489a7bec059e7075aa5f0e309758412a24c521147b",
+          "matches": true
+        },
+        {
+          "site": "https://kuotoyiting-birthday.vercel.app/",
+          "path": "movie.html",
+          "status": 200,
+          "expectedSha256": "f2f89e4faff450bc783c37074252c787ccdc02b9e862c396dd3f3ecf99fdf707",
+          "actualSha256": "f2f89e4faff450bc783c37074252c787ccdc02b9e862c396dd3f3ecf99fdf707",
+          "matches": true
+        },
+        {
+          "site": "https://kuotoyiting-birthday.vercel.app/",
+          "path": "novel-comic.html",
+          "status": 200,
+          "expectedSha256": "913329f705421c25ba6296ef079742faa0d91ec2956cca45f979ed4cd16fc49e",
+          "actualSha256": "913329f705421c25ba6296ef079742faa0d91ec2956cca45f979ed4cd16fc49e",
+          "matches": true
+        },
+        {
+          "site": "https://kuotoyiting-birthday.vercel.app/",
+          "path": "starlight.html",
+          "status": 200,
+          "expectedSha256": "699a208d2df46544b6900fdcc05a7edfd6e00c4b80a86dc170602ec18779bc78",
+          "actualSha256": "699a208d2df46544b6900fdcc05a7edfd6e00c4b80a86dc170602ec18779bc78",
+          "matches": true
+        },
+        {
+          "site": "https://kuotoyiting-birthday.vercel.app/",
+          "path": "explore-intro.html",
+          "status": 200,
+          "expectedSha256": "637b6e90bbc49c70bf86ae322d30a4fe15c621c82b390424cc18bc9839986da5",
+          "actualSha256": "637b6e90bbc49c70bf86ae322d30a4fe15c621c82b390424cc18bc9839986da5",
+          "matches": true
+        },
+        {
+          "site": "https://kuotoyiting-birthday.vercel.app/",
+          "path": "explore.html",
+          "status": 200,
+          "expectedSha256": "c11951062229a624a6f71c4cb17207318de31e7c346f267f0874026235c91f2a",
+          "actualSha256": "c11951062229a624a6f71c4cb17207318de31e7c346f267f0874026235c91f2a",
+          "matches": true
+        },
+        {
+          "site": "https://kuotoyiting-birthday.vercel.app/",
+          "path": "explore-test.html",
+          "status": 200,
+          "expectedSha256": "e5c1f26096b8870218f08146c04bd52118f2ad977eb57492c3294b0a9c682b8b",
+          "actualSha256": "e5c1f26096b8870218f08146c04bd52118f2ad977eb57492c3294b0a9c682b8b",
+          "matches": true
+        },
+        {
+          "site": "https://kuotoyiting-birthday.vercel.app/",
+          "path": "install.html",
+          "status": 200,
+          "expectedSha256": "1cafb4d2d749157e347283ee545eea0de244ba4b928e63a77c11227597d37c65",
+          "actualSha256": "1cafb4d2d749157e347283ee545eea0de244ba4b928e63a77c11227597d37c65",
+          "matches": true
+        },
+        {
+          "site": "https://kuotoyiting-birthday.vercel.app/",
+          "path": "materials.html",
+          "status": 200,
+          "expectedSha256": "1bc83e12a509cf6691e168d6c19299f0df1b5765d030bdae75cd8f638ae20108",
+          "actualSha256": "1bc83e12a509cf6691e168d6c19299f0df1b5765d030bdae75cd8f638ae20108",
+          "matches": true
+        },
+        {
+          "site": "https://kuoyenai.github.io/kuotoyiting-birthday/",
+          "path": "index.html",
+          "status": 200,
+          "expectedSha256": "f5794c919e1d8e36df246e3b4a560b61882e846dc85b1b6a5d01b5e09b5260a9",
+          "actualSha256": "f5794c919e1d8e36df246e3b4a560b61882e846dc85b1b6a5d01b5e09b5260a9",
+          "matches": true
+        },
+        {
+          "site": "https://kuoyenai.github.io/kuotoyiting-birthday/",
+          "path": "privacy.html",
+          "status": 200,
+          "expectedSha256": "40ee07599f242648c27f939964a06114841855521ca51893739a8e91438bbec7",
+          "actualSha256": "40ee07599f242648c27f939964a06114841855521ca51893739a8e91438bbec7",
+          "matches": true
+        },
+        {
+          "site": "https://kuoyenai.github.io/kuotoyiting-birthday/",
+          "path": "privacy.css",
+          "status": 200,
+          "expectedSha256": "4f339f3ef7de3bca04e531ae6dd2123cb2b15c97a163c1a820a23bf9c3174ddf",
+          "actualSha256": "4f339f3ef7de3bca04e531ae6dd2123cb2b15c97a163c1a820a23bf9c3174ddf",
+          "matches": true
+        },
+        {
+          "site": "https://kuoyenai.github.io/kuotoyiting-birthday/",
+          "path": "entry-notify.js",
+          "status": 200,
+          "expectedSha256": "cb9e8fc5cb359e8a47d0533db983c398a2a1876dbe25d8df47d2842c4c528eb5",
+          "actualSha256": "cb9e8fc5cb359e8a47d0533db983c398a2a1876dbe25d8df47d2842c4c528eb5",
+          "matches": true
+        },
+        {
+          "site": "https://kuoyenai.github.io/kuotoyiting-birthday/",
+          "path": "cinema-intro.css",
+          "status": 200,
+          "expectedSha256": "788453aba3a6e4892344aadf367daf3ca712ba5e592453a73acb500a2a9bf7af",
+          "actualSha256": "788453aba3a6e4892344aadf367daf3ca712ba5e592453a73acb500a2a9bf7af",
+          "matches": true
+        },
+        {
+          "site": "https://kuoyenai.github.io/kuotoyiting-birthday/",
+          "path": "fan-notice.css",
+          "status": 200,
+          "expectedSha256": "03adc2819af0f52c98f09ab385b72a78f32cc3068bbc3468d752af05291f44a6",
+          "actualSha256": "03adc2819af0f52c98f09ab385b72a78f32cc3068bbc3468d752af05291f44a6",
+          "matches": true
+        },
+        {
+          "site": "https://kuoyenai.github.io/kuotoyiting-birthday/",
+          "path": "pwa.js",
+          "status": 200,
+          "expectedSha256": "33ac9dc29285ba4f9c728a1ec9a653cd6e382644bbc27b4f1fc977c4dd4ce7b2",
+          "actualSha256": "33ac9dc29285ba4f9c728a1ec9a653cd6e382644bbc27b4f1fc977c4dd4ce7b2",
+          "matches": true
+        },
+        {
+          "site": "https://kuoyenai.github.io/kuotoyiting-birthday/",
+          "path": "sw.js",
+          "status": 200,
+          "expectedSha256": "961fde5f8f3592b0f42eeccb800d26ebbe489a83ccf53ea2326204bc4ffbb3a0",
+          "actualSha256": "961fde5f8f3592b0f42eeccb800d26ebbe489a83ccf53ea2326204bc4ffbb3a0",
+          "matches": true
+        },
+        {
+          "site": "https://kuoyenai.github.io/kuotoyiting-birthday/",
+          "path": "inventory-current.json",
+          "status": 200,
+          "expectedSha256": "c208fe0e160f1edea23eb8d0f9adb2c4c7b30259d604e941b62cb6ca09b11609",
+          "actualSha256": "c208fe0e160f1edea23eb8d0f9adb2c4c7b30259d604e941b62cb6ca09b11609",
+          "matches": true
+        },
+        {
+          "site": "https://kuoyenai.github.io/kuotoyiting-birthday/",
+          "path": "music-shell.html",
+          "status": 200,
+          "expectedSha256": "135338737eabeb8374318ae2a46d9a88c5b87306a5d0189e79d1d544d9c2788b",
+          "actualSha256": "135338737eabeb8374318ae2a46d9a88c5b87306a5d0189e79d1d544d9c2788b",
+          "matches": true
+        },
+        {
+          "site": "https://kuoyenai.github.io/kuotoyiting-birthday/",
+          "path": "game.html",
+          "status": 200,
+          "expectedSha256": "b7e015352bf35d8d71b78d74f446b3a90b7f323471524a6ad35ae32f80578be8",
+          "actualSha256": "b7e015352bf35d8d71b78d74f446b3a90b7f323471524a6ad35ae32f80578be8",
+          "matches": true
+        },
+        {
+          "site": "https://kuoyenai.github.io/kuotoyiting-birthday/",
+          "path": "gift.html",
+          "status": 200,
+          "expectedSha256": "c78a7cbdc5006dbf81ed1a489a7bec059e7075aa5f0e309758412a24c521147b",
+          "actualSha256": "c78a7cbdc5006dbf81ed1a489a7bec059e7075aa5f0e309758412a24c521147b",
+          "matches": true
+        },
+        {
+          "site": "https://kuoyenai.github.io/kuotoyiting-birthday/",
+          "path": "movie.html",
+          "status": 200,
+          "expectedSha256": "f2f89e4faff450bc783c37074252c787ccdc02b9e862c396dd3f3ecf99fdf707",
+          "actualSha256": "f2f89e4faff450bc783c37074252c787ccdc02b9e862c396dd3f3ecf99fdf707",
+          "matches": true
+        },
+        {
+          "site": "https://kuoyenai.github.io/kuotoyiting-birthday/",
+          "path": "novel-comic.html",
+          "status": 200,
+          "expectedSha256": "913329f705421c25ba6296ef079742faa0d91ec2956cca45f979ed4cd16fc49e",
+          "actualSha256": "913329f705421c25ba6296ef079742faa0d91ec2956cca45f979ed4cd16fc49e",
+          "matches": true
+        },
+        {
+          "site": "https://kuoyenai.github.io/kuotoyiting-birthday/",
+          "path": "starlight.html",
+          "status": 200,
+          "expectedSha256": "699a208d2df46544b6900fdcc05a7edfd6e00c4b80a86dc170602ec18779bc78",
+          "actualSha256": "699a208d2df46544b6900fdcc05a7edfd6e00c4b80a86dc170602ec18779bc78",
+          "matches": true
+        },
+        {
+          "site": "https://kuoyenai.github.io/kuotoyiting-birthday/",
+          "path": "explore-intro.html",
+          "status": 200,
+          "expectedSha256": "637b6e90bbc49c70bf86ae322d30a4fe15c621c82b390424cc18bc9839986da5",
+          "actualSha256": "637b6e90bbc49c70bf86ae322d30a4fe15c621c82b390424cc18bc9839986da5",
+          "matches": true
+        },
+        {
+          "site": "https://kuoyenai.github.io/kuotoyiting-birthday/",
+          "path": "explore.html",
+          "status": 200,
+          "expectedSha256": "c11951062229a624a6f71c4cb17207318de31e7c346f267f0874026235c91f2a",
+          "actualSha256": "c11951062229a624a6f71c4cb17207318de31e7c346f267f0874026235c91f2a",
+          "matches": true
+        },
+        {
+          "site": "https://kuoyenai.github.io/kuotoyiting-birthday/",
+          "path": "explore-test.html",
+          "status": 200,
+          "expectedSha256": "e5c1f26096b8870218f08146c04bd52118f2ad977eb57492c3294b0a9c682b8b",
+          "actualSha256": "e5c1f26096b8870218f08146c04bd52118f2ad977eb57492c3294b0a9c682b8b",
+          "matches": true
+        },
+        {
+          "site": "https://kuoyenai.github.io/kuotoyiting-birthday/",
+          "path": "install.html",
+          "status": 200,
+          "expectedSha256": "1cafb4d2d749157e347283ee545eea0de244ba4b928e63a77c11227597d37c65",
+          "actualSha256": "1cafb4d2d749157e347283ee545eea0de244ba4b928e63a77c11227597d37c65",
+          "matches": true
+        },
+        {
+          "site": "https://kuoyenai.github.io/kuotoyiting-birthday/",
+          "path": "materials.html",
+          "status": 200,
+          "expectedSha256": "1bc83e12a509cf6691e168d6c19299f0df1b5765d030bdae75cd8f638ae20108",
+          "actualSha256": "1bc83e12a509cf6691e168d6c19299f0df1b5765d030bdae75cd8f638ae20108",
+          "matches": true
+        }
+      ],
+      "api": [
+        {
+          "origin": "https://kuotoyiting-birthday.vercel.app",
+          "method": "GET",
+          "status": 405,
+          "matches": true
+        },
+        {
+          "origin": "https://kuotoyiting-birthday.vercel.app",
+          "method": "OPTIONS",
+          "status": 204,
+          "matches": true
+        },
+        {
+          "origin": "https://kuoyenai.github.io",
+          "method": "GET",
+          "status": 405,
+          "matches": true
+        },
+        {
+          "origin": "https://kuoyenai.github.io",
+          "method": "OPTIONS",
+          "status": 204,
+          "matches": true
+        },
+        {
+          "method": "POST invalid event only",
+          "status": 400,
+          "matches": true
+        }
+      ]
+    }
   },
   "priorBlocker": {
     "error": "listen EPERM 127.0.0.1",

@@ -3,7 +3,7 @@
 ## Current scope — English privacy page and entry notifications (2026-10-29)
 
 - The user authorized an English privacy/fan-creation page and background notifications for the two invitation entry buttons. Other 2D optimization remains paused; keep the cancelled hourly schedule cancelled.
-- Candidate App79 is based on main `45b3eea`. Node checks, Chromium entry/privacy checks, original wish/letter regressions and static audit pass. Read the latest release record before claiming production deployment.
+- App79 code `2c2c0bf` is deployed: 40 production-file SHA256 readbacks and five non-sending API probes passed. The Node checks, 19 local Chromium entry/privacy cases, 30 original wish/letter regressions and static audit pass. Live Chromium was blocked by this environment's proxy CA trust; TLS verification was not disabled. Do not claim a live browser, physical Safari, provider acceptance, or inbox-delivery result.
 - Keep the policy link accessible at the bottom of the opening, with small visible text and a comfortable touch target. Preserve clear English disclosure of entry-click emails, not a misleading visit-counter description. The opening has no delivery-status banner or recipient-address text.
 - Notifications contain only a fixed button label and server time. Never forward visitor headers, IP addresses, identifiers, URLs, private wishes, replies or reading data. The client makes one attempt per tab session and no automatic retries; loading and reading the policy do not send.
 - The small Vercel relay is scoped to this feature. Preserve the static multi-page site, existing hosting, artwork, content, songs, voluntary sharing and stable tags. Do not send real test mail or claim inbox delivery without fresh explicit authorization.
@@ -15,7 +15,7 @@
 - Work in this Git repository's root; it is already the website root. Do not assume a desktop checkout path or an extra `publish-repo/` subdirectory.
 - Read `CLOUD-STATUS.md`, `CODEX-CLOUD-HANDOFF.md`, `README.md`, `CONTINUE-HERE.md`, and relevant `tests/README.md` sections. The latest explicit user request and current Git state take priority over historical notes.
 - Inspect `git status`, the selected branch, recent commits, and differences from `origin/main` when accessible. Preserve uncommitted work; never reset/clean/force-push to resolve a sync problem.
-- Current handoff baseline is App `20261021-78`: code `90d5a07`, deployment records `a4e842b`. Later main commits supersede this snapshot. Do not revert to App74 just because it is the named stable backup.
+- Current product baseline is App `20261029-79`, code `2c2c0bf`; deployment proof is in `tests/release-20261029-79-entry.json`. App78 code `90d5a07` / records `a4e842b` remain historical. Do not revert to App74 just because it is the named stable backup.
 
 ## Project and content
 

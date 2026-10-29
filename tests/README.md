@@ -57,3 +57,6 @@ App76獨立收尾檢查：`node tests/story-integrity.cjs` 斷言95格章節數�
 本輪另通過`tests/wish-sharing.cjs` 20組及`tests/letter-sharing.cjs` 10組Chromium回歸，保留原主動分享、收藏／下載與資料隔離；沒有真實寄信。未全量下載本機媒體，沒有重跑整本95格、電影／音樂播放或WebKit／iOS實機；不要擴大聲稱驗收範圍。
 
 發布後跑`python3 tests/entry-notify-deployment.py`：讀回兩站各20份正式檔案並與當前檔案SHA256比對，只以GET／OPTIONS／無效事件POST驗證Vercel函式，這些探測不會呼叫寄信服務。結果放在`../material-review/entry-notify-deployment-results.json`。它不驗證FormSubmit實際接受或收件匣投遞；不新增真實驗收信。
+
+
+正式站額外UI檢查：`CHROME_PATH=/usr/bin/chromium node tests/entry-notify-live.cjs`會讀兩站實際HTML／CSS／字型並攔截有效入口通知POST；其他FormSubmit與非GET外部請求亦會阻擋，避免寄真實信。本環境目前因代理CA的`ERR_CERT_AUTHORITY_INVALID`未能載入正式頁面；不使用忽略憑證錯誤的參數。此限制不影響已用正常TLS完成的40檔案HTTP讀回與5項不寄信API探測。請在具正確信任設定的環境重跑，不能把這次失敗冒稱通過。

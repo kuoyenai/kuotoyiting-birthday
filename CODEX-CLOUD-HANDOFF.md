@@ -1,6 +1,6 @@
 # YiTing Birthday｜Codex雲端製作與接續指令
 
-> **2026-10-29接續：** 本輪新增英文隱私／創作說明與兩個入口按鈕的背景通知。說明連結已依最後要求移至最下方小字，其他2D優化仍暫停。App79本機驗證通過，正式發布以CLOUD-STATUS.md及tests/release-20261029-79-entry.json的部署讀回為準。
+> **2026-10-29接續：** 本輪新增英文隱私／創作說明與兩個入口按鈕的背景通知。說明連結已依最後要求移至最下方小字，其他2D優化仍暫停。App79已推main，兩站40份正式檔案及5項不寄信API檢查已讀回通過；完整證據與驗收限制見CLOUD-STATUS.md及tests/release-20261029-79-entry.json。
 
 
 > **2026-10-21歷史雲端整理指示。** 先讀 [CLOUD-READINESS.md](CLOUD-READINESS.md)。GitHub已有現行網站所需資料；完整checkout與雲端瀏覽器驗收仍待完成。下方開發指令是未來範本，不能視為已恢復開發。
@@ -78,6 +78,7 @@
 | 同行、人物與場景 | `explore-actors.js`、`explore-companion*.js`、`explore-group-companions.js`、相關`explore-*.js/css` |
 | 真正已讀、續讀與收藏 | `explore-story.js`、`explore-intro.js`、`explore-starbook.js`、`explore-finale.js` |
 | 2D選曲 | `explore-music.js/css` |
+| 英文隱私／創作聲明與入口通知 | `privacy.html`、`privacy.css`、`entry-notify.js`、`api/entry-notify.js` |
 | 願望與未來回信 | `wish-sharing.js/css`、`birthday-letter.js`、`explore-wish.js` |
 | PWA | `manifest.json`與相容副本、`pwa.js`、`sw.js`、`audit.py` |
 | 外觀參考與產圖提示 | `assets/reference-*.jpg`、`game-art-prompts.json`、`art-reviews/*.json` |
