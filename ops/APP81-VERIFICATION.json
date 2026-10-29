@@ -1,0 +1,101 @@
+{
+  "appVersion": "20261029-81",
+  "productionCommit": "8e8482f98951448157ef6efcddd975e3fa8fe327",
+  "deploymentId": "dpl_8aHiuPxwBxnizJ1jjHZbBWq4CyQg",
+  "state": "READY",
+  "website": "https://kuotoyiting-birthday.vercel.app/",
+  "readback": [
+    {
+      "url": "https://kuotoyiting-birthday.vercel.app/index.html",
+      "status": 200,
+      "matchesCandidate": true,
+      "sha256": "eb19dc44ce9123bf33b23e123d41614797c397043d74e8f25d515076ab1e87ab"
+    },
+    {
+      "url": "https://kuotoyiting-birthday.vercel.app/emailjs-mail.js",
+      "status": 200,
+      "matchesCandidate": true,
+      "sha256": "8090e53b2e6f5a6c690faca5650885c11ce904452aeff4da80c643b0b775e412"
+    },
+    {
+      "url": "https://kuotoyiting-birthday.vercel.app/entry-notify.js",
+      "status": 200,
+      "matchesCandidate": true,
+      "sha256": "3510b13040edbda955ed51d5aa9ec89e4de076e9ea25ca8159c590e9dc6b78e0"
+    },
+    {
+      "url": "https://kuotoyiting-birthday.vercel.app/wish-sharing.js",
+      "status": 200,
+      "matchesCandidate": true,
+      "sha256": "330aebb193dbd887e69a38179645553c1ebdb64d5ca1cba0f4257e238d0f2fc9"
+    },
+    {
+      "url": "https://kuotoyiting-birthday.vercel.app/privacy.html",
+      "status": 200,
+      "matchesCandidate": true,
+      "sha256": "4f4fae9f73675d5e0e332a2a022bd92fdb421f1bb2ea32c4d2814d11341ce5fc"
+    },
+    {
+      "url": "https://kuotoyiting-birthday.vercel.app/sw.js",
+      "status": 200,
+      "matchesCandidate": true,
+      "sha256": "f3d52311aa04ff0f5ffb26be62b10c404ed990949503724599d35e6b8cf2164b"
+    },
+    {
+      "url": "https://kuoyenai.github.io/kuotoyiting-birthday/index.html",
+      "status": 200,
+      "matchesCandidate": true,
+      "sha256": "eb19dc44ce9123bf33b23e123d41614797c397043d74e8f25d515076ab1e87ab"
+    },
+    {
+      "url": "https://kuoyenai.github.io/kuotoyiting-birthday/emailjs-mail.js",
+      "status": 200,
+      "matchesCandidate": true,
+      "sha256": "8090e53b2e6f5a6c690faca5650885c11ce904452aeff4da80c643b0b775e412"
+    },
+    {
+      "url": "https://kuoyenai.github.io/kuotoyiting-birthday/entry-notify.js",
+      "status": 200,
+      "matchesCandidate": true,
+      "sha256": "3510b13040edbda955ed51d5aa9ec89e4de076e9ea25ca8159c590e9dc6b78e0"
+    },
+    {
+      "url": "https://kuoyenai.github.io/kuotoyiting-birthday/wish-sharing.js",
+      "status": 200,
+      "matchesCandidate": true,
+      "sha256": "330aebb193dbd887e69a38179645553c1ebdb64d5ca1cba0f4257e238d0f2fc9"
+    },
+    {
+      "url": "https://kuoyenai.github.io/kuotoyiting-birthday/privacy.html",
+      "status": 200,
+      "matchesCandidate": true,
+      "sha256": "4f4fae9f73675d5e0e332a2a022bd92fdb421f1bb2ea32c4d2814d11341ce5fc"
+    },
+    {
+      "url": "https://kuoyenai.github.io/kuotoyiting-birthday/sw.js",
+      "status": 200,
+      "matchesCandidate": true,
+      "sha256": "f3d52311aa04ff0f5ffb26be62b10c404ed990949503724599d35e6b8cf2164b"
+    }
+  ],
+  "tests": {
+    "mockedUnit": 13,
+    "mockedEntryPrivacyBrowser": 19,
+    "mockedWishBrowser": 20,
+    "mockedLetterBrowser": 10,
+    "audit": true
+  },
+  "storage": {
+    "last30DaysGB": 9.9,
+    "limitGB": 10,
+    "productionDeploySucceeded": true,
+    "cleanupCandidatesAbsent": 21,
+    "protectedDeploymentsPreserved": [
+      "dpl_CaDU925FHYTe6piurvbvdVjZ5zLk",
+      "dpl_HEvPDWWME9snXVkL76ejXuPb21Fq",
+      "dpl_E3ZkBrfTERCVA6maLusDg8xhdTPN"
+    ],
+    "jpera": "owner deferred; none deleted"
+  },
+  "notes": "Public technical deployment record only. Production main stays at 8e8482f. Mail-account settings and delivery metadata are excluded."
+}

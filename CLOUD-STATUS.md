@@ -1,5 +1,11 @@
 # 雲端接續現況
 
+## 2026-10-29｜App81正式部署讀回完成（公開技術紀錄）
+
+正式main為`8e8482f`，Vercel部署`dpl_8aHiuPxwBxnizJ1jjHZbBWq4CyQg`為Ready。Vercel及GitHub Pages的首頁、共用寄信程式、入口通知、分享、英文隱私頁、SW共12檔讀回全部符合App81。13項單元、19組入口／隱私頁、20組願望及10組回信攔截回歸與audit通過，共62項；這些測試不寄真信。公開檔案雜湊在`ops/APP81-VERIFICATION.json`。
+
+此分支只保存發佈後公開技術紀錄，不收錄郵件帳戶設定、標籤規則或收件內容／投遞紀錄。`vercel.json`只停用本紀錄分支的自動部署，main行為不變，避免僅文件不同的重複部署。不要把這個ops分支直接當新產品版本發佈。下方候選版的待發佈記述為本紀錄之前的歷史。
+
 ## 2026-10-29｜App81：EmailJS 三流程接入與部署清理
 
 已在擁有者登入的 EmailJS 控制台建立共用範本「YiTing網站通知與分享」，固定 To `kuoyen.ai@gmail.com`、From Name `YiTing Birthday`、服務預設寄件信箱、Reply-To/Cc/Bcc 留空；使用儲存庫既有 `email-templates/yiting-mail.html`，不加入外部圖片／追蹤資源。公開設定：`service_jd01axj`、`template_k29m9mg`、Public Key `4Sj5SlBCGV8p10cMs`。未讀取或要求 Gmail 密碼、Private Key 或 OAuth token。控制台一封合成測試回 200 OK，擁有者已確認收到；這是控制台驗證，網站正式流程仍待本次發布後實寄核對。
