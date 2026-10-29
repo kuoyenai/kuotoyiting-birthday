@@ -5,22 +5,47 @@
   "headers": [
     {
       "source": "/sw.js",
-      "headers": [{"key":"Cache-Control","value":"public, max-age=0, must-revalidate"}]
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=0, must-revalidate"
+        }
+      ]
     },
     {
       "source": "/manifest.json",
       "headers": [
-        {"key":"Content-Type","value":"application/manifest+json; charset=utf-8"},
-        {"key":"Cache-Control","value":"public, max-age=0, must-revalidate"}
+        {
+          "key": "Content-Type",
+          "value": "application/manifest+json; charset=utf-8"
+        },
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=0, must-revalidate"
+        }
       ]
     },
     {
       "source": "/apple-touch-icon.png",
       "headers": [
-        {"key":"Content-Type","value":"image/png"},
-        {"key":"Content-Disposition","value":"inline; filename=\"apple-touch-icon.png\""},
-        {"key":"Cache-Control","value":"public, max-age=0, must-revalidate"}
+        {
+          "key": "Content-Type",
+          "value": "image/png"
+        },
+        {
+          "key": "Content-Disposition",
+          "value": "inline; filename=\"apple-touch-icon.png\""
+        },
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=0, must-revalidate"
+        }
       ]
     }
-  ]
+  ],
+  "git": {
+    "deploymentEnabled": {
+      "ops/vercel-cleanup-20261029": false
+    }
+  }
 }

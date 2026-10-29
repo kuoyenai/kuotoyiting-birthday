@@ -1,5 +1,13 @@
 # YITING · 10.20 · ONLY FOR YOU｜生日限定專輯
 
+## 2026-10-29｜部署清理已授權並盤點；刪除待API憑證
+
+使用者已授權清理舊部署並完成Vercel團隊授權。生日專案讀取24個READY部署，3個活動別名均指向 `dpl_CaDU925FHYTe6piurvbvdVjZ5zLk`（c27eb5e）。保留此正式版、前版 `dpl_HEvPDWWME9snXVkL76ejXuPb21Fq`（b6e99b0）及App74 `dpl_E3ZkBrfTERCVA6maLusDg8xhdTPN`（2ea2824），其餘21個列為候選。其他專案不清理。
+
+Vercel外掛沒有DELETE部署工具，專用rollbackCandidate查詢回403，雲端無VERCEL_TOKEN及CLI認證。普通清單／別名／保留版詳情已讀，不重複要求團隊授權或重試拒絕操作。使用者確認使用一般ChatGPT對話，本次沒有已驗證可供使用者操作的安全Secret設定入口，已更正先前要求配置Token的指示，不再要求建立或貼出Token。當前實際刪除需Vercel控制台具刪除能力的操作。尚未刪除任何部署、尚無容量下降證據。
+
+`ops/vercel-cleanup-20261029.json`及 `ops/vercel_cleanup.py` 已準備固定範圍清單和預設離線腳本；刪除前逐筆核對活動別名／project／commit／狀態，任一錯誤停止並保留結果。8項全模擬保護測試在普通及-O模式通過；無Token執行exit2且0次HTTP。本輪以不部署的草稿分支保存，未合併main或發布新網站，避免再占部署空間。App80、95格／100卡／四曲／原畫／進度／選章及取消排程保持。操作說明見 `ops/VERCEL-CLEANUP.md`。
+
 ## 2026-10-29｜EmailJS可貼範本完成；Vercel接近上限的是部署儲存
 
 已完成 `email-templates/yiting-mail.html` 與 `email-templates/EMAILJS-FIELDS.md`，可貼EmailJS Code Editor及設定欄位：固定To Email、subject/message/source/entry/time/consent雙大括號，沒有外部圖／字型／腳本。HTML解析、六個變數白名單、條件區塊及無外部資源核對通過。此對話沒有EmailJS帳戶編輯工具，範本尚未代存入帳戶；Gmail內建測試412仍待排查，不能稱已接通或寄達。
