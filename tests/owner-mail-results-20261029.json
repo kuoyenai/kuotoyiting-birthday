@@ -1,0 +1,80 @@
+{
+  "date": "2026-10-29",
+  "app": "20261029-80",
+  "baselineCommit": "01fe5759fdf7a45bc9116d44cf449e28b6824245",
+  "source": "Owner pasted results from the deployed manual verification page in this conversation",
+  "results": [
+    {
+      "case": "letter",
+      "module": "wish-sharing.js",
+      "clickedAtUtc": "2026-10-29T06:20:33.872Z",
+      "clickedAtTaipei": "2026年10月29日 下午2:20:33",
+      "browserPostAttempts": 1,
+      "providerAccepted": false,
+      "inboxDeliveryConfirmed": false,
+      "moduleLoaded": true,
+      "result": "network_or_cors_failure",
+      "error": "TypeError: Failed to fetch"
+    },
+    {
+      "case": "gate",
+      "module": "entry-notify.js",
+      "clickedAtUtc": "2026-10-29T06:20:47.392Z",
+      "clickedAtTaipei": "2026年10月29日 下午2:20:47",
+      "browserPostAttempts": 1,
+      "providerAccepted": false,
+      "inboxDeliveryConfirmed": false,
+      "moduleLoaded": true,
+      "result": "network_or_cors_failure",
+      "error": "TypeError: Failed to fetch"
+    },
+    {
+      "case": "skip",
+      "module": "entry-notify.js",
+      "clickedAtUtc": "2026-10-29T06:20:59.902Z",
+      "clickedAtTaipei": "2026年10月29日 下午2:20:59",
+      "browserPostAttempts": 1,
+      "providerAccepted": false,
+      "inboxDeliveryConfirmed": false,
+      "moduleLoaded": true,
+      "result": "network_or_cors_failure",
+      "error": "TypeError: Failed to fetch"
+    }
+  ],
+  "ownerSummary": "仍顯示連線失敗或未接受",
+  "interpretation": "All three owner-browser attempts failed to expose a successful service response. This is not limited to the cloud test path; HTTP status and remote acceptance remain unknown for these attempts. Do not claim a global outage or Gmail rejection.",
+  "newAgentEmailSubmissions": 0,
+  "emailjsEvaluation": {
+    "requestedByOwner": true,
+    "configured": false,
+    "implemented": false,
+    "realProviderAcceptance": false,
+    "inboxDeliveryVerified": false,
+    "missingPublicSettings": [
+      "Service ID",
+      "Template ID",
+      "Public Key"
+    ],
+    "readOnlyCloudProbe": {
+      "checkedAtUtc": "2026-10-29T06:29:43.863052+00:00",
+      "method": "OPTIONS",
+      "url": "https://api.emailjs.com/api/v1.0/email/send",
+      "emailSubmissions": 0,
+      "status": 403,
+      "headers": {
+        "content-type": "text/plain; charset=UTF-8",
+        "server": "envoy"
+      },
+      "bodyPrefix": "error code: 1010\n"
+    },
+    "setupGuide": "EMAILJS-SETUP.md",
+    "ownerAccountOrServiceCreated": false,
+    "ownerSetupAnswer": "尚未建立"
+  },
+  "preservation": {
+    "productCodeChanged": false,
+    "appVersionChanged": false,
+    "scheduleReenabled": false,
+    "visitorSavedContentRead": false
+  }
+}

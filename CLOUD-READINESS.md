@@ -1,5 +1,15 @@
 # 雲端開發入口與準備狀態
 
+## 2026-10-29｜擁有者三流程皆連線失敗；EmailJS待建立
+
+- 從main `01fe5759fdf7a45bc9116d44cf449e28b6824245` 接續。使用者已貼回正式手動頁三份結果：台北14:20:33生日信、14:20:47星光之門、14:20:59略過開場；每項moduleLoaded=true、browserPostAttempts=1、network_or_cors_failure／TypeError: Failed to fetch，providerAccepted=false，實際投遞未確認。
+- 這表示問題也出現在擁有者正常瀏覽器，不應再只歸因雲端環境。各次沒有可讀HTTP狀態或成功服務回應，不能斷定全球故障、Gmail拒收或信箱需要重啟。完整原始結果保存 `tests/owner-mail-results-20261029.json`，不再要求重做同一輪測試。
+- 使用者詢問EmailJS是否較簡單，並已回覆「尚未建立」。目前尚無Service ID、Template ID、Public Key。EmailJS可由靜態前端搭配Gmail服務使用，不必新增Resend後端；本輪只整理方案，尚未實作或切換正式服務。
+- `EMAILJS-SETUP.md` 已備妥：擁有者在EmailJS授權Gmail並先收其控制台測試信；建立一個固定To Email為 `kuoyen.ai@gmail.com` 的共用範本，主旨 `{{subject}}`，內文／來源／入口／時間／分享選擇欄位均附可貼內容；雙站origin及三個公開設定位置均列明。只需要公開設定，不索取Gmail密碼、Private Key或OAuth權杖。
+- 已核對官方API：EmailJS成功可能回HTTP200文字OK，不能直接沿用FormSubmit的JSON success判定。正式接入必須同步隱私頁、分享服務說明、App／SW快取與測試；入口仍背景fetch、每分頁最多一次、無寄送狀態介面。API官方速率每秒1次，實寄驗收依序執行。
+- 本雲端對EmailJS官方端點只讀OPTIONS亦回403／error code1010，0次寄信提交；不能宣稱換EmailJS即可成功，亦不能推論擁有者瀏覽器不可用或金鑰有誤。後續仍需實際帳戶設定、服務接受與Gmail收件證據。
+- 本輪只有文件／驗收JSON更新，JSON結構與三份結果已核對，未重跑或冒稱新的功能測試。App維持80、現行產品程式與FormSubmit說明不變；95格、100卡、四曲、原畫、已讀／選章及取消排程保持。下一步等擁有者完成服務／範本並提供三個公開設定，再整合與有限次實寄驗證。
+
 ## 2026-10-29｜修正實寄測試並核對原生日信（工具已讀回；待實際收件）
 
 - 本輪從main `fcffbc6` 接續。使用者要求持續修正到真實寄信成功，並指出原生日信曾成功、目前似乎也失效；任務仍未完成，不能把測試修正當成寄達。

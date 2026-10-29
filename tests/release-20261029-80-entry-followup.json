@@ -2,7 +2,7 @@
   "date": "2026-10-29",
   "app": "20261029-80",
   "baselineCommit": "fcffbc61119fa1a9c6c01b2fef5b3e6d5ff6ec7b",
-  "status": "Diagnostic/test fixes deployed and read back; real delivery still blocked; owner manual results and inbox confirmation pending",
+  "status": "Owner returned three network/CORS failures; EmailJS account/service not created; configuration pending",
   "ownerRequest": "Fix and test until real email succeeds; owner said birthday-letter sharing previously worked and may now also fail.",
   "previousLetterAcceptance": {
     "evidence": "tests/release-20261021-78-letter.json",
@@ -88,7 +88,8 @@
     "productionReadbackPending": false,
     "primaryUrl": "https://kuotoyiting-birthday.vercel.app/tests/entry-notify-owner.html",
     "ownerResultsRequested": true,
-    "ownerResultsReceived": false
+    "ownerResultsReceived": true,
+    "ownerResultsEvidence": "tests/owner-mail-results-20261029.json"
   },
   "validation": {
     "readinessMockedChecks": 20,
@@ -112,8 +113,9 @@
     "hourlyScheduleReenabled": false
   },
   "remainingWork": [
-    "Obtain current results from a permitted normal browser session or restore FormSubmit access through the service. Do not evade its access controls.",
-    "Require actual provider acceptance for letter/gate/skip, followed by separate owner inbox confirmation. If service access remains blocked, working service configuration is necessary."
+    "Owner creates EmailJS service connected to Gmail and a fixed-recipient template, confirms its dashboard test email, and supplies the three public settings.",
+    "Implement actual EmailJS request/response handling and update disclosures/version/tests; do not publish placeholders as working email.",
+    "Verify provider acceptance and separate owner inbox receipt for the original sharing and both entry flows."
   ],
   "sourceCommit": "9042daa5a98d9bf5186817a14b6cb92c1c4f0b9e",
   "productionReadback": {
@@ -234,5 +236,18 @@
         "sha256": "0c9b95ac1d2bda27ac3f8006adda8b29ae74615c7e04e91c896019118f2f241a"
       }
     ]
+  },
+  "emailjsEvaluation": {
+    "accountOrServiceCreated": false,
+    "implemented": false,
+    "guide": "EMAILJS-SETUP.md",
+    "missingPublicSettings": [
+      "Service ID",
+      "Template ID",
+      "Public Key"
+    ],
+    "cloudReadOnlyOptionsStatus": 403,
+    "cloudReadOnlyOptionsErrorCode": 1010,
+    "newEmailSubmissions": 0
   }
 }

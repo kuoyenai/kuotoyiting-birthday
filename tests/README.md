@@ -1,5 +1,9 @@
 # 瀏覽器回歸測試
 
+## 2026-10-29擁有者回報與EmailJS評估
+
+三份正常瀏覽器結果已收到，保存`owner-mail-results-20261029.json`：生日信／gate／skip皆載入成功、各嘗試一次後Failed to fetch，沒有可讀服務接受或收件證據。這不是新的模擬測試通過紀錄。EmailJS尚未建立或接入；本雲端只讀預檢也回403/1010、0次寄信。設定範本見儲存庫根目錄`EMAILJS-SETUP.md`。下一輪收到三個公開設定後須新增EmailJS格式與HTTP200文字OK測試，不能沿用FormSubmit JSON mock聲稱驗收通過。
+
 ## 修正實寄前置檢查與手動驗收工具（2026-10-29）
 
 `node tests/entry-notify-readiness.test.cjs`：20項全模擬檢查。`CHROME_PATH=/usr/bin/chromium node tests/entry-notify-owner.cjs`：三流程×接受／false／啟用／網路失敗共12組，另核對選單載入0寄信，所有外部請求攔截。`entry-notify-real.cjs`現先做只讀OPTIONS預檢，不通即exit1、0次提交；`entry-notify-transport.cjs`在服務不就緒時也exit1，不再以完成診斷冒充檢查通過。

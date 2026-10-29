@@ -1,14 +1,14 @@
 # YiTing Birthday — repository instructions
 
-## Current scope — real delivery verification still blocked (2026-10-29)
+## Current scope — owner confirmed three failing flows; EmailJS not configured (2026-10-29)
 
-- Continue the owner's request to fix and verify actual entry email, including their report that the original birthday-letter flow may also have stopped. No additional real submissions were made this round.
-- App80 product source remains `a1c7920`; baseline main for this round is `fcffbc6`. The original `wish-sharing.js` is unchanged from successful App78 code `90d5a07`; the historical real UI result was HTTP200 / success=true, not independently confirmed inbox receipt.
-- Current cloud requests returned403 / error code1010 or521 before submission. Do not bypass access controls/TLS, spoof clients, change to no-cors or retry blindly. Do not conclude Gmail rejection, inactive mailbox or a global service outage from these results.
-- Test fixes: `entry-notify-readiness.cjs` classifies readiness and strict acceptance; real verification checks OPTIONS before any click. A failed preflight exits nonzero with zero new POST attempts. Read-only diagnostics also exit nonzero on failure.
-- `tests/entry-notify-owner.html` is a public manual diagnostic tool with three cases, loading the actual sharing/entry modules. Only a manual button sends fixed synthetic content once per test tab; no private saved content. Normal site UI is unchanged. Commit `9042daa` is deployed and both sites'16-file readback passed; the owner has been asked for three manual results and inbox confirmation. These remain pending. It has no administrator authentication, so do not store secrets or claim private access.
-- This round:20 mocked readiness/acceptance checks,12 mocked Chromium diagnostic cases plus menu,16 entry-unit checks,JS syntax and App80 audit pass. Evidence: `tests/release-20261029-80-entry-followup.json`. Actual service acceptance and owner-confirmed receipt are still required; never report the task complete from mocked checks.
-- Keep the English privacy notice and small bottom link; preserve artwork,95 panels,100 cards,4 songs,real progress,free chapters,stable tags and the deleted schedule. Other2D optimization remains paused.
+- Continue actual mail-delivery repair. The owner supplied three manual results:letter at06:20:33Z,gate at06:20:47Z,skip at06:20:59Z. All modules loaded and attempted one browser submission, then network_or_cors_failure / Failed to fetch; no readable service acceptance or inbox confirmation. Evidence: `tests/owner-mail-results-20261029.json`. Do not request the same tests again or blame only the cloud environment.
+- The owner asked whether EmailJS is simpler and answered that no EmailJS account/service has been created. Missing public configuration:Service ID,Template ID,Public Key. Setup/template guide is `EMAILJS-SETUP.md`. Gmail authorization must be performed by the owner in EmailJS; do not request a Gmail password,Private Key or OAuth token.
+- EmailJS has only been evaluated, not integrated, enabled or delivery-verified. A read-only cloud OPTIONS request to its API also returned403/error1010 with zero mail submissions. Do not bypass access/TLS restrictions or assume a provider switch will deliver mail.
+- Current production stays App80 source `a1c7920`; main baseline for this documentation round is `01fe575`. Both sites' manual diagnostics source `9042daa` was read back16/16. Product files and FormSubmit privacy text are unchanged this round. Prior tests remain historical; no new browser regression run is claimed.
+- After receiving the three public settings, implement EmailJS with its actual REST envelope and HTTP200/text-OK acceptance, not FormSubmit JSON handling. Keep the recipient fixed in the EmailJS template. Update the English privacy page,sharing service disclosure,version/cache and tests together before publishing; then obtain actual acceptance and separate owner inbox confirmation.
+- Keep background entry fetch,one attempt per tab,no automatic retries,no entry status/recipient UI,and the small bottom privacy link. Wishes/letters send only on the visitor's active share click; never inspect/send saved private text as test data.
+- Preserve artwork,95 panels,100 cards,4 songs,free chapters,real reading state,stable tags and the deleted hourly schedule. Other2D optimization remains paused.
 
 ## Start here
 

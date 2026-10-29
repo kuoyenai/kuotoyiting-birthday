@@ -1,5 +1,7 @@
 # YiTing Birthday｜Codex雲端製作與接續指令
 
+> **最新接續（擁有者已回覆）：** 原生日信／兩入口在擁有者瀏覽器均為network_or_cors_failure，結果已存`tests/owner-mail-results-20261029.json`。EmailJS尚未建立，只有設定方案，未切換正式服務；依`EMAILJS-SETUP.md`由擁有者連接Gmail並回傳Service ID／Template ID／Public Key後，再接程式及驗證實際寄達。不要再要求重做已回報的三次測試，也不要宣稱已完成EmailJS。
+
 > **最新實寄排查：** 已核對原生日信與成功App78程式一致；本輪雲端FormSubmit回403／1010或521。實寄腳本新增前置預檢，失敗以exit1停止且0次新提交；公開手動診斷頁 `tests/entry-notify-owner.html` 可測原生日信／兩入口，載入不寄信。工具提交`9042daa`已在兩站讀回16份檔案，已提供使用者手動驗收連結，待三項服務回應與實際收件證據；目前不可稱成功。詳見 `tests/release-20261029-80-entry-followup.json`。
 
 > **App80最新接續：** `a1c7920`已在兩站讀回40/40正式檔案，兩站攔截寄信的正式Chromium UI也通過。台北13:47:16與13:47:42的入口合成點擊未取得FormSubmit接受回應，使用者回覆「尚未收到」。不寄信診斷的FormSubmit預檢／說明頁回521並缺少CORS允許標頭；真實寄達尚未驗收成功，勿盲目重寄或假稱上線即投遞。先用`tests/entry-notify-transport.cjs`做只讀診斷，再依CLOUD-STATUS.md／tests/release-20261029-80-entry.json接續。
