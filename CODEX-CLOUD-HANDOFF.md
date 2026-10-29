@@ -1,5 +1,7 @@
 # YiTing Birthday｜Codex雲端製作與接續指令
 
+> **範本／容量最新接續：** email-templates/yiting-mail.html及EMAILJS-FIELDS.md已做可貼版本與靜態檢查，但無帳戶工具，未代存EmailJS、未實寄。Vercel截圖是Deployment Storage9.03/10GB，不是Fast Data Transfer（12.9/100GB）；官方容量計算與清理原則見VERCEL-STORAGE-NOTES.md。未刪部署／改Retention／升級，正式App80不變。
+
 > **最新帳戶設定進度：** 已顯示EmailJS Gmail connected，但內建測試回412／Not found the sessional location，Create Service仍在畫面；不是已完成寄信設定。依EMAILJS-SETUP.md先重新連接並確認發信權限，再測一次並確認收件；仍412需EmailJS支援查明。網站尚未切換，勿直接填入未驗證服務冒稱修好。
 
 > **最新接續（擁有者已回覆）：** 原生日信／兩入口在擁有者瀏覽器均為network_or_cors_failure，結果已存`tests/owner-mail-results-20261029.json`。EmailJS尚未建立，只有設定方案，未切換正式服務；依`EMAILJS-SETUP.md`由擁有者連接Gmail並回傳Service ID／Template ID／Public Key後，再接程式及驗證實際寄達。不要再要求重做已回報的三次測試，也不要宣稱已完成EmailJS。

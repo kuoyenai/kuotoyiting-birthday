@@ -26,6 +26,8 @@ EmailJS可由目前的靜態網站直接呼叫，不需另加Vercel寄信後端�
 
 ## 範本的具體欄位
 
+完整可貼Code Editor的HTML已準備在[email-templates/yiting-mail.html](email-templates/yiting-mail.html)，逐欄設定在[email-templates/EMAILJS-FIELDS.md](email-templates/EMAILJS-FIELDS.md)。這些是範本檔案，尚未儲存進EmailJS帳戶；HTML已做靜態檢查，尚未完成實寄驗收。
+
 | 欄位 | 設定 |
 | --- | --- |
 | To Email | 固定填`kuoyen.ai@gmail.com`，不使用動態收件人變數 |

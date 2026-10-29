@@ -1,5 +1,13 @@
 # YITING · 10.20 · ONLY FOR YOU｜生日限定專輯
 
+## 2026-10-29｜EmailJS可貼範本完成；Vercel接近上限的是部署儲存
+
+已完成 `email-templates/yiting-mail.html` 與 `email-templates/EMAILJS-FIELDS.md`，可貼EmailJS Code Editor及設定欄位：固定To Email、subject/message/source/entry/time/consent雙大括號，沒有外部圖／字型／腳本。HTML解析、六個變數白名單、條件區塊及無外部資源核對通過。此對話沒有EmailJS帳戶編輯工具，範本尚未代存入帳戶；Gmail內建測試412仍待排查，不能稱已接通或寄達。
+
+擁有者Usage截圖為Last30days：Deployment Storage9.03/10GB、Fast Data Transfer12.9/100GB、CDN Requests84K/1M。已依官方Deployment Storage／Retention文件核對：保存輸出與靜態資產依大小、版本數及時間累計，不能把月份切換當成仍保存檔案自動歸零；刪除停止後續計量，期間每日高點及歷史用量不會立刻倒扣。詳細說明與官方連結在 `VERCEL-STORAGE-NOTES.md`。
+
+本輪只準備範本及文件、用GitHub樹核對367份assets／414,763,825bytes，未重載正式影音、未查到帳戶專案別用量，也未刪除部署、改Retention或升級付費。文件與範本合併一次提交，App維持80、正常介面／寄信程式／原畫／95格／100卡／四曲／讀取進度／選章及取消排程不變。後續需擁有者貼入範本取得Template ID／Public Key並確認Gmail服務可寄；儲存清理需先核對目前正式及回復版本與候選清單。
+
 ## 2026-10-29｜EmailJS已嘗試連接Gmail，內建測試回412
 
 使用者提供EmailJS Config Service畫面：Gmail顯示Connected as既定收件帳號，內建Send test email已勾選，但回覆 `412 Gmail_API: Not found the sessional location`，畫面仍有Create Service按鈕。只能確認已顯示連接，服務建立完成與寄達仍未確認；尚無可用Template ID／Public Key，網站仍未切換EmailJS。這個失敗發生在EmailJS控制台測試，不是正式網站的入口程式測試。

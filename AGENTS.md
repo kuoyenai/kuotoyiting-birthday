@@ -1,5 +1,7 @@
 # YiTing Birthday — repository instructions
 
+> Latest task:Owner requested direct EmailJS template setup and supplied Vercel Usage screenshot. Ready-to-paste HTML/fields are in email-templates/,but no EmailJS account editing tool is connected. Gmail412 still blocks validation. The screenshot shows Deployment Storage9.03/10GB,not transfer exhaustion(12.9/100GB). Read VERCEL-STORAGE-NOTES.md; do not assume monthly file deletion,delete deployments or upgrade without a concrete authorized plan. Keep documentation changes in one commit to reduce deployment churn.
+
 > Latest owner screenshot:EmailJS Gmail shows connected,but dashboard test returned412 Gmail_API: Not found the sessional location. Service creation and delivery remain unconfirmed. Do not treat the displayed Service ID as a validated service or blame website code. No authoritative exact-cause mapping found; reconnect with send-email permission as a bounded diagnostic,then require test receipt. See EMAILJS-SETUP.md. Product remains App80.
 
 ## Current scope — owner confirmed three failing flows; EmailJS not configured (2026-10-29)
